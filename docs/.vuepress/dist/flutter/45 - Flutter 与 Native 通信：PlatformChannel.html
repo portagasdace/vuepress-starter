@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Flutter 与 Native 通信：PlatformChannel | Mr.Liu</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b00d9e97.css" as="style"><link rel="preload" href="/blog/assets/js/app.b72373f7.js" as="script"><link rel="preload" href="/blog/assets/js/2.2219f9c0.js" as="script"><link rel="preload" href="/blog/assets/js/120.6db360c5.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4213d21f.js"><link rel="prefetch" href="/blog/assets/js/100.fa207478.js"><link rel="prefetch" href="/blog/assets/js/101.a2a18205.js"><link rel="prefetch" href="/blog/assets/js/102.b0bdba49.js"><link rel="prefetch" href="/blog/assets/js/103.4207d4a0.js"><link rel="prefetch" href="/blog/assets/js/104.d47d6122.js"><link rel="prefetch" href="/blog/assets/js/105.84f3b0d6.js"><link rel="prefetch" href="/blog/assets/js/106.a3e0da4d.js"><link rel="prefetch" href="/blog/assets/js/107.e2e32489.js"><link rel="prefetch" href="/blog/assets/js/108.fef5787a.js"><link rel="prefetch" href="/blog/assets/js/109.9cacc969.js"><link rel="prefetch" href="/blog/assets/js/11.27166c35.js"><link rel="prefetch" href="/blog/assets/js/110.43122e5c.js"><link rel="prefetch" href="/blog/assets/js/111.0c1ef4dd.js"><link rel="prefetch" href="/blog/assets/js/112.10c7d380.js"><link rel="prefetch" href="/blog/assets/js/113.c912ddfe.js"><link rel="prefetch" href="/blog/assets/js/114.6127c171.js"><link rel="prefetch" href="/blog/assets/js/115.c7d9f75c.js"><link rel="prefetch" href="/blog/assets/js/116.152fa701.js"><link rel="prefetch" href="/blog/assets/js/117.03af553d.js"><link rel="prefetch" href="/blog/assets/js/118.7ffcd14e.js"><link rel="prefetch" href="/blog/assets/js/119.b0d680e7.js"><link rel="prefetch" href="/blog/assets/js/12.ea61452a.js"><link rel="prefetch" href="/blog/assets/js/121.6e06fdbd.js"><link rel="prefetch" href="/blog/assets/js/122.d70dd36f.js"><link rel="prefetch" href="/blog/assets/js/123.95a15881.js"><link rel="prefetch" href="/blog/assets/js/124.41b68dde.js"><link rel="prefetch" href="/blog/assets/js/125.5a019ebc.js"><link rel="prefetch" href="/blog/assets/js/126.99da1cc5.js"><link rel="prefetch" href="/blog/assets/js/127.8d929133.js"><link rel="prefetch" href="/blog/assets/js/128.8a80423d.js"><link rel="prefetch" href="/blog/assets/js/129.a26f88a7.js"><link rel="prefetch" href="/blog/assets/js/13.e8ea3eed.js"><link rel="prefetch" href="/blog/assets/js/130.a494c8d3.js"><link rel="prefetch" href="/blog/assets/js/131.752b57aa.js"><link rel="prefetch" href="/blog/assets/js/132.03be5468.js"><link rel="prefetch" href="/blog/assets/js/133.b900cacd.js"><link rel="prefetch" href="/blog/assets/js/134.07c9a37c.js"><link rel="prefetch" href="/blog/assets/js/135.7fae2edd.js"><link rel="prefetch" href="/blog/assets/js/136.790d189e.js"><link rel="prefetch" href="/blog/assets/js/137.936714b3.js"><link rel="prefetch" href="/blog/assets/js/138.ca57432f.js"><link rel="prefetch" href="/blog/assets/js/139.c40241bd.js"><link rel="prefetch" href="/blog/assets/js/14.f5e6175f.js"><link rel="prefetch" href="/blog/assets/js/140.7e64b631.js"><link rel="prefetch" href="/blog/assets/js/141.dd5939fe.js"><link rel="prefetch" href="/blog/assets/js/142.15915de1.js"><link rel="prefetch" href="/blog/assets/js/143.74cd60e1.js"><link rel="prefetch" href="/blog/assets/js/144.6182277f.js"><link rel="prefetch" href="/blog/assets/js/145.77b2db6a.js"><link rel="prefetch" href="/blog/assets/js/146.9ee3cd6a.js"><link rel="prefetch" href="/blog/assets/js/147.4e2efd27.js"><link rel="prefetch" href="/blog/assets/js/148.f1da666f.js"><link rel="prefetch" href="/blog/assets/js/149.9e785988.js"><link rel="prefetch" href="/blog/assets/js/15.df5d6a6a.js"><link rel="prefetch" href="/blog/assets/js/150.8efddfd8.js"><link rel="prefetch" href="/blog/assets/js/151.5eb4f49f.js"><link rel="prefetch" href="/blog/assets/js/152.cb4ba17a.js"><link rel="prefetch" href="/blog/assets/js/153.934e36d2.js"><link rel="prefetch" href="/blog/assets/js/154.7aa94017.js"><link rel="prefetch" href="/blog/assets/js/155.a2d965ff.js"><link rel="prefetch" href="/blog/assets/js/156.16f69f9e.js"><link rel="prefetch" href="/blog/assets/js/157.307744ba.js"><link rel="prefetch" href="/blog/assets/js/158.17c75b84.js"><link rel="prefetch" href="/blog/assets/js/159.625baba3.js"><link rel="prefetch" href="/blog/assets/js/16.e0370ef8.js"><link rel="prefetch" href="/blog/assets/js/160.29a7c7eb.js"><link rel="prefetch" href="/blog/assets/js/161.c223d782.js"><link rel="prefetch" href="/blog/assets/js/162.c3a832be.js"><link rel="prefetch" href="/blog/assets/js/163.e9aff0cf.js"><link rel="prefetch" href="/blog/assets/js/164.22ea5757.js"><link rel="prefetch" href="/blog/assets/js/165.712fcb85.js"><link rel="prefetch" href="/blog/assets/js/166.cf71fc9b.js"><link rel="prefetch" href="/blog/assets/js/167.84f1208e.js"><link rel="prefetch" href="/blog/assets/js/168.501651ec.js"><link rel="prefetch" href="/blog/assets/js/169.665da9a9.js"><link rel="prefetch" href="/blog/assets/js/17.884f8b31.js"><link rel="prefetch" href="/blog/assets/js/170.40e206f4.js"><link rel="prefetch" href="/blog/assets/js/171.22a023e6.js"><link rel="prefetch" href="/blog/assets/js/172.c9f57151.js"><link rel="prefetch" href="/blog/assets/js/173.5b663775.js"><link rel="prefetch" href="/blog/assets/js/174.f38576a4.js"><link rel="prefetch" href="/blog/assets/js/175.d8acabe2.js"><link rel="prefetch" href="/blog/assets/js/176.e17b4260.js"><link rel="prefetch" href="/blog/assets/js/177.82517cd4.js"><link rel="prefetch" href="/blog/assets/js/178.dca9a177.js"><link rel="prefetch" href="/blog/assets/js/179.55ac84d8.js"><link rel="prefetch" href="/blog/assets/js/18.99afdf09.js"><link rel="prefetch" href="/blog/assets/js/180.08ecbc50.js"><link rel="prefetch" href="/blog/assets/js/181.064adef8.js"><link rel="prefetch" href="/blog/assets/js/182.eac974db.js"><link rel="prefetch" href="/blog/assets/js/183.a8aaeadb.js"><link rel="prefetch" href="/blog/assets/js/184.c586f7bc.js"><link rel="prefetch" href="/blog/assets/js/185.287601bc.js"><link rel="prefetch" href="/blog/assets/js/186.52ca6240.js"><link rel="prefetch" href="/blog/assets/js/187.b5e3a4bb.js"><link rel="prefetch" href="/blog/assets/js/188.f610dddf.js"><link rel="prefetch" href="/blog/assets/js/189.03750da5.js"><link rel="prefetch" href="/blog/assets/js/19.8a02f750.js"><link rel="prefetch" href="/blog/assets/js/190.0caa43c9.js"><link rel="prefetch" href="/blog/assets/js/191.383bf522.js"><link rel="prefetch" href="/blog/assets/js/192.d3062c3e.js"><link rel="prefetch" href="/blog/assets/js/193.7f7e9901.js"><link rel="prefetch" href="/blog/assets/js/194.f676d07d.js"><link rel="prefetch" href="/blog/assets/js/195.bf775451.js"><link rel="prefetch" href="/blog/assets/js/196.1c48ef3f.js"><link rel="prefetch" href="/blog/assets/js/197.6c53ba98.js"><link rel="prefetch" href="/blog/assets/js/198.9d5a5085.js"><link rel="prefetch" href="/blog/assets/js/199.ab52e41c.js"><link rel="prefetch" href="/blog/assets/js/20.4bf913aa.js"><link rel="prefetch" href="/blog/assets/js/200.1c398b3c.js"><link rel="prefetch" href="/blog/assets/js/201.c75a6c8a.js"><link rel="prefetch" href="/blog/assets/js/202.4d11fdf6.js"><link rel="prefetch" href="/blog/assets/js/203.ee6347bb.js"><link rel="prefetch" href="/blog/assets/js/204.84f5a644.js"><link rel="prefetch" href="/blog/assets/js/205.0fef4632.js"><link rel="prefetch" href="/blog/assets/js/206.eca759d5.js"><link rel="prefetch" href="/blog/assets/js/207.d505c6d2.js"><link rel="prefetch" href="/blog/assets/js/208.5ab75ef7.js"><link rel="prefetch" href="/blog/assets/js/209.29a9f3f1.js"><link rel="prefetch" href="/blog/assets/js/21.0936bb80.js"><link rel="prefetch" href="/blog/assets/js/210.9af28056.js"><link rel="prefetch" href="/blog/assets/js/211.f305f1e8.js"><link rel="prefetch" href="/blog/assets/js/212.db5aae61.js"><link rel="prefetch" href="/blog/assets/js/213.25c645f5.js"><link rel="prefetch" href="/blog/assets/js/214.85bb3df2.js"><link rel="prefetch" href="/blog/assets/js/215.5bc993e6.js"><link rel="prefetch" href="/blog/assets/js/216.dbec2182.js"><link rel="prefetch" href="/blog/assets/js/217.2776cfb0.js"><link rel="prefetch" href="/blog/assets/js/218.da7efde1.js"><link rel="prefetch" href="/blog/assets/js/219.f3a10672.js"><link rel="prefetch" href="/blog/assets/js/22.6eabfbae.js"><link rel="prefetch" href="/blog/assets/js/220.6a60c6c7.js"><link rel="prefetch" href="/blog/assets/js/221.2646fb75.js"><link rel="prefetch" href="/blog/assets/js/222.6580269e.js"><link rel="prefetch" href="/blog/assets/js/223.3397cf4f.js"><link rel="prefetch" href="/blog/assets/js/224.6575a90e.js"><link rel="prefetch" href="/blog/assets/js/225.8c1c6e94.js"><link rel="prefetch" href="/blog/assets/js/226.eeb12de5.js"><link rel="prefetch" href="/blog/assets/js/227.aacd8ef4.js"><link rel="prefetch" href="/blog/assets/js/228.7e407bfd.js"><link rel="prefetch" href="/blog/assets/js/229.eb5a01cd.js"><link rel="prefetch" href="/blog/assets/js/23.f05f6515.js"><link rel="prefetch" href="/blog/assets/js/230.7219d9ce.js"><link rel="prefetch" href="/blog/assets/js/231.016ae179.js"><link rel="prefetch" href="/blog/assets/js/232.97d25eee.js"><link rel="prefetch" href="/blog/assets/js/233.835cb5fc.js"><link rel="prefetch" href="/blog/assets/js/234.36112a10.js"><link rel="prefetch" href="/blog/assets/js/235.b2df9c65.js"><link rel="prefetch" href="/blog/assets/js/236.72299e3e.js"><link rel="prefetch" href="/blog/assets/js/237.1befb80c.js"><link rel="prefetch" href="/blog/assets/js/238.e387348d.js"><link rel="prefetch" href="/blog/assets/js/239.d5e8d924.js"><link rel="prefetch" href="/blog/assets/js/24.5899d319.js"><link rel="prefetch" href="/blog/assets/js/240.4c7f5211.js"><link rel="prefetch" href="/blog/assets/js/241.371861a8.js"><link rel="prefetch" href="/blog/assets/js/242.61edc86c.js"><link rel="prefetch" href="/blog/assets/js/243.f85ffb8e.js"><link rel="prefetch" href="/blog/assets/js/244.3fbf2167.js"><link rel="prefetch" href="/blog/assets/js/245.5d9d618a.js"><link rel="prefetch" href="/blog/assets/js/246.6636d76f.js"><link rel="prefetch" href="/blog/assets/js/247.006c37a6.js"><link rel="prefetch" href="/blog/assets/js/248.eeefdc6d.js"><link rel="prefetch" href="/blog/assets/js/249.bb66f939.js"><link rel="prefetch" href="/blog/assets/js/25.feeda54a.js"><link rel="prefetch" href="/blog/assets/js/250.dba1e5ba.js"><link rel="prefetch" href="/blog/assets/js/251.cd9561b1.js"><link rel="prefetch" href="/blog/assets/js/252.e6a79f4e.js"><link rel="prefetch" href="/blog/assets/js/253.01bbcc41.js"><link rel="prefetch" href="/blog/assets/js/254.75d6c42a.js"><link rel="prefetch" href="/blog/assets/js/255.bf9d53b3.js"><link rel="prefetch" href="/blog/assets/js/256.f64de66c.js"><link rel="prefetch" href="/blog/assets/js/257.0741c551.js"><link rel="prefetch" href="/blog/assets/js/258.0659cfe2.js"><link rel="prefetch" href="/blog/assets/js/259.21646579.js"><link rel="prefetch" href="/blog/assets/js/26.8182efc2.js"><link rel="prefetch" href="/blog/assets/js/260.7e40009e.js"><link rel="prefetch" href="/blog/assets/js/261.60c41766.js"><link rel="prefetch" href="/blog/assets/js/262.36bca1e4.js"><link rel="prefetch" href="/blog/assets/js/263.53a9a695.js"><link rel="prefetch" href="/blog/assets/js/264.0f51b147.js"><link rel="prefetch" href="/blog/assets/js/265.368f444d.js"><link rel="prefetch" href="/blog/assets/js/266.995c43e8.js"><link rel="prefetch" href="/blog/assets/js/267.ba4a1d2f.js"><link rel="prefetch" href="/blog/assets/js/268.3d2de771.js"><link rel="prefetch" href="/blog/assets/js/269.7ee7a020.js"><link rel="prefetch" href="/blog/assets/js/27.96f7c8b5.js"><link rel="prefetch" href="/blog/assets/js/270.d2b6dbc1.js"><link rel="prefetch" href="/blog/assets/js/271.c98e0a1f.js"><link rel="prefetch" href="/blog/assets/js/272.8e96cf45.js"><link rel="prefetch" href="/blog/assets/js/273.6c7a3693.js"><link rel="prefetch" href="/blog/assets/js/274.7ae7fa3b.js"><link rel="prefetch" href="/blog/assets/js/275.277e28fe.js"><link rel="prefetch" href="/blog/assets/js/276.0d2d3363.js"><link rel="prefetch" href="/blog/assets/js/277.50ba95f9.js"><link rel="prefetch" href="/blog/assets/js/278.2ac47f2f.js"><link rel="prefetch" href="/blog/assets/js/279.d5016a2f.js"><link rel="prefetch" href="/blog/assets/js/28.956d8c00.js"><link rel="prefetch" href="/blog/assets/js/280.1cff421f.js"><link rel="prefetch" href="/blog/assets/js/281.7becae44.js"><link rel="prefetch" href="/blog/assets/js/282.a470afa4.js"><link rel="prefetch" href="/blog/assets/js/283.92451915.js"><link rel="prefetch" href="/blog/assets/js/284.bf81219c.js"><link rel="prefetch" href="/blog/assets/js/285.abb3e0e2.js"><link rel="prefetch" href="/blog/assets/js/286.9b399fac.js"><link rel="prefetch" href="/blog/assets/js/287.601549f9.js"><link rel="prefetch" href="/blog/assets/js/288.74af2d88.js"><link rel="prefetch" href="/blog/assets/js/289.d287a9d1.js"><link rel="prefetch" href="/blog/assets/js/29.5fdfceb0.js"><link rel="prefetch" href="/blog/assets/js/290.8b41cc6f.js"><link rel="prefetch" href="/blog/assets/js/291.30cb3e81.js"><link rel="prefetch" href="/blog/assets/js/292.f6c92a32.js"><link rel="prefetch" href="/blog/assets/js/293.4a5c5d03.js"><link rel="prefetch" href="/blog/assets/js/294.889fa477.js"><link rel="prefetch" href="/blog/assets/js/295.7c9bfb1a.js"><link rel="prefetch" href="/blog/assets/js/296.5c393daa.js"><link rel="prefetch" href="/blog/assets/js/297.fdb8d15e.js"><link rel="prefetch" href="/blog/assets/js/298.93998d32.js"><link rel="prefetch" href="/blog/assets/js/299.ad16ee20.js"><link rel="prefetch" href="/blog/assets/js/3.bae9c3b9.js"><link rel="prefetch" href="/blog/assets/js/30.092f59e3.js"><link rel="prefetch" href="/blog/assets/js/300.d7ee2ec1.js"><link rel="prefetch" href="/blog/assets/js/301.49bde86e.js"><link rel="prefetch" href="/blog/assets/js/302.cb98973f.js"><link rel="prefetch" href="/blog/assets/js/303.f6b8a9e2.js"><link rel="prefetch" href="/blog/assets/js/304.e112a703.js"><link rel="prefetch" href="/blog/assets/js/305.a4957830.js"><link rel="prefetch" href="/blog/assets/js/306.c870dc18.js"><link rel="prefetch" href="/blog/assets/js/307.001c4372.js"><link rel="prefetch" href="/blog/assets/js/308.79901a9c.js"><link rel="prefetch" href="/blog/assets/js/309.869b2a70.js"><link rel="prefetch" href="/blog/assets/js/31.a2348ea1.js"><link rel="prefetch" href="/blog/assets/js/310.1c002e84.js"><link rel="prefetch" href="/blog/assets/js/311.7e0bcf89.js"><link rel="prefetch" href="/blog/assets/js/312.2660fad0.js"><link rel="prefetch" href="/blog/assets/js/313.6e89cadb.js"><link rel="prefetch" href="/blog/assets/js/314.6990aa37.js"><link rel="prefetch" href="/blog/assets/js/315.8153a154.js"><link rel="prefetch" href="/blog/assets/js/316.6da9b5a5.js"><link rel="prefetch" href="/blog/assets/js/317.11c83cef.js"><link rel="prefetch" href="/blog/assets/js/318.e8490648.js"><link rel="prefetch" href="/blog/assets/js/319.53861265.js"><link rel="prefetch" href="/blog/assets/js/32.a194da00.js"><link rel="prefetch" href="/blog/assets/js/320.56dad00f.js"><link rel="prefetch" href="/blog/assets/js/321.ccd6b418.js"><link rel="prefetch" href="/blog/assets/js/322.faed6cae.js"><link rel="prefetch" href="/blog/assets/js/323.d268cb3a.js"><link rel="prefetch" href="/blog/assets/js/324.dce3459a.js"><link rel="prefetch" href="/blog/assets/js/325.d01c7ad8.js"><link rel="prefetch" href="/blog/assets/js/326.0e9aa527.js"><link rel="prefetch" href="/blog/assets/js/327.a302d51e.js"><link rel="prefetch" href="/blog/assets/js/328.a5997e15.js"><link rel="prefetch" href="/blog/assets/js/329.798b92cf.js"><link rel="prefetch" href="/blog/assets/js/33.e4d25147.js"><link rel="prefetch" href="/blog/assets/js/330.3ed38f17.js"><link rel="prefetch" href="/blog/assets/js/331.2147c45e.js"><link rel="prefetch" href="/blog/assets/js/332.4f72a981.js"><link rel="prefetch" href="/blog/assets/js/333.b198d877.js"><link rel="prefetch" href="/blog/assets/js/334.01f2ba40.js"><link rel="prefetch" href="/blog/assets/js/335.04c31165.js"><link rel="prefetch" href="/blog/assets/js/336.b939caf6.js"><link rel="prefetch" href="/blog/assets/js/337.e723b696.js"><link rel="prefetch" href="/blog/assets/js/338.bb89d233.js"><link rel="prefetch" href="/blog/assets/js/339.0c93e7f2.js"><link rel="prefetch" href="/blog/assets/js/34.881d241b.js"><link rel="prefetch" href="/blog/assets/js/340.e59d5112.js"><link rel="prefetch" href="/blog/assets/js/341.1c5d24ff.js"><link rel="prefetch" href="/blog/assets/js/342.13b1c49e.js"><link rel="prefetch" href="/blog/assets/js/343.0434e83c.js"><link rel="prefetch" href="/blog/assets/js/344.936699cc.js"><link rel="prefetch" href="/blog/assets/js/345.81802f59.js"><link rel="prefetch" href="/blog/assets/js/346.fcc4c864.js"><link rel="prefetch" href="/blog/assets/js/347.fb03a8d6.js"><link rel="prefetch" href="/blog/assets/js/348.0a0514fd.js"><link rel="prefetch" href="/blog/assets/js/349.1a1dcade.js"><link rel="prefetch" href="/blog/assets/js/35.d7055bd8.js"><link rel="prefetch" href="/blog/assets/js/350.3d801021.js"><link rel="prefetch" href="/blog/assets/js/351.e63d16b6.js"><link rel="prefetch" href="/blog/assets/js/352.5bb35d77.js"><link rel="prefetch" href="/blog/assets/js/353.7e25749a.js"><link rel="prefetch" href="/blog/assets/js/354.c12c2e75.js"><link rel="prefetch" href="/blog/assets/js/355.62c13100.js"><link rel="prefetch" href="/blog/assets/js/356.3e2b2e72.js"><link rel="prefetch" href="/blog/assets/js/357.a20defbc.js"><link rel="prefetch" href="/blog/assets/js/358.838f09bc.js"><link rel="prefetch" href="/blog/assets/js/359.8739e3bf.js"><link rel="prefetch" href="/blog/assets/js/36.367436d6.js"><link rel="prefetch" href="/blog/assets/js/360.c1d08f47.js"><link rel="prefetch" href="/blog/assets/js/361.4749916b.js"><link rel="prefetch" href="/blog/assets/js/362.41524f06.js"><link rel="prefetch" href="/blog/assets/js/363.2da456c2.js"><link rel="prefetch" href="/blog/assets/js/364.14db63c4.js"><link rel="prefetch" href="/blog/assets/js/365.bf1591b4.js"><link rel="prefetch" href="/blog/assets/js/366.dc960a99.js"><link rel="prefetch" href="/blog/assets/js/367.fd7b3c99.js"><link rel="prefetch" href="/blog/assets/js/368.ec166fb2.js"><link rel="prefetch" href="/blog/assets/js/369.d2e46423.js"><link rel="prefetch" href="/blog/assets/js/37.cfabd421.js"><link rel="prefetch" href="/blog/assets/js/370.01b4912e.js"><link rel="prefetch" href="/blog/assets/js/371.2fc91e89.js"><link rel="prefetch" href="/blog/assets/js/372.69a3cd02.js"><link rel="prefetch" href="/blog/assets/js/373.8ae21b19.js"><link rel="prefetch" href="/blog/assets/js/374.aa4dce2f.js"><link rel="prefetch" href="/blog/assets/js/375.f07a6905.js"><link rel="prefetch" href="/blog/assets/js/376.1fc8f6ba.js"><link rel="prefetch" href="/blog/assets/js/377.5b033c7a.js"><link rel="prefetch" href="/blog/assets/js/378.db00fb42.js"><link rel="prefetch" href="/blog/assets/js/379.e273b5b0.js"><link rel="prefetch" href="/blog/assets/js/38.80a92a9a.js"><link rel="prefetch" href="/blog/assets/js/380.0c1d2f74.js"><link rel="prefetch" href="/blog/assets/js/381.e93aa093.js"><link rel="prefetch" href="/blog/assets/js/382.cc1bf941.js"><link rel="prefetch" href="/blog/assets/js/383.57eed2d3.js"><link rel="prefetch" href="/blog/assets/js/384.e78da318.js"><link rel="prefetch" href="/blog/assets/js/385.c476b444.js"><link rel="prefetch" href="/blog/assets/js/386.a29802ac.js"><link rel="prefetch" href="/blog/assets/js/387.63f692a3.js"><link rel="prefetch" href="/blog/assets/js/388.d44d0a12.js"><link rel="prefetch" href="/blog/assets/js/389.f4f55d15.js"><link rel="prefetch" href="/blog/assets/js/39.51b28712.js"><link rel="prefetch" href="/blog/assets/js/390.eeb2ea5e.js"><link rel="prefetch" href="/blog/assets/js/391.4172f1d7.js"><link rel="prefetch" href="/blog/assets/js/392.203b4305.js"><link rel="prefetch" href="/blog/assets/js/393.0f3c7b99.js"><link rel="prefetch" href="/blog/assets/js/394.4109f422.js"><link rel="prefetch" href="/blog/assets/js/395.145c0e37.js"><link rel="prefetch" href="/blog/assets/js/396.5739a049.js"><link rel="prefetch" href="/blog/assets/js/397.04cbe49d.js"><link rel="prefetch" href="/blog/assets/js/398.984a14e0.js"><link rel="prefetch" href="/blog/assets/js/399.68879b0f.js"><link rel="prefetch" href="/blog/assets/js/4.17793416.js"><link rel="prefetch" href="/blog/assets/js/40.cca61ef0.js"><link rel="prefetch" href="/blog/assets/js/400.dbabb331.js"><link rel="prefetch" href="/blog/assets/js/401.840a1493.js"><link rel="prefetch" href="/blog/assets/js/402.0a88d2b6.js"><link rel="prefetch" href="/blog/assets/js/403.18ba61d5.js"><link rel="prefetch" href="/blog/assets/js/404.526ab707.js"><link rel="prefetch" href="/blog/assets/js/405.f6b60057.js"><link rel="prefetch" href="/blog/assets/js/406.84e6f37c.js"><link rel="prefetch" href="/blog/assets/js/407.1cc22e8e.js"><link rel="prefetch" href="/blog/assets/js/408.c838e002.js"><link rel="prefetch" href="/blog/assets/js/409.3b625fca.js"><link rel="prefetch" href="/blog/assets/js/41.3b9b35fb.js"><link rel="prefetch" href="/blog/assets/js/410.3d841dde.js"><link rel="prefetch" href="/blog/assets/js/411.4c112919.js"><link rel="prefetch" href="/blog/assets/js/412.35aeac08.js"><link rel="prefetch" href="/blog/assets/js/413.10d093fe.js"><link rel="prefetch" href="/blog/assets/js/414.c98c6493.js"><link rel="prefetch" href="/blog/assets/js/415.17289b1a.js"><link rel="prefetch" href="/blog/assets/js/416.32b1b05f.js"><link rel="prefetch" href="/blog/assets/js/417.5bd95f13.js"><link rel="prefetch" href="/blog/assets/js/418.7f0b6a25.js"><link rel="prefetch" href="/blog/assets/js/419.6651a70e.js"><link rel="prefetch" href="/blog/assets/js/42.adad5b34.js"><link rel="prefetch" href="/blog/assets/js/420.c239318d.js"><link rel="prefetch" href="/blog/assets/js/421.7a2e9a91.js"><link rel="prefetch" href="/blog/assets/js/422.551aab1d.js"><link rel="prefetch" href="/blog/assets/js/423.18e3b820.js"><link rel="prefetch" href="/blog/assets/js/424.95046f00.js"><link rel="prefetch" href="/blog/assets/js/425.ef4a5191.js"><link rel="prefetch" href="/blog/assets/js/426.1c13b1a5.js"><link rel="prefetch" href="/blog/assets/js/427.c019f006.js"><link rel="prefetch" href="/blog/assets/js/428.1b2eaa28.js"><link rel="prefetch" href="/blog/assets/js/429.fd8e32e3.js"><link rel="prefetch" href="/blog/assets/js/43.ec99f75e.js"><link rel="prefetch" href="/blog/assets/js/430.cf4a4078.js"><link rel="prefetch" href="/blog/assets/js/431.265b28ef.js"><link rel="prefetch" href="/blog/assets/js/432.00f19a47.js"><link rel="prefetch" href="/blog/assets/js/433.f0a5d954.js"><link rel="prefetch" href="/blog/assets/js/434.71cf06f2.js"><link rel="prefetch" href="/blog/assets/js/435.5a7e5590.js"><link rel="prefetch" href="/blog/assets/js/436.d6016384.js"><link rel="prefetch" href="/blog/assets/js/437.d5565e15.js"><link rel="prefetch" href="/blog/assets/js/438.7479f8da.js"><link rel="prefetch" href="/blog/assets/js/439.aa4dd15f.js"><link rel="prefetch" href="/blog/assets/js/44.8189586c.js"><link rel="prefetch" href="/blog/assets/js/440.4f7d14d3.js"><link rel="prefetch" href="/blog/assets/js/441.1eeb35f3.js"><link rel="prefetch" href="/blog/assets/js/442.b556fe77.js"><link rel="prefetch" href="/blog/assets/js/443.6ee28303.js"><link rel="prefetch" href="/blog/assets/js/444.48140a5b.js"><link rel="prefetch" href="/blog/assets/js/445.892070d3.js"><link rel="prefetch" href="/blog/assets/js/446.e5e602ae.js"><link rel="prefetch" href="/blog/assets/js/447.50c68b39.js"><link rel="prefetch" href="/blog/assets/js/448.9893dc6c.js"><link rel="prefetch" href="/blog/assets/js/449.4703a284.js"><link rel="prefetch" href="/blog/assets/js/45.d03eb196.js"><link rel="prefetch" href="/blog/assets/js/450.d4b8b7bd.js"><link rel="prefetch" href="/blog/assets/js/451.b3fe1758.js"><link rel="prefetch" href="/blog/assets/js/452.eaf3117e.js"><link rel="prefetch" href="/blog/assets/js/453.d68564c3.js"><link rel="prefetch" href="/blog/assets/js/454.a8f8ab86.js"><link rel="prefetch" href="/blog/assets/js/455.76b9d26b.js"><link rel="prefetch" href="/blog/assets/js/456.1d0d8768.js"><link rel="prefetch" href="/blog/assets/js/457.d3a520dd.js"><link rel="prefetch" href="/blog/assets/js/458.a0d8fd82.js"><link rel="prefetch" href="/blog/assets/js/46.bc8e91a8.js"><link rel="prefetch" href="/blog/assets/js/47.f076b4b4.js"><link rel="prefetch" href="/blog/assets/js/48.7178ad6d.js"><link rel="prefetch" href="/blog/assets/js/49.3b3bfea4.js"><link rel="prefetch" href="/blog/assets/js/5.423840d3.js"><link rel="prefetch" href="/blog/assets/js/50.d9b83da4.js"><link rel="prefetch" href="/blog/assets/js/51.9d27edce.js"><link rel="prefetch" href="/blog/assets/js/52.d5b605d6.js"><link rel="prefetch" href="/blog/assets/js/53.39011ac7.js"><link rel="prefetch" href="/blog/assets/js/54.0256ac32.js"><link rel="prefetch" href="/blog/assets/js/55.40614e04.js"><link rel="prefetch" href="/blog/assets/js/56.190c034c.js"><link rel="prefetch" href="/blog/assets/js/57.b1c87a27.js"><link rel="prefetch" href="/blog/assets/js/58.aadf8f0b.js"><link rel="prefetch" href="/blog/assets/js/59.c7a8ec0f.js"><link rel="prefetch" href="/blog/assets/js/6.6e8c67be.js"><link rel="prefetch" href="/blog/assets/js/60.16f04dae.js"><link rel="prefetch" href="/blog/assets/js/61.1da49901.js"><link rel="prefetch" href="/blog/assets/js/62.c567b83d.js"><link rel="prefetch" href="/blog/assets/js/63.a9eaa6cb.js"><link rel="prefetch" href="/blog/assets/js/64.bd23e37e.js"><link rel="prefetch" href="/blog/assets/js/65.6449b7f4.js"><link rel="prefetch" href="/blog/assets/js/66.5394a009.js"><link rel="prefetch" href="/blog/assets/js/67.30990c21.js"><link rel="prefetch" href="/blog/assets/js/68.040df19a.js"><link rel="prefetch" href="/blog/assets/js/69.7c4f7a13.js"><link rel="prefetch" href="/blog/assets/js/7.fec0ecd5.js"><link rel="prefetch" href="/blog/assets/js/70.7a8b9c4f.js"><link rel="prefetch" href="/blog/assets/js/71.42507e26.js"><link rel="prefetch" href="/blog/assets/js/72.676d8ece.js"><link rel="prefetch" href="/blog/assets/js/73.daa7600a.js"><link rel="prefetch" href="/blog/assets/js/74.20e478dc.js"><link rel="prefetch" href="/blog/assets/js/75.900ff344.js"><link rel="prefetch" href="/blog/assets/js/76.1b07b297.js"><link rel="prefetch" href="/blog/assets/js/77.0356d020.js"><link rel="prefetch" href="/blog/assets/js/78.d3355c58.js"><link rel="prefetch" href="/blog/assets/js/79.42dd852d.js"><link rel="prefetch" href="/blog/assets/js/8.b72e1b92.js"><link rel="prefetch" href="/blog/assets/js/80.702f8d04.js"><link rel="prefetch" href="/blog/assets/js/81.45abcf52.js"><link rel="prefetch" href="/blog/assets/js/82.4ceb3c5b.js"><link rel="prefetch" href="/blog/assets/js/83.5a647425.js"><link rel="prefetch" href="/blog/assets/js/84.445edf85.js"><link rel="prefetch" href="/blog/assets/js/85.d7363708.js"><link rel="prefetch" href="/blog/assets/js/86.fc754847.js"><link rel="prefetch" href="/blog/assets/js/87.fdf002b1.js"><link rel="prefetch" href="/blog/assets/js/88.d89bd9b9.js"><link rel="prefetch" href="/blog/assets/js/89.84be3134.js"><link rel="prefetch" href="/blog/assets/js/9.a0088c26.js"><link rel="prefetch" href="/blog/assets/js/90.750b1c1c.js"><link rel="prefetch" href="/blog/assets/js/91.ec8182c1.js"><link rel="prefetch" href="/blog/assets/js/92.faca2c51.js"><link rel="prefetch" href="/blog/assets/js/93.d45ce2d1.js"><link rel="prefetch" href="/blog/assets/js/94.4b7a271d.js"><link rel="prefetch" href="/blog/assets/js/95.e2fb278c.js"><link rel="prefetch" href="/blog/assets/js/96.9c2cf45f.js"><link rel="prefetch" href="/blog/assets/js/97.e757d67c.js"><link rel="prefetch" href="/blog/assets/js/98.7b001ece.js"><link rel="prefetch" href="/blog/assets/js/99.5d4e870f.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b00d9e97.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/bloglogo.png" alt="Mr.Liu" class="logo"> <span class="site-name can-hide">Mr.Liu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/blog/career-plan" class="sidebar-heading clickable"><span>如何做好职业规划</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>H5 开发实战手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端算法与数据结构面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 hapi 的 Node.js 小程序后端开发实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 NodeJS 构建 GraphQL API 服务</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Python 实战：用 Scrapyd 打造个人化的爬虫部署管理控制台</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL 是怎样运行的：从根儿上理解 MySQL</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Flutter 完全手册</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/flutter/1 - Flutter 完全手册大纲.html" class="sidebar-link">Flutter 完全手册大纲</a></li><li><a href="/blog/flutter/2 - Flutter 基础篇.html" class="sidebar-link">Flutter 基础篇</a></li><li><a href="/blog/flutter/3 - 移动端跨平台开发方案的演进.html" class="sidebar-link">移动端跨平台开发方案的演进</a></li><li><a href="/blog/flutter/4 - 搭建 Flutter 开发环境.html" class="sidebar-link">搭建 Flutter 开发环境</a></li><li><a href="/blog/flutter/5 - 创建第一个 Flutter APP.html" class="sidebar-link">创建第一个 Flutter APP</a></li><li><a href="/blog/flutter/6 - Flutter 开发利器 —— Hot Reload.html" class="sidebar-link">Flutter 开发利器 —— Hot Reload</a></li><li><a href="/blog/flutter/7 - Dart 简介及基础语法.html" class="sidebar-link">Dart 简介及基础语法</a></li><li><a href="/blog/flutter/8 - Flutter 的基础 —— Widget.html" class="sidebar-link">Flutter 的基础 —— Widget</a></li><li><a href="/blog/flutter/9 - StatefulWidget 及 State.html" class="sidebar-link">StatefulWidget 及 State</a></li><li><a href="/blog/flutter/10 - StatelessWidget.html" class="sidebar-link">StatelessWidget</a></li><li><a href="/blog/flutter/11 - MaterialApp 与 Scaffold.html" class="sidebar-link">MaterialApp 与 Scaffold</a></li><li><a href="/blog/flutter/12 - Flutter 写 UI 的方式 —— 声明式.html" class="sidebar-link">Flutter 写 UI 的方式 —— 声明式</a></li><li><a href="/blog/flutter/13 - Widget 的深度理解及使用方法.html" class="sidebar-link">Widget 的深度理解</a></li><li><a href="/blog/flutter/14 - Flutter 基础 Widget —— 文本框.html" class="sidebar-link">Flutter 基础 Widget —— 文本框</a></li><li><a href="/blog/flutter/15 - Flutter 基础 Widget —— 图片和 Icon.html" class="sidebar-link">Flutter 基础 Widget —— 图片和Icon</a></li><li><a href="/blog/flutter/16 - Flutter 基础 Widget —— 输入框和表单.html" class="sidebar-link">Flutter 基础 Widget —— 输入框和表单</a></li><li><a href="/blog/flutter/17 - Flutter 基础 Widget —— SnackBar 和 Builder 的使用.html" class="sidebar-link">Flutter 基础 Widget —— SnackBar 和 Builder 的使用</a></li><li><a href="/blog/flutter/18 - Flutter 基础 Widget —— 对话框.html" class="sidebar-link">Flutter 基础 Widget —— 对话框</a></li><li><a href="/blog/flutter/19 - Flutter 基础 Widget —— BottomSheet.html" class="sidebar-link">Flutter 基础 Widget —— BottomSheet</a></li><li><a href="/blog/flutter/20 - Flutter 基础Widget —— 菜单按钮.html" class="sidebar-link">Flutter 基础Widget —— 菜单按钮</a></li><li><a href="/blog/flutter/21 - Flutter 手势识别 Widget.html" class="sidebar-link">Flutter 手势识别 Widget</a></li><li><a href="/blog/flutter/22 - Flutter 布局 —— 理解 BoxConstraint（盒约束）布局模型.html" class="sidebar-link">Flutter 布局 —— 理解 BoxConstraint（盒约束）布局模型</a></li><li><a href="/blog/flutter/23 - Flutter 布局 Widget.html" class="sidebar-link">Flutter 布局 Widget</a></li><li><a href="/blog/flutter/24 - Flutter 布局 Widget —— 弹性布局.html" class="sidebar-link">Flutter 布局 Widget —— 弹性布局</a></li><li><a href="/blog/flutter/25 - Flutter 布局 Widget —— 线性布局.html" class="sidebar-link">Flutter布局Widget —— 线性布局</a></li><li><a href="/blog/flutter/26 - Flutter 布局 Widget —— 流式布局.html" class="sidebar-link">Flutter 布局 Widget —— 流式布局</a></li><li><a href="/blog/flutter/27 - Flutter 布局 Widget —— 层叠布局.html" class="sidebar-link">Flutter 布局 Widget —— 层叠布局</a></li><li><a href="/blog/flutter/28 - Flutter 容器类 Widget.html" class="sidebar-link">Flutter 容器类 Widget</a></li><li><a href="/blog/flutter/29 - Flutter 可滚动 Widget.html" class="sidebar-link">Flutter 可滚动 Widget</a></li><li><a href="/blog/flutter/30 - Flutter 可滚动 Widget —— SingleChildScrollView.html" class="sidebar-link">Flutter 可滚动Widget —— SingleChildScrollView</a></li><li><a href="/blog/flutter/31 - Flutter 可滚动 Widget —— ListView.html" class="sidebar-link">Flutter 可滚动Widget —— ListView</a></li><li><a href="/blog/flutter/32 - Flutter 可滚动 Widget —— CustomScrollView.html" class="sidebar-link">Flutter 可滚动Widget -- CustomScrollView</a></li><li><a href="/blog/flutter/33 - Flutter 可滚动 Widget —— GridView.html" class="sidebar-link">Flutter 可滚动 Widget —— GridView</a></li><li><a href="/blog/flutter/34 - Flutter 可滚动 Widget —— PageView.html" class="sidebar-link">Flutter 可滚动 Widget —— PageView</a></li><li><a href="/blog/flutter/35 - Flutter 功能类 Widget.html" class="sidebar-link">Flutter 功能类 Widget</a></li><li><a href="/blog/flutter/36 - Flutter 实战篇.html" class="sidebar-link">Flutter 实战篇：仿豆瓣电影APP</a></li><li><a href="/blog/flutter/37 - 信息流 ListView 的实现.html" class="sidebar-link">信息流 ListView 的实现</a></li><li><a href="/blog/flutter/38 - 数据请求的实现.html" class="sidebar-link">数据请求的实现</a></li><li><a href="/blog/flutter/39 - Flutter 异步编程.html" class="sidebar-link">Flutter 异步编程</a></li><li><a href="/blog/flutter/40 - 城市选择页面实现.html" class="sidebar-link">城市选择页面实现</a></li><li><a href="/blog/flutter/41 - Flutter 路由：Route .html" class="sidebar-link">Flutter 路由：Route</a></li><li><a href="/blog/flutter/42 - 存取本地数据.html" class="sidebar-link">存取本地数据</a></li><li><a href="/blog/flutter/43 - 声明式UI 的编程思维.html" class="sidebar-link">声明式UI 的编程思维</a></li><li><a href="/blog/flutter/44 - 实现买票的功能.html" class="sidebar-link">实现买票的功能</a></li><li><a href="/blog/flutter/45 - Flutter 与 Native 通信：PlatformChannel.html" class="active sidebar-link">Flutter 与 Native 通信：PlatformChannel</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/flutter/45 - Flutter 与 Native 通信：PlatformChannel.html#platformchannel-介绍" class="sidebar-link">PlatformChannel 介绍</a></li><li class="sidebar-sub-header"><a href="/blog/flutter/45 - Flutter 与 Native 通信：PlatformChannel.html#platformchannel-methodchannel-的使用" class="sidebar-link">PlatformChannel -- MethodChannel 的使用</a></li><li class="sidebar-sub-header"><a href="/blog/flutter/45 - Flutter 与 Native 通信：PlatformChannel.html#platformchannel-eventchannel-的使用" class="sidebar-link">PlatformChannel -- EventChannel 的使用</a></li><li class="sidebar-sub-header"><a href="/blog/flutter/45 - Flutter 与 Native 通信：PlatformChannel.html#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/blog/flutter/46 - Flutter 性能监控工具.html" class="sidebar-link">Flutter 性能监控工具</a></li><li><a href="/blog/flutter/47 - Flutter APP 的打包.html" class="sidebar-link">Flutter APP 的打包</a></li><li><a href="/blog/flutter/48 - Flutter 开发进阶篇.html" class="sidebar-link">Flutter 开发进阶篇</a></li><li><a href="/blog/flutter/49 - Flutter 的状态管理.html" class="sidebar-link">Flutter 的状态管理</a></li><li><a href="/blog/flutter/50 - 使用 InheritedWidget 对豆瓣电影 App 进行重构.html" class="sidebar-link">使用 InheritedWidget 对豆瓣电影 App 进行重构</a></li><li><a href="/blog/flutter/51 - 使用 ScopedModel 对豆瓣电影 App 进行重构.html" class="sidebar-link">使用 ScopedModel 对豆瓣电影 App 进行重构</a></li><li><a href="/blog/flutter/52 - 使用 BLoC 对豆瓣电影App 进行重构.html" class="sidebar-link">使用 BLoC 对豆瓣电影App 进行重构</a></li><li><a href="/blog/flutter/53 - 使用 Redux 对豆瓣电影App 进行重构.html" class="sidebar-link">使用 Redux 对豆瓣电影App 进行重构</a></li><li><a href="/blog/flutter/54 - Flutter Isolate .html" class="sidebar-link">Flutter Isolate</a></li><li><a href="/blog/flutter/55 - Flutter 底层进阶篇.html" class="sidebar-link">Flutter 底层进阶篇</a></li><li><a href="/blog/flutter/56 - 了解 Flutter 的 Thread Model（线程模型）.html" class="sidebar-link">了解 Flutter 的 Thread Model（线程模型）</a></li><li><a href="/blog/flutter/57 - Flutter 的 Event Loop(事件循环)及代码运行顺序.html" class="sidebar-link">Flutter 的 Event Loop(事件循环)及代码运行顺序</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript 设计模式核⼼原理与应⽤实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React SSR 服务端渲染原理解析与同构实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React Hooks 与 Immutable 数据流实战</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React 组合式开发实践：打造企业管理系统五大核心模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue 项目构建与开发入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Web 前端面试指南与高频考题解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 组件精讲</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端性能优化原理与实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>剖析 Vue.js 内部运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>使用 webpack 定制前端开发环境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>如何使用 Canvas 制作出炫酷的网页背景特效</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发者必备的 Docker 实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>用 npm script 打造超溜的前端工作流</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>微信小程序开发入门：从 0 到 1 实现天气小程序</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="flutter-与-native-通信-platformchannel"><a href="#flutter-与-native-通信-platformchannel" class="header-anchor">#</a> Flutter 与 Native 通信：PlatformChannel</h1> <p>本节介绍 PlatformChannel 的使用。</p> <h2 id="platformchannel-介绍"><a href="#platformchannel-介绍" class="header-anchor">#</a> PlatformChannel 介绍</h2> <p>PlatformChannel 用于 Flutter 与 Native(Android、iOS) 之间的消息传递。</p> <p>不仅可以方便的将 Native 的功能拓展给 Flutter 使用，而且也能将 Flutter 的功能扩展给 Native 使用。</p> <h3 id="platformchannel-的架构图"><a href="#platformchannel-的架构图" class="header-anchor">#</a> PlatformChannel 的架构图</h3> <p><img src="https://user-gold-cdn.xitu.io/2019/3/11/1696b4f77f90f8f1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p> <p>上图是 PlatformChannel 的架构图，Flutter 与 Native 之间采用的是消息传递的模式，一个是 Client，一个是 Host：</p> <ul><li>Client 通过 PlatformChannel 向 Host 发送消息。</li> <li>Host 监听 PlatformChannel，接受消息，然后将响应结果发送给 Client。这样就完成了 Flutter 与 Native 之间的消息传递。</li> <li>而且 Flutter 与 Native 之间的消息传递都是异步的，所以不会阻塞 UI。</li></ul> <p>而且由于 PlatformChannel 是双工的，所以 Flutter 和 Native 可以互相做 Client 和 Host。</p> <h3 id="platformchannel-的种类"><a href="#platformchannel-的种类" class="header-anchor">#</a> PlatformChannel 的种类</h3> <p>有三种 PlatformChannel 种类，适用于不同的场景：</p> <ol><li><p>MethodChannel</p> <p>以方法的模式使用 PlatformChannel</p></li> <li><p>EventChannel</p> <p>以事件的模式使用 PlatformChannel</p></li> <li><p>BasicMessageChannel</p> <p>可以在 BasicMessageChannel 上方便的进行自定义扩展，主要用于个性化的扩展。</p></li></ol> <p>MethodChannel 和 EventChannel 这两个已经封装好了使用方式，是我们最常用的，我们一般很少使用 BasicMessageChannel。后面我们会着重讲一下 MethodChannel 和 EventChannel 的使用。</p> <h3 id="codec"><a href="#codec" class="header-anchor">#</a> codec</h3> <p>又因为同时要在 Flutter、Android、iOS 这三个不同的平台上传递消息，就需要可以在三个平台上都能处理的数据，所以需要对传递的消息进行编解码，而且只能支持一些基本数据类型的传递，传递过程如下：</p> <ul><li>首先将 Client 端平台的数据进行编码，然后通过 PlatformChannel 发送</li> <li>Host 端接受到消息后，将消息解码成Host端平台的数据类型</li> <li>Host 端向 Client 端发送回应的消息，同样要先进行编码后，才能发送</li> <li>Client 端接收到消息后，将消息解码成 Client 端平台的数据类型</li></ul> <p>在这个过程中，编解码的方法就叫 <code>codec</code>。每一个 PlatformChannel 都有一个 codec。</p> <p>下面是每种 PlatformChannel 使用的 codec：</p> <p>MethodChannel</p> <p>EventChannel</p> <p>BasicMessageChannel</p> <p>codec</p> <p>StandartMethodCodec</p> <p>StandartMethodCodec</p> <p>MessageCodec 的实现类，需要自己设置，包括上面的四个和自己的实现都行</p> <p>PlatformChannel 的 codec 主要分为两类：</p> <ol><li><p>MethodCodec</p> <p>MethodCodec 是一个接口，它的实现类是如下的两个：</p> <ul><li>StandartMethodCodec：可以编解码 PlatformChannel 支持的所有类型的数据</li> <li>JSONMethodCodec：只可以编解码 JSON 类型的数据</li></ul></li> <li><p>MessageCodec</p> <p>MessageCodec 是一个接口，它的实现类是如下的四个：</p> <ul><li>StandardMessageCodec：可以编解码 PlatformChannel 支持的所有类型的数据</li> <li>BinaryCodec：只可以编解码 byte 类型的数据</li> <li>StringCodec：只可以编解码 String 类型的数据</li> <li>JSONMessageCodec：只可以编解码 JSON 类型的数据</li></ul></li></ol> <h3 id="platformchannel-支持的数据类型"><a href="#platformchannel-支持的数据类型" class="header-anchor">#</a> PlatformChannel 支持的数据类型</h3> <p>下图是PlatformChannel支持的数据类型，以及在 Flutter、Android、iOS 三个平台上转化的对应关系：</p> <p>Flutter</p> <p>Android</p> <p>iOS</p> <p>null</p> <p>null</p> <p>nil (NSNull when nested)</p> <p>bool</p> <p>java.lang.Boolean</p> <p>NSNumber numberWithBool:</p> <p>int</p> <p>java.lang.Integer</p> <p>NSNumber numberWithInt:</p> <p>int, if 32 bits not enough</p> <p>java.lang.Long</p> <p>NSNumber numberWithLong:</p> <p>double</p> <p>java.lang.Double</p> <p>NSNumber numberWithDouble:</p> <p>String</p> <p>java.lang.String</p> <p>NSString</p> <p>Uint8List</p> <p>byte[]</p> <p>FlutterStandardTypedData typedDataWithBytes:</p> <p>Int32List</p> <p>int[]</p> <p>FlutterStandardTypedData typedDataWithInt32:</p> <p>Int64List</p> <p>long[]</p> <p>FlutterStandardTypedData typedDataWithInt64:</p> <p>Float64List</p> <p>double[]</p> <p>FlutterStandardTypedData typedDataWithFloat64:</p> <p>List</p> <p>java.util.ArrayList</p> <p>NSArray</p> <p>Map</p> <p>java.util.HashMap</p> <p>NSDictionary</p> <h2 id="platformchannel-methodchannel-的使用"><a href="#platformchannel-methodchannel-的使用" class="header-anchor">#</a> PlatformChannel -- MethodChannel 的使用</h2> <p>本节讲一下 MethodChannel 的使用方法。MethodChannel 既可以让 Flutter 调用 Android，也可以让 Android 调用 Flutter。</p> <p>这里写两个例子，一个是 Flutter 调用 Android 功能的例子，另一个是 Android 调用 Flutter 功能的例子。</p> <blockquote><p>PlatformChannel 涉及到编写 Native 代码，所以除了 VS Code，还需要使用 Android Studio 和 Xcode。</p></blockquote> <h3 id="flutter-调用-android-功能"><a href="#flutter-调用-android-功能" class="header-anchor">#</a> Flutter 调用 Android 功能</h3> <p>使用 Flutter 弹一个 Android 的 Toast。</p> <p>为了实现这一样功能，需要使用 Flutter 调用 Android 的功能，那么这里 Flutter 是 Client，Android 是 Host。</p> <p>需要在 Android端 上实现监听及功能，然后在 Flutter端 调用。</p> <h4 id="在-android-端添加监听及实现功能"><a href="#在-android-端添加监听及实现功能" class="header-anchor">#</a> 在 Android 端添加监听及实现功能：</h4> <p>Android 端是 Host，在 Android 的代码里找到 <code>MainActivity.java</code> ,然后在 <code>OnCreate()</code> 里使用 <code>MethodChannel</code> 添加监听：</p> <div class="language- extra-class"><pre class="language-text"><code>  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    GeneratedPluginRegistrant.registerWith(this);
+
+    new MethodChannel(getFlutterView(),&quot;samples.flutter.io/toast&quot;).setMethodCallHandler(new MethodChannel.MethodCallHandler() {
+      @Override
+      public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
+        
+      }
+    });
+  }    
+
+</code></pre></div><p>这里 <code>new MethodChannel</code> 的实例，需要两个参数：</p> <ol><li><p>第一个是 BinaryMessenger</p> <p>这里用的是 FlutterView，因为 FlutterView 实现了 BinaryMessenger 的接口，在 MainActivity 里通过 getFlutterView() 获取</p></li> <li><p>第二个是 String</p> <p>是 Channel Name，用于标识不同的 MethodChannel，这个值可以随便取，但每个 MethodChannel 都必须是唯一的，一般取值是：包名+&quot;/&quot;+功能，这个值在 Flutter 中也要用，Flutter 正是通过这个来区分不同的 MethodChannel 的。在 demo 里我取的值是 <code>samples.flutter.io/toast</code>。</p></li></ol> <p>创建完 <code>MethodChannel</code> 的实例后，还需要添加监听，是通过 <code>MethodChannel</code> 的 <code>setMethodCallHandler</code> 来添加监听的。</p> <p>监听监听完后，在看回调里的两个参数：</p> <ol><li><p>MethodCall</p> <p>从 Flutter 端传送来的数据。</p> <p>MethodCall 里有如下的几个方法，用来获取从 Flutter 端传送来的数据：</p> <ul><li><p>methodCall.method：</p> <p>methodCall 的属性，获取方法名，用于标识 Flutter 想调用 Android 的哪个方法，这里 method 只能是 String 类型，这就要求 Flutter 只能传 String</p></li> <li><p>methodCall.arguments</p> <p>methodCall 的属性，获取具体的参数，这里 arguments 只能是 Map 类型或者 JSONObject 类型，这就要求 Flutter 只能传这两种类型的数据</p></li> <li><p>methodCall.argument(String key)</p> <p>methodCall 的方法，获取 Key 为特定值的参数的值</p></li></ul></li> <li><p>MethodChannel.Result</p> <p>Android 向 Flutter 端发送数据</p> <p>Android 端处理完从 Flutter 端传来的数据后，就需要向 Flutter 端发送数据，使用如下的方法：</p> <ul><li><p>result.success(Object result)</p> <p>如果运行成功，使用这个方法，同时将 result 返回给 Flutter,请注意，result 只能是 PlatformChannel 支持的数据类型</p></li> <li><p>result.error(String errorCode,String errorMsg,Object errorDetails)</p> <p>如果运行失败，使用这个方法,带入 errorCode、errorMsg 还有 errorDetails 的参数，errorDetails 只能是 PlatformChannel 支持的数据类型</p></li> <li><p>result.notImplemented()</p> <p>如果 Flutter 想调用的方法,Android 没有实现，使用这个方法。会将 notImplemented 返回给 Flutter。</p></li></ul></li></ol> <p>下面是 MainActivity.java 里的代码：</p> <div class="language- extra-class"><pre class="language-text"><code>    package com.kk.flutter_app;
+
+    import android.os.Bundle;
+    import android.widget.Toast;
+    
+    import io.flutter.app.FlutterActivity;
+    import io.flutter.plugin.common.MethodCall;
+    import io.flutter.plugin.common.MethodChannel;
+    import io.flutter.plugins.GeneratedPluginRegistrant;
+    
+    public class MainActivity extends FlutterActivity {
+      @Override
+      protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        GeneratedPluginRegistrant.registerWith(this);
+    
+        new MethodChannel(getFlutterView(),&quot;samples.flutter.io/toast&quot;).setMethodCallHandler(new MethodChannel.MethodCallHandler() {
+          @Override
+          public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
+            if(&quot;toast&quot;.equals(methodCall.method)){
+              if(methodCall.hasArgument(&quot;content&quot;)){
+                Toast.makeText(getBaseContext(), methodCall.argument(&quot;content&quot;),Toast.LENGTH_SHORT).show();
+                result.success(&quot;success&quot;);
+              }else {
+                result.error(&quot;-1&quot;,&quot;toast fail&quot;,&quot;content is null&quot;);
+              }
+            }else {
+              result.notImplemented();
+            }
+          }
+        });
+      }
+    }
+
+</code></pre></div><p>使用 <code>methodCall.method</code> 的值来区分调用哪个方法。</p> <p>如果调用的方法名是 toast，则弹 Toast。</p> <h4 id="在-flutter-端发送消息"><a href="#在-flutter-端发送消息" class="header-anchor">#</a> 在 Flutter 端发送消息：</h4> <p>Flutter 端是 Client，首先也要创建一个 MethodChannel 的实例：</p> <div class="language- extra-class"><pre class="language-text"><code>static const platformChannel = const MethodChannel('samples.flutter.io/toast');
+
+</code></pre></div><p>创建 MethodChannel 实例的时候，要传入 ChannelName，ChannelName 必须要和 Android 的 ChannelName 保持一致。ChannelName 用于区分调用哪个方法。</p> <p>然后调用接口：</p> <div class="language- extra-class"><pre class="language-text"><code>    void showToast(String content) async {
+        var arguments = Map();
+        arguments['content'] = content;
+
+        try {
+          String result = await platformChannel.invokeMethod('toast', arguments);
+          //success
+          print('showToast '+ result);
+        } on PlatformException catch (e) {
+          //error
+          print('showToast ' + e.code + e.message + e.details);
+        } on MissingPluginException catch (e){
+          //notImplemented
+          print('showToast ' + e.message);
+        }
+    }
+
+</code></pre></div><ul><li><code>platformChannel.invokeMethod('toast', arguments)</code> 是调用Android的方法，</li> <li><code>toast</code> 是要调用的方法名，为String类型；</li> <li><code>arguments</code> 是参数，只能是Map或者JSON类型，这里是Map类型。</li></ul> <blockquote><p>为了不阻塞 UI，PlatformChannel 使用 async 和 await 来修饰，而且必须要用 try catch。前面知道有三种返回结果：success、error 、notImplemented，第一个 catch 的 PlatformException 就是 error 的结果，第二个 catch 的 MissingPluginException 就是 notImplemented 的结果。</p></blockquote> <p>Flutter 的代码是：</p> <div class="language- extra-class"><pre class="language-text"><code>    import 'package:flutter/material.dart';
+    import 'package:flutter/services.dart';
+    
+    void main() =&gt; runApp(MyApp());
+    
+    class MyApp extends StatelessWidget {
+      static const platformChannel =
+          const MethodChannel('samples.flutter.io/toast');
+    
+      @override
+      Widget build(BuildContext context) {
+        return MaterialApp(
+          title: &quot;Flutter Demo&quot;,
+          theme: ThemeData(
+            primaryColor: Colors.blue,
+          ),
+          home: Scaffold(
+              appBar: AppBar(title: Text(&quot;Platform Channel&quot;)),
+              body: RaisedButton(
+                  child: Text(&quot;Show Toast&quot;),
+                  onPressed: () {
+                    showToast(&quot;Flutter Toast&quot;);
+                  })),
+        );
+      }
+    
+      void showToast(String content) async {
+        var arguments = Map();
+        arguments['content'] = content;
+    
+        try {
+          String result = await platformChannel.invokeMethod('toast', arguments);
+          print('showToast '+ result);
+        } on PlatformException catch (e) {
+          print('showToast ' + e.code + e.message + e.details);
+        } on MissingPluginException catch (e){
+          print('showToast ' + e.message);
+        }
+      }
+    }
+
+</code></pre></div><p>下面是运行的效果：</p> <p><img src="https://user-gold-cdn.xitu.io/2019/4/9/16a003a96325707f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p> <h3 id="android-调用-flutter-功能"><a href="#android-调用-flutter-功能" class="header-anchor">#</a> Android 调用 Flutter 功能</h3> <p>Android 发送一段文字到 Flutter，并显示在 Flutter 的 UI 上：原本Flutter UI上显示的是<code>Flutter Message</code>，然后将APP退后台，在切到前台，Android向Flutter发送数据，将UI的显示变为<code>Android Message</code>。</p> <p>为了实现这一功能，就需要 Android 调用 Flutter 的功能， 这时 Android 是 Client，而 Flutter 是 Host。</p> <p>所以要在 Flutter 上实现监听和功能，然后在 Android 中使用。</p> <h4 id="在flutter端添加监听及实现功能"><a href="#在flutter端添加监听及实现功能" class="header-anchor">#</a> 在Flutter端添加监听及实现功能：</h4> <div class="language- extra-class"><pre class="language-text"><code>    class MyAppState extends State&lt;MyApp&gt; {
+      static const platformChannel =
+          const MethodChannel('samples.flutter.io/message');
+    
+      String textContent = 'Flutter Message';
+    
+      @override
+      void initState() {
+        // TODO: implement initState
+        super.initState();
+        platformChannel.setMethodCallHandler((methodCall) async {
+          switch (methodCall.method) {
+            case 'showText':
+              String content = await methodCall.arguments['content'];
+              if (content !=null &amp;&amp; content.isNotEmpty) {
+                setState(() {
+                  textContent = content;
+                });
+                //返回成功的结果
+                return 'success';
+              } else {
+                //返回失败的结果
+                throw PlatformException(
+                    code: '-1',
+                    message: 'showText fail',
+                    details: 'content is null');
+              }
+              break;
+            default:
+              //返回方法未实现的结果
+              throw MissingPluginException();
+          }
+        });
+      }
+    
+      @override
+      Widget build(BuildContext context) {
+        // TODO: implement build
+        return ...
+      }
+    }
+
+</code></pre></div><p>首先创建 MethodChannel 的实例：</p> <div class="language- extra-class"><pre class="language-text"><code>static const platformChannel = const MethodChannel('samples.flutter.io/message');
+
+</code></pre></div><p>根据前面讲的 StatefulWidget 的生命周期，我们在 initState 里添加 MethodChannel 的监听，就是通过 setMethodCallHandler，为 MethodChannel 添加回调，回调的方式添加了 async，因此不会阻塞 UI：</p> <div class="language- extra-class"><pre class="language-text"><code>    platformChannel.setMethodCallHandler((methodCall) async {
+      switch (methodCall.method) {
+        case 'showText':
+          String content = await methodCall.arguments['content'];
+          if (content !=null &amp;&amp; content.isNotEmpty) {
+            ...
+            return 'success';
+          } else {
+            throw PlatformException(
+                code: '-1',
+                message: 'showText fail',
+                details: 'content is null');
+          }
+          break;
+        default:
+          throw MissingPluginException();
+      }
+    });
+
+</code></pre></div><p>回调里有个参数 <code>methodCall</code>，和 Android 里的 <code>methodCall</code> 有相同的属性：</p> <ul><li>methodCall.method： 获取方法名，String 类型</li> <li>methodCall.arguments：获取具体的参数，arguments 只能是 Map 类型或者 JSONObject 类型</li></ul> <p>在返回结果的时候：</p> <ul><li>如果运行成功，则直接 <code>return Object</code></li> <li>如果允许失败，则 throw 一个 PlatformException,表示运行失败</li> <li>如果方法没有实现，则 throw 一个 MissingPluginException</li></ul> <p>Flutter部分的全部代码为：</p> <div class="language- extra-class"><pre class="language-text"><code>    import 'package:flutter/material.dart';
+    import 'package:flutter/services.dart';
+    
+    void main() =&gt; runApp(MyApp());
+    
+    class MyApp extends StatefulWidget {
+      @override
+      State&lt;StatefulWidget&gt; createState() {
+        // TODO: implement createState
+        return MyAppState();
+      }
+    }
+    
+    class MyAppState extends State&lt;MyApp&gt; {
+      static const platformChannel =
+          const MethodChannel('samples.flutter.io/message');
+    
+      String textContent = 'Flutter Message';
+    
+      @override
+      void initState() {
+        // TODO: implement initState
+        super.initState();
+        platformChannel.setMethodCallHandler((methodCall) async {
+          switch (methodCall.method) {
+            case 'showText':
+              String content = await methodCall.arguments['content'];
+              if (content !=null &amp;&amp; content.isNotEmpty) {
+                setState(() {
+                  textContent = content;
+                });
+                return 'success';
+              } else {
+                throw PlatformException(
+                    code: '-1',
+                    message: 'showText fail',
+                    details: 'content is null');
+              }
+              break;
+            default:
+              throw MissingPluginException();
+          }
+        });
+      }
+    
+      @override
+      Widget build(BuildContext context) {
+        // TODO: implement build
+        return MaterialApp(
+          title: &quot;Flutter Demo&quot;,
+          theme: ThemeData(
+            primaryColor: Colors.blue,
+          ),
+          home: Scaffold(
+            appBar: AppBar(
+              title: Text('Platform Channel'),
+            ),
+            body: Text(textContent),
+          ),
+        );
+      }
+    }
+
+
+</code></pre></div><p>并且实现了在 Flutter 端更新 UI 的功能。</p> <h4 id="在-android-端发送数据"><a href="#在-android-端发送数据" class="header-anchor">#</a> 在 Android 端发送数据</h4> <p>发送数据我写在 <code>onResume</code> 里面，当 APP 退后台，在切到前台时就会触发。</p> <p>Android 端的代码还是在 MainActivity.java 里：</p> <div class="language- extra-class"><pre class="language-text"><code>package com.kk.flutter_app;
+
+import android.os.Bundle;
+import android.util.Log;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import io.flutter.app.FlutterActivity;
+import io.flutter.plugin.common.MethodChannel;
+import io.flutter.plugins.GeneratedPluginRegistrant;
+
+public class MainActivity extends FlutterActivity {
+
+  MethodChannel methodChannel;
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    GeneratedPluginRegistrant.registerWith(this);
+
+    methodChannel = new MethodChannel(getFlutterView(),&quot;samples.flutter.io/message&quot;);
+
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    Map map = new HashMap();
+    map.put(&quot;content&quot;,&quot;Android Message&quot;);
+    methodChannel.invokeMethod(&quot;showText&quot;, map, new MethodChannel.Result() {
+      @Override
+      public void success(Object o) {
+        Log.d(&quot;MainActivity&quot;,(String)o);
+      }
+
+      @Override
+      public void error(String errorCode, String errorMsg, Object errorDetail) {
+        Log.d(&quot;MainActivity&quot;,&quot;errorCode:&quot;+errorCode+&quot; errorMsg:&quot;+errorMsg+&quot; errorDetail:&quot;+(String)errorDetail);
+      }
+
+      @Override
+      public void notImplemented() {
+        Log.d(&quot;MainActivity&quot;,&quot;notImplemented&quot;);
+      }
+    });
+  }
+}
+
+</code></pre></div><p>首先也是先创建 MethodChannel 的实例：</p> <div class="language- extra-class"><pre class="language-text"><code>methodChannel = new MethodChannel(getFlutterView(),&quot;samples.flutter.io/message&quot;);
+
+</code></pre></div><p>然后向 Flutter 发送消息，告诉 Flutter 要调用哪个方法：</p> <div class="language- extra-class"><pre class="language-text"><code>methodChannel.invokeMethod(&quot;showText&quot;, map, new MethodChannel.Result() {
+      @Override
+      public void success(Object o) {
+        Log.d(&quot;MainActivity&quot;,(String)o);
+      }
+
+      @Override
+      public void error(String errorCode, String errorMsg, Object errorDetail) {
+        Log.d(&quot;MainActivity&quot;,&quot;errorCode:&quot;+errorCode+&quot; errorMsg:&quot;+errorMsg+&quot; errorDetail:&quot;+(String)errorDetail);
+      }
+
+      @Override
+      public void notImplemented() {
+        Log.d(&quot;MainActivity&quot;,&quot;notImplemented&quot;);
+      }
+    });
+  }
+
+</code></pre></div><p>在 <code>MethodChannel.Result()</code> 回调里有三个方法：</p> <ul><li>success：表示调用成功</li> <li>error：表示调用失败</li> <li>notImplemented：表示没有此方法</li></ul> <p>刚运行 APP 的效果：</p> <p>![img](data:image/svg+xml;utf8,)</p> <p>退后台，又切到前台的效果：</p> <p>![img](data:image/svg+xml;utf8,)</p> <h2 id="platformchannel-eventchannel-的使用"><a href="#platformchannel-eventchannel-的使用" class="header-anchor">#</a> PlatformChannel -- EventChannel 的使用</h2> <p>本节讲一下 EventChannel 使用的使用方法。</p> <p>这里使用 EventChannel 实现一个和上节相同的例子：</p> <p>Android 发送一段文字到 Flutter，并显示在 Flutter 的 UI 上：原本Flutter UI上显示的是<code>Flutter Message</code>，然后将APP退后台，在切到前台，Android向Flutter发送数据，将UI的显示变为<code>Android Message</code>。</p> <h3 id="在-flutter-端添加监听并实现功能"><a href="#在-flutter-端添加监听并实现功能" class="header-anchor">#</a> 在 Flutter 端添加监听并实现功能</h3> <p>首先是创建 EventChannel：</p> <div class="language- extra-class"><pre class="language-text"><code>static const eventChannel =
+      const EventChannel('samples.flutter.io/event');
+
+</code></pre></div><p>创建方式和 MethodChannel 是一样的，都需要传入一个字符串。</p> <p>然后在 initState() 里使用 eventChannel 的 listen 方法添加监听：</p> <div class="language- extra-class"><pre class="language-text"><code>eventChannel.receiveBroadcastStream().listen(_onListen,onError: _onError,onDone: _onDone,cancelOnError: false);
+
+</code></pre></div><p>listen 方法定义为：</p> <div class="language- extra-class"><pre class="language-text"><code>  StreamSubscription&lt;T&gt; listen(void onData(T event),
+      {Function onError, void onDone(), bool cancelOnError});
+
+
+</code></pre></div><p>可以看到 listen 方法有如下几个参数：</p> <p>参数名字</p> <p>参数类型</p> <p>意义</p> <p>必选 or 可选</p> <p>onData</p> <p>void onData(T event)</p> <p>EventChannel 正常收到数据的事件</p> <p>必选</p> <p>onError</p> <p>Function</p> <p>EventChannel 收到错误的事件</p> <p>可选</p> <p>onDone</p> <p>void onDone()</p> <p>EventChannel 收到结束监听的事件</p> <p>可选</p> <p>cancelOnError</p> <p>bool</p> <p>当出错的时候是不是自动取消 默认为false</p> <p>可选</p> <div class="language- extra-class"><pre class="language-text"><code>import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+main() {
+  runApp(new MyApp());
+}
+
+class MyApp extends StatefulWidget{
+  @override
+  State&lt;StatefulWidget&gt; createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+
+}
+
+class MyAppState extends State&lt;MyApp&gt; {
+  static const eventChannel =
+      const EventChannel('samples.flutter.io/event');
+
+  String textContent = 'Flutter Message';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    eventChannel.receiveBroadcastStream().listen(_onListen,onError: _onError,onDone: _onDone,cancelOnError: false);
+  }
+
+  void _onListen(dynamic data){
+    setState(() {
+      textContent = data;
+    });
+  }
+
+  void _onError(){
+    setState(() {
+      textContent = 'EventChannel error';
+    });
+  }
+
+  void _onDone(){
+    setState(() {
+      textContent = 'EventChannel done';
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      title: &quot;Flutter Demo&quot;,
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Platform Channel -- EventChannel'),
+        ),
+        body: Text(textContent),
+      ),
+    );
+  }
+}
+
+</code></pre></div><ul><li>如果运行正常，就会在 _onListen 收到正常数据的事件</li> <li>如果运行出现 error ，就会在 _onError 收到错误的事件</li> <li>如果运行结束，就会在 _onDone 收到结束监听的事件</li></ul> <h3 id="在-android-端发送数据-2"><a href="#在-android-端发送数据-2" class="header-anchor">#</a> 在 Android 端发送数据</h3> <div class="language- extra-class"><pre class="language-text"><code>private EventChannel.EventSink mEventSink;
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    GeneratedPluginRegistrant.registerWith(this);
+
+
+    new EventChannel(getFlutterView(),&quot;samples.flutter.io/event&quot;).setStreamHandler(new EventChannel.StreamHandler() {
+      @Override
+      public void onListen(Object o, EventChannel.EventSink eventSink) {
+        mEventSink = eventSink;
+      }
+
+      @Override
+      public void onCancel(Object o) {
+        mEventSink = null;
+      }
+    });
+
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    if(mEventSink != null){
+      mEventSink.success(&quot;Android Message&quot;);
+    }
+  }
+
+</code></pre></div><p>Android 端首先是创建 EventChannel 实例，要保证 EventChannel 的 EventName 和 Flutter 的保持一致，同时实现 setStreamHandler() 方法，让 Android 和 Flutter 建立连接，而且要保存 onListen() 方法里传过来的 EventSink 对象，需要用 EventSink 对象来发送数据</p> <p>发送数据的代码就是：</p> <ul><li><p>发送正常数据的事件</p> <div class="language- extra-class"><pre class="language-text"><code>if(mEventSink != null){
+    mEventSink.success(&quot;Android Message&quot;);
+}
+
+</code></pre></div></li> <li><p>发送 error 事件</p> <div class="language- extra-class"><pre class="language-text"><code>if(mEventSink != null){
+  mEventSink.error(&quot;-1&quot;,&quot;EventChannel fail&quot;,&quot;content is null&quot;);
+}
+
+</code></pre></div></li> <li><p>发送 结束监听的事件</p> <div class="language- extra-class"><pre class="language-text"><code>if(mEventSink != null){
+  mEventSink.endOfStream();
+}
+
+</code></pre></div></li></ul> <p>Android 的 MainActivity.java 的代码：</p> <div class="language- extra-class"><pre class="language-text"><code>package com.kk.flutter_app;
+
+import android.os.Bundle;
+import io.flutter.app.FlutterActivity;
+import io.flutter.plugin.common.EventChannel;
+import io.flutter.plugins.GeneratedPluginRegistrant;
+
+public class MainActivity extends FlutterActivity {
+
+  private EventChannel.EventSink mEventSink;
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    GeneratedPluginRegistrant.registerWith(this);
+
+
+    new EventChannel(getFlutterView(),&quot;samples.flutter.io/event&quot;).setStreamHandler(new EventChannel.StreamHandler() {
+      @Override
+      public void onListen(Object o, EventChannel.EventSink eventSink) {
+        mEventSink = eventSink;
+      }
+
+      @Override
+      public void onCancel(Object o) {
+        mEventSink = null;
+      }
+    });
+
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    if(mEventSink != null){
+      mEventSink.success(&quot;Android Message&quot;);
+    }
+  }
+}
+
+</code></pre></div><p>刚运行 APP 的效果：</p> <p><img src="https://user-gold-cdn.xitu.io/2019/4/9/16a003fb7c771a09?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p> <p>退后台，又切到前台的效果：</p> <p><img src="https://user-gold-cdn.xitu.io/2019/4/9/16a003f51bee4eb6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>你会发现，MethodChannel 和 EventChannel 都可以实现 Flutter 与 Native 的双向通信，所以 MethodChannel 和 EventChannel 在使用过程中是可以互相替换的。</p> <p>在官方文档里，更多的是对 MethodChannel 的介绍，EventChannel 的几乎没有，但你可以根据自己的需要和习惯来选择使用，因为 MethodChannel 和 EventChannel 的底层实现是一样的。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/flutter/44 - 实现买票的功能.html" class="prev">
+        实现买票的功能
+      </a></span> <span class="next"><a href="/blog/flutter/46 - Flutter 性能监控工具.html">
+        Flutter 性能监控工具
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b72373f7.js" defer></script><script src="/blog/assets/js/2.2219f9c0.js" defer></script><script src="/blog/assets/js/120.6db360c5.js" defer></script>
+  </body>
+</html>

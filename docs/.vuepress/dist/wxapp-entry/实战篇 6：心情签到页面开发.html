@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实战篇 6：心情签到页面开发 | Mr.Liu</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b00d9e97.css" as="style"><link rel="preload" href="/blog/assets/js/app.b72373f7.js" as="script"><link rel="preload" href="/blog/assets/js/2.2219f9c0.js" as="script"><link rel="preload" href="/blog/assets/js/454.a8f8ab86.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4213d21f.js"><link rel="prefetch" href="/blog/assets/js/100.fa207478.js"><link rel="prefetch" href="/blog/assets/js/101.a2a18205.js"><link rel="prefetch" href="/blog/assets/js/102.b0bdba49.js"><link rel="prefetch" href="/blog/assets/js/103.4207d4a0.js"><link rel="prefetch" href="/blog/assets/js/104.d47d6122.js"><link rel="prefetch" href="/blog/assets/js/105.84f3b0d6.js"><link rel="prefetch" href="/blog/assets/js/106.a3e0da4d.js"><link rel="prefetch" href="/blog/assets/js/107.e2e32489.js"><link rel="prefetch" href="/blog/assets/js/108.fef5787a.js"><link rel="prefetch" href="/blog/assets/js/109.9cacc969.js"><link rel="prefetch" href="/blog/assets/js/11.27166c35.js"><link rel="prefetch" href="/blog/assets/js/110.43122e5c.js"><link rel="prefetch" href="/blog/assets/js/111.0c1ef4dd.js"><link rel="prefetch" href="/blog/assets/js/112.10c7d380.js"><link rel="prefetch" href="/blog/assets/js/113.c912ddfe.js"><link rel="prefetch" href="/blog/assets/js/114.6127c171.js"><link rel="prefetch" href="/blog/assets/js/115.c7d9f75c.js"><link rel="prefetch" href="/blog/assets/js/116.152fa701.js"><link rel="prefetch" href="/blog/assets/js/117.03af553d.js"><link rel="prefetch" href="/blog/assets/js/118.7ffcd14e.js"><link rel="prefetch" href="/blog/assets/js/119.b0d680e7.js"><link rel="prefetch" href="/blog/assets/js/12.ea61452a.js"><link rel="prefetch" href="/blog/assets/js/120.6db360c5.js"><link rel="prefetch" href="/blog/assets/js/121.6e06fdbd.js"><link rel="prefetch" href="/blog/assets/js/122.d70dd36f.js"><link rel="prefetch" href="/blog/assets/js/123.95a15881.js"><link rel="prefetch" href="/blog/assets/js/124.41b68dde.js"><link rel="prefetch" href="/blog/assets/js/125.5a019ebc.js"><link rel="prefetch" href="/blog/assets/js/126.99da1cc5.js"><link rel="prefetch" href="/blog/assets/js/127.8d929133.js"><link rel="prefetch" href="/blog/assets/js/128.8a80423d.js"><link rel="prefetch" href="/blog/assets/js/129.a26f88a7.js"><link rel="prefetch" href="/blog/assets/js/13.e8ea3eed.js"><link rel="prefetch" href="/blog/assets/js/130.a494c8d3.js"><link rel="prefetch" href="/blog/assets/js/131.752b57aa.js"><link rel="prefetch" href="/blog/assets/js/132.03be5468.js"><link rel="prefetch" href="/blog/assets/js/133.b900cacd.js"><link rel="prefetch" href="/blog/assets/js/134.07c9a37c.js"><link rel="prefetch" href="/blog/assets/js/135.7fae2edd.js"><link rel="prefetch" href="/blog/assets/js/136.790d189e.js"><link rel="prefetch" href="/blog/assets/js/137.936714b3.js"><link rel="prefetch" href="/blog/assets/js/138.ca57432f.js"><link rel="prefetch" href="/blog/assets/js/139.c40241bd.js"><link rel="prefetch" href="/blog/assets/js/14.f5e6175f.js"><link rel="prefetch" href="/blog/assets/js/140.7e64b631.js"><link rel="prefetch" href="/blog/assets/js/141.dd5939fe.js"><link rel="prefetch" href="/blog/assets/js/142.15915de1.js"><link rel="prefetch" href="/blog/assets/js/143.74cd60e1.js"><link rel="prefetch" href="/blog/assets/js/144.6182277f.js"><link rel="prefetch" href="/blog/assets/js/145.77b2db6a.js"><link rel="prefetch" href="/blog/assets/js/146.9ee3cd6a.js"><link rel="prefetch" href="/blog/assets/js/147.4e2efd27.js"><link rel="prefetch" href="/blog/assets/js/148.f1da666f.js"><link rel="prefetch" href="/blog/assets/js/149.9e785988.js"><link rel="prefetch" href="/blog/assets/js/15.df5d6a6a.js"><link rel="prefetch" href="/blog/assets/js/150.8efddfd8.js"><link rel="prefetch" href="/blog/assets/js/151.5eb4f49f.js"><link rel="prefetch" href="/blog/assets/js/152.cb4ba17a.js"><link rel="prefetch" href="/blog/assets/js/153.934e36d2.js"><link rel="prefetch" href="/blog/assets/js/154.7aa94017.js"><link rel="prefetch" href="/blog/assets/js/155.a2d965ff.js"><link rel="prefetch" href="/blog/assets/js/156.16f69f9e.js"><link rel="prefetch" href="/blog/assets/js/157.307744ba.js"><link rel="prefetch" href="/blog/assets/js/158.17c75b84.js"><link rel="prefetch" href="/blog/assets/js/159.625baba3.js"><link rel="prefetch" href="/blog/assets/js/16.e0370ef8.js"><link rel="prefetch" href="/blog/assets/js/160.29a7c7eb.js"><link rel="prefetch" href="/blog/assets/js/161.c223d782.js"><link rel="prefetch" href="/blog/assets/js/162.c3a832be.js"><link rel="prefetch" href="/blog/assets/js/163.e9aff0cf.js"><link rel="prefetch" href="/blog/assets/js/164.22ea5757.js"><link rel="prefetch" href="/blog/assets/js/165.712fcb85.js"><link rel="prefetch" href="/blog/assets/js/166.cf71fc9b.js"><link rel="prefetch" href="/blog/assets/js/167.84f1208e.js"><link rel="prefetch" href="/blog/assets/js/168.501651ec.js"><link rel="prefetch" href="/blog/assets/js/169.665da9a9.js"><link rel="prefetch" href="/blog/assets/js/17.884f8b31.js"><link rel="prefetch" href="/blog/assets/js/170.40e206f4.js"><link rel="prefetch" href="/blog/assets/js/171.22a023e6.js"><link rel="prefetch" href="/blog/assets/js/172.c9f57151.js"><link rel="prefetch" href="/blog/assets/js/173.5b663775.js"><link rel="prefetch" href="/blog/assets/js/174.f38576a4.js"><link rel="prefetch" href="/blog/assets/js/175.d8acabe2.js"><link rel="prefetch" href="/blog/assets/js/176.e17b4260.js"><link rel="prefetch" href="/blog/assets/js/177.82517cd4.js"><link rel="prefetch" href="/blog/assets/js/178.dca9a177.js"><link rel="prefetch" href="/blog/assets/js/179.55ac84d8.js"><link rel="prefetch" href="/blog/assets/js/18.99afdf09.js"><link rel="prefetch" href="/blog/assets/js/180.08ecbc50.js"><link rel="prefetch" href="/blog/assets/js/181.064adef8.js"><link rel="prefetch" href="/blog/assets/js/182.eac974db.js"><link rel="prefetch" href="/blog/assets/js/183.a8aaeadb.js"><link rel="prefetch" href="/blog/assets/js/184.c586f7bc.js"><link rel="prefetch" href="/blog/assets/js/185.287601bc.js"><link rel="prefetch" href="/blog/assets/js/186.52ca6240.js"><link rel="prefetch" href="/blog/assets/js/187.b5e3a4bb.js"><link rel="prefetch" href="/blog/assets/js/188.f610dddf.js"><link rel="prefetch" href="/blog/assets/js/189.03750da5.js"><link rel="prefetch" href="/blog/assets/js/19.8a02f750.js"><link rel="prefetch" href="/blog/assets/js/190.0caa43c9.js"><link rel="prefetch" href="/blog/assets/js/191.383bf522.js"><link rel="prefetch" href="/blog/assets/js/192.d3062c3e.js"><link rel="prefetch" href="/blog/assets/js/193.7f7e9901.js"><link rel="prefetch" href="/blog/assets/js/194.f676d07d.js"><link rel="prefetch" href="/blog/assets/js/195.bf775451.js"><link rel="prefetch" href="/blog/assets/js/196.1c48ef3f.js"><link rel="prefetch" href="/blog/assets/js/197.6c53ba98.js"><link rel="prefetch" href="/blog/assets/js/198.9d5a5085.js"><link rel="prefetch" href="/blog/assets/js/199.ab52e41c.js"><link rel="prefetch" href="/blog/assets/js/20.4bf913aa.js"><link rel="prefetch" href="/blog/assets/js/200.1c398b3c.js"><link rel="prefetch" href="/blog/assets/js/201.c75a6c8a.js"><link rel="prefetch" href="/blog/assets/js/202.4d11fdf6.js"><link rel="prefetch" href="/blog/assets/js/203.ee6347bb.js"><link rel="prefetch" href="/blog/assets/js/204.84f5a644.js"><link rel="prefetch" href="/blog/assets/js/205.0fef4632.js"><link rel="prefetch" href="/blog/assets/js/206.eca759d5.js"><link rel="prefetch" href="/blog/assets/js/207.d505c6d2.js"><link rel="prefetch" href="/blog/assets/js/208.5ab75ef7.js"><link rel="prefetch" href="/blog/assets/js/209.29a9f3f1.js"><link rel="prefetch" href="/blog/assets/js/21.0936bb80.js"><link rel="prefetch" href="/blog/assets/js/210.9af28056.js"><link rel="prefetch" href="/blog/assets/js/211.f305f1e8.js"><link rel="prefetch" href="/blog/assets/js/212.db5aae61.js"><link rel="prefetch" href="/blog/assets/js/213.25c645f5.js"><link rel="prefetch" href="/blog/assets/js/214.85bb3df2.js"><link rel="prefetch" href="/blog/assets/js/215.5bc993e6.js"><link rel="prefetch" href="/blog/assets/js/216.dbec2182.js"><link rel="prefetch" href="/blog/assets/js/217.2776cfb0.js"><link rel="prefetch" href="/blog/assets/js/218.da7efde1.js"><link rel="prefetch" href="/blog/assets/js/219.f3a10672.js"><link rel="prefetch" href="/blog/assets/js/22.6eabfbae.js"><link rel="prefetch" href="/blog/assets/js/220.6a60c6c7.js"><link rel="prefetch" href="/blog/assets/js/221.2646fb75.js"><link rel="prefetch" href="/blog/assets/js/222.6580269e.js"><link rel="prefetch" href="/blog/assets/js/223.3397cf4f.js"><link rel="prefetch" href="/blog/assets/js/224.6575a90e.js"><link rel="prefetch" href="/blog/assets/js/225.8c1c6e94.js"><link rel="prefetch" href="/blog/assets/js/226.eeb12de5.js"><link rel="prefetch" href="/blog/assets/js/227.aacd8ef4.js"><link rel="prefetch" href="/blog/assets/js/228.7e407bfd.js"><link rel="prefetch" href="/blog/assets/js/229.eb5a01cd.js"><link rel="prefetch" href="/blog/assets/js/23.f05f6515.js"><link rel="prefetch" href="/blog/assets/js/230.7219d9ce.js"><link rel="prefetch" href="/blog/assets/js/231.016ae179.js"><link rel="prefetch" href="/blog/assets/js/232.97d25eee.js"><link rel="prefetch" href="/blog/assets/js/233.835cb5fc.js"><link rel="prefetch" href="/blog/assets/js/234.36112a10.js"><link rel="prefetch" href="/blog/assets/js/235.b2df9c65.js"><link rel="prefetch" href="/blog/assets/js/236.72299e3e.js"><link rel="prefetch" href="/blog/assets/js/237.1befb80c.js"><link rel="prefetch" href="/blog/assets/js/238.e387348d.js"><link rel="prefetch" href="/blog/assets/js/239.d5e8d924.js"><link rel="prefetch" href="/blog/assets/js/24.5899d319.js"><link rel="prefetch" href="/blog/assets/js/240.4c7f5211.js"><link rel="prefetch" href="/blog/assets/js/241.371861a8.js"><link rel="prefetch" href="/blog/assets/js/242.61edc86c.js"><link rel="prefetch" href="/blog/assets/js/243.f85ffb8e.js"><link rel="prefetch" href="/blog/assets/js/244.3fbf2167.js"><link rel="prefetch" href="/blog/assets/js/245.5d9d618a.js"><link rel="prefetch" href="/blog/assets/js/246.6636d76f.js"><link rel="prefetch" href="/blog/assets/js/247.006c37a6.js"><link rel="prefetch" href="/blog/assets/js/248.eeefdc6d.js"><link rel="prefetch" href="/blog/assets/js/249.bb66f939.js"><link rel="prefetch" href="/blog/assets/js/25.feeda54a.js"><link rel="prefetch" href="/blog/assets/js/250.dba1e5ba.js"><link rel="prefetch" href="/blog/assets/js/251.cd9561b1.js"><link rel="prefetch" href="/blog/assets/js/252.e6a79f4e.js"><link rel="prefetch" href="/blog/assets/js/253.01bbcc41.js"><link rel="prefetch" href="/blog/assets/js/254.75d6c42a.js"><link rel="prefetch" href="/blog/assets/js/255.bf9d53b3.js"><link rel="prefetch" href="/blog/assets/js/256.f64de66c.js"><link rel="prefetch" href="/blog/assets/js/257.0741c551.js"><link rel="prefetch" href="/blog/assets/js/258.0659cfe2.js"><link rel="prefetch" href="/blog/assets/js/259.21646579.js"><link rel="prefetch" href="/blog/assets/js/26.8182efc2.js"><link rel="prefetch" href="/blog/assets/js/260.7e40009e.js"><link rel="prefetch" href="/blog/assets/js/261.60c41766.js"><link rel="prefetch" href="/blog/assets/js/262.36bca1e4.js"><link rel="prefetch" href="/blog/assets/js/263.53a9a695.js"><link rel="prefetch" href="/blog/assets/js/264.0f51b147.js"><link rel="prefetch" href="/blog/assets/js/265.368f444d.js"><link rel="prefetch" href="/blog/assets/js/266.995c43e8.js"><link rel="prefetch" href="/blog/assets/js/267.ba4a1d2f.js"><link rel="prefetch" href="/blog/assets/js/268.3d2de771.js"><link rel="prefetch" href="/blog/assets/js/269.7ee7a020.js"><link rel="prefetch" href="/blog/assets/js/27.96f7c8b5.js"><link rel="prefetch" href="/blog/assets/js/270.d2b6dbc1.js"><link rel="prefetch" href="/blog/assets/js/271.c98e0a1f.js"><link rel="prefetch" href="/blog/assets/js/272.8e96cf45.js"><link rel="prefetch" href="/blog/assets/js/273.6c7a3693.js"><link rel="prefetch" href="/blog/assets/js/274.7ae7fa3b.js"><link rel="prefetch" href="/blog/assets/js/275.277e28fe.js"><link rel="prefetch" href="/blog/assets/js/276.0d2d3363.js"><link rel="prefetch" href="/blog/assets/js/277.50ba95f9.js"><link rel="prefetch" href="/blog/assets/js/278.2ac47f2f.js"><link rel="prefetch" href="/blog/assets/js/279.d5016a2f.js"><link rel="prefetch" href="/blog/assets/js/28.956d8c00.js"><link rel="prefetch" href="/blog/assets/js/280.1cff421f.js"><link rel="prefetch" href="/blog/assets/js/281.7becae44.js"><link rel="prefetch" href="/blog/assets/js/282.a470afa4.js"><link rel="prefetch" href="/blog/assets/js/283.92451915.js"><link rel="prefetch" href="/blog/assets/js/284.bf81219c.js"><link rel="prefetch" href="/blog/assets/js/285.abb3e0e2.js"><link rel="prefetch" href="/blog/assets/js/286.9b399fac.js"><link rel="prefetch" href="/blog/assets/js/287.601549f9.js"><link rel="prefetch" href="/blog/assets/js/288.74af2d88.js"><link rel="prefetch" href="/blog/assets/js/289.d287a9d1.js"><link rel="prefetch" href="/blog/assets/js/29.5fdfceb0.js"><link rel="prefetch" href="/blog/assets/js/290.8b41cc6f.js"><link rel="prefetch" href="/blog/assets/js/291.30cb3e81.js"><link rel="prefetch" href="/blog/assets/js/292.f6c92a32.js"><link rel="prefetch" href="/blog/assets/js/293.4a5c5d03.js"><link rel="prefetch" href="/blog/assets/js/294.889fa477.js"><link rel="prefetch" href="/blog/assets/js/295.7c9bfb1a.js"><link rel="prefetch" href="/blog/assets/js/296.5c393daa.js"><link rel="prefetch" href="/blog/assets/js/297.fdb8d15e.js"><link rel="prefetch" href="/blog/assets/js/298.93998d32.js"><link rel="prefetch" href="/blog/assets/js/299.ad16ee20.js"><link rel="prefetch" href="/blog/assets/js/3.bae9c3b9.js"><link rel="prefetch" href="/blog/assets/js/30.092f59e3.js"><link rel="prefetch" href="/blog/assets/js/300.d7ee2ec1.js"><link rel="prefetch" href="/blog/assets/js/301.49bde86e.js"><link rel="prefetch" href="/blog/assets/js/302.cb98973f.js"><link rel="prefetch" href="/blog/assets/js/303.f6b8a9e2.js"><link rel="prefetch" href="/blog/assets/js/304.e112a703.js"><link rel="prefetch" href="/blog/assets/js/305.a4957830.js"><link rel="prefetch" href="/blog/assets/js/306.c870dc18.js"><link rel="prefetch" href="/blog/assets/js/307.001c4372.js"><link rel="prefetch" href="/blog/assets/js/308.79901a9c.js"><link rel="prefetch" href="/blog/assets/js/309.869b2a70.js"><link rel="prefetch" href="/blog/assets/js/31.a2348ea1.js"><link rel="prefetch" href="/blog/assets/js/310.1c002e84.js"><link rel="prefetch" href="/blog/assets/js/311.7e0bcf89.js"><link rel="prefetch" href="/blog/assets/js/312.2660fad0.js"><link rel="prefetch" href="/blog/assets/js/313.6e89cadb.js"><link rel="prefetch" href="/blog/assets/js/314.6990aa37.js"><link rel="prefetch" href="/blog/assets/js/315.8153a154.js"><link rel="prefetch" href="/blog/assets/js/316.6da9b5a5.js"><link rel="prefetch" href="/blog/assets/js/317.11c83cef.js"><link rel="prefetch" href="/blog/assets/js/318.e8490648.js"><link rel="prefetch" href="/blog/assets/js/319.53861265.js"><link rel="prefetch" href="/blog/assets/js/32.a194da00.js"><link rel="prefetch" href="/blog/assets/js/320.56dad00f.js"><link rel="prefetch" href="/blog/assets/js/321.ccd6b418.js"><link rel="prefetch" href="/blog/assets/js/322.faed6cae.js"><link rel="prefetch" href="/blog/assets/js/323.d268cb3a.js"><link rel="prefetch" href="/blog/assets/js/324.dce3459a.js"><link rel="prefetch" href="/blog/assets/js/325.d01c7ad8.js"><link rel="prefetch" href="/blog/assets/js/326.0e9aa527.js"><link rel="prefetch" href="/blog/assets/js/327.a302d51e.js"><link rel="prefetch" href="/blog/assets/js/328.a5997e15.js"><link rel="prefetch" href="/blog/assets/js/329.798b92cf.js"><link rel="prefetch" href="/blog/assets/js/33.e4d25147.js"><link rel="prefetch" href="/blog/assets/js/330.3ed38f17.js"><link rel="prefetch" href="/blog/assets/js/331.2147c45e.js"><link rel="prefetch" href="/blog/assets/js/332.4f72a981.js"><link rel="prefetch" href="/blog/assets/js/333.b198d877.js"><link rel="prefetch" href="/blog/assets/js/334.01f2ba40.js"><link rel="prefetch" href="/blog/assets/js/335.04c31165.js"><link rel="prefetch" href="/blog/assets/js/336.b939caf6.js"><link rel="prefetch" href="/blog/assets/js/337.e723b696.js"><link rel="prefetch" href="/blog/assets/js/338.bb89d233.js"><link rel="prefetch" href="/blog/assets/js/339.0c93e7f2.js"><link rel="prefetch" href="/blog/assets/js/34.881d241b.js"><link rel="prefetch" href="/blog/assets/js/340.e59d5112.js"><link rel="prefetch" href="/blog/assets/js/341.1c5d24ff.js"><link rel="prefetch" href="/blog/assets/js/342.13b1c49e.js"><link rel="prefetch" href="/blog/assets/js/343.0434e83c.js"><link rel="prefetch" href="/blog/assets/js/344.936699cc.js"><link rel="prefetch" href="/blog/assets/js/345.81802f59.js"><link rel="prefetch" href="/blog/assets/js/346.fcc4c864.js"><link rel="prefetch" href="/blog/assets/js/347.fb03a8d6.js"><link rel="prefetch" href="/blog/assets/js/348.0a0514fd.js"><link rel="prefetch" href="/blog/assets/js/349.1a1dcade.js"><link rel="prefetch" href="/blog/assets/js/35.d7055bd8.js"><link rel="prefetch" href="/blog/assets/js/350.3d801021.js"><link rel="prefetch" href="/blog/assets/js/351.e63d16b6.js"><link rel="prefetch" href="/blog/assets/js/352.5bb35d77.js"><link rel="prefetch" href="/blog/assets/js/353.7e25749a.js"><link rel="prefetch" href="/blog/assets/js/354.c12c2e75.js"><link rel="prefetch" href="/blog/assets/js/355.62c13100.js"><link rel="prefetch" href="/blog/assets/js/356.3e2b2e72.js"><link rel="prefetch" href="/blog/assets/js/357.a20defbc.js"><link rel="prefetch" href="/blog/assets/js/358.838f09bc.js"><link rel="prefetch" href="/blog/assets/js/359.8739e3bf.js"><link rel="prefetch" href="/blog/assets/js/36.367436d6.js"><link rel="prefetch" href="/blog/assets/js/360.c1d08f47.js"><link rel="prefetch" href="/blog/assets/js/361.4749916b.js"><link rel="prefetch" href="/blog/assets/js/362.41524f06.js"><link rel="prefetch" href="/blog/assets/js/363.2da456c2.js"><link rel="prefetch" href="/blog/assets/js/364.14db63c4.js"><link rel="prefetch" href="/blog/assets/js/365.bf1591b4.js"><link rel="prefetch" href="/blog/assets/js/366.dc960a99.js"><link rel="prefetch" href="/blog/assets/js/367.fd7b3c99.js"><link rel="prefetch" href="/blog/assets/js/368.ec166fb2.js"><link rel="prefetch" href="/blog/assets/js/369.d2e46423.js"><link rel="prefetch" href="/blog/assets/js/37.cfabd421.js"><link rel="prefetch" href="/blog/assets/js/370.01b4912e.js"><link rel="prefetch" href="/blog/assets/js/371.2fc91e89.js"><link rel="prefetch" href="/blog/assets/js/372.69a3cd02.js"><link rel="prefetch" href="/blog/assets/js/373.8ae21b19.js"><link rel="prefetch" href="/blog/assets/js/374.aa4dce2f.js"><link rel="prefetch" href="/blog/assets/js/375.f07a6905.js"><link rel="prefetch" href="/blog/assets/js/376.1fc8f6ba.js"><link rel="prefetch" href="/blog/assets/js/377.5b033c7a.js"><link rel="prefetch" href="/blog/assets/js/378.db00fb42.js"><link rel="prefetch" href="/blog/assets/js/379.e273b5b0.js"><link rel="prefetch" href="/blog/assets/js/38.80a92a9a.js"><link rel="prefetch" href="/blog/assets/js/380.0c1d2f74.js"><link rel="prefetch" href="/blog/assets/js/381.e93aa093.js"><link rel="prefetch" href="/blog/assets/js/382.cc1bf941.js"><link rel="prefetch" href="/blog/assets/js/383.57eed2d3.js"><link rel="prefetch" href="/blog/assets/js/384.e78da318.js"><link rel="prefetch" href="/blog/assets/js/385.c476b444.js"><link rel="prefetch" href="/blog/assets/js/386.a29802ac.js"><link rel="prefetch" href="/blog/assets/js/387.63f692a3.js"><link rel="prefetch" href="/blog/assets/js/388.d44d0a12.js"><link rel="prefetch" href="/blog/assets/js/389.f4f55d15.js"><link rel="prefetch" href="/blog/assets/js/39.51b28712.js"><link rel="prefetch" href="/blog/assets/js/390.eeb2ea5e.js"><link rel="prefetch" href="/blog/assets/js/391.4172f1d7.js"><link rel="prefetch" href="/blog/assets/js/392.203b4305.js"><link rel="prefetch" href="/blog/assets/js/393.0f3c7b99.js"><link rel="prefetch" href="/blog/assets/js/394.4109f422.js"><link rel="prefetch" href="/blog/assets/js/395.145c0e37.js"><link rel="prefetch" href="/blog/assets/js/396.5739a049.js"><link rel="prefetch" href="/blog/assets/js/397.04cbe49d.js"><link rel="prefetch" href="/blog/assets/js/398.984a14e0.js"><link rel="prefetch" href="/blog/assets/js/399.68879b0f.js"><link rel="prefetch" href="/blog/assets/js/4.17793416.js"><link rel="prefetch" href="/blog/assets/js/40.cca61ef0.js"><link rel="prefetch" href="/blog/assets/js/400.dbabb331.js"><link rel="prefetch" href="/blog/assets/js/401.840a1493.js"><link rel="prefetch" href="/blog/assets/js/402.0a88d2b6.js"><link rel="prefetch" href="/blog/assets/js/403.18ba61d5.js"><link rel="prefetch" href="/blog/assets/js/404.526ab707.js"><link rel="prefetch" href="/blog/assets/js/405.f6b60057.js"><link rel="prefetch" href="/blog/assets/js/406.84e6f37c.js"><link rel="prefetch" href="/blog/assets/js/407.1cc22e8e.js"><link rel="prefetch" href="/blog/assets/js/408.c838e002.js"><link rel="prefetch" href="/blog/assets/js/409.3b625fca.js"><link rel="prefetch" href="/blog/assets/js/41.3b9b35fb.js"><link rel="prefetch" href="/blog/assets/js/410.3d841dde.js"><link rel="prefetch" href="/blog/assets/js/411.4c112919.js"><link rel="prefetch" href="/blog/assets/js/412.35aeac08.js"><link rel="prefetch" href="/blog/assets/js/413.10d093fe.js"><link rel="prefetch" href="/blog/assets/js/414.c98c6493.js"><link rel="prefetch" href="/blog/assets/js/415.17289b1a.js"><link rel="prefetch" href="/blog/assets/js/416.32b1b05f.js"><link rel="prefetch" href="/blog/assets/js/417.5bd95f13.js"><link rel="prefetch" href="/blog/assets/js/418.7f0b6a25.js"><link rel="prefetch" href="/blog/assets/js/419.6651a70e.js"><link rel="prefetch" href="/blog/assets/js/42.adad5b34.js"><link rel="prefetch" href="/blog/assets/js/420.c239318d.js"><link rel="prefetch" href="/blog/assets/js/421.7a2e9a91.js"><link rel="prefetch" href="/blog/assets/js/422.551aab1d.js"><link rel="prefetch" href="/blog/assets/js/423.18e3b820.js"><link rel="prefetch" href="/blog/assets/js/424.95046f00.js"><link rel="prefetch" href="/blog/assets/js/425.ef4a5191.js"><link rel="prefetch" href="/blog/assets/js/426.1c13b1a5.js"><link rel="prefetch" href="/blog/assets/js/427.c019f006.js"><link rel="prefetch" href="/blog/assets/js/428.1b2eaa28.js"><link rel="prefetch" href="/blog/assets/js/429.fd8e32e3.js"><link rel="prefetch" href="/blog/assets/js/43.ec99f75e.js"><link rel="prefetch" href="/blog/assets/js/430.cf4a4078.js"><link rel="prefetch" href="/blog/assets/js/431.265b28ef.js"><link rel="prefetch" href="/blog/assets/js/432.00f19a47.js"><link rel="prefetch" href="/blog/assets/js/433.f0a5d954.js"><link rel="prefetch" href="/blog/assets/js/434.71cf06f2.js"><link rel="prefetch" href="/blog/assets/js/435.5a7e5590.js"><link rel="prefetch" href="/blog/assets/js/436.d6016384.js"><link rel="prefetch" href="/blog/assets/js/437.d5565e15.js"><link rel="prefetch" href="/blog/assets/js/438.7479f8da.js"><link rel="prefetch" href="/blog/assets/js/439.aa4dd15f.js"><link rel="prefetch" href="/blog/assets/js/44.8189586c.js"><link rel="prefetch" href="/blog/assets/js/440.4f7d14d3.js"><link rel="prefetch" href="/blog/assets/js/441.1eeb35f3.js"><link rel="prefetch" href="/blog/assets/js/442.b556fe77.js"><link rel="prefetch" href="/blog/assets/js/443.6ee28303.js"><link rel="prefetch" href="/blog/assets/js/444.48140a5b.js"><link rel="prefetch" href="/blog/assets/js/445.892070d3.js"><link rel="prefetch" href="/blog/assets/js/446.e5e602ae.js"><link rel="prefetch" href="/blog/assets/js/447.50c68b39.js"><link rel="prefetch" href="/blog/assets/js/448.9893dc6c.js"><link rel="prefetch" href="/blog/assets/js/449.4703a284.js"><link rel="prefetch" href="/blog/assets/js/45.d03eb196.js"><link rel="prefetch" href="/blog/assets/js/450.d4b8b7bd.js"><link rel="prefetch" href="/blog/assets/js/451.b3fe1758.js"><link rel="prefetch" href="/blog/assets/js/452.eaf3117e.js"><link rel="prefetch" href="/blog/assets/js/453.d68564c3.js"><link rel="prefetch" href="/blog/assets/js/455.76b9d26b.js"><link rel="prefetch" href="/blog/assets/js/456.1d0d8768.js"><link rel="prefetch" href="/blog/assets/js/457.d3a520dd.js"><link rel="prefetch" href="/blog/assets/js/458.a0d8fd82.js"><link rel="prefetch" href="/blog/assets/js/46.bc8e91a8.js"><link rel="prefetch" href="/blog/assets/js/47.f076b4b4.js"><link rel="prefetch" href="/blog/assets/js/48.7178ad6d.js"><link rel="prefetch" href="/blog/assets/js/49.3b3bfea4.js"><link rel="prefetch" href="/blog/assets/js/5.423840d3.js"><link rel="prefetch" href="/blog/assets/js/50.d9b83da4.js"><link rel="prefetch" href="/blog/assets/js/51.9d27edce.js"><link rel="prefetch" href="/blog/assets/js/52.d5b605d6.js"><link rel="prefetch" href="/blog/assets/js/53.39011ac7.js"><link rel="prefetch" href="/blog/assets/js/54.0256ac32.js"><link rel="prefetch" href="/blog/assets/js/55.40614e04.js"><link rel="prefetch" href="/blog/assets/js/56.190c034c.js"><link rel="prefetch" href="/blog/assets/js/57.b1c87a27.js"><link rel="prefetch" href="/blog/assets/js/58.aadf8f0b.js"><link rel="prefetch" href="/blog/assets/js/59.c7a8ec0f.js"><link rel="prefetch" href="/blog/assets/js/6.6e8c67be.js"><link rel="prefetch" href="/blog/assets/js/60.16f04dae.js"><link rel="prefetch" href="/blog/assets/js/61.1da49901.js"><link rel="prefetch" href="/blog/assets/js/62.c567b83d.js"><link rel="prefetch" href="/blog/assets/js/63.a9eaa6cb.js"><link rel="prefetch" href="/blog/assets/js/64.bd23e37e.js"><link rel="prefetch" href="/blog/assets/js/65.6449b7f4.js"><link rel="prefetch" href="/blog/assets/js/66.5394a009.js"><link rel="prefetch" href="/blog/assets/js/67.30990c21.js"><link rel="prefetch" href="/blog/assets/js/68.040df19a.js"><link rel="prefetch" href="/blog/assets/js/69.7c4f7a13.js"><link rel="prefetch" href="/blog/assets/js/7.fec0ecd5.js"><link rel="prefetch" href="/blog/assets/js/70.7a8b9c4f.js"><link rel="prefetch" href="/blog/assets/js/71.42507e26.js"><link rel="prefetch" href="/blog/assets/js/72.676d8ece.js"><link rel="prefetch" href="/blog/assets/js/73.daa7600a.js"><link rel="prefetch" href="/blog/assets/js/74.20e478dc.js"><link rel="prefetch" href="/blog/assets/js/75.900ff344.js"><link rel="prefetch" href="/blog/assets/js/76.1b07b297.js"><link rel="prefetch" href="/blog/assets/js/77.0356d020.js"><link rel="prefetch" href="/blog/assets/js/78.d3355c58.js"><link rel="prefetch" href="/blog/assets/js/79.42dd852d.js"><link rel="prefetch" href="/blog/assets/js/8.b72e1b92.js"><link rel="prefetch" href="/blog/assets/js/80.702f8d04.js"><link rel="prefetch" href="/blog/assets/js/81.45abcf52.js"><link rel="prefetch" href="/blog/assets/js/82.4ceb3c5b.js"><link rel="prefetch" href="/blog/assets/js/83.5a647425.js"><link rel="prefetch" href="/blog/assets/js/84.445edf85.js"><link rel="prefetch" href="/blog/assets/js/85.d7363708.js"><link rel="prefetch" href="/blog/assets/js/86.fc754847.js"><link rel="prefetch" href="/blog/assets/js/87.fdf002b1.js"><link rel="prefetch" href="/blog/assets/js/88.d89bd9b9.js"><link rel="prefetch" href="/blog/assets/js/89.84be3134.js"><link rel="prefetch" href="/blog/assets/js/9.a0088c26.js"><link rel="prefetch" href="/blog/assets/js/90.750b1c1c.js"><link rel="prefetch" href="/blog/assets/js/91.ec8182c1.js"><link rel="prefetch" href="/blog/assets/js/92.faca2c51.js"><link rel="prefetch" href="/blog/assets/js/93.d45ce2d1.js"><link rel="prefetch" href="/blog/assets/js/94.4b7a271d.js"><link rel="prefetch" href="/blog/assets/js/95.e2fb278c.js"><link rel="prefetch" href="/blog/assets/js/96.9c2cf45f.js"><link rel="prefetch" href="/blog/assets/js/97.e757d67c.js"><link rel="prefetch" href="/blog/assets/js/98.7b001ece.js"><link rel="prefetch" href="/blog/assets/js/99.5d4e870f.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b00d9e97.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/bloglogo.png" alt="Mr.Liu" class="logo"> <span class="site-name can-hide">Mr.Liu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/blog/career-plan" class="sidebar-heading clickable"><span>如何做好职业规划</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>H5 开发实战手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端算法与数据结构面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 hapi 的 Node.js 小程序后端开发实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 NodeJS 构建 GraphQL API 服务</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Python 实战：用 Scrapyd 打造个人化的爬虫部署管理控制台</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL 是怎样运行的：从根儿上理解 MySQL</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Flutter 完全手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript 设计模式核⼼原理与应⽤实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React SSR 服务端渲染原理解析与同构实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React Hooks 与 Immutable 数据流实战</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React 组合式开发实践：打造企业管理系统五大核心模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue 项目构建与开发入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Web 前端面试指南与高频考题解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 组件精讲</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端性能优化原理与实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>剖析 Vue.js 内部运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>使用 webpack 定制前端开发环境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>如何使用 Canvas 制作出炫酷的网页背景特效</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发者必备的 Docker 实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>用 npm script 打造超溜的前端工作流</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>微信小程序开发入门：从 0 到 1 实现天气小程序</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/wxapp-entry/基础篇 1：小程序开发基础知识.html" class="sidebar-link">基础篇 1：小程序开发基础知识</a></li><li><a href="/blog/wxapp-entry/基础篇 2：小程序云开发基础知识.html" class="sidebar-link">基础篇 2：小程序·云开发基础知识</a></li><li><a href="/blog/wxapp-entry/基础篇 3：小程序架构及其实现机制.html" class="sidebar-link">基础篇 3：小程序架构及其实现机制</a></li><li><a href="/blog/wxapp-entry/实战篇 1：小程序开发环境搭建.html" class="sidebar-link">实战篇 1：小程序开发环境搭建</a></li><li><a href="/blog/wxapp-entry/实战篇 2：新鲜天气小程序简介.html" class="sidebar-link">实战篇 2：新鲜天气小程序简介</a></li><li><a href="/blog/wxapp-entry/实战篇 3：天气页面样式布局开发.html" class="sidebar-link">实战篇 3：天气页面样式布局开发</a></li><li><a href="/blog/wxapp-entry/实战篇 4：天气页面数据获取和交互实现.html" class="sidebar-link">实战篇 4：天气页面数据获取和交互实现</a></li><li><a href="/blog/wxapp-entry/实战篇 5：为天气页面制作雨雪效果的粒子系统.html" class="sidebar-link">实战篇 5：为天气页面制作雨雪效果的粒子系统</a></li><li><a href="/blog/wxapp-entry/实战篇 6：心情签到页面开发.html" class="active sidebar-link">实战篇 6：心情签到页面开发</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 6：心情签到页面开发.html#使用日历插件" class="sidebar-link">使用日历插件</a></li><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 6：心情签到页面开发.html#小程序用户登录和授权流程" class="sidebar-link">小程序用户登录和授权流程</a></li><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 6：心情签到页面开发.html#使用云开发数据库来存储心情数据" class="sidebar-link">使用云开发数据库来存储心情数据</a></li><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 6：心情签到页面开发.html#使用-navigator-增加跳转" class="sidebar-link">使用 navigator 增加跳转</a></li><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 6：心情签到页面开发.html#心情签到页面整体流程图" class="sidebar-link">心情签到页面整体流程图</a></li><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 6：心情签到页面开发.html#小结" class="sidebar-link">小结</a></li></ul></li><li><a href="/blog/wxapp-entry/实战篇 7：对小程序进行优化.html" class="sidebar-link">实战篇 7：对小程序进行优化</a></li><li><a href="/blog/wxapp-entry/实战篇 8：小程序调试技巧和上线发布.html" class="sidebar-link">实战篇 8：小程序调试技巧和上线发布</a></li><li><a href="/blog/wxapp-entry/开篇：微信小程序概述.html" class="sidebar-link">开篇：微信小程序概述</a></li><li><a href="/blog/wxapp-entry/总结与拓展.html" class="sidebar-link">总结与拓展</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="实战篇-6-心情签到页面开发"><a href="#实战篇-6-心情签到页面开发" class="header-anchor">#</a> 实战篇 6：心情签到页面开发</h1> <p>「新鲜天气」的心情签到页面结构比较简单，本小节主要介绍三部分内容：</p> <ul><li>使用日历插件</li> <li>用户授权和登录流程</li> <li>使用小程序云开发的数据库功能</li></ul> <h2 id="使用日历插件"><a href="#使用日历插件" class="header-anchor">#</a> 使用日历插件</h2> <p>心情签到页面最重要的模块就是日历，日历使用了一个<a href="https://github.com/czcaiwj/calendar" target="_blank" rel="noopener noreferrer">开源的日历插件<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，在小程序内使用插件需要经过下面三步。</p> <h4 id="_1-在小程序管理后台添加三方服务插件"><a href="#_1-在小程序管理后台添加三方服务插件" class="header-anchor">#</a> 1. 在小程序管理后台添加三方服务插件</h4> <p>登录小程序管理后台，依次进入「设置 -&gt; 第三方服务」搜索日历插件的 AppID（wx92c68dae5a8bb046）就可以搜索到「极点日历」，这时候申请授权即可。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/8/13/1653148e5a1554e6?w=555&amp;h=444&amp;f=jpeg&amp;s=15786" alt=""></p> <h4 id="_2-在-app-json-中增加插件配置"><a href="#_2-在-app-json-中增加插件配置" class="header-anchor">#</a> 2. 在 app.json 中增加插件配置</h4> <p>第二步是在项目的 app.json 中增加 <code>plugins</code> 字段内容：</p> <div class="language- extra-class"><pre class="language-text"><code>&quot;plugins&quot;: {
+    &quot;calendar&quot;: {
+        &quot;version&quot;: &quot;1.1.3&quot;,
+        &quot;provider&quot;: &quot;wx92c68dae5a8bb046&quot;
+    }
+}
+
+</code></pre></div><h4 id="_3-在-diary-页面增加组件配置"><a href="#_3-在-diary-页面增加组件配置" class="header-anchor">#</a> 3. 在 diary 页面增加组件配置</h4> <p>在 pages/diary/index.json 的页面配置中的 <code>usingComponents</code> 里增加 <code>calendar</code> 的插件地址：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;usingComponents&quot;: {
+    &quot;calendar&quot;: &quot;plugin://calendar/calendar&quot;,
+    &quot;icon&quot;: &quot;../../components/icon/index&quot;
+  }
+}
+
+
+</code></pre></div><p>经过上面三步之后，我们就可以在页面中使用 <code>&lt;calendar /&gt;</code> 标签了。具体日历的用法，可以参考它的 <a href="https://github.com/czcaiwj/calendar/wiki" target="_blank" rel="noopener noreferrer">wiki 主页<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <h3 id="设置日历的心情颜色"><a href="#设置日历的心情颜色" class="header-anchor">#</a> 设置日历的心情颜色</h3> <p>在心情设置上，笔者设计了 5 种心情，由 5 种颜色来表示，具体数值如下：</p> <div class="language- extra-class"><pre class="language-text"><code>// client/pages/diary/index.js Page data
+emotions: ['serene', 'hehe', 'ecstatic', 'sad', 'terrified'],
+colors: {
+  serene: '#64d9fe',
+  hehe: '#d3fc1e',
+  ecstatic: '#f7dc0e',
+  sad: '#ec238a',
+  terrified: '#ee1aea'
+}
+
+</code></pre></div><p>签到不同的心情，最终在日历上会展现出下面的效果：</p> <p><img src="https://user-gold-cdn.xitu.io/2018/8/17/165469e5ba884ab6?w=345&amp;h=271&amp;f=jpeg&amp;s=22788" alt=""></p> <p>要在某天设置该天的背景颜色，需要使用日历的 <code>days-color</code> 属性，这里笔者将 <code>days-color</code> 与 <code>daysStyle</code> 进行绑定：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!--diary/index.wxml--&gt;
+&lt;calendar days-color=&quot;{{daysStyle}}&quot; /&gt;
+
+</code></pre></div><p><code>daysStyle</code> 的计算和赋值是在 <code>setCalendarColor</code> 方法内的：</p> <div class="language- extra-class"><pre class="language-text"><code>// diary/index.js
+setCalendarColor(year, month) {
+  year = year || new Date().getFullYear()
+  month = month || new Date().getMonth() + 1
+  // 从数据库读取数据
+  getEmotionByOpenidAndDate(this.data.openid, year, month)
+    .then((r) =&gt; {
+      const data = r.data || []
+      const styles = []
+      const now = new Date()
+      const today = dateFormat(now)
+      let todayEmotion = ''
+      let colors = this.data.colors
+      // 遍历日期，存在表情的日期则设置对应的颜色
+      data.forEach((v) =&gt; {
+        let ts = v.tsModified
+        let date = new Date(ts)
+        let day = date.getDate()
+        if (today === dateFormat(date)) {
+          todayEmotion = v.emotion || ''
+        }
+        styles.push({
+          month: 'current',
+          day,
+          color: 'black',
+          background: colors[v.emotion]
+        })
+      })
+      // 设置 daysStyle
+      this.setData({
+        lastMonth: `${year}-${('00' + month).slice(-2)}`,
+        showPublish: true,
+        todayEmotion,
+        daysStyle: styles
+      })
+    })
+    .catch((e) =&gt; {
+      wx.showToast({
+        title: '加载已签数据失败，请稍后再试',
+        icon: 'none',
+        duration: 3000
+      })
+    })
+}
+
+</code></pre></div><h3 id="日历事件绑定"><a href="#日历事件绑定" class="header-anchor">#</a> 日历事件绑定</h3> <p>当日历切换月份的时候，我们应该获取当前切换到的月份，获取当前月份的心情数据，所以在 <code>calendar</code> 上绑定 <code>dateChange</code> 事件：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!--diary/index.wxml--&gt;
+&lt;calendar binddateChange=&quot;dateChange&quot; /&gt;
+
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>// diary/index.js page
+dateChange(e) {
+  // console.log(e)
+  let {currentYear, currentMonth} = e.detail
+  this.setData({
+    daysStyle: []
+  })
+  this.setCalendarColor(currentYear, currentMonth)
+}
+
+</code></pre></div><h2 id="小程序用户登录和授权流程"><a href="#小程序用户登录和授权流程" class="header-anchor">#</a> 小程序用户登录和授权流程</h2> <p>在心情签到的功能开发中，需要得到用户信息，获取用户信息需要用户账号授权才可以。用户账号授权是小程序开发中经常碰见的技术点，本节重点介绍下小程序的登录授权机制。</p> <p>小程序开发文档中有一张很完整的流程图（见下图），笔者会围绕这张图来介绍用户授权流程，然后结合云函数来实现一个获取用户授权信息的功能。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/8/13/16531493dbf89301?w=710&amp;h=720&amp;f=jpeg&amp;s=61617" alt=""></p> <p>从这张图来看，整个数据通信过程包含了小程序、开发者服务器（云函数）和微信接口服务，这三方是都参与其中的，整个流程跟公众号和第三方登录授权流程都基本类似。</p> <p>整个授权流程可分为下面五个步骤。</p> <h4 id="_1-wx-login-获取临时登录凭证-code"><a href="#_1-wx-login-获取临时登录凭证-code" class="header-anchor">#</a> 1. <code>wx.login</code> 获取临时登录凭证 code</h4> <p>「小程序」内调用 <code>wx.login</code> 方法，如果用户是第一次授权或者授权过期，则会弹出授权窗口，提示用户个人信息会被授权给第三方服务使用。这时候如果用户同意授权，则会拿到<strong>临时登录凭证 code</strong>，这个临时登录凭证有效期只有 <strong>5 分钟</strong>。我们拿到这个临时登录凭证需要调用「开发者服务器（云函数）」的接口，将临时凭证发送给服务器，然后「开发者服务器」调用「微信接口服务」的 <code>jscode2session</code> 接口获取 <code>openid</code> 和 <code>session_key</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>wx.login({
+  success: () =&gt; {
+    if (res.code) {
+        // example: 081LXytJ1xxxxcdfxxx1FWxdfdsfXyth
+        // 将 code 发送给开发者服务器
+    }
+  }
+})
+
+</code></pre></div><h4 id="_2-获取-openid-和-session-key"><a href="#_2-获取-openid-和-session-key" class="header-anchor">#</a> 2. 获取 <code>openid</code> 和 <code>session_key</code></h4> <p>微信内，同一用户在任意小程序、公众号或者服务号中，都会有一个不同的唯一标识 <code>openid</code>，所以可以认为，我们在应用中获取的用户 <code>openid</code> 是唯一的，并且该用户在另外一个应用中的 <code>openid</code> 跟其他应用的是不同的。</p> <p><code>session_key</code> 是微信服务派发给我们的一个用户登录有效性的凭证，通过它我们可以间接维护用户微信的登录态。</p> <p>获取 <code>openid</code> 和 <code>session_key</code> 需要调用微信的接口：<br> <code>https://api.weixin.qq.com/sns/jscode2session?appid=APPID&amp;secret=SECRET&amp;js_code=JSCODE&amp;grant_type=authorization_code</code></p> <p>这个接口的参数为：</p> <p>参数</p> <p>必填</p> <p>说明</p> <p>appid</p> <p>是</p> <p>小程序唯一标识</p> <p>secret</p> <p>是</p> <p>小程序的 app secret</p> <p>js_code</p> <p>是</p> <p>登录时获取的 code</p> <p>grant_type</p> <p>是</p> <p>填写为 authorization_code</p> <p>其中 <code>appid</code> 和 <code>secret</code> 可以在小程序管理后台找到，具体路径为「设置 -&gt; 开发设置 -&gt; 开发者 ID」。<code>appid</code> 直接可见，而 <code>secret</code> 需要点击「生成」链接，并用开发者账号的微信扫码才能生成，生成之后需自行保存。</p> <p><code>secret</code> 是授权中保证安全性的一个重要 ID，不能外泄，因此必须放在开发者自己的服务器上使用，不能直接放到前端页面调用微信服务接口，因为如果这样的话 <code>secret</code> 就暴露了，这也是整个授权过程需要小程序、开发者服务器、微信服务三方都介入的原因。如果忘记或泄露了 <code>secret</code>，需要在微信后台重置。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/8/13/1653149778229d90?w=1298&amp;h=447&amp;f=png&amp;s=39517" alt=""></p> <p><code>js_code</code> 就是第一步中我们通过 <code>wx.login</code> 获取到的临时授权凭证 code。有了<code>appid</code>、<code>secret</code>和<code>js_code</code>，我们可以写一个云函数来请求微信的 <code>jscode2session</code> 接口：</p> <div class="language- extra-class"><pre class="language-text"><code>// 云函数名称：jscode2session
+const API_URL = 'https://api.weixin.qq.com/sns/jscode2session'
+const request = require('request')
+const querystring = require('querystring')
+/*&lt;jdists import=&quot;../../inline/utils.js&quot; /&gt;*/
+
+/*&lt;remove&gt;*/
+const $ = require('../../inline/utils')
+/*&lt;/remove&gt;*/
+
+exports.main = async (event) =&gt; {
+  let {code} = event
+  // 这里微信的 id 和 secret 从配置文件中获取
+  let {id, sk} = $.getWechatAppConfig()
+  const data = {
+    appid: id,
+    secret: sk,
+    js_code: code,
+    grant_type: 'authorization_code'
+  }
+  let url = API_URL + '?' + querystring.stringify(data)
+  return new Promise((resolve, reject) =&gt; {
+    request.get(url, (error, response, body) =&gt; {
+      if (error || response.statusCode !== 200) {
+        reject(error)
+      } else {
+        try {
+          const r = JSON.parse(body)
+          resolve(r)
+        } catch (e) {
+          reject(e)
+        }
+      }
+    })
+  })
+}
+
+</code></pre></div><p>有了 <code>jscode2session</code> 这个云函数，我们就可以在小程序中调用云函数，将 <code>wx.login</code> 获取的 code 作为参数传递过去：</p> <div class="language- extra-class"><pre class="language-text"><code>wx.login({
+  success: (res) =&gt; {
+    if(res.code){
+      wx.cloud.callFunctions({
+        name: 'jscode2session',
+        data: {
+          code: res.code
+        }
+      }).then(res =&gt; {
+        let {openid = '', session_key = ''} = res.result || {}
+        console.log(openid, session_key)
+        wx.setStorage({
+              key: 'openid',
+              data: openid
+            })
+      })
+    }
+})
+
+</code></pre></div><p>关于获取到的 <code>session_key</code>，我们还需要注意以下两点。</p> <ol><li><code>session_key</code> 和 <code>wx.login</code> 获取的 code 是一一对应的，同一 code 只能换取一次 <code>session_key</code>。每次调用 <code>wx.login</code>，都会下发一个新的 code 和对应的 <code>session_key</code>，为了保证用户体验和登录态的有效性，开发者需要清楚用户需要重新登录时才去调用 <code>wx.login</code>。</li> <li><code>session_key</code> 是有时效性的，即便是不调用 <code>wx.login</code>，<code>session_key</code> 也会过期，过期时间跟用户使用小程序的频率成正相关，但具体的时间长短开发者和用户都是获取不到的。</li></ol> <p>由于 <code>session_key</code> 具有实效性，因而我们可以将 <code>session_key</code> 存入本地缓存，每次进入小程序的时候判断下 <code>session_key</code> 是否过期即可：</p> <div class="language- extra-class"><pre class="language-text"><code>wx.setStorage({
+  key: 'session_key',
+  data: session_key
+})
+
+</code></pre></div><h4 id="_3-获取用户昵称等信息"><a href="#_3-获取用户昵称等信息" class="header-anchor">#</a> 3. 获取用户昵称等信息</h4> <p>获取用户信息需要用到 <code>open-type=&quot;getUserInfo&quot;</code> 的 <code>button</code> 组件，具体做法是：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;button open-type=&quot;getUserInfo&quot; bindgetuserinfo=&quot;getUserInfo&quot;&gt;使用该功能需要授权登录&lt;/button&gt;
+
+</code></pre></div><p>上面的代码定义了一个 <code>getUserInfo</code> 类型的按钮，如果授权成功，则调用页面的 <code>getUserInfo</code> 方法（通过 <code>bindgetuserinfo</code> 绑定的）。<code>getUserInfo</code> 代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>getUserInfo(){
+  wx.getUserInfo({
+    success: (res) =&gt; {
+      let rs = res.userInfo
+      this.setData({
+        nickname: rs.nickName,
+        avatarUrl: rs.avatarUrl
+      })
+    }
+  })
+}
+
+</code></pre></div><p>获取到的用户信息，包括以下几部分：</p> <p>参数</p> <p>类型</p> <p>说明</p> <p>userInfo</p> <p>OBJECT</p> <p>用户信息对象，不包含 openid 等敏感信息</p> <p>rawData</p> <p>String</p> <p>不包括敏感信息的原始数据字符串，用于计算签名</p> <p>signature</p> <p>String</p> <p>使用 sha1( rawData + sessionkey ) 得到字符串，用于校验用户信息</p> <p>encryptedData</p> <p>String</p> <p>包括敏感数据在内的完整用户信息的加密数据</p> <p>iv</p> <p>String</p> <p>加密算法的初始向量</p> <p>除了实战中使用的包含用户昵称和头像的 <code>userInfo</code> 外，还有敏感信息的 <code>encryptedData</code> 字段，如果需要使用该字段，则需要按照<a href="https://developers.weixin.qq.com/miniprogram/dev/api/signature.html#%E5%8A%A0%E5%AF%86%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%AF%86%E7%AE%97%E6%B3%95" target="_blank" rel="noopener noreferrer">加密数据解密算法<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>的文档来解密。</p> <h4 id="_4-解密敏感数据"><a href="#_4-解密敏感数据" class="header-anchor">#</a> 4. 解密敏感数据</h4> <p>尽管心情签到功能并没有涉及敏感信息的解密，这里笔者还是简单介绍下如何解密敏感数据。</p> <p>解密敏感信息需要用到小程序的 AppID 和 <code>session_key</code>，在开发者文档中有提供 Node.js 版本的解密 demo，下面来简单实现个云函数：</p> <div class="language- extra-class"><pre class="language-text"><code>const crypto = require('crypto');
+/*&lt;jdists import=&quot;../../inline/utils.js&quot; /&gt;*/
+
+/*&lt;remove&gt;*/
+const $ = require('../../inline/utils')
+/*&lt;/remove&gt;*/
+
+function WXBizDataCrypt(appId, sessionKey) {
+  this.appId = appId;
+  this.sessionKey = sessionKey;
+}
+
+WXBizDataCrypt.prototype.decryptData = function (encryptedData, iv) {
+  // base64 decode
+  const sessionKey = new Buffer(this.sessionKey, 'base64');
+  encryptedData = new Buffer(encryptedData, 'base64');
+  iv = new Buffer(iv, 'base64');
+  let decoded;
+  try {
+    // 解密
+    const decipher = crypto.createDecipheriv('aes-128-cbc', sessionKey, iv);
+    // 设置自动 padding 为 true，删除填充补位
+    decipher.setAutoPadding(true);
+    decoded = decipher.update(encryptedData, 'binary', 'utf8');
+    decoded += decipher.final('utf8');
+    decoded = JSON.parse(decoded);
+  } catch (err) {
+    throw new Error('Illegal Buffer');
+  }
+  if (decoded.watermark.appid !== this.appId) {
+    throw new Error('Illegal Buffer');
+  }
+  return decoded;
+};
+
+exports.main = async (event) =&gt; {
+  let {iv, data, session_key} = event
+  // 这里微信的 id 和 secret 从配置文件中获取
+  let appId = $.getWechatAppConfig().id
+  return new Promise((resolve, reject) =&gt; {
+    const pc = new WXBizDataCrypt(appId, session_key)
+    resolve(pc.decryptData(data, iv))
+  })
+}
+
+</code></pre></div><h4 id="_5-检测-session-key-是否失效"><a href="#_5-检测-session-key-是否失效" class="header-anchor">#</a> 5. 检测 <code>session_key</code> 是否失效</h4> <p>前面提到 <code>session_key</code> 需要存入本地缓存，但是存在可能失效的情况，小程序提供的 <code>wx.checkSession</code> 方法可以检测当前的 <code>session_key</code> 是否失效，如果失效则重新调用 <code>wx.login</code> 登录授权流程。</p> <p><code>wx.checkSession</code> 方法并不需要传入任何有关 <code>session_key</code> 的信息参数，而是小程序自己去调自己的服务来查询用户最近一次生成的 <code>session_key</code> 是否过期。如果当前 <code>session_key</code> 过期，就让用户来重新登录，更新 <code>session_key</code>，并将最新的 <code>session_key</code> 存入用户数据表中。</p> <h3 id="整个授权流程图和代码"><a href="#整个授权流程图和代码" class="header-anchor">#</a> 整个授权流程图和代码</h3> <p><img src="https://user-gold-cdn.xitu.io/2018/8/13/1653149c0d99db7d?w=1024&amp;h=768&amp;f=jpeg&amp;s=116659" alt=""></p> <p>用代码来表示如下：</p> <div class="language- extra-class"><pre class="language-text"><code>// 或者在 app.js 内使用 onLaunch
+onLoad(){
+  let loginFlag = wx.getStorageSync('session_key');
+  if (loginFlag) {
+    // 检查 session_key 是否过期
+    wx.checkSession({
+        // session_key 有效（未过期）
+        success: function() {
+            // 业务逻辑处理
+        },
+
+        // session_key 过期
+        fail: function() {
+            // session_key 过期，重新登录
+            this.doLogin();
+        }
+    });
+  ) else {
+    // 无 session_key，作为首次登录
+    this.doLogin();
+  }
+}
+
+</code></pre></div><h2 id="使用云开发数据库来存储心情数据"><a href="#使用云开发数据库来存储心情数据" class="header-anchor">#</a> 使用云开发数据库来存储心情数据</h2> <p>可以在小程序中通过 <code>wx.cloud</code> 相关的方法使用云开发的数据库，而且它支持权限设置，很方便存储 UGC（用户原创内容）的数据（在<a href="https://juejin.im/book/5b70f101e51d456669381803/section/5b70f2656fb9a009a545f6c7" target="_blank" rel="noopener noreferrer">第 3 节<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>介绍过）。在心情签到功能中，就使用了小程序云的数据库，用它来存储用户的签到心情。</p> <h3 id="在云开发控制台创建数据库"><a href="#在云开发控制台创建数据库" class="header-anchor">#</a> 在云开发控制台创建数据库</h3> <p>首先从小程序开发者工具中的「云开发」进入数据库管理 tab，然后点击「添加集合」，创建一个 <code>diary</code> 的集合（数据库）。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/8/13/1653149ee77c70b2?w=544&amp;h=176&amp;f=jpeg&amp;s=10801" alt=""></p> <p>这个集合中的文档数据格式如下图所示。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/9/1/165938bd3dbe91ab?w=311&amp;h=143&amp;f=jpeg&amp;s=13693" alt=""></p> <p>其中，<code>_id</code> 和 <code>_openid</code> 是系统自动生成的，文档（表）中其他字段的意思解释如下：</p> <ul><li>emotion：当天的心情，一共有 5 种心情</li> <li>tsModified：签到的时间戳</li> <li>openid：根据授权信息获取的 openid，跟 <code>_openid</code> 一致</li></ul> <p>有了数据库的信息，需要编写增加一条心情数据（<code>addEmotion</code>）和获取某个月份所有心情数据（<code>getEmotionByOpenidAndDate</code>）。</p> <h3 id="增加心情数据"><a href="#增加心情数据" class="header-anchor">#</a> 增加心情数据</h3> <div class="language- extra-class"><pre class="language-text"><code>// lib/api.js
+// 初始化 cloud 环境
+wx.cloud.init({
+  env: 'envID'
+})
+
+// 获取数据库实例
+const db = wx.cloud.database()
+
+// 用户心情签到
+export const addEmotion = (openid, emotion) =&gt; {
+  return db.collection('diary').add({
+    data: {
+      openid,
+      emotion,
+      tsModified: Date.now()
+    }
+  })
+}
+
+</code></pre></div><h3 id="获取心情数据"><a href="#获取心情数据" class="header-anchor">#</a> 获取心情数据</h3> <div class="language- extra-class"><pre class="language-text"><code>// lib/api.js
+// 初始化 cloud 环境
+wx.cloud.init({
+  env: 'envID'
+})
+
+// 获取数据库实例
+const db = wx.cloud.database()
+
+// 根据用户 openid 和日期获取心情数据
+export const getEmotionByOpenidAndDate = (openid, year, month) =&gt; {
+  const _ = db.command
+  year = parseInt(year)
+  month = parseInt(month)
+
+  let start = new Date(year, month - 1, 1).getTime()
+  let end = new Date(year, month, 1).getTime()
+  // console.log(start, end, `${year}-${nextMonth}-01 00:00:00`,`${year}-${month}-01 00:00:00`)
+  return db
+    .collection('diary')
+    .where({
+      openid,
+      tsModified: _.gte(start).and(_.lt(end))
+    })
+    .get()
+}
+
+</code></pre></div><p>小程序云开发的数据库为了提升查询性能，<strong>不能够一次查询出来超过20条以上的数据</strong>。所以上面的代码最多能够查询出20条数据，当签到数据超过20天（一个月最多31天），这时候就需要做两次查询（根据<code>tsModified</code> 正序，反序各取一次），然后合并数据了，所以最后的代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>export const getEmotionByOpenidAndDate = (openid, year, month) =&gt; {
+  const _ = db.command
+  year = parseInt(year)
+  month = parseInt(month)
+
+  let start = new Date(year, month - 1, 1).getTime()
+  let end = new Date(year, month, 1).getTime()
+  // 这里因为限制 limit 20，所以查询两次，一共31条（最多31天）记录
+  // 正序反序各取一次，使用 orderBy 排序
+  return new Promise((resolve, reject) =&gt; {
+    Promise.all([
+      db
+        .collection('diary')
+        .where({
+          openid,
+          tsModified: _.gte(start).and(_.lt(end))
+        })
+        .orderBy('tsModified', 'desc')
+        .limit(15)
+        .get(),
+      db
+        .collection('diary')
+        .where({
+          openid,
+          tsModified: _.gte(start).and(_.lt(end))
+        })
+        .orderBy('tsModified', 'asc')
+        .limit(16)
+        .get()
+    ])
+      .then((data) =&gt; {
+        let [data1, data2] = data
+        let set = new Set()
+        data1 = data1.data || []
+        data2 = data2.data || []
+        data = data1.concat(data2).filter((v) =&gt; {
+          if (set.has(v._id)) {
+            return false
+          }
+          set.add(v._id)
+          return true
+        })
+        resolve({data})
+      })
+      .catch((e) =&gt; {
+        console.log(e)
+        reject(e)
+      })
+  })
+}
+
+</code></pre></div><p>心情数据是根据 <code>openid</code> 和月份获取的，日期范围为：月份 1 日的凌晨 0 点（start）到下一月份 1 日的凌晨 0 点（end），在云数据库中可以使用 <code>_.gte(start).and(_.lt(end))</code>，即大于等于 <code>start</code> 小于 <code>end</code>。</p> <p>这里计算 <code>start</code> 和 <code>end</code> 的时候，遇见了 <code>Date</code> 兼容性的两个问题：</p> <ol><li><code>localDateString</code> 问题</li> <li>时区问题</li></ol> <h4 id="localdatestring-问题"><a href="#localdatestring-问题" class="header-anchor">#</a> <code>localDateString</code> 问题</h4> <p>笔者一开始使用将日期转化成类似 <code>2018-01-01 00:00:00</code> 的格式，然后使用 <code>new Date('2018-01-01 00:00:00')</code>，可以得到 Date 实例，这在开发者工具和 Android 手机上都没有问题，但是在 iOS 系统下却识别成了 <code>Invalid Date</code>，变成了 <code>1970-01-01</code>。这是因为 iOS 上 <code>localDateString</code>（本地时间）的<a href="https://stackoverflow.com/questions/13363673/javascript-date-is-invalid-on-ios" target="_blank" rel="noopener noreferrer">问题<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，使用 <code>new Date().toLocaleDateString()</code> 就可以知道，iOS 下识别的数据是 <code>2018/01/01 00:00:00</code> 这样的格式的。</p> <h4 id="时区问题"><a href="#时区问题" class="header-anchor">#</a> 时区问题</h4> <p>小程序云开发的云函数和数据库是面向全球开发者的，它们使用的时区并不是我们的东八区（北京时间），因此我们在获取 Date 的时候就要小心，简单拼接 <code>2018-01-01 00:00:00</code> 获取的时间并不是北京时间，数据库存入的数据如果使用北京时间（本地 JS），那么获取数据的时候就应该使用北京时间（云端执行 JS 时）。</p> <p>为了解决 Date 的问题，笔者在计算时区的时候，都转换成了 UTC 标准时间，比如在云函数中，笔者使用了 <code>new Date().getUTCHours()</code> 这样的时间，详见 server/inline/utils.js。</p> <p>而在获取特定某一天的 Date 实例的时候，则使用 <code>new Date(year, month, day)</code> 的方式，这样在数据库获取某个月份时间戳时，就不会出现不同系统环境不同数值的问题，详见 client/lib/api.js 的 <code>getEmotionByOpenidAndDate</code> 方法。</p> <h2 id="使用-navigator-增加跳转"><a href="#使用-navigator-增加跳转" class="header-anchor">#</a> 使用 navigator 增加跳转</h2> <p>心情签到页面做完之后，还需要在天气预报页面给它做跳转。在天气预报页面增加跳转的 WXML 代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!--weather/index.wxml--&gt;
+&lt;view class=&quot;navigator&quot; bindtap=&quot;goDiary&quot;&gt;
+  &lt;icon type=&quot;edit&quot;/&gt;
+&lt;/view&gt;
+
+</code></pre></div><p>页面绑定了事件 <code>goDiary</code> 代码：</p> <div class="language- extra-class"><pre class="language-text"><code>// weather/index.js
+Page({
+  goDiary() {
+    let url = `/pages/diary/index`
+    wx.navigateTo({
+      url
+    })
+  }
+})
+
+</code></pre></div><p>在心情签到页面，顶部导航需要增加返回操作：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!--diary/index.wxml--&gt;
+&lt;view class=&quot;navigator&quot;&gt;
+  &lt;icon type=&quot;back&quot; bindtap=&quot;goBack&quot;/&gt;
+&lt;/view&gt;
+
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>// diary/index.js
+Page({
+  goBack() {
+    wx.navigateBack()
+  }
+})
+
+</code></pre></div><h2 id="心情签到页面整体流程图"><a href="#心情签到页面整体流程图" class="header-anchor">#</a> 心情签到页面整体流程图</h2> <p><img src="https://user-gold-cdn.xitu.io/2018/8/13/16531487782ac35b?w=1024&amp;h=768&amp;f=jpeg&amp;s=210592" alt=""></p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>本节介绍了新鲜天气日历使用、用户授权流程和数据库操作。</p> <p>日历使用需要在小程序管理后台搜索对应的插件 id，然后申请授权。日历的日期背景颜色是跟当时签到心情相对应的，当切换了日历的月份之后，应该重新获取当前月份的签到数据信息。</p> <p>用户授权流程由小程序、开发者服务器和微信接口服务三方参与，整个流程包括调用 <code>wx.login</code> 授权获取临时登录凭证，使用临时登录凭证获取 <code>openid</code> 和 <code>session_key</code>，以及获取用户信息三个步骤。<code>session_key</code> 可以用于解密敏感数据，但是 <code>session_key</code> 具有时效性，需要调用 <code>wx.checkSession</code> 方法来校验其是否失效。</p> <p>云开发的数据库每条记录自带 <code>_openid</code> 字段，可以单独来设置数据库权限。笔者在心情签到功能中主动通过授权获得用户 <code>openid</code> 然后增加记录。在进行跟日期、时间戳相关的数据查询时应该注意云环境的时区，最佳实践是使用格林尼治时间，使用 <code>Date</code> 对象的时候也应该注意生产环节和本地环境 <code>localeDateString</code> 的差异。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/wxapp-entry/实战篇 5：为天气页面制作雨雪效果的粒子系统.html" class="prev">
+        实战篇 5：为天气页面制作雨雪效果的粒子系统
+      </a></span> <span class="next"><a href="/blog/wxapp-entry/实战篇 7：对小程序进行优化.html">
+        实战篇 7：对小程序进行优化
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b72373f7.js" defer></script><script src="/blog/assets/js/2.2219f9c0.js" defer></script><script src="/blog/assets/js/454.a8f8ab86.js" defer></script>
+  </body>
+</html>

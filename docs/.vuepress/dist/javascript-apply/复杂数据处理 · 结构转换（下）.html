@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第 10 节 复杂数据处理 · 结构转换（下） | Mr.Liu</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b00d9e97.css" as="style"><link rel="preload" href="/blog/assets/js/app.b72373f7.js" as="script"><link rel="preload" href="/blog/assets/js/2.2219f9c0.js" as="script"><link rel="preload" href="/blog/assets/js/187.b5e3a4bb.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4213d21f.js"><link rel="prefetch" href="/blog/assets/js/100.fa207478.js"><link rel="prefetch" href="/blog/assets/js/101.a2a18205.js"><link rel="prefetch" href="/blog/assets/js/102.b0bdba49.js"><link rel="prefetch" href="/blog/assets/js/103.4207d4a0.js"><link rel="prefetch" href="/blog/assets/js/104.d47d6122.js"><link rel="prefetch" href="/blog/assets/js/105.84f3b0d6.js"><link rel="prefetch" href="/blog/assets/js/106.a3e0da4d.js"><link rel="prefetch" href="/blog/assets/js/107.e2e32489.js"><link rel="prefetch" href="/blog/assets/js/108.fef5787a.js"><link rel="prefetch" href="/blog/assets/js/109.9cacc969.js"><link rel="prefetch" href="/blog/assets/js/11.27166c35.js"><link rel="prefetch" href="/blog/assets/js/110.43122e5c.js"><link rel="prefetch" href="/blog/assets/js/111.0c1ef4dd.js"><link rel="prefetch" href="/blog/assets/js/112.10c7d380.js"><link rel="prefetch" href="/blog/assets/js/113.c912ddfe.js"><link rel="prefetch" href="/blog/assets/js/114.6127c171.js"><link rel="prefetch" href="/blog/assets/js/115.c7d9f75c.js"><link rel="prefetch" href="/blog/assets/js/116.152fa701.js"><link rel="prefetch" href="/blog/assets/js/117.03af553d.js"><link rel="prefetch" href="/blog/assets/js/118.7ffcd14e.js"><link rel="prefetch" href="/blog/assets/js/119.b0d680e7.js"><link rel="prefetch" href="/blog/assets/js/12.ea61452a.js"><link rel="prefetch" href="/blog/assets/js/120.6db360c5.js"><link rel="prefetch" href="/blog/assets/js/121.6e06fdbd.js"><link rel="prefetch" href="/blog/assets/js/122.d70dd36f.js"><link rel="prefetch" href="/blog/assets/js/123.95a15881.js"><link rel="prefetch" href="/blog/assets/js/124.41b68dde.js"><link rel="prefetch" href="/blog/assets/js/125.5a019ebc.js"><link rel="prefetch" href="/blog/assets/js/126.99da1cc5.js"><link rel="prefetch" href="/blog/assets/js/127.8d929133.js"><link rel="prefetch" href="/blog/assets/js/128.8a80423d.js"><link rel="prefetch" href="/blog/assets/js/129.a26f88a7.js"><link rel="prefetch" href="/blog/assets/js/13.e8ea3eed.js"><link rel="prefetch" href="/blog/assets/js/130.a494c8d3.js"><link rel="prefetch" href="/blog/assets/js/131.752b57aa.js"><link rel="prefetch" href="/blog/assets/js/132.03be5468.js"><link rel="prefetch" href="/blog/assets/js/133.b900cacd.js"><link rel="prefetch" href="/blog/assets/js/134.07c9a37c.js"><link rel="prefetch" href="/blog/assets/js/135.7fae2edd.js"><link rel="prefetch" href="/blog/assets/js/136.790d189e.js"><link rel="prefetch" href="/blog/assets/js/137.936714b3.js"><link rel="prefetch" href="/blog/assets/js/138.ca57432f.js"><link rel="prefetch" href="/blog/assets/js/139.c40241bd.js"><link rel="prefetch" href="/blog/assets/js/14.f5e6175f.js"><link rel="prefetch" href="/blog/assets/js/140.7e64b631.js"><link rel="prefetch" href="/blog/assets/js/141.dd5939fe.js"><link rel="prefetch" href="/blog/assets/js/142.15915de1.js"><link rel="prefetch" href="/blog/assets/js/143.74cd60e1.js"><link rel="prefetch" href="/blog/assets/js/144.6182277f.js"><link rel="prefetch" href="/blog/assets/js/145.77b2db6a.js"><link rel="prefetch" href="/blog/assets/js/146.9ee3cd6a.js"><link rel="prefetch" href="/blog/assets/js/147.4e2efd27.js"><link rel="prefetch" href="/blog/assets/js/148.f1da666f.js"><link rel="prefetch" href="/blog/assets/js/149.9e785988.js"><link rel="prefetch" href="/blog/assets/js/15.df5d6a6a.js"><link rel="prefetch" href="/blog/assets/js/150.8efddfd8.js"><link rel="prefetch" href="/blog/assets/js/151.5eb4f49f.js"><link rel="prefetch" href="/blog/assets/js/152.cb4ba17a.js"><link rel="prefetch" href="/blog/assets/js/153.934e36d2.js"><link rel="prefetch" href="/blog/assets/js/154.7aa94017.js"><link rel="prefetch" href="/blog/assets/js/155.a2d965ff.js"><link rel="prefetch" href="/blog/assets/js/156.16f69f9e.js"><link rel="prefetch" href="/blog/assets/js/157.307744ba.js"><link rel="prefetch" href="/blog/assets/js/158.17c75b84.js"><link rel="prefetch" href="/blog/assets/js/159.625baba3.js"><link rel="prefetch" href="/blog/assets/js/16.e0370ef8.js"><link rel="prefetch" href="/blog/assets/js/160.29a7c7eb.js"><link rel="prefetch" href="/blog/assets/js/161.c223d782.js"><link rel="prefetch" href="/blog/assets/js/162.c3a832be.js"><link rel="prefetch" href="/blog/assets/js/163.e9aff0cf.js"><link rel="prefetch" href="/blog/assets/js/164.22ea5757.js"><link rel="prefetch" href="/blog/assets/js/165.712fcb85.js"><link rel="prefetch" href="/blog/assets/js/166.cf71fc9b.js"><link rel="prefetch" href="/blog/assets/js/167.84f1208e.js"><link rel="prefetch" href="/blog/assets/js/168.501651ec.js"><link rel="prefetch" href="/blog/assets/js/169.665da9a9.js"><link rel="prefetch" href="/blog/assets/js/17.884f8b31.js"><link rel="prefetch" href="/blog/assets/js/170.40e206f4.js"><link rel="prefetch" href="/blog/assets/js/171.22a023e6.js"><link rel="prefetch" href="/blog/assets/js/172.c9f57151.js"><link rel="prefetch" href="/blog/assets/js/173.5b663775.js"><link rel="prefetch" href="/blog/assets/js/174.f38576a4.js"><link rel="prefetch" href="/blog/assets/js/175.d8acabe2.js"><link rel="prefetch" href="/blog/assets/js/176.e17b4260.js"><link rel="prefetch" href="/blog/assets/js/177.82517cd4.js"><link rel="prefetch" href="/blog/assets/js/178.dca9a177.js"><link rel="prefetch" href="/blog/assets/js/179.55ac84d8.js"><link rel="prefetch" href="/blog/assets/js/18.99afdf09.js"><link rel="prefetch" href="/blog/assets/js/180.08ecbc50.js"><link rel="prefetch" href="/blog/assets/js/181.064adef8.js"><link rel="prefetch" href="/blog/assets/js/182.eac974db.js"><link rel="prefetch" href="/blog/assets/js/183.a8aaeadb.js"><link rel="prefetch" href="/blog/assets/js/184.c586f7bc.js"><link rel="prefetch" href="/blog/assets/js/185.287601bc.js"><link rel="prefetch" href="/blog/assets/js/186.52ca6240.js"><link rel="prefetch" href="/blog/assets/js/188.f610dddf.js"><link rel="prefetch" href="/blog/assets/js/189.03750da5.js"><link rel="prefetch" href="/blog/assets/js/19.8a02f750.js"><link rel="prefetch" href="/blog/assets/js/190.0caa43c9.js"><link rel="prefetch" href="/blog/assets/js/191.383bf522.js"><link rel="prefetch" href="/blog/assets/js/192.d3062c3e.js"><link rel="prefetch" href="/blog/assets/js/193.7f7e9901.js"><link rel="prefetch" href="/blog/assets/js/194.f676d07d.js"><link rel="prefetch" href="/blog/assets/js/195.bf775451.js"><link rel="prefetch" href="/blog/assets/js/196.1c48ef3f.js"><link rel="prefetch" href="/blog/assets/js/197.6c53ba98.js"><link rel="prefetch" href="/blog/assets/js/198.9d5a5085.js"><link rel="prefetch" href="/blog/assets/js/199.ab52e41c.js"><link rel="prefetch" href="/blog/assets/js/20.4bf913aa.js"><link rel="prefetch" href="/blog/assets/js/200.1c398b3c.js"><link rel="prefetch" href="/blog/assets/js/201.c75a6c8a.js"><link rel="prefetch" href="/blog/assets/js/202.4d11fdf6.js"><link rel="prefetch" href="/blog/assets/js/203.ee6347bb.js"><link rel="prefetch" href="/blog/assets/js/204.84f5a644.js"><link rel="prefetch" href="/blog/assets/js/205.0fef4632.js"><link rel="prefetch" href="/blog/assets/js/206.eca759d5.js"><link rel="prefetch" href="/blog/assets/js/207.d505c6d2.js"><link rel="prefetch" href="/blog/assets/js/208.5ab75ef7.js"><link rel="prefetch" href="/blog/assets/js/209.29a9f3f1.js"><link rel="prefetch" href="/blog/assets/js/21.0936bb80.js"><link rel="prefetch" href="/blog/assets/js/210.9af28056.js"><link rel="prefetch" href="/blog/assets/js/211.f305f1e8.js"><link rel="prefetch" href="/blog/assets/js/212.db5aae61.js"><link rel="prefetch" href="/blog/assets/js/213.25c645f5.js"><link rel="prefetch" href="/blog/assets/js/214.85bb3df2.js"><link rel="prefetch" href="/blog/assets/js/215.5bc993e6.js"><link rel="prefetch" href="/blog/assets/js/216.dbec2182.js"><link rel="prefetch" href="/blog/assets/js/217.2776cfb0.js"><link rel="prefetch" href="/blog/assets/js/218.da7efde1.js"><link rel="prefetch" href="/blog/assets/js/219.f3a10672.js"><link rel="prefetch" href="/blog/assets/js/22.6eabfbae.js"><link rel="prefetch" href="/blog/assets/js/220.6a60c6c7.js"><link rel="prefetch" href="/blog/assets/js/221.2646fb75.js"><link rel="prefetch" href="/blog/assets/js/222.6580269e.js"><link rel="prefetch" href="/blog/assets/js/223.3397cf4f.js"><link rel="prefetch" href="/blog/assets/js/224.6575a90e.js"><link rel="prefetch" href="/blog/assets/js/225.8c1c6e94.js"><link rel="prefetch" href="/blog/assets/js/226.eeb12de5.js"><link rel="prefetch" href="/blog/assets/js/227.aacd8ef4.js"><link rel="prefetch" href="/blog/assets/js/228.7e407bfd.js"><link rel="prefetch" href="/blog/assets/js/229.eb5a01cd.js"><link rel="prefetch" href="/blog/assets/js/23.f05f6515.js"><link rel="prefetch" href="/blog/assets/js/230.7219d9ce.js"><link rel="prefetch" href="/blog/assets/js/231.016ae179.js"><link rel="prefetch" href="/blog/assets/js/232.97d25eee.js"><link rel="prefetch" href="/blog/assets/js/233.835cb5fc.js"><link rel="prefetch" href="/blog/assets/js/234.36112a10.js"><link rel="prefetch" href="/blog/assets/js/235.b2df9c65.js"><link rel="prefetch" href="/blog/assets/js/236.72299e3e.js"><link rel="prefetch" href="/blog/assets/js/237.1befb80c.js"><link rel="prefetch" href="/blog/assets/js/238.e387348d.js"><link rel="prefetch" href="/blog/assets/js/239.d5e8d924.js"><link rel="prefetch" href="/blog/assets/js/24.5899d319.js"><link rel="prefetch" href="/blog/assets/js/240.4c7f5211.js"><link rel="prefetch" href="/blog/assets/js/241.371861a8.js"><link rel="prefetch" href="/blog/assets/js/242.61edc86c.js"><link rel="prefetch" href="/blog/assets/js/243.f85ffb8e.js"><link rel="prefetch" href="/blog/assets/js/244.3fbf2167.js"><link rel="prefetch" href="/blog/assets/js/245.5d9d618a.js"><link rel="prefetch" href="/blog/assets/js/246.6636d76f.js"><link rel="prefetch" href="/blog/assets/js/247.006c37a6.js"><link rel="prefetch" href="/blog/assets/js/248.eeefdc6d.js"><link rel="prefetch" href="/blog/assets/js/249.bb66f939.js"><link rel="prefetch" href="/blog/assets/js/25.feeda54a.js"><link rel="prefetch" href="/blog/assets/js/250.dba1e5ba.js"><link rel="prefetch" href="/blog/assets/js/251.cd9561b1.js"><link rel="prefetch" href="/blog/assets/js/252.e6a79f4e.js"><link rel="prefetch" href="/blog/assets/js/253.01bbcc41.js"><link rel="prefetch" href="/blog/assets/js/254.75d6c42a.js"><link rel="prefetch" href="/blog/assets/js/255.bf9d53b3.js"><link rel="prefetch" href="/blog/assets/js/256.f64de66c.js"><link rel="prefetch" href="/blog/assets/js/257.0741c551.js"><link rel="prefetch" href="/blog/assets/js/258.0659cfe2.js"><link rel="prefetch" href="/blog/assets/js/259.21646579.js"><link rel="prefetch" href="/blog/assets/js/26.8182efc2.js"><link rel="prefetch" href="/blog/assets/js/260.7e40009e.js"><link rel="prefetch" href="/blog/assets/js/261.60c41766.js"><link rel="prefetch" href="/blog/assets/js/262.36bca1e4.js"><link rel="prefetch" href="/blog/assets/js/263.53a9a695.js"><link rel="prefetch" href="/blog/assets/js/264.0f51b147.js"><link rel="prefetch" href="/blog/assets/js/265.368f444d.js"><link rel="prefetch" href="/blog/assets/js/266.995c43e8.js"><link rel="prefetch" href="/blog/assets/js/267.ba4a1d2f.js"><link rel="prefetch" href="/blog/assets/js/268.3d2de771.js"><link rel="prefetch" href="/blog/assets/js/269.7ee7a020.js"><link rel="prefetch" href="/blog/assets/js/27.96f7c8b5.js"><link rel="prefetch" href="/blog/assets/js/270.d2b6dbc1.js"><link rel="prefetch" href="/blog/assets/js/271.c98e0a1f.js"><link rel="prefetch" href="/blog/assets/js/272.8e96cf45.js"><link rel="prefetch" href="/blog/assets/js/273.6c7a3693.js"><link rel="prefetch" href="/blog/assets/js/274.7ae7fa3b.js"><link rel="prefetch" href="/blog/assets/js/275.277e28fe.js"><link rel="prefetch" href="/blog/assets/js/276.0d2d3363.js"><link rel="prefetch" href="/blog/assets/js/277.50ba95f9.js"><link rel="prefetch" href="/blog/assets/js/278.2ac47f2f.js"><link rel="prefetch" href="/blog/assets/js/279.d5016a2f.js"><link rel="prefetch" href="/blog/assets/js/28.956d8c00.js"><link rel="prefetch" href="/blog/assets/js/280.1cff421f.js"><link rel="prefetch" href="/blog/assets/js/281.7becae44.js"><link rel="prefetch" href="/blog/assets/js/282.a470afa4.js"><link rel="prefetch" href="/blog/assets/js/283.92451915.js"><link rel="prefetch" href="/blog/assets/js/284.bf81219c.js"><link rel="prefetch" href="/blog/assets/js/285.abb3e0e2.js"><link rel="prefetch" href="/blog/assets/js/286.9b399fac.js"><link rel="prefetch" href="/blog/assets/js/287.601549f9.js"><link rel="prefetch" href="/blog/assets/js/288.74af2d88.js"><link rel="prefetch" href="/blog/assets/js/289.d287a9d1.js"><link rel="prefetch" href="/blog/assets/js/29.5fdfceb0.js"><link rel="prefetch" href="/blog/assets/js/290.8b41cc6f.js"><link rel="prefetch" href="/blog/assets/js/291.30cb3e81.js"><link rel="prefetch" href="/blog/assets/js/292.f6c92a32.js"><link rel="prefetch" href="/blog/assets/js/293.4a5c5d03.js"><link rel="prefetch" href="/blog/assets/js/294.889fa477.js"><link rel="prefetch" href="/blog/assets/js/295.7c9bfb1a.js"><link rel="prefetch" href="/blog/assets/js/296.5c393daa.js"><link rel="prefetch" href="/blog/assets/js/297.fdb8d15e.js"><link rel="prefetch" href="/blog/assets/js/298.93998d32.js"><link rel="prefetch" href="/blog/assets/js/299.ad16ee20.js"><link rel="prefetch" href="/blog/assets/js/3.bae9c3b9.js"><link rel="prefetch" href="/blog/assets/js/30.092f59e3.js"><link rel="prefetch" href="/blog/assets/js/300.d7ee2ec1.js"><link rel="prefetch" href="/blog/assets/js/301.49bde86e.js"><link rel="prefetch" href="/blog/assets/js/302.cb98973f.js"><link rel="prefetch" href="/blog/assets/js/303.f6b8a9e2.js"><link rel="prefetch" href="/blog/assets/js/304.e112a703.js"><link rel="prefetch" href="/blog/assets/js/305.a4957830.js"><link rel="prefetch" href="/blog/assets/js/306.c870dc18.js"><link rel="prefetch" href="/blog/assets/js/307.001c4372.js"><link rel="prefetch" href="/blog/assets/js/308.79901a9c.js"><link rel="prefetch" href="/blog/assets/js/309.869b2a70.js"><link rel="prefetch" href="/blog/assets/js/31.a2348ea1.js"><link rel="prefetch" href="/blog/assets/js/310.1c002e84.js"><link rel="prefetch" href="/blog/assets/js/311.7e0bcf89.js"><link rel="prefetch" href="/blog/assets/js/312.2660fad0.js"><link rel="prefetch" href="/blog/assets/js/313.6e89cadb.js"><link rel="prefetch" href="/blog/assets/js/314.6990aa37.js"><link rel="prefetch" href="/blog/assets/js/315.8153a154.js"><link rel="prefetch" href="/blog/assets/js/316.6da9b5a5.js"><link rel="prefetch" href="/blog/assets/js/317.11c83cef.js"><link rel="prefetch" href="/blog/assets/js/318.e8490648.js"><link rel="prefetch" href="/blog/assets/js/319.53861265.js"><link rel="prefetch" href="/blog/assets/js/32.a194da00.js"><link rel="prefetch" href="/blog/assets/js/320.56dad00f.js"><link rel="prefetch" href="/blog/assets/js/321.ccd6b418.js"><link rel="prefetch" href="/blog/assets/js/322.faed6cae.js"><link rel="prefetch" href="/blog/assets/js/323.d268cb3a.js"><link rel="prefetch" href="/blog/assets/js/324.dce3459a.js"><link rel="prefetch" href="/blog/assets/js/325.d01c7ad8.js"><link rel="prefetch" href="/blog/assets/js/326.0e9aa527.js"><link rel="prefetch" href="/blog/assets/js/327.a302d51e.js"><link rel="prefetch" href="/blog/assets/js/328.a5997e15.js"><link rel="prefetch" href="/blog/assets/js/329.798b92cf.js"><link rel="prefetch" href="/blog/assets/js/33.e4d25147.js"><link rel="prefetch" href="/blog/assets/js/330.3ed38f17.js"><link rel="prefetch" href="/blog/assets/js/331.2147c45e.js"><link rel="prefetch" href="/blog/assets/js/332.4f72a981.js"><link rel="prefetch" href="/blog/assets/js/333.b198d877.js"><link rel="prefetch" href="/blog/assets/js/334.01f2ba40.js"><link rel="prefetch" href="/blog/assets/js/335.04c31165.js"><link rel="prefetch" href="/blog/assets/js/336.b939caf6.js"><link rel="prefetch" href="/blog/assets/js/337.e723b696.js"><link rel="prefetch" href="/blog/assets/js/338.bb89d233.js"><link rel="prefetch" href="/blog/assets/js/339.0c93e7f2.js"><link rel="prefetch" href="/blog/assets/js/34.881d241b.js"><link rel="prefetch" href="/blog/assets/js/340.e59d5112.js"><link rel="prefetch" href="/blog/assets/js/341.1c5d24ff.js"><link rel="prefetch" href="/blog/assets/js/342.13b1c49e.js"><link rel="prefetch" href="/blog/assets/js/343.0434e83c.js"><link rel="prefetch" href="/blog/assets/js/344.936699cc.js"><link rel="prefetch" href="/blog/assets/js/345.81802f59.js"><link rel="prefetch" href="/blog/assets/js/346.fcc4c864.js"><link rel="prefetch" href="/blog/assets/js/347.fb03a8d6.js"><link rel="prefetch" href="/blog/assets/js/348.0a0514fd.js"><link rel="prefetch" href="/blog/assets/js/349.1a1dcade.js"><link rel="prefetch" href="/blog/assets/js/35.d7055bd8.js"><link rel="prefetch" href="/blog/assets/js/350.3d801021.js"><link rel="prefetch" href="/blog/assets/js/351.e63d16b6.js"><link rel="prefetch" href="/blog/assets/js/352.5bb35d77.js"><link rel="prefetch" href="/blog/assets/js/353.7e25749a.js"><link rel="prefetch" href="/blog/assets/js/354.c12c2e75.js"><link rel="prefetch" href="/blog/assets/js/355.62c13100.js"><link rel="prefetch" href="/blog/assets/js/356.3e2b2e72.js"><link rel="prefetch" href="/blog/assets/js/357.a20defbc.js"><link rel="prefetch" href="/blog/assets/js/358.838f09bc.js"><link rel="prefetch" href="/blog/assets/js/359.8739e3bf.js"><link rel="prefetch" href="/blog/assets/js/36.367436d6.js"><link rel="prefetch" href="/blog/assets/js/360.c1d08f47.js"><link rel="prefetch" href="/blog/assets/js/361.4749916b.js"><link rel="prefetch" href="/blog/assets/js/362.41524f06.js"><link rel="prefetch" href="/blog/assets/js/363.2da456c2.js"><link rel="prefetch" href="/blog/assets/js/364.14db63c4.js"><link rel="prefetch" href="/blog/assets/js/365.bf1591b4.js"><link rel="prefetch" href="/blog/assets/js/366.dc960a99.js"><link rel="prefetch" href="/blog/assets/js/367.fd7b3c99.js"><link rel="prefetch" href="/blog/assets/js/368.ec166fb2.js"><link rel="prefetch" href="/blog/assets/js/369.d2e46423.js"><link rel="prefetch" href="/blog/assets/js/37.cfabd421.js"><link rel="prefetch" href="/blog/assets/js/370.01b4912e.js"><link rel="prefetch" href="/blog/assets/js/371.2fc91e89.js"><link rel="prefetch" href="/blog/assets/js/372.69a3cd02.js"><link rel="prefetch" href="/blog/assets/js/373.8ae21b19.js"><link rel="prefetch" href="/blog/assets/js/374.aa4dce2f.js"><link rel="prefetch" href="/blog/assets/js/375.f07a6905.js"><link rel="prefetch" href="/blog/assets/js/376.1fc8f6ba.js"><link rel="prefetch" href="/blog/assets/js/377.5b033c7a.js"><link rel="prefetch" href="/blog/assets/js/378.db00fb42.js"><link rel="prefetch" href="/blog/assets/js/379.e273b5b0.js"><link rel="prefetch" href="/blog/assets/js/38.80a92a9a.js"><link rel="prefetch" href="/blog/assets/js/380.0c1d2f74.js"><link rel="prefetch" href="/blog/assets/js/381.e93aa093.js"><link rel="prefetch" href="/blog/assets/js/382.cc1bf941.js"><link rel="prefetch" href="/blog/assets/js/383.57eed2d3.js"><link rel="prefetch" href="/blog/assets/js/384.e78da318.js"><link rel="prefetch" href="/blog/assets/js/385.c476b444.js"><link rel="prefetch" href="/blog/assets/js/386.a29802ac.js"><link rel="prefetch" href="/blog/assets/js/387.63f692a3.js"><link rel="prefetch" href="/blog/assets/js/388.d44d0a12.js"><link rel="prefetch" href="/blog/assets/js/389.f4f55d15.js"><link rel="prefetch" href="/blog/assets/js/39.51b28712.js"><link rel="prefetch" href="/blog/assets/js/390.eeb2ea5e.js"><link rel="prefetch" href="/blog/assets/js/391.4172f1d7.js"><link rel="prefetch" href="/blog/assets/js/392.203b4305.js"><link rel="prefetch" href="/blog/assets/js/393.0f3c7b99.js"><link rel="prefetch" href="/blog/assets/js/394.4109f422.js"><link rel="prefetch" href="/blog/assets/js/395.145c0e37.js"><link rel="prefetch" href="/blog/assets/js/396.5739a049.js"><link rel="prefetch" href="/blog/assets/js/397.04cbe49d.js"><link rel="prefetch" href="/blog/assets/js/398.984a14e0.js"><link rel="prefetch" href="/blog/assets/js/399.68879b0f.js"><link rel="prefetch" href="/blog/assets/js/4.17793416.js"><link rel="prefetch" href="/blog/assets/js/40.cca61ef0.js"><link rel="prefetch" href="/blog/assets/js/400.dbabb331.js"><link rel="prefetch" href="/blog/assets/js/401.840a1493.js"><link rel="prefetch" href="/blog/assets/js/402.0a88d2b6.js"><link rel="prefetch" href="/blog/assets/js/403.18ba61d5.js"><link rel="prefetch" href="/blog/assets/js/404.526ab707.js"><link rel="prefetch" href="/blog/assets/js/405.f6b60057.js"><link rel="prefetch" href="/blog/assets/js/406.84e6f37c.js"><link rel="prefetch" href="/blog/assets/js/407.1cc22e8e.js"><link rel="prefetch" href="/blog/assets/js/408.c838e002.js"><link rel="prefetch" href="/blog/assets/js/409.3b625fca.js"><link rel="prefetch" href="/blog/assets/js/41.3b9b35fb.js"><link rel="prefetch" href="/blog/assets/js/410.3d841dde.js"><link rel="prefetch" href="/blog/assets/js/411.4c112919.js"><link rel="prefetch" href="/blog/assets/js/412.35aeac08.js"><link rel="prefetch" href="/blog/assets/js/413.10d093fe.js"><link rel="prefetch" href="/blog/assets/js/414.c98c6493.js"><link rel="prefetch" href="/blog/assets/js/415.17289b1a.js"><link rel="prefetch" href="/blog/assets/js/416.32b1b05f.js"><link rel="prefetch" href="/blog/assets/js/417.5bd95f13.js"><link rel="prefetch" href="/blog/assets/js/418.7f0b6a25.js"><link rel="prefetch" href="/blog/assets/js/419.6651a70e.js"><link rel="prefetch" href="/blog/assets/js/42.adad5b34.js"><link rel="prefetch" href="/blog/assets/js/420.c239318d.js"><link rel="prefetch" href="/blog/assets/js/421.7a2e9a91.js"><link rel="prefetch" href="/blog/assets/js/422.551aab1d.js"><link rel="prefetch" href="/blog/assets/js/423.18e3b820.js"><link rel="prefetch" href="/blog/assets/js/424.95046f00.js"><link rel="prefetch" href="/blog/assets/js/425.ef4a5191.js"><link rel="prefetch" href="/blog/assets/js/426.1c13b1a5.js"><link rel="prefetch" href="/blog/assets/js/427.c019f006.js"><link rel="prefetch" href="/blog/assets/js/428.1b2eaa28.js"><link rel="prefetch" href="/blog/assets/js/429.fd8e32e3.js"><link rel="prefetch" href="/blog/assets/js/43.ec99f75e.js"><link rel="prefetch" href="/blog/assets/js/430.cf4a4078.js"><link rel="prefetch" href="/blog/assets/js/431.265b28ef.js"><link rel="prefetch" href="/blog/assets/js/432.00f19a47.js"><link rel="prefetch" href="/blog/assets/js/433.f0a5d954.js"><link rel="prefetch" href="/blog/assets/js/434.71cf06f2.js"><link rel="prefetch" href="/blog/assets/js/435.5a7e5590.js"><link rel="prefetch" href="/blog/assets/js/436.d6016384.js"><link rel="prefetch" href="/blog/assets/js/437.d5565e15.js"><link rel="prefetch" href="/blog/assets/js/438.7479f8da.js"><link rel="prefetch" href="/blog/assets/js/439.aa4dd15f.js"><link rel="prefetch" href="/blog/assets/js/44.8189586c.js"><link rel="prefetch" href="/blog/assets/js/440.4f7d14d3.js"><link rel="prefetch" href="/blog/assets/js/441.1eeb35f3.js"><link rel="prefetch" href="/blog/assets/js/442.b556fe77.js"><link rel="prefetch" href="/blog/assets/js/443.6ee28303.js"><link rel="prefetch" href="/blog/assets/js/444.48140a5b.js"><link rel="prefetch" href="/blog/assets/js/445.892070d3.js"><link rel="prefetch" href="/blog/assets/js/446.e5e602ae.js"><link rel="prefetch" href="/blog/assets/js/447.50c68b39.js"><link rel="prefetch" href="/blog/assets/js/448.9893dc6c.js"><link rel="prefetch" href="/blog/assets/js/449.4703a284.js"><link rel="prefetch" href="/blog/assets/js/45.d03eb196.js"><link rel="prefetch" href="/blog/assets/js/450.d4b8b7bd.js"><link rel="prefetch" href="/blog/assets/js/451.b3fe1758.js"><link rel="prefetch" href="/blog/assets/js/452.eaf3117e.js"><link rel="prefetch" href="/blog/assets/js/453.d68564c3.js"><link rel="prefetch" href="/blog/assets/js/454.a8f8ab86.js"><link rel="prefetch" href="/blog/assets/js/455.76b9d26b.js"><link rel="prefetch" href="/blog/assets/js/456.1d0d8768.js"><link rel="prefetch" href="/blog/assets/js/457.d3a520dd.js"><link rel="prefetch" href="/blog/assets/js/458.a0d8fd82.js"><link rel="prefetch" href="/blog/assets/js/46.bc8e91a8.js"><link rel="prefetch" href="/blog/assets/js/47.f076b4b4.js"><link rel="prefetch" href="/blog/assets/js/48.7178ad6d.js"><link rel="prefetch" href="/blog/assets/js/49.3b3bfea4.js"><link rel="prefetch" href="/blog/assets/js/5.423840d3.js"><link rel="prefetch" href="/blog/assets/js/50.d9b83da4.js"><link rel="prefetch" href="/blog/assets/js/51.9d27edce.js"><link rel="prefetch" href="/blog/assets/js/52.d5b605d6.js"><link rel="prefetch" href="/blog/assets/js/53.39011ac7.js"><link rel="prefetch" href="/blog/assets/js/54.0256ac32.js"><link rel="prefetch" href="/blog/assets/js/55.40614e04.js"><link rel="prefetch" href="/blog/assets/js/56.190c034c.js"><link rel="prefetch" href="/blog/assets/js/57.b1c87a27.js"><link rel="prefetch" href="/blog/assets/js/58.aadf8f0b.js"><link rel="prefetch" href="/blog/assets/js/59.c7a8ec0f.js"><link rel="prefetch" href="/blog/assets/js/6.6e8c67be.js"><link rel="prefetch" href="/blog/assets/js/60.16f04dae.js"><link rel="prefetch" href="/blog/assets/js/61.1da49901.js"><link rel="prefetch" href="/blog/assets/js/62.c567b83d.js"><link rel="prefetch" href="/blog/assets/js/63.a9eaa6cb.js"><link rel="prefetch" href="/blog/assets/js/64.bd23e37e.js"><link rel="prefetch" href="/blog/assets/js/65.6449b7f4.js"><link rel="prefetch" href="/blog/assets/js/66.5394a009.js"><link rel="prefetch" href="/blog/assets/js/67.30990c21.js"><link rel="prefetch" href="/blog/assets/js/68.040df19a.js"><link rel="prefetch" href="/blog/assets/js/69.7c4f7a13.js"><link rel="prefetch" href="/blog/assets/js/7.fec0ecd5.js"><link rel="prefetch" href="/blog/assets/js/70.7a8b9c4f.js"><link rel="prefetch" href="/blog/assets/js/71.42507e26.js"><link rel="prefetch" href="/blog/assets/js/72.676d8ece.js"><link rel="prefetch" href="/blog/assets/js/73.daa7600a.js"><link rel="prefetch" href="/blog/assets/js/74.20e478dc.js"><link rel="prefetch" href="/blog/assets/js/75.900ff344.js"><link rel="prefetch" href="/blog/assets/js/76.1b07b297.js"><link rel="prefetch" href="/blog/assets/js/77.0356d020.js"><link rel="prefetch" href="/blog/assets/js/78.d3355c58.js"><link rel="prefetch" href="/blog/assets/js/79.42dd852d.js"><link rel="prefetch" href="/blog/assets/js/8.b72e1b92.js"><link rel="prefetch" href="/blog/assets/js/80.702f8d04.js"><link rel="prefetch" href="/blog/assets/js/81.45abcf52.js"><link rel="prefetch" href="/blog/assets/js/82.4ceb3c5b.js"><link rel="prefetch" href="/blog/assets/js/83.5a647425.js"><link rel="prefetch" href="/blog/assets/js/84.445edf85.js"><link rel="prefetch" href="/blog/assets/js/85.d7363708.js"><link rel="prefetch" href="/blog/assets/js/86.fc754847.js"><link rel="prefetch" href="/blog/assets/js/87.fdf002b1.js"><link rel="prefetch" href="/blog/assets/js/88.d89bd9b9.js"><link rel="prefetch" href="/blog/assets/js/89.84be3134.js"><link rel="prefetch" href="/blog/assets/js/9.a0088c26.js"><link rel="prefetch" href="/blog/assets/js/90.750b1c1c.js"><link rel="prefetch" href="/blog/assets/js/91.ec8182c1.js"><link rel="prefetch" href="/blog/assets/js/92.faca2c51.js"><link rel="prefetch" href="/blog/assets/js/93.d45ce2d1.js"><link rel="prefetch" href="/blog/assets/js/94.4b7a271d.js"><link rel="prefetch" href="/blog/assets/js/95.e2fb278c.js"><link rel="prefetch" href="/blog/assets/js/96.9c2cf45f.js"><link rel="prefetch" href="/blog/assets/js/97.e757d67c.js"><link rel="prefetch" href="/blog/assets/js/98.7b001ece.js"><link rel="prefetch" href="/blog/assets/js/99.5d4e870f.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b00d9e97.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/bloglogo.png" alt="Mr.Liu" class="logo"> <span class="site-name can-hide">Mr.Liu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/blog/career-plan" class="sidebar-heading clickable open"><span>如何做好职业规划</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/career-plan/常见问题解答.html" class="sidebar-link">常见问题解答</a></li><li><a href="/blog/career-plan/职业经营 1：程序员职业的本质.html" class="sidebar-link">如何理解程序员职业的本质</a></li><li><a href="/blog/career-plan/职业经营 2：如何选择技术方向和编程语言.html" class="sidebar-link">如何选择技术方向和编程语言</a></li><li><a href="/blog/career-plan/职业经营 3.1：新手如何快速起步.html" class="sidebar-link">新手如何快速起步</a></li><li><a href="/blog/career-plan/职业经营 3.2：老手如何远离职业误区.html" class="sidebar-link">老手如何远离职业误区</a></li><li><a href="/blog/career-plan/职业经营 3.3：突破管理岗发展中的主要瓶颈.html" class="sidebar-link">如何跨过高阶成长中的常见瓶颈</a></li><li><a href="/blog/career-plan/职业规划 1：通过职业价值论理解一个程序员的真实价值.html" class="sidebar-link">如何理解职业价值论</a></li><li><a href="/blog/career-plan/职业规划 1.1：程序员市场的供需关系对求职的影响.html" class="sidebar-link">市场供需</a></li><li><a href="/blog/career-plan/职业规划 1.2：实操职业供需关系的量化分析.html" class="sidebar-link">对供需进行量化分析</a></li><li><a href="/blog/career-plan/职业规划 1.3：扩展渠道，减少信息不对称带来的求职损失.html" class="sidebar-link">信息透明度</a></li><li><a href="/blog/career-plan/职业规划 2.1：通过四大象限和职业路线图理解程序员的主要职业发展路径.html" class="sidebar-link">如何理解四大象限和使用职业路线图</a></li><li><a href="/blog/career-plan/职业规划 2.2：不同职业发展的程序员的日常.html" class="sidebar-link">程序员们的日常是怎样的</a></li><li><a href="/blog/career-plan/职业规划 3.1：通过职业画布理解应届生和新手的市场竞争力.html" class="sidebar-link">应届生和新手如何提升竞争力</a></li><li><a href="/blog/career-plan/职业规划 3.2：如何写出一份专业的技术简历.html" class="sidebar-link">如何写出一份专业的技术简历</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>H5 开发实战手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端算法与数据结构面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 hapi 的 Node.js 小程序后端开发实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 NodeJS 构建 GraphQL API 服务</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Python 实战：用 Scrapyd 打造个人化的爬虫部署管理控制台</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL 是怎样运行的：从根儿上理解 MySQL</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Flutter 完全手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript 设计模式核⼼原理与应⽤实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React SSR 服务端渲染原理解析与同构实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React Hooks 与 Immutable 数据流实战</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React 组合式开发实践：打造企业管理系统五大核心模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue 项目构建与开发入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Web 前端面试指南与高频考题解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 组件精讲</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端性能优化原理与实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>剖析 Vue.js 内部运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>使用 webpack 定制前端开发环境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>如何使用 Canvas 制作出炫酷的网页背景特效</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发者必备的 Docker 实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>用 npm script 打造超溜的前端工作流</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>微信小程序开发入门：从 0 到 1 实现天气小程序</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="第-10-节-复杂数据处理-·-结构转换-下"><a href="#第-10-节-复杂数据处理-·-结构转换-下" class="header-anchor">#</a> 第 10 节 复杂数据处理 · 结构转换（下）</h1> <p>在上一节中，我们学习了如何实现一些简单数据结构的转换，在这一节中我们将继续学习更为复杂的数据格式之间的转换。</p> <h2 id="_10-1-数据集"><a href="#_10-1-数据集" class="header-anchor">#</a> 10.1 数据集</h2> <p>在上一节的最后，我们提到了两种用于存储表格数据的结构：行式数据集（Row-oriented Dataset）和列式数据集（Column-oriented Dataset）。这两种数据集在二维空间中都同样标识了一个矩阵式数据集，但它们存储的方式和适用的范围不一样。</p> <p>例如，以下这个数据集存储了某公司的一部分人员信息。该数据集包含了五个数据列和五个数据行，其中每一行代表了一个员工的信息，而每一列对应的则是不同的信息维度。</p> <p>RowId</p> <p>EmpId</p> <p>Lastname</p> <p>Firstname</p> <p>Salary</p> <p>001</p> <p>10</p> <p>Smith</p> <p>Joe</p> <p>40000</p> <p>002</p> <p>12</p> <p>Jones</p> <p>Mary</p> <p>50000</p> <p>003</p> <p>11</p> <p>Johnson</p> <p>Cathy</p> <p>44000</p> <p>004</p> <p>22</p> <p>Jones</p> <p>Bob</p> <p>55000</p> <p>005</p> <p>24</p> <p>Steve</p> <p>Mike</p> <p>62000</p> <p>如果将这个数据集分别使用行式数据集和列式数据集两种数据结构进行存储的话，则将会是以下形式的实际结构。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/6/17/1640ce29a28642cd?w=641&amp;h=433&amp;f=png&amp;s=66145" alt="datasets"></p> <p><strong>行式数据集</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// Row-oriented Dataset
+const empsRows = [
+  { RowId: '001', EmpId: '10', Lastname: 'Smith', Firstname: 'Joe', Salary: 40000 },
+  { RowId: '002', EmpId: '12', Lastname: 'Jones', Firstname: 'Mary', Salary: 50000 },
+  { RowId: '003', EmpId: '11', Lastname: 'Johnson', Firstname: 'Cathy', Salary: 44000 },
+  { RowId: '004', EmpId: '22', Lastname: 'Jones', Firstname: 'Bob', Salary: 55000 },
+  { RowId: '005', EmpId: '24', Lastname: 'Steve', Firstname: 'Mike', Salary: 62000 }
+]
+
+</code></pre></div><p><strong>列式数据集</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// Column-oriented Dataset
+const empsColumns = {
+  RowId: [ '001', '002', '003', '004', '005' ],
+  EmpId: [ '10', '12', '11', '22', '24' ],
+  Lastname: [ 'Smith', 'Jones', 'Johnson', 'Jones', 'Steve' ],
+  Firstname: [ 'Joe', 'Mary', 'Cathy', 'Bob', 'Mike' ],
+  Salary: [ 40000, 50000, 44000, 55000, 62000 ]
+}
+
+</code></pre></div><p>这两种数据集存储结构各有其不同的优势和优化方式，在数据库领域中有分别基于这两种结构实现的不同数据库软件，如基于行式的 <a href="https://www.mysql.com" target="_blank" rel="noopener noreferrer">MySQL<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 以及基于列式的 <a href="http://hbase.apache.org/" target="_blank" rel="noopener noreferrer">Apache HBase<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。行式数据集有直观、单一行内的数据结构稳定、利于行式切分存储等优点，而列式数据集的好处是可以通过忽略非必要列以加速数据读取、查询等操作。甚至有些框架或者语言中的数据集就是以列式进行存储的，比如在广泛用于统计领域的 R 语言中的数据框 <code>data.frame</code>，其中的每一列都是以一个向量 <code>vector</code> 进行存储的。</p> <p>当然讨论数据库和其他语言并不在本小册的范围，所以还是让我们回到正题上来。事实上我们在很多的数据 API 中都会发现，API 所提供的数据结构基本上都是以行式数据提供的。这是因为后端服务所使用的大部分都是行式数据库，再者行式数据在后端程序的处理中也更为方便直接。</p> <h3 id="_10-1-1-为什么要使用列式数据集"><a href="#_10-1-1-为什么要使用列式数据集" class="header-anchor">#</a> 10.1.1 为什么要使用列式数据集</h3> <p>为什么在前端我们还要使用到这两种数据结构呢，或者说在前端开发中，列式数据集又有哪些应用场景呢？我们再次将目光放回到上面这张员工数据集上，如果要统计数据集中各员工的收入水平，我们可以选用最大公约数（<img src="https://juejin.im/equation?tex=%5Ctext%7Bgcd%7D" alt="\text{gcd}">）再乘以 10 作为约数，然后进行取整的结果作为统计区间。</p> <p><img src="https://juejin.im/equation?tex=w%3D%5Ctext%7Bgcd%7D%20*%2010%20%5C%5C%0AW_i%3D%5Clfloor%20%5Cfrac%7BS_i%7D%7Bw%7D%20%5Crfloor" alt="w=\text{gcd} * 10 \W_i=\lfloor \frac{S_i}{w} \rfloor"></p> <p>然而这里我们只需要用到数据集中的 <code>Salary</code> 这一个字段，如果该数据集的尺寸远比 <img src="https://juejin.im/equation?tex=5%20%5Ctimes%205" alt="5 \times 5"> 大的话，使用整个数据集进行计算显然会浪费非常多的计算资源（CPU 时间、内存空间、IO 等）。这时候列式数据集的优势便体现出来了，只取该一列的数据进行计算即可。</p> <div class="language- extra-class"><pre class="language-text"><code>function gcd(a, b) {
+  if (b === 0) {
+    return a
+  }
+  
+  return gcd(b, a % b)
+}
+
+const w = empsColumns.Salary.reduce(gcd) * 10
+const W = empsColumns.Salary
+  .map(function(s) {
+    return Math.floor(s / w)
+  })
+
+console.log(W) //=&gt; [4, 5, 4, 5, 6]
+
+</code></pre></div><p>得到了各数据所落到的区间后，再进行统计，最后得到的结果便可用于图表绘制了。同样，我们可以使用前面编写的 <code>_.reduceByKey</code> 进行统计计算。</p> <div class="language- extra-class"><pre class="language-text"><code>const salaryAnalysis = _.reduceByKey(
+  W.map(function(W_i) {
+    return [ W_i, 1 ]
+  }),
+  function(a, b) {
+    return a + b
+  }
+)
+
+console.log(salaryAnalysis)
+//=&gt; [
+//   [&quot;4&quot;, 2],
+//   [&quot;5&quot;, 2],
+//   [&quot;6&quot;, 1]
+// ]
+
+</code></pre></div><p>如果要找出不同收入层次的人的名字，需要使用到其他列的数据，那么在列式数据集中该如何使用呢？其实非常简单，无论是在 JavaScript 中的列式数据集还是基于列式的数据库，当需要使用到其他列的时候使用相同的下标即可。</p> <div class="language- extra-class"><pre class="language-text"><code>const groupedNames = _.mapValues(
+  _.groupBy(
+    empsColumns.Salary
+      .map(function(s) {
+        return Math.floor(s / w)
+      })
+      .map(function(W_i, i) {
+        return {
+          w: W_i,
+          name:`${empsColumns.Firstname[i]} ${empsColumns.Lastname[i]}`
+        }
+      }),
+    'w'
+  ),
+  function(items) {
+    return items.map(_.iteratee('name'))
+  }
+)
+
+console.log(groupedNames)
+//=&gt; {
+//   4: [ &quot;Joe Smith&quot;, &quot;Cathy Johnson&quot; ],
+//   5: [ &quot;Mary Jones&quot;, &quot;Bob Jones&quot; ],
+//   6: [ &quot;Mike Steve&quot; ]
+// }
+
+</code></pre></div><h3 id="_10-1-2-行式数据集-→-列式数据集"><a href="#_10-1-2-行式数据集-→-列式数据集" class="header-anchor">#</a> 10.1.2 行式数据集 → 列式数据集</h3> <p>了解完列式数据集的好处和实际使用方式之后，我们来学习下如何将前端生成或者从后端服务中取得的行式数据集转换为列式数据集。</p> <p>首先我们要了解数据集并不一定是完全密集的，也就是说某些字段是允许为空的，在以对象字面量作为一行的行式数据集中便有某一个字段不存在或为 <code>null/undefined</code>。同样，在列式数据集中也可以使用 <code>null</code> 或 <code>undefined</code> 来表示空字段。</p> <p>假设我们并不知道某个行式数据集究竟有哪些字段列，因为很有可能前面所有的数据行中都不存在的某个字段，在最后一行出现了。而且在实际业务开发中很有可能数据并非一次性加载完成，而是通过数据流的形式不断添加的。因此我们需要能够随时检查是否有新字段列产生，如果有，将其添加到目标列式数据集中。</p> <p>首先定义一个用于初始化列式数据集中新字段的函数，逻辑很简单，检查目标数据集中是否已经存在目标字段，如果不存在将其初始化为一个空数组。</p> <div class="language- extra-class"><pre class="language-text"><code>function applyColumn(colDataset, columnName) {
+  if (!_.has(colDataset, columnName)) {
+    colDataset[columnName] = []
+  }
+
+  return colDataset
+}
+
+</code></pre></div><p>然后将行式数据集中的每一个对象字面量所包含的字段都插入到对应行列位置上即可。</p> <div class="language- extra-class"><pre class="language-text"><code>function rowOriented2ColOriented(rowDataset) {
+  let colDataset = {}
+
+  rowDataset.forEach(function(row, i) {
+    const columnNames = _.keys(row)
+
+    columnNames.forEach(function(columnName) {
+      colDataset = applyColumn(colDataset, columnName)
+      colDataset[columnName][i] = row[columnName]
+    })
+  })
+
+  return colDataset
+}
+
+const transformedDataset = rowOriented2ColOriented(empsRows)
+
+console.log(transformedDataset)
+//=&gt; {
+//  RowId: [ '001', '002', '003', '004', '005' ],
+//  EmpId: [ '10', '12', '11', '22', '24' ],
+//  Lastname: [ 'Smith', 'Jones', 'Johnson', 'Jones', 'Steve' ],
+//  Firstname: [ 'Joe', 'Mary', 'Cathy', 'Bob', 'Mike' ],
+//  Salary: [ 40000, 50000, 44000, 55000, 62000 ]
+// }
+
+</code></pre></div><h3 id="_10-1-3-列式数据集-→-行式数据集"><a href="#_10-1-3-列式数据集-→-行式数据集" class="header-anchor">#</a> 10.1.3 列式数据集 → 行式数据集</h3> <p>当需求变成将列式数据集转换为行式数据集时，需要考虑的技术点也会相应地发生改变。在行式转列式的过程中需要注意的是未知字段列的添加，而列式转行式时则需要注意跳过空字段。</p> <p>而且因为列式数据集是必须带有顺序的，所以很有可能会出现当前最后一行数据并不是完整的数据，即所有的字段列的长度并不一定相等。</p> <p>因此在开始遍历每一个字段列之前，需要先检查该数据集究竟有多少个数据行，方法也很简单，就是找出最长的那个字段列。</p> <div class="language- extra-class"><pre class="language-text"><code>function rowOriented2ColOriented(colDataset) {
+  const columnNames = _.keys(colDataset)
+
+  const n = _.max(columnNames.map(function(colName) {
+    return colDataset[colName].length
+  }))
+
+  const rowDataset = []
+
+  for (let i = 0; i &lt; n; ++i) {
+    const row = {}
+
+    columnNames.forEach(function(colName) {
+      if (!_.isNil(colDataset[colName][i])) {
+        row[colName] = colDataset[colName][i]
+      }
+    })
+
+    rowDataset[i] = row
+  }
+
+  return rowDataset
+}
+
+const empsRows = rowOriented2ColOriented(empsColumns)
+
+console.log(empsRows)
+//=&gt; [
+//   { RowId: '001', EmpId: '10', Lastname: 'Smith', Firstname: 'Joe', Salary: 40000 },
+//   { RowId: '002', EmpId: '12', Lastname: 'Jones', Firstname: 'Mary', Salary: 50000 },
+//   { RowId: '003', EmpId: '11', Lastname: 'Johnson', Firstname: 'Cathy', Salary: 44000 },
+//   { RowId: '004', EmpId: '22', Lastname: 'Jones', Firstname: 'Bob', Salary: 55000 },
+//   { RowId: '005', EmpId: '24', Lastname: 'Steve', Firstname: 'Mike', Salary: 62000 }
+// ]
+
+</code></pre></div><h2 id="_10-2-序列集-树形结构-关系图谱"><a href="#_10-2-序列集-树形结构-关系图谱" class="header-anchor">#</a> 10.2 序列集 &amp; 树形结构 &amp; 关系图谱</h2> <p>假设我们有这样一个数据表，它存储着一些有序序列，比如像下面这种的。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/6/17/1640ce284452b9e5?w=221&amp;h=401&amp;f=png&amp;s=19351" alt="sequences"></p> <p>使用 JavaScript 中的数组进行表达的话，它可能会是这样的。</p> <div class="language- extra-class"><pre class="language-text"><code>const sequences = [
+  [ 'A', 'B', 'C' ],
+  [ 'B', 'C', 'D' ],
+  [ 'B', 'D', 'E' ],
+  [ 'B', 'F', 'G' ],
+  [ 'F', 'G', 'H' ],
+  [ 'F', 'G', 'H', 'I' ],
+  [ 'J', 'G' ],
+  [ 'J', 'G', 'H' ],
+  [ 'J', 'G', 'H', 'I' ]
+]
+
+</code></pre></div><p>这种数据结构常用于一些事件流程、关系网络等，因为在后端数据库中通常只能用这种形式存储事物之间的联系，而很难直接存储一张关系图谱或者树形结构，但实际业务开发中又需要使用真正的关系图谱或树形结构，所以我们需要懂得如何将离散存储的关系对或关系序列转换为所需要的数据结构。</p> <h3 id="_10-2-1-序列集-→-树形结构"><a href="#_10-2-1-序列集-→-树形结构" class="header-anchor">#</a> 10.2.1 序列集 → 树形结构</h3> <p>当我们将一系列有序序列整合成一个或多个树形结构时，需要注意以下几点：</p> <ol><li>每个序列的不同首端是否都为独立的根节点；</li> <li>节点是否可重复；</li> <li>序列中是否允许存在回环；</li> <li>每个序列的末端是否都为独立的叶节点。</li></ol> <p><strong>每个序列的不同首端是否都为独立的根节点</strong></p> <p>每个序列的不同首端是否都为独立的根节点，会直接影响到转换所得的树形结构的数量，我们以下图来理解每个互不相同的首端是与不是独立根节点的区别。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/6/17/1640ce28443241b2?w=766&amp;h=530&amp;f=png&amp;s=43746" alt="uniq-roots"></p> <p><strong>节点是否可重复</strong></p> <p>节点是否可重复决定了，转换的目标数据结构究竟是树形结构还是一个关系图谱，当多个序列中出现相同的节点时，因为顺序的关系它们并不处于同一个分支中，就会变成多个分支中有着相同的节点。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/6/17/1640ce283cd1833c?w=751&amp;h=351&amp;f=png&amp;s=26044" alt="duplicate-nodes"></p> <p><strong>序列中是否允许存在回环</strong></p> <p>当序列集中允许出现重复节点时，很可能会出现同一个序列中有着重复的节点，从而形成回环。而在树形结构中，一旦出现回环树形结构便会变为更为立体的关系图谱结构。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/6/17/1640ce283cb81d7f?w=742&amp;h=236&amp;f=png&amp;s=19470" alt="loop-tree"></p> <p><strong>每个序列的末端是否都为独立的叶节点</strong></p> <p>在树形结构中叶节点的定义为树形结构中没有子节点的节点，但是在序列集转换为树形结构时会产生特殊的情况。当序列 <img src="https://juejin.im/equation?tex=A" alt="A"> 的节点为序列 <img src="https://juejin.im/equation?tex=B" alt="B"> 的前半部分，序列 <img src="https://juejin.im/equation?tex=B" alt="B"> 较序列 <img src="https://juejin.im/equation?tex=A" alt="A"> 的后端多出一个或多个节点时，如果序列 <img src="https://juejin.im/equation?tex=A" alt="A"> 的末端节点被定义为一个独立的叶节点，那么在构建树形结构时如何界定，一个分支中的中间节点（如序列 <img src="https://juejin.im/equation?tex=A" alt="A"> 的末端节点）是原本序列集中的一个叶节点呢？这也是后面我们将要讨论的内容。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/6/17/1640ce28444aa4cd?w=871&amp;h=314&amp;f=png&amp;s=23906" alt="leaf-node"></p> <h4 id="_1-各首端为独立根节点"><a href="#_1-各首端为独立根节点" class="header-anchor">#</a> 1. 各首端为独立根节点</h4> <p>当我们所需要转换的序列集中，每一个不同的首端都为独立的根节点时，就意味着不同的首端会成为一个独立的树形结构，从而转换为一个包含多个树形结构的“森林”。</p> <p>比如本节开头的有序序列集，其中就包含了 4 个不同的首端：A、B、F 和 J。那么这个序列集就可以转换为这样的一个“森林”。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/6/17/1640ce2868273600?w=691&amp;h=321&amp;f=png&amp;s=27575" alt="seqs-to-trees-uniq"></p> <p>这种情况下，我们可以使用一个虚拟的根节点来完成每一个序列的转换：</p> <ol><li>创建一个虚拟的根节点，所有的实际根节点都以它为父节点；</li> <li>遍历序列中的每一个节点；</li> <li>从虚拟的根节点作为父节点开始，检查父节点是否包含序列中当前的节点，若不存在则往父节点中添加当前节点；</li> <li>以最新的节点作为父节点，遍历到序列中的下一个节点并重复步骤 3，直至当前序列的末端。</li></ol> <p>我们可以利用下面这张图来更好地理解这个转换算法。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/6/17/1640ce288881f902?w=875&amp;h=751&amp;f=png&amp;s=70029" alt="uniq-roots-steps"></p> <p>配合第 7 节中我们所使用的树形结构代码，来完成这个转换算法，然后使用 <code>Node.toString()</code> 将其展示出来以确认是否成功并正确地完成转换。</p> <div class="language- extra-class"><pre class="language-text"><code>// 虚拟一个根节点
+const root = new Node('*')
+
+sequences.forEach(function(sequence) {
+  let lastNode = root
+  
+  sequence.forEach(function(nodeName, i) {
+    // 寻找已存在的节点
+    const index = lastNode.children.findIndex(function(child) {
+      return child.name === nodeName
+    })
+
+    if (index &gt;= 0) {
+      lastNode = lastNode.children[index]
+    } else {
+      // 创建节点
+      const node = new Node(nodeName)
+
+      lastNode.addChild(node)
+
+      lastNode = node
+    }
+  })
+})
+
+console.log(root.toString())
+//=&gt;
+// *
+//   A
+//     B
+//       C
+//   B
+//     C
+//       D
+//     D
+//       E
+//     F
+//       G
+//   F
+//     G
+//       H
+//         I
+//   J
+//     G
+//       H
+//         I
+
+</code></pre></div><h4 id="_2-各首端不为独立根节点"><a href="#_2-各首端不为独立根节点" class="header-anchor">#</a> 2. 各首端不为独立根节点</h4> <p>当序列集中的各首端并不为独立根节点时，整个序列集所转换成的树形结构数量会大大减少，甚至整个序列集都会以一棵树形结构呈现。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/6/17/1640ce28906329d8?w=797&amp;h=460&amp;f=png&amp;s=49890" alt="seqs-to-trees"></p> <p>可以看到，在这个转换得到了两个树形结构，分别为以节点 A 和节点 J 为根节点。进行转换之前我们需要知道的是，序列集很有可能是无序的，也就是说，并非序列集中第一个序列的第一个节点必定是一个根节点。</p> <p>因此，在转换的过程中需要完成的第一步便是寻找序列集中，既定存在的若干个根节点。回想一下我们在第 7 节和第 8 节中学过的内容，一般来说，如何辨别树形结构和关系图谱中的节点究竟是根节点、中间节点还是叶节点的？</p> <p>根节点的定义是：没有父节点的节点。那么换过来说，如果要寻找序列集中的根节点，第一步便是对其中的所有节点进行整理统计，最直观的办法是将每个序列拆分成多个节点对，即父节点和子节点的配对关系。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/6/17/1640ce288a8e352d?w=701&amp;h=301&amp;f=png&amp;s=18633" alt="seq-to-edges"></p> <p>针对上面 <code>sequences</code> 这种形式的序列集，我们可以通过遍历序列中除了最后一个节点以外的所有节点，并返回与其下一个元素所组成的元组，以表达树形结构中的父子节点关系。</p> <p><img src="https://juejin.im/equation?tex=n_i%20%5Crightarrow%20(n_i%2C%20n_%7Bi%2B1%7D)" alt="n_i \rightarrow (n_i, n_{i+1})"></p> <div class="language- extra-class"><pre class="language-text"><code>function isLast(i, length) {
+  return (i + 1) === length
+}
+
+function seq2Pairs(seq) {
+  return seq
+    .map(function(node, i) {
+      if (isLast(i, seq.length)) {
+        return false
+      }
+
+      return [ node, seq[i + 1] ]
+    })
+    .filter(function(pair) {
+      return pair &amp;&amp; pair.length === 2
+    })
+}
+
+const pairs = seq2Pairs([ 'A', 'B', 'C' ])
+
+console.log(pairs)
+//=&gt; [
+//   [&quot;A&quot;, &quot;B&quot;],
+//   [&quot;B&quot;, &quot;C&quot;]
+// ]
+
+</code></pre></div><p>得到了一系列的父子对之后，我们便可以分别统计每一个出现的节点各自的入度和出度，以找出根节点集并提前向虚拟根节点插入这些根节点。</p> <div class="language- extra-class"><pre class="language-text"><code>// 统计节点的度
+function analyzeDegrees(pairs) {
+  const analysis = {}
+
+  for (const pair of pairs) {
+    const [ left, right ] = pair
+
+    if (!analysis[left]) {
+      analysis[left] = {
+        in: 0, out: 0
+      }
+    }
+    if (!analysis[right]) {
+      analysis[right] = {
+        in: 0, out: 0
+      }
+    }
+
+    analysis[left].out += 1
+    analysis[right].in += 1
+  }
+
+  return _.toPairs(analysis)
+    .map(function([ node, degrees ]) {
+      return { node, ...degrees }
+    })
+}
+
+// 通过判断入度找出根节点
+function findRootNodes(analysis) {
+  return analysis.filter(function({ in: inDegree }) {
+    return inDegree === 0
+  })
+}
+
+const analysis = analyzeDegrees(pairs)
+const rootNodes = findRootNodes(analysis).map(function(result) {
+  return result.node
+})
+
+console.log(rootNodes)
+//=&gt; [ 'A' ]
+
+const root = new Node('*')
+
+for (const nodeName of rootNodes) {
+  const node = new Node(nodeName)
+
+  root.addChild(node)
+}
+
+</code></pre></div><p>接下来的处理其实跟序列各首端为独立根节点时很相似，不过有一点区别：在前面的情况中，每一个序列的首端都必定会出现在虚拟根节点的子节点中，因此可以直接从根节点开始操作，而在现在的条件下，每个序列的首端节点并不一定是虚拟根节点的子节点，因此除了一个虚拟根节点以外还需要建立使用第 7 节中的树型结构，并使用 <code>Tree.search()</code> 方法来完成上层节点的搜索。</p> <div class="language- extra-class"><pre class="language-text"><code>const tree = new Tree(root)
+
+// 任务队列
+const penddingSeqs = sequences.slice()
+
+while (penddingSeqs.length &gt; 0) {
+  const currentSeq = penddingSeqs.shift()
+
+  // 搜索首端节点
+  const hit = tree.search(function(node) {
+    return node.name === currentSeq[0]
+  }).shift()
+
+  // 如果不存在，则将当前序列重新加入任务队列
+  if (!hit) {
+    penddingSeqs.push(currentSeq)
+    continue
+  }
+
+  let lastNode = hit
+  currentSeq.shift()
+
+  while (currentSeq.length &gt; 0) {
+    const currentNodeName = currentSeq.shift()
+
+    const currentNode = lastNode.children.find(function(node) {
+      return node.name === currentNodeName
+    })
+
+    if (currentNode) {
+      lastNode = currentNode
+    } else {
+      const node = new Node(currentNodeName)
+      lastNode.addChild(node)
+
+      lastNode = node
+    }
+  }
+}
+
+console.log(root.toString())
+//=&gt;
+// *
+//   A
+//     B
+//       C
+//         D
+//       D
+//         E
+//       F
+//         G
+//           H
+//             I
+//   J
+//     G
+//       H
+//         I
+
+</code></pre></div><h3 id="_10-2-2-序列集-→-关系图谱"><a href="#_10-2-2-序列集-→-关系图谱" class="header-anchor">#</a> 10.2.2 序列集 → 关系图谱</h3> <p>与树形结构相比，将序列集转换为关系图谱的方法要简单许多。在第 8 节中我们曾说到，关系图谱的存储方式一般会由一个顶点集和一个边集组成，而序列集从数据结构上可以看做是一个更高维度的边集。因此，我们如果需要将序列集转换为关系图谱，只需要将序列集中的所有独立节点提取出来，然后将序列拆分成有向边或无向边并完成去重即可。</p> <p>可以参考上面提取序列集中父子对的过程，此处不再演示代码，这个任务由你来完成。</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>本节中我们学习了多种复杂数据结构之间的转换，其中也包括了上一节中我们所留下的两种数据集结构之间的转换。</p> <p>这些数据结构在我们日常的开发中都是非常常见的，而且由于数据存储格式的限制或数据传输的约束，我们往往需要通过另一种方式来存储难以表达的数据结构，如序列集与树形结构、关系图谱的关系。</p> <h3 id="习题"><a href="#习题" class="header-anchor">#</a> 习题</h3> <ol><li>参考 10.2.1 节中第 2 小节里的转换算法，完成序列集到关系图谱的转换。</li> <li>思考：树形结构作为特殊的关系图谱，我们如何将其一般化，转换为关系图谱呢？</li></ol></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b72373f7.js" defer></script><script src="/blog/assets/js/2.2219f9c0.js" defer></script><script src="/blog/assets/js/187.b5e3a4bb.js" defer></script>
+  </body>
+</html>

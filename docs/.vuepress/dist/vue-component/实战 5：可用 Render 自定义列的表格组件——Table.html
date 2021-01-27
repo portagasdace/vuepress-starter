@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实战 5：可用 Render 自定义列的表格组件——Table | Mr.Liu</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b00d9e97.css" as="style"><link rel="preload" href="/blog/assets/js/app.b72373f7.js" as="script"><link rel="preload" href="/blog/assets/js/2.2219f9c0.js" as="script"><link rel="preload" href="/blog/assets/js/364.14db63c4.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4213d21f.js"><link rel="prefetch" href="/blog/assets/js/100.fa207478.js"><link rel="prefetch" href="/blog/assets/js/101.a2a18205.js"><link rel="prefetch" href="/blog/assets/js/102.b0bdba49.js"><link rel="prefetch" href="/blog/assets/js/103.4207d4a0.js"><link rel="prefetch" href="/blog/assets/js/104.d47d6122.js"><link rel="prefetch" href="/blog/assets/js/105.84f3b0d6.js"><link rel="prefetch" href="/blog/assets/js/106.a3e0da4d.js"><link rel="prefetch" href="/blog/assets/js/107.e2e32489.js"><link rel="prefetch" href="/blog/assets/js/108.fef5787a.js"><link rel="prefetch" href="/blog/assets/js/109.9cacc969.js"><link rel="prefetch" href="/blog/assets/js/11.27166c35.js"><link rel="prefetch" href="/blog/assets/js/110.43122e5c.js"><link rel="prefetch" href="/blog/assets/js/111.0c1ef4dd.js"><link rel="prefetch" href="/blog/assets/js/112.10c7d380.js"><link rel="prefetch" href="/blog/assets/js/113.c912ddfe.js"><link rel="prefetch" href="/blog/assets/js/114.6127c171.js"><link rel="prefetch" href="/blog/assets/js/115.c7d9f75c.js"><link rel="prefetch" href="/blog/assets/js/116.152fa701.js"><link rel="prefetch" href="/blog/assets/js/117.03af553d.js"><link rel="prefetch" href="/blog/assets/js/118.7ffcd14e.js"><link rel="prefetch" href="/blog/assets/js/119.b0d680e7.js"><link rel="prefetch" href="/blog/assets/js/12.ea61452a.js"><link rel="prefetch" href="/blog/assets/js/120.6db360c5.js"><link rel="prefetch" href="/blog/assets/js/121.6e06fdbd.js"><link rel="prefetch" href="/blog/assets/js/122.d70dd36f.js"><link rel="prefetch" href="/blog/assets/js/123.95a15881.js"><link rel="prefetch" href="/blog/assets/js/124.41b68dde.js"><link rel="prefetch" href="/blog/assets/js/125.5a019ebc.js"><link rel="prefetch" href="/blog/assets/js/126.99da1cc5.js"><link rel="prefetch" href="/blog/assets/js/127.8d929133.js"><link rel="prefetch" href="/blog/assets/js/128.8a80423d.js"><link rel="prefetch" href="/blog/assets/js/129.a26f88a7.js"><link rel="prefetch" href="/blog/assets/js/13.e8ea3eed.js"><link rel="prefetch" href="/blog/assets/js/130.a494c8d3.js"><link rel="prefetch" href="/blog/assets/js/131.752b57aa.js"><link rel="prefetch" href="/blog/assets/js/132.03be5468.js"><link rel="prefetch" href="/blog/assets/js/133.b900cacd.js"><link rel="prefetch" href="/blog/assets/js/134.07c9a37c.js"><link rel="prefetch" href="/blog/assets/js/135.7fae2edd.js"><link rel="prefetch" href="/blog/assets/js/136.790d189e.js"><link rel="prefetch" href="/blog/assets/js/137.936714b3.js"><link rel="prefetch" href="/blog/assets/js/138.ca57432f.js"><link rel="prefetch" href="/blog/assets/js/139.c40241bd.js"><link rel="prefetch" href="/blog/assets/js/14.f5e6175f.js"><link rel="prefetch" href="/blog/assets/js/140.7e64b631.js"><link rel="prefetch" href="/blog/assets/js/141.dd5939fe.js"><link rel="prefetch" href="/blog/assets/js/142.15915de1.js"><link rel="prefetch" href="/blog/assets/js/143.74cd60e1.js"><link rel="prefetch" href="/blog/assets/js/144.6182277f.js"><link rel="prefetch" href="/blog/assets/js/145.77b2db6a.js"><link rel="prefetch" href="/blog/assets/js/146.9ee3cd6a.js"><link rel="prefetch" href="/blog/assets/js/147.4e2efd27.js"><link rel="prefetch" href="/blog/assets/js/148.f1da666f.js"><link rel="prefetch" href="/blog/assets/js/149.9e785988.js"><link rel="prefetch" href="/blog/assets/js/15.df5d6a6a.js"><link rel="prefetch" href="/blog/assets/js/150.8efddfd8.js"><link rel="prefetch" href="/blog/assets/js/151.5eb4f49f.js"><link rel="prefetch" href="/blog/assets/js/152.cb4ba17a.js"><link rel="prefetch" href="/blog/assets/js/153.934e36d2.js"><link rel="prefetch" href="/blog/assets/js/154.7aa94017.js"><link rel="prefetch" href="/blog/assets/js/155.a2d965ff.js"><link rel="prefetch" href="/blog/assets/js/156.16f69f9e.js"><link rel="prefetch" href="/blog/assets/js/157.307744ba.js"><link rel="prefetch" href="/blog/assets/js/158.17c75b84.js"><link rel="prefetch" href="/blog/assets/js/159.625baba3.js"><link rel="prefetch" href="/blog/assets/js/16.e0370ef8.js"><link rel="prefetch" href="/blog/assets/js/160.29a7c7eb.js"><link rel="prefetch" href="/blog/assets/js/161.c223d782.js"><link rel="prefetch" href="/blog/assets/js/162.c3a832be.js"><link rel="prefetch" href="/blog/assets/js/163.e9aff0cf.js"><link rel="prefetch" href="/blog/assets/js/164.22ea5757.js"><link rel="prefetch" href="/blog/assets/js/165.712fcb85.js"><link rel="prefetch" href="/blog/assets/js/166.cf71fc9b.js"><link rel="prefetch" href="/blog/assets/js/167.84f1208e.js"><link rel="prefetch" href="/blog/assets/js/168.501651ec.js"><link rel="prefetch" href="/blog/assets/js/169.665da9a9.js"><link rel="prefetch" href="/blog/assets/js/17.884f8b31.js"><link rel="prefetch" href="/blog/assets/js/170.40e206f4.js"><link rel="prefetch" href="/blog/assets/js/171.22a023e6.js"><link rel="prefetch" href="/blog/assets/js/172.c9f57151.js"><link rel="prefetch" href="/blog/assets/js/173.5b663775.js"><link rel="prefetch" href="/blog/assets/js/174.f38576a4.js"><link rel="prefetch" href="/blog/assets/js/175.d8acabe2.js"><link rel="prefetch" href="/blog/assets/js/176.e17b4260.js"><link rel="prefetch" href="/blog/assets/js/177.82517cd4.js"><link rel="prefetch" href="/blog/assets/js/178.dca9a177.js"><link rel="prefetch" href="/blog/assets/js/179.55ac84d8.js"><link rel="prefetch" href="/blog/assets/js/18.99afdf09.js"><link rel="prefetch" href="/blog/assets/js/180.08ecbc50.js"><link rel="prefetch" href="/blog/assets/js/181.064adef8.js"><link rel="prefetch" href="/blog/assets/js/182.eac974db.js"><link rel="prefetch" href="/blog/assets/js/183.a8aaeadb.js"><link rel="prefetch" href="/blog/assets/js/184.c586f7bc.js"><link rel="prefetch" href="/blog/assets/js/185.287601bc.js"><link rel="prefetch" href="/blog/assets/js/186.52ca6240.js"><link rel="prefetch" href="/blog/assets/js/187.b5e3a4bb.js"><link rel="prefetch" href="/blog/assets/js/188.f610dddf.js"><link rel="prefetch" href="/blog/assets/js/189.03750da5.js"><link rel="prefetch" href="/blog/assets/js/19.8a02f750.js"><link rel="prefetch" href="/blog/assets/js/190.0caa43c9.js"><link rel="prefetch" href="/blog/assets/js/191.383bf522.js"><link rel="prefetch" href="/blog/assets/js/192.d3062c3e.js"><link rel="prefetch" href="/blog/assets/js/193.7f7e9901.js"><link rel="prefetch" href="/blog/assets/js/194.f676d07d.js"><link rel="prefetch" href="/blog/assets/js/195.bf775451.js"><link rel="prefetch" href="/blog/assets/js/196.1c48ef3f.js"><link rel="prefetch" href="/blog/assets/js/197.6c53ba98.js"><link rel="prefetch" href="/blog/assets/js/198.9d5a5085.js"><link rel="prefetch" href="/blog/assets/js/199.ab52e41c.js"><link rel="prefetch" href="/blog/assets/js/20.4bf913aa.js"><link rel="prefetch" href="/blog/assets/js/200.1c398b3c.js"><link rel="prefetch" href="/blog/assets/js/201.c75a6c8a.js"><link rel="prefetch" href="/blog/assets/js/202.4d11fdf6.js"><link rel="prefetch" href="/blog/assets/js/203.ee6347bb.js"><link rel="prefetch" href="/blog/assets/js/204.84f5a644.js"><link rel="prefetch" href="/blog/assets/js/205.0fef4632.js"><link rel="prefetch" href="/blog/assets/js/206.eca759d5.js"><link rel="prefetch" href="/blog/assets/js/207.d505c6d2.js"><link rel="prefetch" href="/blog/assets/js/208.5ab75ef7.js"><link rel="prefetch" href="/blog/assets/js/209.29a9f3f1.js"><link rel="prefetch" href="/blog/assets/js/21.0936bb80.js"><link rel="prefetch" href="/blog/assets/js/210.9af28056.js"><link rel="prefetch" href="/blog/assets/js/211.f305f1e8.js"><link rel="prefetch" href="/blog/assets/js/212.db5aae61.js"><link rel="prefetch" href="/blog/assets/js/213.25c645f5.js"><link rel="prefetch" href="/blog/assets/js/214.85bb3df2.js"><link rel="prefetch" href="/blog/assets/js/215.5bc993e6.js"><link rel="prefetch" href="/blog/assets/js/216.dbec2182.js"><link rel="prefetch" href="/blog/assets/js/217.2776cfb0.js"><link rel="prefetch" href="/blog/assets/js/218.da7efde1.js"><link rel="prefetch" href="/blog/assets/js/219.f3a10672.js"><link rel="prefetch" href="/blog/assets/js/22.6eabfbae.js"><link rel="prefetch" href="/blog/assets/js/220.6a60c6c7.js"><link rel="prefetch" href="/blog/assets/js/221.2646fb75.js"><link rel="prefetch" href="/blog/assets/js/222.6580269e.js"><link rel="prefetch" href="/blog/assets/js/223.3397cf4f.js"><link rel="prefetch" href="/blog/assets/js/224.6575a90e.js"><link rel="prefetch" href="/blog/assets/js/225.8c1c6e94.js"><link rel="prefetch" href="/blog/assets/js/226.eeb12de5.js"><link rel="prefetch" href="/blog/assets/js/227.aacd8ef4.js"><link rel="prefetch" href="/blog/assets/js/228.7e407bfd.js"><link rel="prefetch" href="/blog/assets/js/229.eb5a01cd.js"><link rel="prefetch" href="/blog/assets/js/23.f05f6515.js"><link rel="prefetch" href="/blog/assets/js/230.7219d9ce.js"><link rel="prefetch" href="/blog/assets/js/231.016ae179.js"><link rel="prefetch" href="/blog/assets/js/232.97d25eee.js"><link rel="prefetch" href="/blog/assets/js/233.835cb5fc.js"><link rel="prefetch" href="/blog/assets/js/234.36112a10.js"><link rel="prefetch" href="/blog/assets/js/235.b2df9c65.js"><link rel="prefetch" href="/blog/assets/js/236.72299e3e.js"><link rel="prefetch" href="/blog/assets/js/237.1befb80c.js"><link rel="prefetch" href="/blog/assets/js/238.e387348d.js"><link rel="prefetch" href="/blog/assets/js/239.d5e8d924.js"><link rel="prefetch" href="/blog/assets/js/24.5899d319.js"><link rel="prefetch" href="/blog/assets/js/240.4c7f5211.js"><link rel="prefetch" href="/blog/assets/js/241.371861a8.js"><link rel="prefetch" href="/blog/assets/js/242.61edc86c.js"><link rel="prefetch" href="/blog/assets/js/243.f85ffb8e.js"><link rel="prefetch" href="/blog/assets/js/244.3fbf2167.js"><link rel="prefetch" href="/blog/assets/js/245.5d9d618a.js"><link rel="prefetch" href="/blog/assets/js/246.6636d76f.js"><link rel="prefetch" href="/blog/assets/js/247.006c37a6.js"><link rel="prefetch" href="/blog/assets/js/248.eeefdc6d.js"><link rel="prefetch" href="/blog/assets/js/249.bb66f939.js"><link rel="prefetch" href="/blog/assets/js/25.feeda54a.js"><link rel="prefetch" href="/blog/assets/js/250.dba1e5ba.js"><link rel="prefetch" href="/blog/assets/js/251.cd9561b1.js"><link rel="prefetch" href="/blog/assets/js/252.e6a79f4e.js"><link rel="prefetch" href="/blog/assets/js/253.01bbcc41.js"><link rel="prefetch" href="/blog/assets/js/254.75d6c42a.js"><link rel="prefetch" href="/blog/assets/js/255.bf9d53b3.js"><link rel="prefetch" href="/blog/assets/js/256.f64de66c.js"><link rel="prefetch" href="/blog/assets/js/257.0741c551.js"><link rel="prefetch" href="/blog/assets/js/258.0659cfe2.js"><link rel="prefetch" href="/blog/assets/js/259.21646579.js"><link rel="prefetch" href="/blog/assets/js/26.8182efc2.js"><link rel="prefetch" href="/blog/assets/js/260.7e40009e.js"><link rel="prefetch" href="/blog/assets/js/261.60c41766.js"><link rel="prefetch" href="/blog/assets/js/262.36bca1e4.js"><link rel="prefetch" href="/blog/assets/js/263.53a9a695.js"><link rel="prefetch" href="/blog/assets/js/264.0f51b147.js"><link rel="prefetch" href="/blog/assets/js/265.368f444d.js"><link rel="prefetch" href="/blog/assets/js/266.995c43e8.js"><link rel="prefetch" href="/blog/assets/js/267.ba4a1d2f.js"><link rel="prefetch" href="/blog/assets/js/268.3d2de771.js"><link rel="prefetch" href="/blog/assets/js/269.7ee7a020.js"><link rel="prefetch" href="/blog/assets/js/27.96f7c8b5.js"><link rel="prefetch" href="/blog/assets/js/270.d2b6dbc1.js"><link rel="prefetch" href="/blog/assets/js/271.c98e0a1f.js"><link rel="prefetch" href="/blog/assets/js/272.8e96cf45.js"><link rel="prefetch" href="/blog/assets/js/273.6c7a3693.js"><link rel="prefetch" href="/blog/assets/js/274.7ae7fa3b.js"><link rel="prefetch" href="/blog/assets/js/275.277e28fe.js"><link rel="prefetch" href="/blog/assets/js/276.0d2d3363.js"><link rel="prefetch" href="/blog/assets/js/277.50ba95f9.js"><link rel="prefetch" href="/blog/assets/js/278.2ac47f2f.js"><link rel="prefetch" href="/blog/assets/js/279.d5016a2f.js"><link rel="prefetch" href="/blog/assets/js/28.956d8c00.js"><link rel="prefetch" href="/blog/assets/js/280.1cff421f.js"><link rel="prefetch" href="/blog/assets/js/281.7becae44.js"><link rel="prefetch" href="/blog/assets/js/282.a470afa4.js"><link rel="prefetch" href="/blog/assets/js/283.92451915.js"><link rel="prefetch" href="/blog/assets/js/284.bf81219c.js"><link rel="prefetch" href="/blog/assets/js/285.abb3e0e2.js"><link rel="prefetch" href="/blog/assets/js/286.9b399fac.js"><link rel="prefetch" href="/blog/assets/js/287.601549f9.js"><link rel="prefetch" href="/blog/assets/js/288.74af2d88.js"><link rel="prefetch" href="/blog/assets/js/289.d287a9d1.js"><link rel="prefetch" href="/blog/assets/js/29.5fdfceb0.js"><link rel="prefetch" href="/blog/assets/js/290.8b41cc6f.js"><link rel="prefetch" href="/blog/assets/js/291.30cb3e81.js"><link rel="prefetch" href="/blog/assets/js/292.f6c92a32.js"><link rel="prefetch" href="/blog/assets/js/293.4a5c5d03.js"><link rel="prefetch" href="/blog/assets/js/294.889fa477.js"><link rel="prefetch" href="/blog/assets/js/295.7c9bfb1a.js"><link rel="prefetch" href="/blog/assets/js/296.5c393daa.js"><link rel="prefetch" href="/blog/assets/js/297.fdb8d15e.js"><link rel="prefetch" href="/blog/assets/js/298.93998d32.js"><link rel="prefetch" href="/blog/assets/js/299.ad16ee20.js"><link rel="prefetch" href="/blog/assets/js/3.bae9c3b9.js"><link rel="prefetch" href="/blog/assets/js/30.092f59e3.js"><link rel="prefetch" href="/blog/assets/js/300.d7ee2ec1.js"><link rel="prefetch" href="/blog/assets/js/301.49bde86e.js"><link rel="prefetch" href="/blog/assets/js/302.cb98973f.js"><link rel="prefetch" href="/blog/assets/js/303.f6b8a9e2.js"><link rel="prefetch" href="/blog/assets/js/304.e112a703.js"><link rel="prefetch" href="/blog/assets/js/305.a4957830.js"><link rel="prefetch" href="/blog/assets/js/306.c870dc18.js"><link rel="prefetch" href="/blog/assets/js/307.001c4372.js"><link rel="prefetch" href="/blog/assets/js/308.79901a9c.js"><link rel="prefetch" href="/blog/assets/js/309.869b2a70.js"><link rel="prefetch" href="/blog/assets/js/31.a2348ea1.js"><link rel="prefetch" href="/blog/assets/js/310.1c002e84.js"><link rel="prefetch" href="/blog/assets/js/311.7e0bcf89.js"><link rel="prefetch" href="/blog/assets/js/312.2660fad0.js"><link rel="prefetch" href="/blog/assets/js/313.6e89cadb.js"><link rel="prefetch" href="/blog/assets/js/314.6990aa37.js"><link rel="prefetch" href="/blog/assets/js/315.8153a154.js"><link rel="prefetch" href="/blog/assets/js/316.6da9b5a5.js"><link rel="prefetch" href="/blog/assets/js/317.11c83cef.js"><link rel="prefetch" href="/blog/assets/js/318.e8490648.js"><link rel="prefetch" href="/blog/assets/js/319.53861265.js"><link rel="prefetch" href="/blog/assets/js/32.a194da00.js"><link rel="prefetch" href="/blog/assets/js/320.56dad00f.js"><link rel="prefetch" href="/blog/assets/js/321.ccd6b418.js"><link rel="prefetch" href="/blog/assets/js/322.faed6cae.js"><link rel="prefetch" href="/blog/assets/js/323.d268cb3a.js"><link rel="prefetch" href="/blog/assets/js/324.dce3459a.js"><link rel="prefetch" href="/blog/assets/js/325.d01c7ad8.js"><link rel="prefetch" href="/blog/assets/js/326.0e9aa527.js"><link rel="prefetch" href="/blog/assets/js/327.a302d51e.js"><link rel="prefetch" href="/blog/assets/js/328.a5997e15.js"><link rel="prefetch" href="/blog/assets/js/329.798b92cf.js"><link rel="prefetch" href="/blog/assets/js/33.e4d25147.js"><link rel="prefetch" href="/blog/assets/js/330.3ed38f17.js"><link rel="prefetch" href="/blog/assets/js/331.2147c45e.js"><link rel="prefetch" href="/blog/assets/js/332.4f72a981.js"><link rel="prefetch" href="/blog/assets/js/333.b198d877.js"><link rel="prefetch" href="/blog/assets/js/334.01f2ba40.js"><link rel="prefetch" href="/blog/assets/js/335.04c31165.js"><link rel="prefetch" href="/blog/assets/js/336.b939caf6.js"><link rel="prefetch" href="/blog/assets/js/337.e723b696.js"><link rel="prefetch" href="/blog/assets/js/338.bb89d233.js"><link rel="prefetch" href="/blog/assets/js/339.0c93e7f2.js"><link rel="prefetch" href="/blog/assets/js/34.881d241b.js"><link rel="prefetch" href="/blog/assets/js/340.e59d5112.js"><link rel="prefetch" href="/blog/assets/js/341.1c5d24ff.js"><link rel="prefetch" href="/blog/assets/js/342.13b1c49e.js"><link rel="prefetch" href="/blog/assets/js/343.0434e83c.js"><link rel="prefetch" href="/blog/assets/js/344.936699cc.js"><link rel="prefetch" href="/blog/assets/js/345.81802f59.js"><link rel="prefetch" href="/blog/assets/js/346.fcc4c864.js"><link rel="prefetch" href="/blog/assets/js/347.fb03a8d6.js"><link rel="prefetch" href="/blog/assets/js/348.0a0514fd.js"><link rel="prefetch" href="/blog/assets/js/349.1a1dcade.js"><link rel="prefetch" href="/blog/assets/js/35.d7055bd8.js"><link rel="prefetch" href="/blog/assets/js/350.3d801021.js"><link rel="prefetch" href="/blog/assets/js/351.e63d16b6.js"><link rel="prefetch" href="/blog/assets/js/352.5bb35d77.js"><link rel="prefetch" href="/blog/assets/js/353.7e25749a.js"><link rel="prefetch" href="/blog/assets/js/354.c12c2e75.js"><link rel="prefetch" href="/blog/assets/js/355.62c13100.js"><link rel="prefetch" href="/blog/assets/js/356.3e2b2e72.js"><link rel="prefetch" href="/blog/assets/js/357.a20defbc.js"><link rel="prefetch" href="/blog/assets/js/358.838f09bc.js"><link rel="prefetch" href="/blog/assets/js/359.8739e3bf.js"><link rel="prefetch" href="/blog/assets/js/36.367436d6.js"><link rel="prefetch" href="/blog/assets/js/360.c1d08f47.js"><link rel="prefetch" href="/blog/assets/js/361.4749916b.js"><link rel="prefetch" href="/blog/assets/js/362.41524f06.js"><link rel="prefetch" href="/blog/assets/js/363.2da456c2.js"><link rel="prefetch" href="/blog/assets/js/365.bf1591b4.js"><link rel="prefetch" href="/blog/assets/js/366.dc960a99.js"><link rel="prefetch" href="/blog/assets/js/367.fd7b3c99.js"><link rel="prefetch" href="/blog/assets/js/368.ec166fb2.js"><link rel="prefetch" href="/blog/assets/js/369.d2e46423.js"><link rel="prefetch" href="/blog/assets/js/37.cfabd421.js"><link rel="prefetch" href="/blog/assets/js/370.01b4912e.js"><link rel="prefetch" href="/blog/assets/js/371.2fc91e89.js"><link rel="prefetch" href="/blog/assets/js/372.69a3cd02.js"><link rel="prefetch" href="/blog/assets/js/373.8ae21b19.js"><link rel="prefetch" href="/blog/assets/js/374.aa4dce2f.js"><link rel="prefetch" href="/blog/assets/js/375.f07a6905.js"><link rel="prefetch" href="/blog/assets/js/376.1fc8f6ba.js"><link rel="prefetch" href="/blog/assets/js/377.5b033c7a.js"><link rel="prefetch" href="/blog/assets/js/378.db00fb42.js"><link rel="prefetch" href="/blog/assets/js/379.e273b5b0.js"><link rel="prefetch" href="/blog/assets/js/38.80a92a9a.js"><link rel="prefetch" href="/blog/assets/js/380.0c1d2f74.js"><link rel="prefetch" href="/blog/assets/js/381.e93aa093.js"><link rel="prefetch" href="/blog/assets/js/382.cc1bf941.js"><link rel="prefetch" href="/blog/assets/js/383.57eed2d3.js"><link rel="prefetch" href="/blog/assets/js/384.e78da318.js"><link rel="prefetch" href="/blog/assets/js/385.c476b444.js"><link rel="prefetch" href="/blog/assets/js/386.a29802ac.js"><link rel="prefetch" href="/blog/assets/js/387.63f692a3.js"><link rel="prefetch" href="/blog/assets/js/388.d44d0a12.js"><link rel="prefetch" href="/blog/assets/js/389.f4f55d15.js"><link rel="prefetch" href="/blog/assets/js/39.51b28712.js"><link rel="prefetch" href="/blog/assets/js/390.eeb2ea5e.js"><link rel="prefetch" href="/blog/assets/js/391.4172f1d7.js"><link rel="prefetch" href="/blog/assets/js/392.203b4305.js"><link rel="prefetch" href="/blog/assets/js/393.0f3c7b99.js"><link rel="prefetch" href="/blog/assets/js/394.4109f422.js"><link rel="prefetch" href="/blog/assets/js/395.145c0e37.js"><link rel="prefetch" href="/blog/assets/js/396.5739a049.js"><link rel="prefetch" href="/blog/assets/js/397.04cbe49d.js"><link rel="prefetch" href="/blog/assets/js/398.984a14e0.js"><link rel="prefetch" href="/blog/assets/js/399.68879b0f.js"><link rel="prefetch" href="/blog/assets/js/4.17793416.js"><link rel="prefetch" href="/blog/assets/js/40.cca61ef0.js"><link rel="prefetch" href="/blog/assets/js/400.dbabb331.js"><link rel="prefetch" href="/blog/assets/js/401.840a1493.js"><link rel="prefetch" href="/blog/assets/js/402.0a88d2b6.js"><link rel="prefetch" href="/blog/assets/js/403.18ba61d5.js"><link rel="prefetch" href="/blog/assets/js/404.526ab707.js"><link rel="prefetch" href="/blog/assets/js/405.f6b60057.js"><link rel="prefetch" href="/blog/assets/js/406.84e6f37c.js"><link rel="prefetch" href="/blog/assets/js/407.1cc22e8e.js"><link rel="prefetch" href="/blog/assets/js/408.c838e002.js"><link rel="prefetch" href="/blog/assets/js/409.3b625fca.js"><link rel="prefetch" href="/blog/assets/js/41.3b9b35fb.js"><link rel="prefetch" href="/blog/assets/js/410.3d841dde.js"><link rel="prefetch" href="/blog/assets/js/411.4c112919.js"><link rel="prefetch" href="/blog/assets/js/412.35aeac08.js"><link rel="prefetch" href="/blog/assets/js/413.10d093fe.js"><link rel="prefetch" href="/blog/assets/js/414.c98c6493.js"><link rel="prefetch" href="/blog/assets/js/415.17289b1a.js"><link rel="prefetch" href="/blog/assets/js/416.32b1b05f.js"><link rel="prefetch" href="/blog/assets/js/417.5bd95f13.js"><link rel="prefetch" href="/blog/assets/js/418.7f0b6a25.js"><link rel="prefetch" href="/blog/assets/js/419.6651a70e.js"><link rel="prefetch" href="/blog/assets/js/42.adad5b34.js"><link rel="prefetch" href="/blog/assets/js/420.c239318d.js"><link rel="prefetch" href="/blog/assets/js/421.7a2e9a91.js"><link rel="prefetch" href="/blog/assets/js/422.551aab1d.js"><link rel="prefetch" href="/blog/assets/js/423.18e3b820.js"><link rel="prefetch" href="/blog/assets/js/424.95046f00.js"><link rel="prefetch" href="/blog/assets/js/425.ef4a5191.js"><link rel="prefetch" href="/blog/assets/js/426.1c13b1a5.js"><link rel="prefetch" href="/blog/assets/js/427.c019f006.js"><link rel="prefetch" href="/blog/assets/js/428.1b2eaa28.js"><link rel="prefetch" href="/blog/assets/js/429.fd8e32e3.js"><link rel="prefetch" href="/blog/assets/js/43.ec99f75e.js"><link rel="prefetch" href="/blog/assets/js/430.cf4a4078.js"><link rel="prefetch" href="/blog/assets/js/431.265b28ef.js"><link rel="prefetch" href="/blog/assets/js/432.00f19a47.js"><link rel="prefetch" href="/blog/assets/js/433.f0a5d954.js"><link rel="prefetch" href="/blog/assets/js/434.71cf06f2.js"><link rel="prefetch" href="/blog/assets/js/435.5a7e5590.js"><link rel="prefetch" href="/blog/assets/js/436.d6016384.js"><link rel="prefetch" href="/blog/assets/js/437.d5565e15.js"><link rel="prefetch" href="/blog/assets/js/438.7479f8da.js"><link rel="prefetch" href="/blog/assets/js/439.aa4dd15f.js"><link rel="prefetch" href="/blog/assets/js/44.8189586c.js"><link rel="prefetch" href="/blog/assets/js/440.4f7d14d3.js"><link rel="prefetch" href="/blog/assets/js/441.1eeb35f3.js"><link rel="prefetch" href="/blog/assets/js/442.b556fe77.js"><link rel="prefetch" href="/blog/assets/js/443.6ee28303.js"><link rel="prefetch" href="/blog/assets/js/444.48140a5b.js"><link rel="prefetch" href="/blog/assets/js/445.892070d3.js"><link rel="prefetch" href="/blog/assets/js/446.e5e602ae.js"><link rel="prefetch" href="/blog/assets/js/447.50c68b39.js"><link rel="prefetch" href="/blog/assets/js/448.9893dc6c.js"><link rel="prefetch" href="/blog/assets/js/449.4703a284.js"><link rel="prefetch" href="/blog/assets/js/45.d03eb196.js"><link rel="prefetch" href="/blog/assets/js/450.d4b8b7bd.js"><link rel="prefetch" href="/blog/assets/js/451.b3fe1758.js"><link rel="prefetch" href="/blog/assets/js/452.eaf3117e.js"><link rel="prefetch" href="/blog/assets/js/453.d68564c3.js"><link rel="prefetch" href="/blog/assets/js/454.a8f8ab86.js"><link rel="prefetch" href="/blog/assets/js/455.76b9d26b.js"><link rel="prefetch" href="/blog/assets/js/456.1d0d8768.js"><link rel="prefetch" href="/blog/assets/js/457.d3a520dd.js"><link rel="prefetch" href="/blog/assets/js/458.a0d8fd82.js"><link rel="prefetch" href="/blog/assets/js/46.bc8e91a8.js"><link rel="prefetch" href="/blog/assets/js/47.f076b4b4.js"><link rel="prefetch" href="/blog/assets/js/48.7178ad6d.js"><link rel="prefetch" href="/blog/assets/js/49.3b3bfea4.js"><link rel="prefetch" href="/blog/assets/js/5.423840d3.js"><link rel="prefetch" href="/blog/assets/js/50.d9b83da4.js"><link rel="prefetch" href="/blog/assets/js/51.9d27edce.js"><link rel="prefetch" href="/blog/assets/js/52.d5b605d6.js"><link rel="prefetch" href="/blog/assets/js/53.39011ac7.js"><link rel="prefetch" href="/blog/assets/js/54.0256ac32.js"><link rel="prefetch" href="/blog/assets/js/55.40614e04.js"><link rel="prefetch" href="/blog/assets/js/56.190c034c.js"><link rel="prefetch" href="/blog/assets/js/57.b1c87a27.js"><link rel="prefetch" href="/blog/assets/js/58.aadf8f0b.js"><link rel="prefetch" href="/blog/assets/js/59.c7a8ec0f.js"><link rel="prefetch" href="/blog/assets/js/6.6e8c67be.js"><link rel="prefetch" href="/blog/assets/js/60.16f04dae.js"><link rel="prefetch" href="/blog/assets/js/61.1da49901.js"><link rel="prefetch" href="/blog/assets/js/62.c567b83d.js"><link rel="prefetch" href="/blog/assets/js/63.a9eaa6cb.js"><link rel="prefetch" href="/blog/assets/js/64.bd23e37e.js"><link rel="prefetch" href="/blog/assets/js/65.6449b7f4.js"><link rel="prefetch" href="/blog/assets/js/66.5394a009.js"><link rel="prefetch" href="/blog/assets/js/67.30990c21.js"><link rel="prefetch" href="/blog/assets/js/68.040df19a.js"><link rel="prefetch" href="/blog/assets/js/69.7c4f7a13.js"><link rel="prefetch" href="/blog/assets/js/7.fec0ecd5.js"><link rel="prefetch" href="/blog/assets/js/70.7a8b9c4f.js"><link rel="prefetch" href="/blog/assets/js/71.42507e26.js"><link rel="prefetch" href="/blog/assets/js/72.676d8ece.js"><link rel="prefetch" href="/blog/assets/js/73.daa7600a.js"><link rel="prefetch" href="/blog/assets/js/74.20e478dc.js"><link rel="prefetch" href="/blog/assets/js/75.900ff344.js"><link rel="prefetch" href="/blog/assets/js/76.1b07b297.js"><link rel="prefetch" href="/blog/assets/js/77.0356d020.js"><link rel="prefetch" href="/blog/assets/js/78.d3355c58.js"><link rel="prefetch" href="/blog/assets/js/79.42dd852d.js"><link rel="prefetch" href="/blog/assets/js/8.b72e1b92.js"><link rel="prefetch" href="/blog/assets/js/80.702f8d04.js"><link rel="prefetch" href="/blog/assets/js/81.45abcf52.js"><link rel="prefetch" href="/blog/assets/js/82.4ceb3c5b.js"><link rel="prefetch" href="/blog/assets/js/83.5a647425.js"><link rel="prefetch" href="/blog/assets/js/84.445edf85.js"><link rel="prefetch" href="/blog/assets/js/85.d7363708.js"><link rel="prefetch" href="/blog/assets/js/86.fc754847.js"><link rel="prefetch" href="/blog/assets/js/87.fdf002b1.js"><link rel="prefetch" href="/blog/assets/js/88.d89bd9b9.js"><link rel="prefetch" href="/blog/assets/js/89.84be3134.js"><link rel="prefetch" href="/blog/assets/js/9.a0088c26.js"><link rel="prefetch" href="/blog/assets/js/90.750b1c1c.js"><link rel="prefetch" href="/blog/assets/js/91.ec8182c1.js"><link rel="prefetch" href="/blog/assets/js/92.faca2c51.js"><link rel="prefetch" href="/blog/assets/js/93.d45ce2d1.js"><link rel="prefetch" href="/blog/assets/js/94.4b7a271d.js"><link rel="prefetch" href="/blog/assets/js/95.e2fb278c.js"><link rel="prefetch" href="/blog/assets/js/96.9c2cf45f.js"><link rel="prefetch" href="/blog/assets/js/97.e757d67c.js"><link rel="prefetch" href="/blog/assets/js/98.7b001ece.js"><link rel="prefetch" href="/blog/assets/js/99.5d4e870f.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b00d9e97.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/bloglogo.png" alt="Mr.Liu" class="logo"> <span class="site-name can-hide">Mr.Liu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/blog/career-plan" class="sidebar-heading clickable"><span>如何做好职业规划</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>H5 开发实战手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端算法与数据结构面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 hapi 的 Node.js 小程序后端开发实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 NodeJS 构建 GraphQL API 服务</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Python 实战：用 Scrapyd 打造个人化的爬虫部署管理控制台</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL 是怎样运行的：从根儿上理解 MySQL</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Flutter 完全手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript 设计模式核⼼原理与应⽤实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React SSR 服务端渲染原理解析与同构实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React Hooks 与 Immutable 数据流实战</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React 组合式开发实践：打造企业管理系统五大核心模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue 项目构建与开发入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Web 前端面试指南与高频考题解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Vue.js 组件精讲</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/vue-component/Vue 的构造器——extend 与手动挂载——$mount.html" class="sidebar-link">Vue 的构造器——extend 与手动挂载——$mount</a></li><li><a href="/blog/vue-component/写在最后.html" class="sidebar-link">写在最后</a></li><li><a href="/blog/vue-component/基础：Vue.js 组件的三个 API：prop、event、slot.html" class="sidebar-link">基础：Vue.js 组件的三个 API：prop、event、slot</a></li><li><a href="/blog/vue-component/实战 1：具有数据校验功能的表单组件——Form.html" class="sidebar-link">实战 1：具有数据校验功能的表单组件——Form</a></li><li><a href="/blog/vue-component/实战 2：组合多选框组件——CheckboxGroup &amp; Checkbox.html" class="sidebar-link">实战 2：组合多选框组件——CheckboxGroup &amp; Checkbox</a></li><li><a href="/blog/vue-component/实战 3：动态渲染 .vue 文件的组件—— Display.html" class="sidebar-link">实战 3：动态渲染 .vue 文件的组件—— Display</a></li><li><a href="/blog/vue-component/实战 4：全局提示组件——$Alert.html" class="sidebar-link">实战 4：全局提示组件——$Alert</a></li><li><a href="/blog/vue-component/实战 5：可用 Render 自定义列的表格组件——Table.html" class="active sidebar-link">实战 5：可用 Render 自定义列的表格组件——Table</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/vue-component/实战 5：可用 Render 自定义列的表格组件——Table.html#分析" class="sidebar-link">分析</a></li><li class="sidebar-sub-header"><a href="/blog/vue-component/实战 5：可用 Render 自定义列的表格组件——Table.html#完成基础表格" class="sidebar-link">完成基础表格</a></li><li class="sidebar-sub-header"><a href="/blog/vue-component/实战 5：可用 Render 自定义列的表格组件——Table.html#使用-render-自定义列模板" class="sidebar-link">使用 Render 自定义列模板</a></li><li class="sidebar-sub-header"><a href="/blog/vue-component/实战 5：可用 Render 自定义列的表格组件——Table.html#修改当前行" class="sidebar-link">修改当前行</a></li><li class="sidebar-sub-header"><a href="/blog/vue-component/实战 5：可用 Render 自定义列的表格组件——Table.html#结语" class="sidebar-link">结语</a></li><li class="sidebar-sub-header"><a href="/blog/vue-component/实战 5：可用 Render 自定义列的表格组件——Table.html#扩展阅读" class="sidebar-link">扩展阅读</a></li></ul></li><li><a href="/blog/vue-component/实战 6：可用 slot-scope 自定义列的表格组件——Table.html" class="sidebar-link">实战 6：可用 slot-scope 自定义列的表格组件——Table</a></li><li><a href="/blog/vue-component/实战 7：树形控件——Tree.html" class="sidebar-link">实战 7：树形控件——Tree</a></li><li><a href="/blog/vue-component/开篇：Vue.js 的精髓——组件.html" class="sidebar-link">开篇：Vue.js 的精髓——组件</a></li><li><a href="/blog/vue-component/拓展：Vue.js 容易忽略的 API 详解.html" class="sidebar-link">拓展：Vue.js 容易忽略的 API 详解</a></li><li><a href="/blog/vue-component/拓展：Vue.js 面试、常见问题答疑.html" class="sidebar-link">拓展：Vue.js 面试、常见问题答疑</a></li><li><a href="/blog/vue-component/拓展：如何做好一个开源项目（上篇）.html" class="sidebar-link">拓展：如何做好一个开源项目（上篇）</a></li><li><a href="/blog/vue-component/拓展：如何做好一个开源项目（下篇）.html" class="sidebar-link">拓展：如何做好一个开源项目（下篇）</a></li><li><a href="/blog/vue-component/更灵活的组件：Render 函数与 Functional Render.html" class="sidebar-link">更灵活的组件：Render 函数与 Functional Render</a></li><li><a href="/blog/vue-component/组件的通信 1：provide   inject.html" class="sidebar-link">组件的通信 1：provide / inject</a></li><li><a href="/blog/vue-component/组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法.html" class="sidebar-link">组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法</a></li><li><a href="/blog/vue-component/组件的通信 3：找到任意组件实例——findComponents 系列方法.html" class="sidebar-link">组件的通信 3：找到任意组件实例——findComponents 系列方法</a></li><li><a href="/blog/vue-component/递归组件与动态组件.html" class="sidebar-link">递归组件与动态组件</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端性能优化原理与实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>剖析 Vue.js 内部运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>使用 webpack 定制前端开发环境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>如何使用 Canvas 制作出炫酷的网页背景特效</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发者必备的 Docker 实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>用 npm script 打造超溜的前端工作流</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>微信小程序开发入门：从 0 到 1 实现天气小程序</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="实战-5-可用-render-自定义列的表格组件-table"><a href="#实战-5-可用-render-自定义列的表格组件-table" class="header-anchor">#</a> 实战 5：可用 Render 自定义列的表格组件——Table</h1> <p>表格组件 Table 是中后台产品中最常用的组件之一，用于展示大量结构化的数据。大多数组件库都提供了表格组件，比如 <a href="https://www.iviewui.com/components/table" target="_blank" rel="noopener noreferrer">iView<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，功能也是非常强大。正规的表格，是由 <code>&lt;table&gt;</code>、<code>&lt;thead&gt;</code>、<code>&lt;tbody&gt;</code>、<code>&lt;tr&gt;</code>、<code>&lt;th&gt;</code>、<code>&lt;td&gt;</code> 这些标签组成，一般分为表头 <strong>columns</strong> 和数据 <strong>data</strong>。本小节就来开发一个最基本的表格组件 Table，它支持使用 Render 函数来自定义某一列。</p> <h2 id="分析"><a href="#分析" class="header-anchor">#</a> 分析</h2> <p>如果表格只是呈现数据，是比较简单的，比如下图：</p> <p><img src="https://user-gold-cdn.xitu.io/2018/11/15/16716c44a664e7f1?w=1876&amp;h=502&amp;f=png&amp;s=60848" alt=""></p> <p>因为结构简单，我们甚至不需要组件，直接使用标准的 table 系列标签就可以。但有的时候，除了呈现数据，也会带有一些交互，比如有一列操作栏，可以编辑整行的数据：</p> <p><img src="https://user-gold-cdn.xitu.io/2018/11/15/16716c54fc74a1a5?w=2088&amp;h=456&amp;f=gif&amp;s=520544" alt=""></p> <p>写一个个的 table 系列标签是很麻烦并且重复的，而组件的好处就是省去这些基础的工作，我们直接给 Table 组件传递列的配置 <strong>columns</strong> 和行数据 <strong>data</strong>，其余的都交给 Table 组件做了。</p> <p>开发 Table 组件前，有必要先了解上文说到的一系列 table 标签。一般的 table 结构是这样的：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;姓名&lt;/th&gt;
+      &lt;th&gt;年龄&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;王小明&lt;/td&gt;
+      &lt;td&gt;18&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;张小刚&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+</code></pre></div><ul><li>table：定义 HTML 表格；</li> <li>thead：定义表头；</li> <li>tbody：定义表格主体；</li> <li>tr：定义表格行；</li> <li>th：定义表头单元格；</li> <li>td：定义表格单元。</li></ul> <p>标准的表格系列标签，跟 div+css 实现是有很大区别的，比如表格在做单元格合并时，有提供原生属性，用 div 就很麻烦了；再比如渲染原理上也有一定的区别，table 会在内容全部下载完后加载。详细的介绍可以阅读文末的扩展阅读 1。</p> <p>知道了表格的结构，再来分析如何定制 API。可以看到，表格分为了两部分，表头 thead 和数据 tbody，那 props 也定义两个：</p> <ul><li><p>columns：列配置，格式为数组，其中每一列 column 是一个对象，用来描述这一列的信息，它的具体说明如下：</p> <ul><li>title：列头显示文字；</li> <li>key：对应列内容的字段名；</li> <li>render：自定义渲染列，使用 Vue 的 Render 函数，不定义则直接显示为文本。</li></ul> <p>比如：</p> <div class="language- extra-class"><pre class="language-text"><code>[
+  {
+    title: '姓名',
+    key: 'name'
+  },
+  {
+    title: '年龄',
+    key: 'age'
+  }
+]
+
+</code></pre></div></li> <li><p>data：显示的结构化数据，格式为数组，其中每一个对象，就是一行的数据，比如：</p> <div class="language- extra-class"><pre class="language-text"><code>[
+  {
+    name: '王小明',
+    age: 18
+  },
+  {
+    name: '张小刚',
+    age: 25
+  }
+]
+
+</code></pre></div></li></ul> <p>column 定义的 <code>key</code> 值，与 data 是一一对应的，这是一种常见的数据接口定义规则，也是 Vue.js 组件中，用数据驱动而不是 slot 驱动的经典案例。</p> <p>为什么 Table 组件要用数据驱动，而不是 slot 驱动呢？slot 在很多组件中的确很好用，不过 Table 组件包含了大量的基础表格标签，如果都交给使用者由 slot 承载的话，开发成本不亚于自己实现一个 table 了，而数据驱动就简单的多，数据一般从服务端获取后就可以直接使用（或简单处理），使用者主要来定义每列的配置 <strong>columns</strong> 就可以了。</p> <p>因为不确定使用者要对某一列做什么交互，所以不能在 Table 内来实现自定义列。使用 Render 函数可以将复杂的自定义列模板的工作交给使用者来配置，Table 内只用一个 Functional Render 做中转。</p> <h2 id="完成基础表格"><a href="#完成基础表格" class="header-anchor">#</a> 完成基础表格</h2> <p>我们先来完成一个基础的表格组件，之后再接入 Render 来配置自定义列。</p> <p>在 <code>src/components</code> 目录下新建 <code>table-render</code> 目录，并创建 <code>table.vue</code> 文件：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!-- src/components/table-render/table.vue --&gt;
+&lt;template&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th v-for=&quot;col in columns&quot;&gt;{{ col.title }}&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr v-for=&quot;row in data&quot;&gt;
+        &lt;td v-for=&quot;col in columns&quot;&gt;{{ row[col.key] }}&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    props: {
+      columns: {
+        type: Array,
+        default () {
+          return [];
+        }
+      },
+      data: {
+        type: Array,
+        default () {
+          return [];
+        }
+      }
+    }
+  }
+&lt;/script&gt;
+&lt;style&gt;
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #e9e9e9;
+  }
+  table th{
+    background: #f7f7f7;
+    color: #5c6b77;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  table td, table th{
+    padding: 8px 16px;
+    border: 1px solid #e9e9e9;
+    text-align: left;
+  }
+&lt;/style&gt;
+
+</code></pre></div><blockquote><p>props 中的 columns 和 data 的格式都是数组，这里要注意的是，如果 props 的类型是<strong>对象</strong>或<strong>数组</strong>，它的默认值必须从一个工厂函数获取。</p></blockquote> <p>tbody 内嵌套使用了两次 <code>v-for</code>，外层循环数据 data，内层循环列 columns，这样就填充了每个单元格。</p> <p>新建路由 <code>table-render</code>，并在 <code>src/views/</code> 目录下新建页面 <code>table-render.vue</code>：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!-- src/views/table-render.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;table-render :columns=&quot;columns&quot; :data=&quot;data&quot;&gt;&lt;/table-render&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  import TableRender from '../components/table-render/table.vue';
+
+  export default {
+    components: { TableRender },
+    data () {
+      return {
+        columns: [
+          {
+            title: '姓名',
+            key: 'name'
+          },
+          {
+            title: '年龄',
+            key: 'age'
+          },
+          {
+            title: '出生日期',
+            key: 'birthday'
+          },
+          {
+            title: '地址',
+            key: 'address'
+          },
+          {
+            title: '操作'
+          }
+        ],
+        data: [
+          {
+            name: '王小明',
+            age: 18,
+            birthday: '919526400000',
+            address: '北京市朝阳区芍药居'
+          },
+          {
+            name: '张小刚',
+            age: 25,
+            birthday: '696096000000',
+            address: '北京市海淀区西二旗'
+          },
+          {
+            name: '李小红',
+            age: 30,
+            birthday: '563472000000',
+            address: '上海市浦东新区世纪大道'
+          },
+          {
+            name: '周小伟',
+            age: 26,
+            birthday: '687024000000',
+            address: '深圳市南山区深南大道'
+          }
+        ]
+      }
+    }
+  }
+&lt;/script&gt;
+
+</code></pre></div><p>运行后的效果如下图：</p> <p><img src="https://user-gold-cdn.xitu.io/2018/11/15/16716c5b99ef76ac?w=1986&amp;h=416&amp;f=png&amp;s=88452" alt=""></p> <p>表格已经能渲染出来了，但现在的单元格只是将 data 当作纯文本来显示，所以出生日期列显示为时间戳，因为服务端对日期有时会保存为时间戳格式。如果要显示正常的日期（如1991-5-14），目前可以另写一个计算属性（computed），手动将时间戳换算为标准日期格式后，来动态修改 data 里的 <code>birthday</code> 字段。这样做对于出生日期这样的数据还好，但对于<strong>操作</strong>这一列就不可取了，因为它带有业务逻辑，点击<strong>编辑</strong>按钮，是可以对当前行数据进行修改的。这时就要用到 Render 函数。</p> <h2 id="使用-render-自定义列模板"><a href="#使用-render-自定义列模板" class="header-anchor">#</a> 使用 Render 自定义列模板</h2> <p>上一节我们已经介绍过函数式组件 Functional Render 的用法，它没有状态和上下文，主要用于中转一个组件，用在本节的 Table 组件非常合适。</p> <p>先在 <code>src/components/table-render</code> 目录下新建 <code>render.js</code> 文件：</p> <div class="language- extra-class"><pre class="language-text"><code>// src/components/table-render/render.js
+export default {
+  functional: true,
+  props: {
+    row: Object,
+    column: Object,
+    index: Number,
+    render: Function
+  },
+  render: (h, ctx) =&gt; {
+    const params = {
+      row: ctx.props.row,
+      column: ctx.props.column,
+      index: ctx.props.index
+    };
+
+    return ctx.props.render(h, params);
+  }
+};
+
+</code></pre></div><p>render.js 定义了 4 个 props：</p> <ul><li><strong>row</strong>：当前行的数据；</li> <li><strong>column</strong>：当前列的数据；</li> <li><strong>index</strong>：当前是第几行；</li> <li><strong>render</strong>：具体的 render 函数内容。</li></ul> <p>这里的 <code>render</code> 选项并没有渲染任何节点，而是直接返回 props 中定义的 render，并将 h 和当前的行、列、序号作为参数传递出去。然后在 table.vue 里就可以使用 render.js 组件：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!-- table.vue，部分代码省略 --&gt;
+&lt;template&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th v-for=&quot;col in columns&quot;&gt;{{ col.title }}&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr v-for=&quot;(row, rowIndex) in data&quot;&gt;
+        &lt;td v-for=&quot;col in columns&quot;&gt;
+          &lt;template v-if=&quot;'render' in col&quot;&gt;
+            &lt;Render :row=&quot;row&quot; :column=&quot;col&quot; :index=&quot;rowIndex&quot; :render=&quot;col.render&quot;&gt;&lt;/Render&gt;
+          &lt;/template&gt;
+          &lt;template v-else&gt;{{ row[col.key] }}&lt;/template&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  import Render from './render.js';
+
+  export default {
+    components: { Render },
+    props: {
+      columns: {
+        type: Array,
+        default () {
+          return [];
+        }
+      },
+      data: {
+        type: Array,
+        default () {
+          return [];
+        }
+      }
+    }
+  }
+&lt;/script&gt;
+
+</code></pre></div><p>如果 columns 中的某一列配置了 render 字段，那就通过 render.js 完成自定义模板，否则以字符串形式渲染。比如对出生日期这列显示为标准的日期格式，可以这样定义 column：</p> <div class="language- extra-class"><pre class="language-text"><code>// src/views/table-render.vie，部分代码省略
+export default {
+  data () {
+    return {
+      columns: [
+        // ...
+        {
+          title: '出生日期',
+          render: (h, { row, column, index }) =&gt; {
+            const date = new Date(parseInt(row.birthday));
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            
+            const birthday = `${year}-${month}-${day}`;
+            
+            return h('span', birthday);
+          }
+        }
+      ]
+    }
+  }
+}
+
+</code></pre></div><p>效果如下图：</p> <p><img src="https://user-gold-cdn.xitu.io/2018/11/15/16716c604e151fa0?w=1738&amp;h=418&amp;f=png&amp;s=77318" alt=""></p> <p>需要注意的是，columns 里定义的 render，是有两个参数的，第一个是 createElement（即 h），第二个是从 render.js 传过来的对象，它包含了当前行数据（<code>row</code>）、当前列配置（<code>column</code>）、当前是第几行（<code>index</code>），使用者可以基于这 3 个参数得到任意想要的结果。由于是自定义列了，显示什么都是使用者决定的，因此在使用了 render 的 column 里可以不用写字段 <code>key</code> 。</p> <p>如果你真正理解了，应该知道 columns 里定义的 render 字段，它仅仅是名字叫 render 的一个普通函数，并非 Vue.js 实例的 <em>render</em> 选项，只是我们恰巧把它叫做 render 而已，如果愿意，也可以改为其它名字，比如 renderRow。真正的 Render 函数只有一个地方，那就是 render.js 中的 render 选项，只是它代理了 column 中的 render。这里有点绕，理清这个关系，就对 Functional Render 彻底理解了。</p> <h2 id="修改当前行"><a href="#修改当前行" class="header-anchor">#</a> 修改当前行</h2> <p>有了 render，Table 组件就已经完成了，剩余工作都是使用者来配置 columns 完成各种复杂的业务逻辑。本例来介绍最常见的表格中对整行数据编辑的功能。</p> <p><strong>操作</strong>这一列，默认是一个<strong>修改</strong>按钮，点击后，变为<strong>保存</strong>和<strong>取消</strong>两个按钮，同时本行其它各列都变为了输入框，并且初始值就是刚才单元格的数据。变为输入框后，可以任意修改单元格数据，点击保存按钮保存整行数据，点击取消按钮，还原至修改前的数据。</p> <p>当进入编辑状态时，每一列的输入框都要有一个临时的数据使用 <code>v-model</code> 双向绑定来响应修改，所以在 data 里再声明四个数据：</p> <div class="language- extra-class"><pre class="language-text"><code>// table-render.vue，部分代码省略
+{
+  data () {
+    return {
+      // ...
+      editName: '',  // 第一列输入框
+      editAge: '',  // 第二列输入框
+      editBirthday: '',  // 第三列输入框
+      editAddress: '',  // 第四列输入框
+    }
+  }
+}
+
+</code></pre></div><p>同时还要知道是在修改第几行的数据，所以再加一个数据标识当前正在修改的行序号（从 0 开始）：</p> <div class="language- extra-class"><pre class="language-text"><code>// table-render.vue，部分代码省略
+{
+  data () {
+    return {
+      // ...
+      editIndex: -1,  // 当前聚焦的输入框的行数
+    }
+  }
+}
+
+</code></pre></div><p><code>editIndex</code> 默认给了 -1，也就是一个不存在的行号，当点击修改按钮时，再将它置为正确的行号。我们先定义操作列的 render：</p> <div class="language- extra-class"><pre class="language-text"><code>// table-render.vue，部分代码省略
+{
+  data () {
+    columns: [
+      // ...
+      {
+        title: '操作',
+        render: (h, { row, index }) =&gt; {
+          // 如果当前行是编辑状态，则渲染两个按钮
+          if (this.editIndex === index) {
+            return [
+              h('button', {
+                on: {
+                  click: () =&gt; {
+                    this.data[index].name = this.editName;
+                    this.data[index].age = this.editAge;
+                    this.data[index].birthday = this.editBirthday;
+                    this.data[index].address = this.editAddress;
+                    this.editIndex = -1;
+                  }
+                }
+              }, '保存'),
+              h('button', {
+                style: {
+                  marginLeft: '6px'
+                },
+                on: {
+                  click: () =&gt; {
+                    this.editIndex = -1;
+                  }
+                }
+              }, '取消')
+            ];
+          } else {  // 当前行是默认状态，渲染为一个按钮
+            return h('button', {
+              on: {
+                click: () =&gt; {
+                  this.editName = row.name;
+                  this.editAge = row.age;
+                  this.editAddress = row.address;
+                  this.editBirthday = row.birthday;
+                  this.editIndex = index;
+                }
+              }
+            }, '修改');
+          }
+        }
+      }
+    ]
+  }
+}
+
+</code></pre></div><p>render 里的 <code>if / else</code> 可以先看 else，因为默认是非编辑状态，也就是说 <code>editIndex</code> 还是 -1。当点击<strong>修改</strong>按钮时，把 render 中第二个参数 <code>{ row }</code> 中的各列数据赋值给了之前在 data 中声明的 4 个数据，这样做是因为之后点击<strong>取消</strong>按钮时，editName 等值已经修改了，还没有还原，所以在开启编辑状态的同时，初始化各输入框的值（当然也可以在取消时重置）。最后再把 <code>editIndex</code> 置为了对应的行序号 <code>{ index }</code>，此时 render 的 <code>if</code> 条件 <code>this.editIndex === index</code> 为真，编辑列变成了两个按钮：保存和取消。点击保存，直接修改表格源数据 data 中对应的各字段值，并将 editIndex 置为 -1，退出编辑状态；点击取消，不保存源数据，直接退出编辑状态。</p> <p>除编辑列，其它各数据列都有两种状态：</p> <ol><li>当 editIndex 等于当前行号 index 时，呈现输入框状态；</li> <li>当 editIndex 不等于当前行号 index 时，呈现默认数据。</li></ol> <p>以姓名为例：</p> <div class="language- extra-class"><pre class="language-text"><code>// table-render.vue，部分代码省略
+{
+  data () {
+    columns: [
+      // ...
+      {
+        title: '姓名',
+        key: 'name',
+        render: (h, { row, index }) =&gt; {
+          let edit;
+
+          // 当前行为聚焦行时
+          if (this.editIndex === index) {
+            edit = [h('input', {
+              domProps: {
+                value: row.name
+              },
+              on: {
+                input: (event) =&gt; {
+                  this.editName = event.target.value;
+                }
+              }
+            })];
+          } else {
+            edit = row.name;
+          }
+
+          return h('div', [
+            edit
+          ]);
+        }
+      }
+    ]
+  }
+}
+
+</code></pre></div><p>变量 <code>edit</code> 根据 editIndex 呈现不同的节点，还是先看 else，直接显示了对应字段的数据。在聚焦时（this.editIndex === index），渲染一个 <code>input</code> 输入框，初始值 <code>value</code> 通过 render 的 <code>domProps</code> 绑定了 <code>row.name</code>（这里也可绑定 editName），并监听了 input 事件，将输入的内容，实时缓存在数据 <code>editName</code> 中，供保存时使用。事实上，这里绑定的 value 和事件 input 就是语法糖 <code>v-model</code> 在 Render 函数中的写法，在 template 中，经常写作 <code>&lt;input v-model=&quot;editName&quot;&gt;</code>。</p> <p>其它列与姓名类似，只是对于的字段不同：</p> <div class="language- extra-class"><pre class="language-text"><code>// table-render.vue，部分代码省略
+{
+  data () {
+    return {
+      columns: [
+        // ...
+        {
+          title: '年龄',
+          key: 'age',
+          render: (h, { row, index }) =&gt; {
+            let edit;
+
+            // 当前行为聚焦行时
+            if (this.editIndex === index) {
+              edit = [h('input', {
+                domProps: {
+                  value: row.age
+                },
+                on: {
+                  input: (event) =&gt; {
+                    this.editAge = event.target.value;
+                  }
+                }
+              })];
+            } else {
+              edit = row.age;
+            }
+
+            return h('div', [
+              edit
+            ]);
+          }
+        },
+        {
+          title: '出生日期',
+          render: (h, { row, index }) =&gt; {
+            let edit;
+
+            // 当前行为聚焦行时
+            if (this.editIndex === index) {
+              edit = [h('input', {
+                domProps: {
+                  value: row.birthday
+                },
+                on: {
+                  input: (event) =&gt; {
+                    this.editBirthday = event.target.value;
+                  }
+                }
+              })];
+            } else {
+              const date = new Date(parseInt(row.birthday));
+              const year = date.getFullYear();
+              const month = date.getMonth() + 1;
+              const day = date.getDate();
+
+              edit = `${year}-${month}-${day}`;
+            }
+
+            return h('div', [
+              edit
+            ]);
+          }
+        },
+        {
+          title: '地址',
+          key: 'address',
+          render: (h, { row, index }) =&gt; {
+            let edit;
+
+            // 当前行为聚焦行时
+            if (this.editIndex === index) {
+              edit = [h('input', {
+                domProps: {
+                  value: row.address
+                },
+                on: {
+                  input: (event) =&gt; {
+                    this.editAddress = event.target.value;
+                  }
+                }
+              })];
+            } else {
+              edit = row.address;
+            }
+
+            return h('div', [
+              edit
+            ]);
+          }
+        },
+      ]
+    }
+  }
+}
+
+</code></pre></div><blockquote><p>完整的代码见：<a href="https://github.com/icarusion/vue-component-book/blob/master/src/views/table-render.vue" target="_blank" rel="noopener noreferrer">https://github.com/icarusion/vue-component-book/blob/master/src/views/table-render.vue<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <p>这样，可编辑行的表格示例就完成了：</p> <p><img src="https://user-gold-cdn.xitu.io/2018/11/15/16716c54fc74a1a5?w=2088&amp;h=456&amp;f=gif&amp;s=520544" alt=""></p> <h2 id="结语"><a href="#结语" class="header-anchor">#</a> 结语</h2> <p>本示例的 Table 组件，只展现了表格最核心的功能——自定义列模板，一个完整的 Table 组件功能要复杂的多，比如排序、筛选、列固定、表头固定、表头嵌套等。万事开头难，打好了 Table 的地基，后面的功能可以持续开发。</p> <p>事实上，很多 Vue.js 的开发难题，都可以用 Render 函数来解决，它比 template 模板更灵活，可以完全发挥 JavaScript 的编程能力，因此很多 JS 的开发思想都可以借鉴。如果你习惯 JSX，那完全可以抛弃传统的 template 写法。</p> <p>Render 函数虽好，但也是有弊端的，通过上面的示例可以发现，写出来的 VNode 对象是很难读的，维护性也比 template 差。下一节，我们将改写 Table 组件，用另一种思想来实现同样的功能。</p> <h2 id="扩展阅读"><a href="#扩展阅读" class="header-anchor">#</a> 扩展阅读</h2> <ul><li><a href="https://www.cnblogs.com/lovebear/archive/2012/04/18/2456081.html" target="_blank" rel="noopener noreferrer">Div 和 Table 的区别<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/vue-component/实战 4：全局提示组件——$Alert.html" class="prev">
+        实战 4：全局提示组件——$Alert
+      </a></span> <span class="next"><a href="/blog/vue-component/实战 6：可用 slot-scope 自定义列的表格组件——Table.html">
+        实战 6：可用 slot-scope 自定义列的表格组件——Table
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b72373f7.js" defer></script><script src="/blog/assets/js/2.2219f9c0.js" defer></script><script src="/blog/assets/js/364.14db63c4.js" defer></script>
+  </body>
+</html>

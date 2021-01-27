@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用 BLoC 对豆瓣电影App 进行重构 | Mr.Liu</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b00d9e97.css" as="style"><link rel="preload" href="/blog/assets/js/app.b72373f7.js" as="script"><link rel="preload" href="/blog/assets/js/2.2219f9c0.js" as="script"><link rel="preload" href="/blog/assets/js/128.8a80423d.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4213d21f.js"><link rel="prefetch" href="/blog/assets/js/100.fa207478.js"><link rel="prefetch" href="/blog/assets/js/101.a2a18205.js"><link rel="prefetch" href="/blog/assets/js/102.b0bdba49.js"><link rel="prefetch" href="/blog/assets/js/103.4207d4a0.js"><link rel="prefetch" href="/blog/assets/js/104.d47d6122.js"><link rel="prefetch" href="/blog/assets/js/105.84f3b0d6.js"><link rel="prefetch" href="/blog/assets/js/106.a3e0da4d.js"><link rel="prefetch" href="/blog/assets/js/107.e2e32489.js"><link rel="prefetch" href="/blog/assets/js/108.fef5787a.js"><link rel="prefetch" href="/blog/assets/js/109.9cacc969.js"><link rel="prefetch" href="/blog/assets/js/11.27166c35.js"><link rel="prefetch" href="/blog/assets/js/110.43122e5c.js"><link rel="prefetch" href="/blog/assets/js/111.0c1ef4dd.js"><link rel="prefetch" href="/blog/assets/js/112.10c7d380.js"><link rel="prefetch" href="/blog/assets/js/113.c912ddfe.js"><link rel="prefetch" href="/blog/assets/js/114.6127c171.js"><link rel="prefetch" href="/blog/assets/js/115.c7d9f75c.js"><link rel="prefetch" href="/blog/assets/js/116.152fa701.js"><link rel="prefetch" href="/blog/assets/js/117.03af553d.js"><link rel="prefetch" href="/blog/assets/js/118.7ffcd14e.js"><link rel="prefetch" href="/blog/assets/js/119.b0d680e7.js"><link rel="prefetch" href="/blog/assets/js/12.ea61452a.js"><link rel="prefetch" href="/blog/assets/js/120.6db360c5.js"><link rel="prefetch" href="/blog/assets/js/121.6e06fdbd.js"><link rel="prefetch" href="/blog/assets/js/122.d70dd36f.js"><link rel="prefetch" href="/blog/assets/js/123.95a15881.js"><link rel="prefetch" href="/blog/assets/js/124.41b68dde.js"><link rel="prefetch" href="/blog/assets/js/125.5a019ebc.js"><link rel="prefetch" href="/blog/assets/js/126.99da1cc5.js"><link rel="prefetch" href="/blog/assets/js/127.8d929133.js"><link rel="prefetch" href="/blog/assets/js/129.a26f88a7.js"><link rel="prefetch" href="/blog/assets/js/13.e8ea3eed.js"><link rel="prefetch" href="/blog/assets/js/130.a494c8d3.js"><link rel="prefetch" href="/blog/assets/js/131.752b57aa.js"><link rel="prefetch" href="/blog/assets/js/132.03be5468.js"><link rel="prefetch" href="/blog/assets/js/133.b900cacd.js"><link rel="prefetch" href="/blog/assets/js/134.07c9a37c.js"><link rel="prefetch" href="/blog/assets/js/135.7fae2edd.js"><link rel="prefetch" href="/blog/assets/js/136.790d189e.js"><link rel="prefetch" href="/blog/assets/js/137.936714b3.js"><link rel="prefetch" href="/blog/assets/js/138.ca57432f.js"><link rel="prefetch" href="/blog/assets/js/139.c40241bd.js"><link rel="prefetch" href="/blog/assets/js/14.f5e6175f.js"><link rel="prefetch" href="/blog/assets/js/140.7e64b631.js"><link rel="prefetch" href="/blog/assets/js/141.dd5939fe.js"><link rel="prefetch" href="/blog/assets/js/142.15915de1.js"><link rel="prefetch" href="/blog/assets/js/143.74cd60e1.js"><link rel="prefetch" href="/blog/assets/js/144.6182277f.js"><link rel="prefetch" href="/blog/assets/js/145.77b2db6a.js"><link rel="prefetch" href="/blog/assets/js/146.9ee3cd6a.js"><link rel="prefetch" href="/blog/assets/js/147.4e2efd27.js"><link rel="prefetch" href="/blog/assets/js/148.f1da666f.js"><link rel="prefetch" href="/blog/assets/js/149.9e785988.js"><link rel="prefetch" href="/blog/assets/js/15.df5d6a6a.js"><link rel="prefetch" href="/blog/assets/js/150.8efddfd8.js"><link rel="prefetch" href="/blog/assets/js/151.5eb4f49f.js"><link rel="prefetch" href="/blog/assets/js/152.cb4ba17a.js"><link rel="prefetch" href="/blog/assets/js/153.934e36d2.js"><link rel="prefetch" href="/blog/assets/js/154.7aa94017.js"><link rel="prefetch" href="/blog/assets/js/155.a2d965ff.js"><link rel="prefetch" href="/blog/assets/js/156.16f69f9e.js"><link rel="prefetch" href="/blog/assets/js/157.307744ba.js"><link rel="prefetch" href="/blog/assets/js/158.17c75b84.js"><link rel="prefetch" href="/blog/assets/js/159.625baba3.js"><link rel="prefetch" href="/blog/assets/js/16.e0370ef8.js"><link rel="prefetch" href="/blog/assets/js/160.29a7c7eb.js"><link rel="prefetch" href="/blog/assets/js/161.c223d782.js"><link rel="prefetch" href="/blog/assets/js/162.c3a832be.js"><link rel="prefetch" href="/blog/assets/js/163.e9aff0cf.js"><link rel="prefetch" href="/blog/assets/js/164.22ea5757.js"><link rel="prefetch" href="/blog/assets/js/165.712fcb85.js"><link rel="prefetch" href="/blog/assets/js/166.cf71fc9b.js"><link rel="prefetch" href="/blog/assets/js/167.84f1208e.js"><link rel="prefetch" href="/blog/assets/js/168.501651ec.js"><link rel="prefetch" href="/blog/assets/js/169.665da9a9.js"><link rel="prefetch" href="/blog/assets/js/17.884f8b31.js"><link rel="prefetch" href="/blog/assets/js/170.40e206f4.js"><link rel="prefetch" href="/blog/assets/js/171.22a023e6.js"><link rel="prefetch" href="/blog/assets/js/172.c9f57151.js"><link rel="prefetch" href="/blog/assets/js/173.5b663775.js"><link rel="prefetch" href="/blog/assets/js/174.f38576a4.js"><link rel="prefetch" href="/blog/assets/js/175.d8acabe2.js"><link rel="prefetch" href="/blog/assets/js/176.e17b4260.js"><link rel="prefetch" href="/blog/assets/js/177.82517cd4.js"><link rel="prefetch" href="/blog/assets/js/178.dca9a177.js"><link rel="prefetch" href="/blog/assets/js/179.55ac84d8.js"><link rel="prefetch" href="/blog/assets/js/18.99afdf09.js"><link rel="prefetch" href="/blog/assets/js/180.08ecbc50.js"><link rel="prefetch" href="/blog/assets/js/181.064adef8.js"><link rel="prefetch" href="/blog/assets/js/182.eac974db.js"><link rel="prefetch" href="/blog/assets/js/183.a8aaeadb.js"><link rel="prefetch" href="/blog/assets/js/184.c586f7bc.js"><link rel="prefetch" href="/blog/assets/js/185.287601bc.js"><link rel="prefetch" href="/blog/assets/js/186.52ca6240.js"><link rel="prefetch" href="/blog/assets/js/187.b5e3a4bb.js"><link rel="prefetch" href="/blog/assets/js/188.f610dddf.js"><link rel="prefetch" href="/blog/assets/js/189.03750da5.js"><link rel="prefetch" href="/blog/assets/js/19.8a02f750.js"><link rel="prefetch" href="/blog/assets/js/190.0caa43c9.js"><link rel="prefetch" href="/blog/assets/js/191.383bf522.js"><link rel="prefetch" href="/blog/assets/js/192.d3062c3e.js"><link rel="prefetch" href="/blog/assets/js/193.7f7e9901.js"><link rel="prefetch" href="/blog/assets/js/194.f676d07d.js"><link rel="prefetch" href="/blog/assets/js/195.bf775451.js"><link rel="prefetch" href="/blog/assets/js/196.1c48ef3f.js"><link rel="prefetch" href="/blog/assets/js/197.6c53ba98.js"><link rel="prefetch" href="/blog/assets/js/198.9d5a5085.js"><link rel="prefetch" href="/blog/assets/js/199.ab52e41c.js"><link rel="prefetch" href="/blog/assets/js/20.4bf913aa.js"><link rel="prefetch" href="/blog/assets/js/200.1c398b3c.js"><link rel="prefetch" href="/blog/assets/js/201.c75a6c8a.js"><link rel="prefetch" href="/blog/assets/js/202.4d11fdf6.js"><link rel="prefetch" href="/blog/assets/js/203.ee6347bb.js"><link rel="prefetch" href="/blog/assets/js/204.84f5a644.js"><link rel="prefetch" href="/blog/assets/js/205.0fef4632.js"><link rel="prefetch" href="/blog/assets/js/206.eca759d5.js"><link rel="prefetch" href="/blog/assets/js/207.d505c6d2.js"><link rel="prefetch" href="/blog/assets/js/208.5ab75ef7.js"><link rel="prefetch" href="/blog/assets/js/209.29a9f3f1.js"><link rel="prefetch" href="/blog/assets/js/21.0936bb80.js"><link rel="prefetch" href="/blog/assets/js/210.9af28056.js"><link rel="prefetch" href="/blog/assets/js/211.f305f1e8.js"><link rel="prefetch" href="/blog/assets/js/212.db5aae61.js"><link rel="prefetch" href="/blog/assets/js/213.25c645f5.js"><link rel="prefetch" href="/blog/assets/js/214.85bb3df2.js"><link rel="prefetch" href="/blog/assets/js/215.5bc993e6.js"><link rel="prefetch" href="/blog/assets/js/216.dbec2182.js"><link rel="prefetch" href="/blog/assets/js/217.2776cfb0.js"><link rel="prefetch" href="/blog/assets/js/218.da7efde1.js"><link rel="prefetch" href="/blog/assets/js/219.f3a10672.js"><link rel="prefetch" href="/blog/assets/js/22.6eabfbae.js"><link rel="prefetch" href="/blog/assets/js/220.6a60c6c7.js"><link rel="prefetch" href="/blog/assets/js/221.2646fb75.js"><link rel="prefetch" href="/blog/assets/js/222.6580269e.js"><link rel="prefetch" href="/blog/assets/js/223.3397cf4f.js"><link rel="prefetch" href="/blog/assets/js/224.6575a90e.js"><link rel="prefetch" href="/blog/assets/js/225.8c1c6e94.js"><link rel="prefetch" href="/blog/assets/js/226.eeb12de5.js"><link rel="prefetch" href="/blog/assets/js/227.aacd8ef4.js"><link rel="prefetch" href="/blog/assets/js/228.7e407bfd.js"><link rel="prefetch" href="/blog/assets/js/229.eb5a01cd.js"><link rel="prefetch" href="/blog/assets/js/23.f05f6515.js"><link rel="prefetch" href="/blog/assets/js/230.7219d9ce.js"><link rel="prefetch" href="/blog/assets/js/231.016ae179.js"><link rel="prefetch" href="/blog/assets/js/232.97d25eee.js"><link rel="prefetch" href="/blog/assets/js/233.835cb5fc.js"><link rel="prefetch" href="/blog/assets/js/234.36112a10.js"><link rel="prefetch" href="/blog/assets/js/235.b2df9c65.js"><link rel="prefetch" href="/blog/assets/js/236.72299e3e.js"><link rel="prefetch" href="/blog/assets/js/237.1befb80c.js"><link rel="prefetch" href="/blog/assets/js/238.e387348d.js"><link rel="prefetch" href="/blog/assets/js/239.d5e8d924.js"><link rel="prefetch" href="/blog/assets/js/24.5899d319.js"><link rel="prefetch" href="/blog/assets/js/240.4c7f5211.js"><link rel="prefetch" href="/blog/assets/js/241.371861a8.js"><link rel="prefetch" href="/blog/assets/js/242.61edc86c.js"><link rel="prefetch" href="/blog/assets/js/243.f85ffb8e.js"><link rel="prefetch" href="/blog/assets/js/244.3fbf2167.js"><link rel="prefetch" href="/blog/assets/js/245.5d9d618a.js"><link rel="prefetch" href="/blog/assets/js/246.6636d76f.js"><link rel="prefetch" href="/blog/assets/js/247.006c37a6.js"><link rel="prefetch" href="/blog/assets/js/248.eeefdc6d.js"><link rel="prefetch" href="/blog/assets/js/249.bb66f939.js"><link rel="prefetch" href="/blog/assets/js/25.feeda54a.js"><link rel="prefetch" href="/blog/assets/js/250.dba1e5ba.js"><link rel="prefetch" href="/blog/assets/js/251.cd9561b1.js"><link rel="prefetch" href="/blog/assets/js/252.e6a79f4e.js"><link rel="prefetch" href="/blog/assets/js/253.01bbcc41.js"><link rel="prefetch" href="/blog/assets/js/254.75d6c42a.js"><link rel="prefetch" href="/blog/assets/js/255.bf9d53b3.js"><link rel="prefetch" href="/blog/assets/js/256.f64de66c.js"><link rel="prefetch" href="/blog/assets/js/257.0741c551.js"><link rel="prefetch" href="/blog/assets/js/258.0659cfe2.js"><link rel="prefetch" href="/blog/assets/js/259.21646579.js"><link rel="prefetch" href="/blog/assets/js/26.8182efc2.js"><link rel="prefetch" href="/blog/assets/js/260.7e40009e.js"><link rel="prefetch" href="/blog/assets/js/261.60c41766.js"><link rel="prefetch" href="/blog/assets/js/262.36bca1e4.js"><link rel="prefetch" href="/blog/assets/js/263.53a9a695.js"><link rel="prefetch" href="/blog/assets/js/264.0f51b147.js"><link rel="prefetch" href="/blog/assets/js/265.368f444d.js"><link rel="prefetch" href="/blog/assets/js/266.995c43e8.js"><link rel="prefetch" href="/blog/assets/js/267.ba4a1d2f.js"><link rel="prefetch" href="/blog/assets/js/268.3d2de771.js"><link rel="prefetch" href="/blog/assets/js/269.7ee7a020.js"><link rel="prefetch" href="/blog/assets/js/27.96f7c8b5.js"><link rel="prefetch" href="/blog/assets/js/270.d2b6dbc1.js"><link rel="prefetch" href="/blog/assets/js/271.c98e0a1f.js"><link rel="prefetch" href="/blog/assets/js/272.8e96cf45.js"><link rel="prefetch" href="/blog/assets/js/273.6c7a3693.js"><link rel="prefetch" href="/blog/assets/js/274.7ae7fa3b.js"><link rel="prefetch" href="/blog/assets/js/275.277e28fe.js"><link rel="prefetch" href="/blog/assets/js/276.0d2d3363.js"><link rel="prefetch" href="/blog/assets/js/277.50ba95f9.js"><link rel="prefetch" href="/blog/assets/js/278.2ac47f2f.js"><link rel="prefetch" href="/blog/assets/js/279.d5016a2f.js"><link rel="prefetch" href="/blog/assets/js/28.956d8c00.js"><link rel="prefetch" href="/blog/assets/js/280.1cff421f.js"><link rel="prefetch" href="/blog/assets/js/281.7becae44.js"><link rel="prefetch" href="/blog/assets/js/282.a470afa4.js"><link rel="prefetch" href="/blog/assets/js/283.92451915.js"><link rel="prefetch" href="/blog/assets/js/284.bf81219c.js"><link rel="prefetch" href="/blog/assets/js/285.abb3e0e2.js"><link rel="prefetch" href="/blog/assets/js/286.9b399fac.js"><link rel="prefetch" href="/blog/assets/js/287.601549f9.js"><link rel="prefetch" href="/blog/assets/js/288.74af2d88.js"><link rel="prefetch" href="/blog/assets/js/289.d287a9d1.js"><link rel="prefetch" href="/blog/assets/js/29.5fdfceb0.js"><link rel="prefetch" href="/blog/assets/js/290.8b41cc6f.js"><link rel="prefetch" href="/blog/assets/js/291.30cb3e81.js"><link rel="prefetch" href="/blog/assets/js/292.f6c92a32.js"><link rel="prefetch" href="/blog/assets/js/293.4a5c5d03.js"><link rel="prefetch" href="/blog/assets/js/294.889fa477.js"><link rel="prefetch" href="/blog/assets/js/295.7c9bfb1a.js"><link rel="prefetch" href="/blog/assets/js/296.5c393daa.js"><link rel="prefetch" href="/blog/assets/js/297.fdb8d15e.js"><link rel="prefetch" href="/blog/assets/js/298.93998d32.js"><link rel="prefetch" href="/blog/assets/js/299.ad16ee20.js"><link rel="prefetch" href="/blog/assets/js/3.bae9c3b9.js"><link rel="prefetch" href="/blog/assets/js/30.092f59e3.js"><link rel="prefetch" href="/blog/assets/js/300.d7ee2ec1.js"><link rel="prefetch" href="/blog/assets/js/301.49bde86e.js"><link rel="prefetch" href="/blog/assets/js/302.cb98973f.js"><link rel="prefetch" href="/blog/assets/js/303.f6b8a9e2.js"><link rel="prefetch" href="/blog/assets/js/304.e112a703.js"><link rel="prefetch" href="/blog/assets/js/305.a4957830.js"><link rel="prefetch" href="/blog/assets/js/306.c870dc18.js"><link rel="prefetch" href="/blog/assets/js/307.001c4372.js"><link rel="prefetch" href="/blog/assets/js/308.79901a9c.js"><link rel="prefetch" href="/blog/assets/js/309.869b2a70.js"><link rel="prefetch" href="/blog/assets/js/31.a2348ea1.js"><link rel="prefetch" href="/blog/assets/js/310.1c002e84.js"><link rel="prefetch" href="/blog/assets/js/311.7e0bcf89.js"><link rel="prefetch" href="/blog/assets/js/312.2660fad0.js"><link rel="prefetch" href="/blog/assets/js/313.6e89cadb.js"><link rel="prefetch" href="/blog/assets/js/314.6990aa37.js"><link rel="prefetch" href="/blog/assets/js/315.8153a154.js"><link rel="prefetch" href="/blog/assets/js/316.6da9b5a5.js"><link rel="prefetch" href="/blog/assets/js/317.11c83cef.js"><link rel="prefetch" href="/blog/assets/js/318.e8490648.js"><link rel="prefetch" href="/blog/assets/js/319.53861265.js"><link rel="prefetch" href="/blog/assets/js/32.a194da00.js"><link rel="prefetch" href="/blog/assets/js/320.56dad00f.js"><link rel="prefetch" href="/blog/assets/js/321.ccd6b418.js"><link rel="prefetch" href="/blog/assets/js/322.faed6cae.js"><link rel="prefetch" href="/blog/assets/js/323.d268cb3a.js"><link rel="prefetch" href="/blog/assets/js/324.dce3459a.js"><link rel="prefetch" href="/blog/assets/js/325.d01c7ad8.js"><link rel="prefetch" href="/blog/assets/js/326.0e9aa527.js"><link rel="prefetch" href="/blog/assets/js/327.a302d51e.js"><link rel="prefetch" href="/blog/assets/js/328.a5997e15.js"><link rel="prefetch" href="/blog/assets/js/329.798b92cf.js"><link rel="prefetch" href="/blog/assets/js/33.e4d25147.js"><link rel="prefetch" href="/blog/assets/js/330.3ed38f17.js"><link rel="prefetch" href="/blog/assets/js/331.2147c45e.js"><link rel="prefetch" href="/blog/assets/js/332.4f72a981.js"><link rel="prefetch" href="/blog/assets/js/333.b198d877.js"><link rel="prefetch" href="/blog/assets/js/334.01f2ba40.js"><link rel="prefetch" href="/blog/assets/js/335.04c31165.js"><link rel="prefetch" href="/blog/assets/js/336.b939caf6.js"><link rel="prefetch" href="/blog/assets/js/337.e723b696.js"><link rel="prefetch" href="/blog/assets/js/338.bb89d233.js"><link rel="prefetch" href="/blog/assets/js/339.0c93e7f2.js"><link rel="prefetch" href="/blog/assets/js/34.881d241b.js"><link rel="prefetch" href="/blog/assets/js/340.e59d5112.js"><link rel="prefetch" href="/blog/assets/js/341.1c5d24ff.js"><link rel="prefetch" href="/blog/assets/js/342.13b1c49e.js"><link rel="prefetch" href="/blog/assets/js/343.0434e83c.js"><link rel="prefetch" href="/blog/assets/js/344.936699cc.js"><link rel="prefetch" href="/blog/assets/js/345.81802f59.js"><link rel="prefetch" href="/blog/assets/js/346.fcc4c864.js"><link rel="prefetch" href="/blog/assets/js/347.fb03a8d6.js"><link rel="prefetch" href="/blog/assets/js/348.0a0514fd.js"><link rel="prefetch" href="/blog/assets/js/349.1a1dcade.js"><link rel="prefetch" href="/blog/assets/js/35.d7055bd8.js"><link rel="prefetch" href="/blog/assets/js/350.3d801021.js"><link rel="prefetch" href="/blog/assets/js/351.e63d16b6.js"><link rel="prefetch" href="/blog/assets/js/352.5bb35d77.js"><link rel="prefetch" href="/blog/assets/js/353.7e25749a.js"><link rel="prefetch" href="/blog/assets/js/354.c12c2e75.js"><link rel="prefetch" href="/blog/assets/js/355.62c13100.js"><link rel="prefetch" href="/blog/assets/js/356.3e2b2e72.js"><link rel="prefetch" href="/blog/assets/js/357.a20defbc.js"><link rel="prefetch" href="/blog/assets/js/358.838f09bc.js"><link rel="prefetch" href="/blog/assets/js/359.8739e3bf.js"><link rel="prefetch" href="/blog/assets/js/36.367436d6.js"><link rel="prefetch" href="/blog/assets/js/360.c1d08f47.js"><link rel="prefetch" href="/blog/assets/js/361.4749916b.js"><link rel="prefetch" href="/blog/assets/js/362.41524f06.js"><link rel="prefetch" href="/blog/assets/js/363.2da456c2.js"><link rel="prefetch" href="/blog/assets/js/364.14db63c4.js"><link rel="prefetch" href="/blog/assets/js/365.bf1591b4.js"><link rel="prefetch" href="/blog/assets/js/366.dc960a99.js"><link rel="prefetch" href="/blog/assets/js/367.fd7b3c99.js"><link rel="prefetch" href="/blog/assets/js/368.ec166fb2.js"><link rel="prefetch" href="/blog/assets/js/369.d2e46423.js"><link rel="prefetch" href="/blog/assets/js/37.cfabd421.js"><link rel="prefetch" href="/blog/assets/js/370.01b4912e.js"><link rel="prefetch" href="/blog/assets/js/371.2fc91e89.js"><link rel="prefetch" href="/blog/assets/js/372.69a3cd02.js"><link rel="prefetch" href="/blog/assets/js/373.8ae21b19.js"><link rel="prefetch" href="/blog/assets/js/374.aa4dce2f.js"><link rel="prefetch" href="/blog/assets/js/375.f07a6905.js"><link rel="prefetch" href="/blog/assets/js/376.1fc8f6ba.js"><link rel="prefetch" href="/blog/assets/js/377.5b033c7a.js"><link rel="prefetch" href="/blog/assets/js/378.db00fb42.js"><link rel="prefetch" href="/blog/assets/js/379.e273b5b0.js"><link rel="prefetch" href="/blog/assets/js/38.80a92a9a.js"><link rel="prefetch" href="/blog/assets/js/380.0c1d2f74.js"><link rel="prefetch" href="/blog/assets/js/381.e93aa093.js"><link rel="prefetch" href="/blog/assets/js/382.cc1bf941.js"><link rel="prefetch" href="/blog/assets/js/383.57eed2d3.js"><link rel="prefetch" href="/blog/assets/js/384.e78da318.js"><link rel="prefetch" href="/blog/assets/js/385.c476b444.js"><link rel="prefetch" href="/blog/assets/js/386.a29802ac.js"><link rel="prefetch" href="/blog/assets/js/387.63f692a3.js"><link rel="prefetch" href="/blog/assets/js/388.d44d0a12.js"><link rel="prefetch" href="/blog/assets/js/389.f4f55d15.js"><link rel="prefetch" href="/blog/assets/js/39.51b28712.js"><link rel="prefetch" href="/blog/assets/js/390.eeb2ea5e.js"><link rel="prefetch" href="/blog/assets/js/391.4172f1d7.js"><link rel="prefetch" href="/blog/assets/js/392.203b4305.js"><link rel="prefetch" href="/blog/assets/js/393.0f3c7b99.js"><link rel="prefetch" href="/blog/assets/js/394.4109f422.js"><link rel="prefetch" href="/blog/assets/js/395.145c0e37.js"><link rel="prefetch" href="/blog/assets/js/396.5739a049.js"><link rel="prefetch" href="/blog/assets/js/397.04cbe49d.js"><link rel="prefetch" href="/blog/assets/js/398.984a14e0.js"><link rel="prefetch" href="/blog/assets/js/399.68879b0f.js"><link rel="prefetch" href="/blog/assets/js/4.17793416.js"><link rel="prefetch" href="/blog/assets/js/40.cca61ef0.js"><link rel="prefetch" href="/blog/assets/js/400.dbabb331.js"><link rel="prefetch" href="/blog/assets/js/401.840a1493.js"><link rel="prefetch" href="/blog/assets/js/402.0a88d2b6.js"><link rel="prefetch" href="/blog/assets/js/403.18ba61d5.js"><link rel="prefetch" href="/blog/assets/js/404.526ab707.js"><link rel="prefetch" href="/blog/assets/js/405.f6b60057.js"><link rel="prefetch" href="/blog/assets/js/406.84e6f37c.js"><link rel="prefetch" href="/blog/assets/js/407.1cc22e8e.js"><link rel="prefetch" href="/blog/assets/js/408.c838e002.js"><link rel="prefetch" href="/blog/assets/js/409.3b625fca.js"><link rel="prefetch" href="/blog/assets/js/41.3b9b35fb.js"><link rel="prefetch" href="/blog/assets/js/410.3d841dde.js"><link rel="prefetch" href="/blog/assets/js/411.4c112919.js"><link rel="prefetch" href="/blog/assets/js/412.35aeac08.js"><link rel="prefetch" href="/blog/assets/js/413.10d093fe.js"><link rel="prefetch" href="/blog/assets/js/414.c98c6493.js"><link rel="prefetch" href="/blog/assets/js/415.17289b1a.js"><link rel="prefetch" href="/blog/assets/js/416.32b1b05f.js"><link rel="prefetch" href="/blog/assets/js/417.5bd95f13.js"><link rel="prefetch" href="/blog/assets/js/418.7f0b6a25.js"><link rel="prefetch" href="/blog/assets/js/419.6651a70e.js"><link rel="prefetch" href="/blog/assets/js/42.adad5b34.js"><link rel="prefetch" href="/blog/assets/js/420.c239318d.js"><link rel="prefetch" href="/blog/assets/js/421.7a2e9a91.js"><link rel="prefetch" href="/blog/assets/js/422.551aab1d.js"><link rel="prefetch" href="/blog/assets/js/423.18e3b820.js"><link rel="prefetch" href="/blog/assets/js/424.95046f00.js"><link rel="prefetch" href="/blog/assets/js/425.ef4a5191.js"><link rel="prefetch" href="/blog/assets/js/426.1c13b1a5.js"><link rel="prefetch" href="/blog/assets/js/427.c019f006.js"><link rel="prefetch" href="/blog/assets/js/428.1b2eaa28.js"><link rel="prefetch" href="/blog/assets/js/429.fd8e32e3.js"><link rel="prefetch" href="/blog/assets/js/43.ec99f75e.js"><link rel="prefetch" href="/blog/assets/js/430.cf4a4078.js"><link rel="prefetch" href="/blog/assets/js/431.265b28ef.js"><link rel="prefetch" href="/blog/assets/js/432.00f19a47.js"><link rel="prefetch" href="/blog/assets/js/433.f0a5d954.js"><link rel="prefetch" href="/blog/assets/js/434.71cf06f2.js"><link rel="prefetch" href="/blog/assets/js/435.5a7e5590.js"><link rel="prefetch" href="/blog/assets/js/436.d6016384.js"><link rel="prefetch" href="/blog/assets/js/437.d5565e15.js"><link rel="prefetch" href="/blog/assets/js/438.7479f8da.js"><link rel="prefetch" href="/blog/assets/js/439.aa4dd15f.js"><link rel="prefetch" href="/blog/assets/js/44.8189586c.js"><link rel="prefetch" href="/blog/assets/js/440.4f7d14d3.js"><link rel="prefetch" href="/blog/assets/js/441.1eeb35f3.js"><link rel="prefetch" href="/blog/assets/js/442.b556fe77.js"><link rel="prefetch" href="/blog/assets/js/443.6ee28303.js"><link rel="prefetch" href="/blog/assets/js/444.48140a5b.js"><link rel="prefetch" href="/blog/assets/js/445.892070d3.js"><link rel="prefetch" href="/blog/assets/js/446.e5e602ae.js"><link rel="prefetch" href="/blog/assets/js/447.50c68b39.js"><link rel="prefetch" href="/blog/assets/js/448.9893dc6c.js"><link rel="prefetch" href="/blog/assets/js/449.4703a284.js"><link rel="prefetch" href="/blog/assets/js/45.d03eb196.js"><link rel="prefetch" href="/blog/assets/js/450.d4b8b7bd.js"><link rel="prefetch" href="/blog/assets/js/451.b3fe1758.js"><link rel="prefetch" href="/blog/assets/js/452.eaf3117e.js"><link rel="prefetch" href="/blog/assets/js/453.d68564c3.js"><link rel="prefetch" href="/blog/assets/js/454.a8f8ab86.js"><link rel="prefetch" href="/blog/assets/js/455.76b9d26b.js"><link rel="prefetch" href="/blog/assets/js/456.1d0d8768.js"><link rel="prefetch" href="/blog/assets/js/457.d3a520dd.js"><link rel="prefetch" href="/blog/assets/js/458.a0d8fd82.js"><link rel="prefetch" href="/blog/assets/js/46.bc8e91a8.js"><link rel="prefetch" href="/blog/assets/js/47.f076b4b4.js"><link rel="prefetch" href="/blog/assets/js/48.7178ad6d.js"><link rel="prefetch" href="/blog/assets/js/49.3b3bfea4.js"><link rel="prefetch" href="/blog/assets/js/5.423840d3.js"><link rel="prefetch" href="/blog/assets/js/50.d9b83da4.js"><link rel="prefetch" href="/blog/assets/js/51.9d27edce.js"><link rel="prefetch" href="/blog/assets/js/52.d5b605d6.js"><link rel="prefetch" href="/blog/assets/js/53.39011ac7.js"><link rel="prefetch" href="/blog/assets/js/54.0256ac32.js"><link rel="prefetch" href="/blog/assets/js/55.40614e04.js"><link rel="prefetch" href="/blog/assets/js/56.190c034c.js"><link rel="prefetch" href="/blog/assets/js/57.b1c87a27.js"><link rel="prefetch" href="/blog/assets/js/58.aadf8f0b.js"><link rel="prefetch" href="/blog/assets/js/59.c7a8ec0f.js"><link rel="prefetch" href="/blog/assets/js/6.6e8c67be.js"><link rel="prefetch" href="/blog/assets/js/60.16f04dae.js"><link rel="prefetch" href="/blog/assets/js/61.1da49901.js"><link rel="prefetch" href="/blog/assets/js/62.c567b83d.js"><link rel="prefetch" href="/blog/assets/js/63.a9eaa6cb.js"><link rel="prefetch" href="/blog/assets/js/64.bd23e37e.js"><link rel="prefetch" href="/blog/assets/js/65.6449b7f4.js"><link rel="prefetch" href="/blog/assets/js/66.5394a009.js"><link rel="prefetch" href="/blog/assets/js/67.30990c21.js"><link rel="prefetch" href="/blog/assets/js/68.040df19a.js"><link rel="prefetch" href="/blog/assets/js/69.7c4f7a13.js"><link rel="prefetch" href="/blog/assets/js/7.fec0ecd5.js"><link rel="prefetch" href="/blog/assets/js/70.7a8b9c4f.js"><link rel="prefetch" href="/blog/assets/js/71.42507e26.js"><link rel="prefetch" href="/blog/assets/js/72.676d8ece.js"><link rel="prefetch" href="/blog/assets/js/73.daa7600a.js"><link rel="prefetch" href="/blog/assets/js/74.20e478dc.js"><link rel="prefetch" href="/blog/assets/js/75.900ff344.js"><link rel="prefetch" href="/blog/assets/js/76.1b07b297.js"><link rel="prefetch" href="/blog/assets/js/77.0356d020.js"><link rel="prefetch" href="/blog/assets/js/78.d3355c58.js"><link rel="prefetch" href="/blog/assets/js/79.42dd852d.js"><link rel="prefetch" href="/blog/assets/js/8.b72e1b92.js"><link rel="prefetch" href="/blog/assets/js/80.702f8d04.js"><link rel="prefetch" href="/blog/assets/js/81.45abcf52.js"><link rel="prefetch" href="/blog/assets/js/82.4ceb3c5b.js"><link rel="prefetch" href="/blog/assets/js/83.5a647425.js"><link rel="prefetch" href="/blog/assets/js/84.445edf85.js"><link rel="prefetch" href="/blog/assets/js/85.d7363708.js"><link rel="prefetch" href="/blog/assets/js/86.fc754847.js"><link rel="prefetch" href="/blog/assets/js/87.fdf002b1.js"><link rel="prefetch" href="/blog/assets/js/88.d89bd9b9.js"><link rel="prefetch" href="/blog/assets/js/89.84be3134.js"><link rel="prefetch" href="/blog/assets/js/9.a0088c26.js"><link rel="prefetch" href="/blog/assets/js/90.750b1c1c.js"><link rel="prefetch" href="/blog/assets/js/91.ec8182c1.js"><link rel="prefetch" href="/blog/assets/js/92.faca2c51.js"><link rel="prefetch" href="/blog/assets/js/93.d45ce2d1.js"><link rel="prefetch" href="/blog/assets/js/94.4b7a271d.js"><link rel="prefetch" href="/blog/assets/js/95.e2fb278c.js"><link rel="prefetch" href="/blog/assets/js/96.9c2cf45f.js"><link rel="prefetch" href="/blog/assets/js/97.e757d67c.js"><link rel="prefetch" href="/blog/assets/js/98.7b001ece.js"><link rel="prefetch" href="/blog/assets/js/99.5d4e870f.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b00d9e97.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/bloglogo.png" alt="Mr.Liu" class="logo"> <span class="site-name can-hide">Mr.Liu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/blog/career-plan" class="sidebar-heading clickable"><span>如何做好职业规划</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>H5 开发实战手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端算法与数据结构面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 hapi 的 Node.js 小程序后端开发实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 NodeJS 构建 GraphQL API 服务</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Python 实战：用 Scrapyd 打造个人化的爬虫部署管理控制台</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL 是怎样运行的：从根儿上理解 MySQL</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Flutter 完全手册</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/flutter/1 - Flutter 完全手册大纲.html" class="sidebar-link">Flutter 完全手册大纲</a></li><li><a href="/blog/flutter/2 - Flutter 基础篇.html" class="sidebar-link">Flutter 基础篇</a></li><li><a href="/blog/flutter/3 - 移动端跨平台开发方案的演进.html" class="sidebar-link">移动端跨平台开发方案的演进</a></li><li><a href="/blog/flutter/4 - 搭建 Flutter 开发环境.html" class="sidebar-link">搭建 Flutter 开发环境</a></li><li><a href="/blog/flutter/5 - 创建第一个 Flutter APP.html" class="sidebar-link">创建第一个 Flutter APP</a></li><li><a href="/blog/flutter/6 - Flutter 开发利器 —— Hot Reload.html" class="sidebar-link">Flutter 开发利器 —— Hot Reload</a></li><li><a href="/blog/flutter/7 - Dart 简介及基础语法.html" class="sidebar-link">Dart 简介及基础语法</a></li><li><a href="/blog/flutter/8 - Flutter 的基础 —— Widget.html" class="sidebar-link">Flutter 的基础 —— Widget</a></li><li><a href="/blog/flutter/9 - StatefulWidget 及 State.html" class="sidebar-link">StatefulWidget 及 State</a></li><li><a href="/blog/flutter/10 - StatelessWidget.html" class="sidebar-link">StatelessWidget</a></li><li><a href="/blog/flutter/11 - MaterialApp 与 Scaffold.html" class="sidebar-link">MaterialApp 与 Scaffold</a></li><li><a href="/blog/flutter/12 - Flutter 写 UI 的方式 —— 声明式.html" class="sidebar-link">Flutter 写 UI 的方式 —— 声明式</a></li><li><a href="/blog/flutter/13 - Widget 的深度理解及使用方法.html" class="sidebar-link">Widget 的深度理解</a></li><li><a href="/blog/flutter/14 - Flutter 基础 Widget —— 文本框.html" class="sidebar-link">Flutter 基础 Widget —— 文本框</a></li><li><a href="/blog/flutter/15 - Flutter 基础 Widget —— 图片和 Icon.html" class="sidebar-link">Flutter 基础 Widget —— 图片和Icon</a></li><li><a href="/blog/flutter/16 - Flutter 基础 Widget —— 输入框和表单.html" class="sidebar-link">Flutter 基础 Widget —— 输入框和表单</a></li><li><a href="/blog/flutter/17 - Flutter 基础 Widget —— SnackBar 和 Builder 的使用.html" class="sidebar-link">Flutter 基础 Widget —— SnackBar 和 Builder 的使用</a></li><li><a href="/blog/flutter/18 - Flutter 基础 Widget —— 对话框.html" class="sidebar-link">Flutter 基础 Widget —— 对话框</a></li><li><a href="/blog/flutter/19 - Flutter 基础 Widget —— BottomSheet.html" class="sidebar-link">Flutter 基础 Widget —— BottomSheet</a></li><li><a href="/blog/flutter/20 - Flutter 基础Widget —— 菜单按钮.html" class="sidebar-link">Flutter 基础Widget —— 菜单按钮</a></li><li><a href="/blog/flutter/21 - Flutter 手势识别 Widget.html" class="sidebar-link">Flutter 手势识别 Widget</a></li><li><a href="/blog/flutter/22 - Flutter 布局 —— 理解 BoxConstraint（盒约束）布局模型.html" class="sidebar-link">Flutter 布局 —— 理解 BoxConstraint（盒约束）布局模型</a></li><li><a href="/blog/flutter/23 - Flutter 布局 Widget.html" class="sidebar-link">Flutter 布局 Widget</a></li><li><a href="/blog/flutter/24 - Flutter 布局 Widget —— 弹性布局.html" class="sidebar-link">Flutter 布局 Widget —— 弹性布局</a></li><li><a href="/blog/flutter/25 - Flutter 布局 Widget —— 线性布局.html" class="sidebar-link">Flutter布局Widget —— 线性布局</a></li><li><a href="/blog/flutter/26 - Flutter 布局 Widget —— 流式布局.html" class="sidebar-link">Flutter 布局 Widget —— 流式布局</a></li><li><a href="/blog/flutter/27 - Flutter 布局 Widget —— 层叠布局.html" class="sidebar-link">Flutter 布局 Widget —— 层叠布局</a></li><li><a href="/blog/flutter/28 - Flutter 容器类 Widget.html" class="sidebar-link">Flutter 容器类 Widget</a></li><li><a href="/blog/flutter/29 - Flutter 可滚动 Widget.html" class="sidebar-link">Flutter 可滚动 Widget</a></li><li><a href="/blog/flutter/30 - Flutter 可滚动 Widget —— SingleChildScrollView.html" class="sidebar-link">Flutter 可滚动Widget —— SingleChildScrollView</a></li><li><a href="/blog/flutter/31 - Flutter 可滚动 Widget —— ListView.html" class="sidebar-link">Flutter 可滚动Widget —— ListView</a></li><li><a href="/blog/flutter/32 - Flutter 可滚动 Widget —— CustomScrollView.html" class="sidebar-link">Flutter 可滚动Widget -- CustomScrollView</a></li><li><a href="/blog/flutter/33 - Flutter 可滚动 Widget —— GridView.html" class="sidebar-link">Flutter 可滚动 Widget —— GridView</a></li><li><a href="/blog/flutter/34 - Flutter 可滚动 Widget —— PageView.html" class="sidebar-link">Flutter 可滚动 Widget —— PageView</a></li><li><a href="/blog/flutter/35 - Flutter 功能类 Widget.html" class="sidebar-link">Flutter 功能类 Widget</a></li><li><a href="/blog/flutter/36 - Flutter 实战篇.html" class="sidebar-link">Flutter 实战篇：仿豆瓣电影APP</a></li><li><a href="/blog/flutter/37 - 信息流 ListView 的实现.html" class="sidebar-link">信息流 ListView 的实现</a></li><li><a href="/blog/flutter/38 - 数据请求的实现.html" class="sidebar-link">数据请求的实现</a></li><li><a href="/blog/flutter/39 - Flutter 异步编程.html" class="sidebar-link">Flutter 异步编程</a></li><li><a href="/blog/flutter/40 - 城市选择页面实现.html" class="sidebar-link">城市选择页面实现</a></li><li><a href="/blog/flutter/41 - Flutter 路由：Route .html" class="sidebar-link">Flutter 路由：Route</a></li><li><a href="/blog/flutter/42 - 存取本地数据.html" class="sidebar-link">存取本地数据</a></li><li><a href="/blog/flutter/43 - 声明式UI 的编程思维.html" class="sidebar-link">声明式UI 的编程思维</a></li><li><a href="/blog/flutter/44 - 实现买票的功能.html" class="sidebar-link">实现买票的功能</a></li><li><a href="/blog/flutter/45 - Flutter 与 Native 通信：PlatformChannel.html" class="sidebar-link">Flutter 与 Native 通信：PlatformChannel</a></li><li><a href="/blog/flutter/46 - Flutter 性能监控工具.html" class="sidebar-link">Flutter 性能监控工具</a></li><li><a href="/blog/flutter/47 - Flutter APP 的打包.html" class="sidebar-link">Flutter APP 的打包</a></li><li><a href="/blog/flutter/48 - Flutter 开发进阶篇.html" class="sidebar-link">Flutter 开发进阶篇</a></li><li><a href="/blog/flutter/49 - Flutter 的状态管理.html" class="sidebar-link">Flutter 的状态管理</a></li><li><a href="/blog/flutter/50 - 使用 InheritedWidget 对豆瓣电影 App 进行重构.html" class="sidebar-link">使用 InheritedWidget 对豆瓣电影 App 进行重构</a></li><li><a href="/blog/flutter/51 - 使用 ScopedModel 对豆瓣电影 App 进行重构.html" class="sidebar-link">使用 ScopedModel 对豆瓣电影 App 进行重构</a></li><li><a href="/blog/flutter/52 - 使用 BLoC 对豆瓣电影App 进行重构.html" class="active sidebar-link">使用 BLoC 对豆瓣电影App 进行重构</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/flutter/52 - 使用 BLoC 对豆瓣电影App 进行重构.html#重构后的工程路径" class="sidebar-link">重构后的工程路径</a></li><li class="sidebar-sub-header"><a href="/blog/flutter/52 - 使用 BLoC 对豆瓣电影App 进行重构.html#bloc-模式" class="sidebar-link">BLoC 模式</a></li><li class="sidebar-sub-header"><a href="/blog/flutter/52 - 使用 BLoC 对豆瓣电影App 进行重构.html#flutter-bloc-的使用" class="sidebar-link">flutter_bloc 的使用</a></li><li class="sidebar-sub-header"><a href="/blog/flutter/52 - 使用 BLoC 对豆瓣电影App 进行重构.html#使用-flutter-bloc-重构" class="sidebar-link">使用 flutter_bloc 重构</a></li></ul></li><li><a href="/blog/flutter/53 - 使用 Redux 对豆瓣电影App 进行重构.html" class="sidebar-link">使用 Redux 对豆瓣电影App 进行重构</a></li><li><a href="/blog/flutter/54 - Flutter Isolate .html" class="sidebar-link">Flutter Isolate</a></li><li><a href="/blog/flutter/55 - Flutter 底层进阶篇.html" class="sidebar-link">Flutter 底层进阶篇</a></li><li><a href="/blog/flutter/56 - 了解 Flutter 的 Thread Model（线程模型）.html" class="sidebar-link">了解 Flutter 的 Thread Model（线程模型）</a></li><li><a href="/blog/flutter/57 - Flutter 的 Event Loop(事件循环)及代码运行顺序.html" class="sidebar-link">Flutter 的 Event Loop(事件循环)及代码运行顺序</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript 设计模式核⼼原理与应⽤实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React SSR 服务端渲染原理解析与同构实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React Hooks 与 Immutable 数据流实战</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React 组合式开发实践：打造企业管理系统五大核心模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue 项目构建与开发入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Web 前端面试指南与高频考题解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 组件精讲</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端性能优化原理与实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>剖析 Vue.js 内部运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>使用 webpack 定制前端开发环境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>如何使用 Canvas 制作出炫酷的网页背景特效</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发者必备的 Docker 实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>用 npm script 打造超溜的前端工作流</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>微信小程序开发入门：从 0 到 1 实现天气小程序</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="使用-bloc-对豆瓣电影app-进行重构"><a href="#使用-bloc-对豆瓣电影app-进行重构" class="header-anchor">#</a> 使用 BLoC 对豆瓣电影App 进行重构</h1> <p>本节使用 BLoc 对豆瓣电影 App 进行重构。</p> <h2 id="重构后的工程路径"><a href="#重构后的工程路径" class="header-anchor">#</a> 重构后的工程路径</h2> <p>StateManager/flutter_doubanmovie_bloc</p> <h2 id="bloc-模式"><a href="#bloc-模式" class="header-anchor">#</a> BLoC 模式</h2> <p>BLoC 模式指的是一种开发模式，使用这种模式可以使代码的 UI 逻辑和业务逻辑完全分离，从而可以在多个平台（mobile、web、后台等）上重用代码，这里的代码重用指的是业务逻辑代码的重用。BLoC 模式第一次发表是在 2018 年的 DartConf 大会上，由 Google 的 Paolo Soares 和 Cong Hui 设计和提出。</p> <p>BLoC 的全称是 <strong>B</strong>usiness <strong>Lo</strong>gic <strong>C</strong>omponent，这个单词可以拆成两部分来看，第一部分是 Business Logic，就是业务逻辑，第二部分是 Component，就是组件，连起来就是业务逻辑组件，这里也可以看出 BLoC 其实指的就是业务逻辑组件，而且这里的业务逻辑组件是完全独立的，可以和 UI 逻辑进行完全分离。</p> <p>BLoC 模式的核心思想是将 UI 逻辑和业务逻辑分开。在为了达到这一目的，BLoC 模式里使用了 <code>响应式编程</code>（Reactive Programming），先来介绍一下 <code>响应式编程</code>，看 <code>响应式编程</code> 是如何实现 UI 逻辑和业务逻辑分离的。</p> <h3 id="响应式编程"><a href="#响应式编程" class="header-anchor">#</a> 响应式编程</h3> <p><code>响应式编程</code> 使用异步数据流进行编程。在响应式编程里，所有的变化，不管是被动的还是主动的，比如 UI 的点击、变量的变化、数据请求等，都会向异步数据流管道里发送消息，同时，在其他地方会监听数据流，将会收到消息并产生适当的响应。</p> <p>从这段描述里就可以看到，<code>响应式编程</code> 里的数据不是通过参数传递来实现的，而是通过数据流管道来传送，因此数据的发送方和接收方就不需要有依赖关系，实现了解耦，这也是 UI 逻辑和业务逻辑分离的基础。</p> <h4 id="代码所在位置"><a href="#代码所在位置" class="header-anchor">#</a> 代码所在位置</h4> <p>flutter_widget_demo/lib/reactive/CounterWidget.dart</p> <h4 id="使用响应式编程开发"><a href="#使用响应式编程开发" class="header-anchor">#</a> 使用响应式编程开发</h4> <p>Flutter 响应式编程的三元素是：</p> <ul><li>StreamController：数据流管道</li> <li>StreamSink：发出消息</li> <li>Stream：收到消息</li></ul> <p>为了便于理解，这里写一个简单的例子：</p> <div class="language- extra-class"><pre class="language-text"><code>import 'dart:async';
+
+import 'package:flutter/material.dart';
+
+void main() =&gt; runApp(CounterWidget());
+
+class CounterWidget extends StatefulWidget {
+  @override
+  State&lt;StatefulWidget&gt; createState() {
+    // TODO: implement createState
+    return CounterState();
+  }
+}
+
+class CounterState extends State&lt;CounterWidget&gt; {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      title: &quot;Flutter Demo&quot;,
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(title: Text(&quot;Flutter 响应式编程&quot;)),
+        body: Center(
+          child: Text('0'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+        ),
+      ),
+    );
+  }
+}
+
+</code></pre></div><p>这里写了一个页面，中间是 Text，右下角还有一个 floatingActionButton，运行后的效果为：</p> <p><img src="https://user-gold-cdn.xitu.io/2019/5/25/16aec36cd216e906?w=428&amp;h=796&amp;f=jpeg&amp;s=29232" alt=""></p> <p>我们要在这个页面上使用响应式编程实现一个功能：点击 floatingActionButton，Text 里的值就会不断自增。我们需要实现响应式编程的三元素，首先在 StreamControlState 里实现 StreamController：</p> <div class="language- extra-class"><pre class="language-text"><code>class CounterState extends State&lt;CounterWidget&gt; {
+
+  static final StreamController&lt;int&gt; _streamController =
+      StreamController&lt;int&gt;();
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    ...
+  }
+}
+
+</code></pre></div><p>StreamSink 通过 <code>_streamController.sink</code> 获取，Stream 通过 <code>_streamController.stream</code> 获取：</p> <div class="language- extra-class"><pre class="language-text"><code>class CounterState extends State&lt;CounterWidget&gt; {
+
+  static final StreamController&lt;int&gt; _streamController =
+      StreamController&lt;int&gt;();
+  static final StreamSink&lt;int&gt; _sink = _streamController.sink;
+  static final Stream&lt;int&gt; _stream = _streamController.stream;
+  
+  ...
+}
+
+</code></pre></div><p>然后就可以通过 <code>_sink</code> 发送消息，在 <code>_stream</code> 处接受消息，这里你肯定会比较迷惑，发送一个消息，为什么搞的这么麻烦？这正是响应式编程的魅力所在，如果直接发送，那么就是同步的，如果要实现异步发送，按照正常的实现，就必须要写很多监听和回调，很容易陷入回调陷阱，而在响应式编程里，我们只需关心 <code>_sink</code> 和 <code>_stream</code>，在 <code>_sink</code> 里发送消息，在 <code>_stream</code> 处接受消息，不需要写额外的监听和回调，StreamController 会帮我们处理，而且在 StreamController 里也可以对接受到的数据处理后在发送。</p> <p>因为要写一个自增的功能，需要定义一个变量 <code>_count</code>，默认值为 0：</p> <div class="language- extra-class"><pre class="language-text"><code>class CounterState extends State&lt;CounterWidget&gt; {
+  int _count = 0;
+
+  static final StreamController&lt;int&gt; _streamController =
+      StreamController&lt;int&gt;();
+  ...
+}
+
+</code></pre></div><p>在 floatingActionButton 点击的时候发送数据：</p> <div class="language- extra-class"><pre class="language-text"><code>floatingActionButton: FloatingActionButton(
+  child: Icon(Icons.add),
+  onPressed: () {
+    _sink.add(++_count);
+  },
+)
+
+</code></pre></div><p>Text 处接受信息，因为 Text 是 Widget，所以要使用 StreamBuilder：</p> <div class="language- extra-class"><pre class="language-text"><code>StreamBuilder(
+  stream: _stream,
+  initialData: 0,
+  builder: (context, snapShot) {
+    return Center(
+      child: Text('${snapShot.data}'),
+    );
+  },
+)
+
+</code></pre></div><p>StreamBuilder 里的 stream 赋值为 _stream，意思是接受 _stream 里的数据，initialData 为 0，表示默认的数据为 0，builder 里返回 Text，snapShot.data 表示的是接受到的数据。然后一个响应式编程的自增功能就实现了，点击 floatingActionButton，Text 里的数据就不断自增。</p> <p>但是在这段代码里，floatingActionButton 里面还涉及到了具体的业务的逻辑：</p> <div class="language- extra-class"><pre class="language-text"><code>_sink.add(++_count);
+
+</code></pre></div><p>正确的做法应该是，floatingActionButton 不应该关心到底是自增还是自减这种具体的业务逻辑，它只要发送我被点击了这个通知，具体的业务逻辑在外面进行处理，所以这里可以这么改：</p> <div class="language- extra-class"><pre class="language-text"><code>class CounterState extends State&lt;CounterWidget&gt; {
+  ...
+
+  @override
+  Widget build(BuildContext context) {
+
+    return MaterialApp(
+      ...
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            _calculate();
+          },
+        ),
+      ...
+    );
+  }
+
+  void _calculate(){
+    _sink.add(++_count);
+  }
+}
+
+</code></pre></div><p>新增一个 <code>_calculate()</code> 方法，在 floatingActionButton 里调用 <code>_calculate()</code> 而不是直接使用 <code>_sink.add(++_count)</code>。这时候可能也有人有疑问，这不是闲着蛋疼吗，多写了一个方法，结果最后调用的代码都是一样的，不是变复杂了吗？</p> <p>虽然确实多了几行代码，但是这几行代码对框架来说非常有意义，首先，floatingActionButton 就不用关心具体的业务，只负责发送事件；再者，假设功能由自增变为自减，在原来的代码里，你就得在 floatingActionButton 里把 ++ 改为 --，这里功能比较简单还好说，如果功能一旦复杂，这里修改就会比较麻烦，不仅破坏了原来的代码，使得功能不容易扩展，但是如果把 <code>_sink.add(++_count);</code> 封装在 <code>_calculate()</code> 方法里，这样如果功能有修改，只要在 <code>_calculate()</code> 方法里写就好了，floatingActionButton 和 Text 都不会受影响。就因为多了这几行代码，floatingActionButton 和 Text 就不用关心业务，只需要做好 UI 展示就行，在保证了代码健壮性的同时也保证了代码的扩展性。</p> <p>现在对这段代码画一个流程图：</p> <p><img src="https://user-gold-cdn.xitu.io/2019/5/27/16af805991a8b007?w=1230&amp;h=306&amp;f=png&amp;s=16229" alt=""></p> <p>在这个流程图里，floatingActionButton 被点击后，发送事件，触发 _calculate() 方法，_calculate() 方法负责业务逻辑，_count 自增，使用 sink 将数据发送出去， stream 收到数据 data，使 Text 用最新的 data 数据重建。</p> <p>在这个流程里不仅用到了 <code>响应式编程</code>，为了将 floatingActionButton 和 Text 这两个 Widget 彻底和业务隔离，还抽象出了 _calculate() 方法和 data 数据，这两个进一步抽象，_calculate() 可以抽象成 event 事件，data 抽象成 state 状态。</p> <p>接下来讲 BLoC 模式里的事件和状态流向图。</p> <h3 id="bloc-模式里的事件和状态流向图"><a href="#bloc-模式里的事件和状态流向图" class="header-anchor">#</a> BLoC 模式里的事件和状态流向图</h3> <p><img src="https://user-gold-cdn.xitu.io/2019/5/27/16af80bd2cbe3a04?w=1230&amp;h=306&amp;f=png&amp;s=14084" alt=""></p> <p>上图是 BLoC 模式里的事件和状态流向图：</p> <ol><li>Widget 向 BLoC 发送事件</li> <li>事件会触发 BLoC 里的 sink</li> <li>然后 Stream 会把 State 通知给 Widget</li></ol> <p>这里的 Event 是为了把 Widget 和具体的业务逻辑分离抽象出来的东西，State 就是 Widget 显示需要用到的数据，也是和业务逻辑分离的。</p> <p>最终，由 BLoC 实现的业务逻辑层，具有以下的特点：</p> <ul><li>BLoC 依赖响应式编程</li> <li>有 Event 和 State</li></ul> <p>由此，BLoC 实现了业务逻辑层和 UI 逻辑的分离，为此带来了巨大的好处：</p> <ul><li>可以用对 App 影响最小的方式修改业务逻辑</li> <li>可以修改 UI，而不用担心影响业务逻辑</li> <li>更加方便单元测试</li></ul> <h3 id="bloc-模式的架构图"><a href="#bloc-模式的架构图" class="header-anchor">#</a> BLoC 模式的架构图</h3> <p><img src="https://user-gold-cdn.xitu.io/2019/5/27/16af81b6c86b3191?w=316&amp;h=672&amp;f=png&amp;s=17893" alt=""></p> <p>上图是 BLoC 模式的架构图，看到这里你觉得和某个模式很像，没错就是 MVVM：</p> <p><img src="https://user-gold-cdn.xitu.io/2019/5/27/16af820d7ce78716?w=700&amp;h=676&amp;f=png&amp;s=31575" alt=""></p> <p>总共有四层，从上到下分别是：</p> <ul><li>UI Screen</li> <li>BLoC</li> <li>Repository</li> <li>Network Provider</li></ul> <p>Widget 对应的是 MVVM 里的 View，BLoC 对应的是 MVVM 里的 ViewModel，Repository 和 Network Provider 对应的是 MVVM 里的 Model。</p> <p>从这里也可以看出，BLoC 其实指的是一种开发模式，BLoC 也有很多种实现，这里介绍一个第三方库 <code>flutter_bloc</code>，一个实现 BLoC 模式的 Flutter 库。</p> <h2 id="flutter-bloc-的使用"><a href="#flutter-bloc-的使用" class="header-anchor">#</a> flutter_bloc 的使用</h2> <p><code>flutter_bloc</code> 实现了 BLoC 模式，暴露出几个类，我们只要使用这几个类变可以轻松实现 BLoC 模式，这几个类分别是：</p> <ul><li>Bloc</li> <li>BlocBuilder</li> <li>BlocProvider</li> <li>BlocProviderTree</li> <li>BlocListener</li> <li>BlocListenerTree</li></ul> <h4 id="bloc"><a href="#bloc" class="header-anchor">#</a> Bloc</h4> <p>Bloc 类是用来实现如下模块的：</p> <p><img src="https://user-gold-cdn.xitu.io/2019/5/27/16af827edee178ee?w=316&amp;h=256&amp;f=png&amp;s=5306" alt=""></p> <blockquote><p>在这里，请大家注意一下 BLoC 和 Bloc，BLoC 是大写，Bloc 是小写，BLoC 指的是 BLoC 开发模式，Bloc 指的是 BLoC 开发模式实现里的一个类。</p></blockquote> <p>可以看到 Bloc 类里包含了 Event、State，也有 sink、stream 响应式编程，不过 sink、stream 响应式编程已经被 <code>flutter_bloc</code> 框架实现，我们只要关心 Event 和 State 就行，这个在 Bloc 类的定义里也能体现出来，Bloc 类的定义为：</p> <div class="language- extra-class"><pre class="language-text"><code>abstract class Bloc&lt;Event, State&gt; {
+   ...
+}
+
+</code></pre></div><p>Bloc 类里有两个泛型：Event 和 State，Event 是从外部接受到的事件，State 是输出 Widget 关心的状态。</p> <p>比如，要实现一个加减功能的 Bloc，那么我们可以这么实现：</p> <div class="language- extra-class"><pre class="language-text"><code>enum CounterEvent { increment, decrement }
+
+class CounterBloc extends Bloc&lt;CounterEvent, int&gt; {
+  @override
+  int get initialState =&gt; 0;
+
+  @override
+  Stream&lt;int&gt; mapEventToState(CounterEvent event) async* {
+    switch (event) {
+      case CounterEvent.decrement:
+        yield currentState - 1;
+        break;
+      case CounterEvent.increment:
+        yield currentState + 1;
+        break;
+    }
+  }
+}
+
+</code></pre></div><h4 id="blocbuilder"><a href="#blocbuilder" class="header-anchor">#</a> BlocBuilder</h4> <p>BlocBuilder 是一个 Widget，它的功能类似于前面讲的 StreamBuilder，但是使用起来更简单，BlocBuiler 监听 Bloc 的状态，当状态发生变化时，就重建 Widget，因此 BlocBuiler 有两个参数：Bloc 和 BlocWidgetBuilder，我们可以看一下 BlocBuiler 的构造函数：</p> <div class="language- extra-class"><pre class="language-text"><code>const BlocBuilder({
+    Key key,
+    @required this.bloc,
+    @required this.builder,
+  })
+
+</code></pre></div><p>参数名字</p> <p>参数类型</p> <p>意义</p> <p>必选 or 可选</p> <p>key</p> <p>Key</p> <p>Widget 的标识</p> <p>可选</p> <p>bloc</p> <p>Bloc&lt;E, S&gt;</p> <p>监听已经实现的 Bloc 类</p> <p>必选</p> <p>builder</p> <p>BlocWidgetBuilder</p> <p>监听 Bloc 类里状态的变化，重建 Widget</p> <p>必选</p> <p>BlocWidgetBuilder 需要返回一个 Widget。</p> <p>使用方法如下：</p> <div class="language- extra-class"><pre class="language-text"><code>BlocBuilder(
+  bloc: BlocA(),
+  builder: (context, state) {
+    // return widget here based on BlocA's state
+    return WidgetA();
+  }
+)
+
+</code></pre></div><h4 id="blocprovider"><a href="#blocprovider" class="header-anchor">#</a> BlocProvider</h4> <p>BlocProvider 是一个 Widget，可以将 Bloc 类提供给它的子 Widget。BlocProvider 经常用来作为依赖注入的部件，以便将单个 Bloc 类的实例，在多个 Widget 里共享。</p> <p>使用方法如下：</p> <div class="language- extra-class"><pre class="language-text"><code>BlocA blocA = BlocA();
+
+BlocProvider(
+  bloc: blocA,
+  child: ChildA(),
+)
+
+
+BlocProvider(
+  bloc: blocA,
+  child: ChildB(),
+)
+
+</code></pre></div><p>上面的使用方法，就将一个实例 blocA，分享到了 ChildA 和 ChildB 里。</p> <p>然后如果想在 ChildA 或 ChildB 里拿到 BlocA 的实例，可以这么做：</p> <div class="language- extra-class"><pre class="language-text"><code>BlocProvider.of&lt;BlocA&gt;(context)
+
+</code></pre></div><h4 id="blocprovidertree"><a href="#blocprovidertree" class="header-anchor">#</a> BlocProviderTree</h4> <p>BlocProviderTree 也是一个 Widget，前面讲的 BlocProvider 是把一个 Bloc 实例共享到多个 Widget 里，有时候一个 Widget 也需要用到多个 Bloc。</p> <p>假设 ChildA 需要用到 BlocA、BlocB、BlocC，如果用 BlocProvider 实现的话，就是：</p> <div class="language- extra-class"><pre class="language-text"><code>BlocProvider&lt;BlocA&gt;(
+  bloc: BlocA(),
+  child: BlocProvider&lt;BlocB&gt;(
+    bloc: BlocB(),
+    child: BlocProvider&lt;BlocC&gt;(
+      value: BlocC(),
+      child: ChildA(),
+    )
+  )
+)
+
+</code></pre></div><p>使用 BlocProviderTree 可以把多个 BlocProvider 合成一个：</p> <div class="language- extra-class"><pre class="language-text"><code>BlocProviderTree(
+  blocProviders: [
+    BlocProvider&lt;BlocA&gt;(bloc: BlocA()),
+    BlocProvider&lt;BlocB&gt;(bloc: BlocB()),
+    BlocProvider&lt;BlocC&gt;(bloc: BlocC()),
+  ],
+  child: ChildA(),
+)
+
+</code></pre></div><h4 id="bloclistener"><a href="#bloclistener" class="header-anchor">#</a> BlocListener</h4> <p>BlocListener 是一个 Widget，有两个参数：Bloc 和 BlocWidgetListener，类似于 BlocBuilder，需要接收一个 Bloc 类作为参数，但也有不同的地方， BlocBuilder 里的 BlocWidgetBuilder 需要返回 Widget，而 BlocWidgetListener 不用返回 Widget，它的返回类型是 void，所以用来做一些其他操作，例如：弹对话框、弹 SnackBar、跳转到新的页面等。</p> <p>使用方法如下：</p> <div class="language- extra-class"><pre class="language-text"><code>BlocListener(
+  bloc: _bloc,
+  listener: (context, state) {
+    if (state is Success) {
+      Navigator.of(context).pushNamed('/details');
+    }
+  }
+}
+
+</code></pre></div><h4 id="bloclistenertree"><a href="#bloclistenertree" class="header-anchor">#</a> BlocListenerTree</h4> <p>BlocListenerTree 是一个 Widget，用于将多个 BlockListener 合成一个 Widget。</p> <p>例如：</p> <div class="language- extra-class"><pre class="language-text"><code>BlocListener&lt;BlocAEvent, BlocAState&gt;(
+  bloc: BlocA(),
+  listener: (BuildContext context, BlocAState state) {},
+  child: BlocListener&lt;BlocBEvent, BlocBState&gt;(
+    bloc: BlocB(),
+    listener: (BuildContext context, BlocBState state) {},
+    child: BlocListener&lt;BlocCEvent, BlocCState&gt;(
+      bloc: BlocC(),
+      listener: (BuildContext context, BlocCState state) {},
+      child: ChildA(),
+    ),
+  ),
+)
+
+</code></pre></div><p>就可以用 BlocListenerTree 实现为：</p> <div class="language- extra-class"><pre class="language-text"><code>BlocListenerTree(
+  blocListeners: [
+    BlocListener&lt;BlocAEvent, BlocAState&gt;(
+      bloc: BlocA(),
+      listener: (BuildContext context, BlocAState state) {},
+    ),
+    BlocListener&lt;BlocBEvent, BlocBState&gt;(
+      bloc: BlocB(),
+      listener: (BuildContext context, BlocBState state) {},
+    ),
+    BlocListener&lt;BlocCEvent, BlocCState&gt;(
+      bloc: BlocC(),
+      listener: (BuildContext context, BlocCState state) {},
+    ),
+  ],
+  child: ChildA(),
+)
+
+</code></pre></div><h2 id="使用-flutter-bloc-重构"><a href="#使用-flutter-bloc-重构" class="header-anchor">#</a> 使用 flutter_bloc 重构</h2> <p>接下来使用 <code>flutter_bloc</code> 这个库对豆瓣电影App 进行重构。</p> <h4 id="添加依赖"><a href="#添加依赖" class="header-anchor">#</a> 添加依赖</h4> <p>首先，在 pubspec.yaml 里添加 <code>flutter_bloc</code> 库的依赖：</p> <div class="language- extra-class"><pre class="language-text"><code>dependencies:
+  ...
+  flutter_bloc: ^0.14.0
+
+</code></pre></div><p>在 VS Code 里使用快捷键保存后，会自动下载依赖库。</p> <h4 id="目录调整"><a href="#目录调整" class="header-anchor">#</a> 目录调整</h4> <p>然后开始重构，在 lib 根目录下新建一个 bloc 的文件夹和一个 ui 的文件夹，然后把除了 main.dart 的文件都移到 ui 的文件夹下，如图：</p> <p><img src="https://user-gold-cdn.xitu.io/2019/5/27/16af8eba18eebe74?w=566&amp;h=348&amp;f=jpeg&amp;s=19768" alt=""></p> <p>这样做的目的是把 bloc 和 ui 分开。</p> <h3 id="bloc-的核心模块"><a href="#bloc-的核心模块" class="header-anchor">#</a> BLoC 的核心模块</h3> <p>现在开始写 BLoC 的核心模块，包括：</p> <ul><li>State</li> <li>Event</li> <li>Bloc</li></ul> <p>在 bloc 文件夹下，新建一个文件 CityBloc.dart，BLoC 的核心模块都写到这个文件夹下。</p> <h4 id="定义-state"><a href="#定义-state" class="header-anchor">#</a> 定义 State</h4> <p>首先，要把共享的状态定义出来。因为有了前面两节重构的经验，这次我们直接对全局状态 <code>_curCity</code> 进行重构，在 CityBloc.dart 里定义一个 CityState，代码为：</p> <div class="language- extra-class"><pre class="language-text"><code>class CityState{
+  String _curCity;
+
+  get curCity =&gt; _curCity;
+
+  CityState(this._curCity);
+
+}
+
+</code></pre></div><h4 id="定义-evnet"><a href="#定义-evnet" class="header-anchor">#</a> 定义 Evnet</h4> <p>在 CityBloc.dart 里定义一个 CityEvent，代码为：</p> <div class="language- extra-class"><pre class="language-text"><code>
+class CityState{
+  ...
+}
+
+class CityEvent {
+  String _city;
+
+  get city =&gt; _city;
+
+  CityEvent(this._city);
+}
+
+</code></pre></div><p>CityEvent 用来更新当前选中的城市。</p> <h4 id="写-bloc"><a href="#写-bloc" class="header-anchor">#</a> 写 Bloc</h4> <p>然后在 CityBloc.dart 里开始写 Bloc 类，这里定义为 CityBloc，CityBloc 继承自 Bloc，代码为：</p> <div class="language- extra-class"><pre class="language-text"><code>import 'package:bloc/bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+
+class CityState{
+   ...
+}
+
+class CityEvent {
+   ...
+}
+
+class CityBloc extends Bloc&lt;CityEvent, CityState&gt; {
+
+  CityBloc() {
+    initData();
+  }
+
+  void initData() async {
+    final prefs = await SharedPreferences.getInstance(); //获取 prefs
+
+    String city = prefs.getString('curCity'); //获取 key 为 curCity 的值
+
+    dispatch(CityEvent(city));
+  }
+
+  @override
+  // TODO: implement initialState
+  get initialState =&gt; CityState(null); //默认值为空
+
+  @override
+  Stream&lt;CityState&gt; mapEventToState(CityEvent event) async*{
+    // TODO: implement mapEventToState
+    yield new CityState(event.city);
+  }
+}
+
+</code></pre></div><p>注意 CityBloc 实现里的泛型：</p> <div class="language- extra-class"><pre class="language-text"><code>class CityBloc extends Bloc&lt;CityEvent, CityState&gt;
+
+</code></pre></div><p>代表的是接受的参数是 CityEvent，抛出的参数是 CityState，这里的 CityState 就是要共享的状态。</p> <p>在 CityBloc 的默认构造函数里去读取本地的数据。initialState 里 CityState 的值默认为 null。</p> <p><code>mapEventToState</code> 方法，是接受 Event，然后返回最新的状态。</p> <h3 id="注入-bloc"><a href="#注入-bloc" class="header-anchor">#</a> 注入 Bloc</h3> <p>然后在 main.dart 里，给子 Widget 注入 CityBloc：</p> <div class="language- extra-class"><pre class="language-text"><code>class _MyHomePageState extends State&lt;MyHomePage&gt; {
+  ...
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: BlocProvider&lt;CityBloc&gt;(
+        bloc: CityBloc(),
+        child: _widgetItems[_selectedIndex], //选中不同的选项显示不同的界面
+      ),
+      ...
+    );
+  }
+  ...
+}
+
+</code></pre></div><p>在 HotWidget 里使用 BlocBuilder 监听 CityBloc：</p> <div class="language- extra-class"><pre class="language-text"><code>class HotWidgetState extends State&lt;HotWidget&gt; {
+  ...
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    print('HotWidgetState build');
+
+    return BlocBuilder(
+      bloc: BlocProvider.of&lt;CityBloc&gt;(context),
+      builder: (context, String curCity) {
+        if (curCity != null &amp;&amp; curCity.isNotEmpty) {
+          //如果 curCity 不为空
+          ...
+        } else {
+          //如果 curCity 为空
+          ...
+        }
+      },
+    );
+  }
+
+  void _jumpToCitysWidget() async {
+    var selectCity =
+        await Navigator.pushNamed(context, '/Citys', arguments: BlocProvider.of&lt;CityBloc&gt;(context)..currentState.curCity);
+    if (selectCity == null) return;
+
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('curCity', selectCity); //存取数据
+
+    //城市变化时，使用 CityBloc dispatch CityEvent
+    BlocProvider.of&lt;CityBloc&gt;(context).dispatch(CityEvent(selectCity));
+  }
+}
+
+</code></pre></div><p>当 CityBloc 状态发生变化时，就会创建 HotWidgetState 里的 Widget。这里在看一下 <code>_jumpToCitysWidget()</code> 里的改动，在子 Widget 里通过 <code>BlocProvider.of&lt;CityBloc&gt;(context)</code> 获取 CityBloc 实例，从而获取当前的城市：</p> <div class="language- extra-class"><pre class="language-text"><code>BlocProvider.of&lt;CityBloc&gt;(context).currentState.curCity
+
+</code></pre></div><p>如果要改变城市，就是用 CityBloc 的 dispatch 方法：</p> <div class="language- extra-class"><pre class="language-text"><code>BlocProvider.of&lt;CityBloc&gt;(context).dispatch(CityEvent(selectCity));
+
+</code></pre></div><p>CitysWidget 就不用重构了，因为 CitysWidget 采用参数传递的方法就没问题。至此，一个完整的 BLoC 模式的开发方式就展现在你的眼前。当然，我们的重构还没有结束，现在继续。</p> <h3 id="hotmovieslistwidget-的-bloc-模式重构"><a href="#hotmovieslistwidget-的-bloc-模式重构" class="header-anchor">#</a> HotMoviesListWidget 的 BLoC 模式重构</h3> <p>接下来对 HotMoviesListWidget 重构，这个是重点，因为 HotMoviesListWidget 里的状态是本地状态，而且前面两种方式对这里的重构，都不太好。</p> <p>所以我们这里也要着重观察一下，BLoC 模式对本地状态的处理。</p> <p>在 bloc 文件夹下新建文件 <code>HotMoviesListBloc</code>，代码为：</p> <div class="language- extra-class"><pre class="language-text"><code>import 'package:bloc/bloc.dart';
+import 'package:flutter_doubanmovie/bloc/HotMovieData.dart';
+import 'package:flutter_doubanmovie/bloc/MoviesRepository.dart';
+
+class HotMoviesListState{
+  List&lt;HotMovieData&gt; _list;
+
+  get list =&gt; _list;
+
+  HotMoviesListState(this._list);
+}
+
+
+class HotMoviesEvent{
+  String _curCity;
+
+  get curCity =&gt; _curCity;
+
+  HotMoviesEvent(this._curCity);
+}
+
+class HotMoviesListBloc extends Bloc&lt;HotMoviesEvent,HotMoviesListState&gt;{
+
+  final _movieRepository = MoviesRepository();
+
+  @override
+  // TODO: implement initialState
+  HotMoviesListState get initialState =&gt; HotMoviesListState(null);
+
+  @override
+  Stream&lt;HotMoviesListState&gt; mapEventToState(HotMoviesEvent event) async *{
+    // TODO: implement mapEventToState
+    List&lt;HotMovieData&gt; movies = await _movieRepository.fetchMoviesList(event.curCity);
+    yield HotMoviesListState(movies);
+  }
+
+}
+
+</code></pre></div><p>HotMoviesListBloc 和 CityBloc 类似，同样包含了：</p> <ul><li>State</li> <li>Event</li> <li>Bloc</li></ul> <p>HotMoviesListBloc 接受的参数是 HotMoviesEvent，抛出的状态是 HotMoviesListState。</p> <p>然后实现 MoviesRepository，同样在 bloc 文件夹下新建文件 MoviesRepository.dart，代码为：</p> <div class="language- extra-class"><pre class="language-text"><code>import 'package:flutter_doubanmovie/bloc/HotMovieData.dart';
+import 'package:flutter_doubanmovie/bloc/MoviesApiProvider.dart';
+
+class MoviesRepository{
+  final _movieApiProvider = MoviesApiProvider();
+
+  Future&lt;List&lt;HotMovieData&gt;&gt; fetchMoviesList(String city) async {
+    return _movieApiProvider.fetchMoviesList(city);
+  }
+}
+
+</code></pre></div><p>在实现 MoviesApiProvider，同样在 bloc 文件夹下新建文件 MoviesApiProvider.dart，代码为：</p> <div class="language- extra-class"><pre class="language-text"><code>import 'dart:convert';
+
+import 'package:flutter_doubanmovie/bloc/HotMovieData.dart';
+import 'package:http/http.dart' as http;
+
+class MoviesApiProvider {
+  
+  Future&lt;List&lt;HotMovieData&gt;&gt; fetchMoviesList(String city) async {
+    List&lt;HotMovieData&gt; serverDataList = new List();
+    var response = await http.get(
+        'https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&amp;city=' +
+            city +
+            '&amp;start=0&amp;count=10');
+    //成功获取数据
+    if (response.statusCode == 200) {
+      var responseJson = json.decode(response.body);
+      for (dynamic data in responseJson['subjects']) {
+        HotMovieData hotMovieData = HotMovieData.fromJson(data);
+        serverDataList.add(hotMovieData);
+      }
+    }
+
+    return serverDataList;
+  }
+}
+
+</code></pre></div><p>写完 HotMoviesListBloc 后，因为要给子 Widet 提供两个 bloc，所以在 main.dart 里改造为：</p> <div class="language- extra-class"><pre class="language-text"><code>class _MyHomePageState extends State&lt;MyHomePage&gt; {
+  ...
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: BlocProviderTree(
+        blocProviders: [
+          BlocProvider&lt;CityBloc&gt;(bloc: CityBloc()),
+          BlocProvider&lt;HotMoviesListBloc&gt;(bloc: HotMoviesListBloc())
+        ],
+        child: _widgetItems[_selectedIndex], //选中不同的选项显示不同的界面
+      ),
+      ...
+    );
+  }
+  ...
+}
+
+</code></pre></div><p>HotMoviesListWidget 改为：</p> <div class="language- extra-class"><pre class="language-text"><code>import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_doubanmovie/bloc/HotMoviesListBloc.dart';
+import 'package:flutter_doubanmovie/ui/hot/hotlist/ui/item/HotMovieItemWidget.dart';
+
+class HotMoviesListWidget extends StatefulWidget {
+
+  HotMoviesListWidget() {
+  }
+
+  @override
+  State&lt;StatefulWidget&gt; createState() {
+    // TODO: implement createState
+    return HotMoviesListWidgetState();
+  }
+}
+
+class HotMoviesListWidgetState extends State&lt;HotMoviesListWidget&gt;
+    with AutomaticKeepAliveClientMixin {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+
+    return BlocBuilder(
+      bloc: BlocProvider.of&lt;HotMoviesListBloc&gt;(context),
+      builder: (context,HotMoviesListState moviesListState) {
+        if (moviesListState == null || moviesListState.list == null || moviesListState.list.length == 0) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        } else {
+          return MediaQuery.removePadding(
+            removeTop: true,
+            context: context,
+            child: ListView.separated(
+              itemCount: moviesListState.list.length,
+              itemBuilder: (context, index) {
+                return HotMovieItemWidget(moviesListState.list[index]);
+              },
+              separatorBuilder: (context, index) {
+                return Divider(
+                  height: 1,
+                  color: Colors.black26,
+                );
+              },
+            ),
+          );
+        }
+      },
+    );
+  }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive =&gt; true; //返回 true，表示不会被回收
+}
+
+
+</code></pre></div><p>这里首先把 HotMoviesListWidget 原来有参数的构造函数删掉了，这样 HotMoviesListWidget 彻底和业务隔开，它不需要知道现在是哪个城市，只需要显示就行，然后 HotMoviesListWidgetState 里的 build 改成了 BlocBuilder：</p> <div class="language- extra-class"><pre class="language-text"><code>return BlocBuilder(
+    bloc: BlocProvider.of&lt;HotMoviesListBloc&gt;(context),
+    builder: (context, HotMoviesListState moviesListState) {
+       ...
+    },
+);
+
+</code></pre></div><p>BlocBuilder 的 bloc 为 HotMoviesListBloc，builder 里的 moviesListState 就是 HotMoviesListWidget 的本地状态，里面有要展示的电影列表数据。</p> <p>还有一个很关键的点，就是 HotMoviesListBloc 也需要一个地方，来发出事件，触发 HotMoviesListWidget 的重建，这里发出事件的地方选择在 HotWidget 里：</p> <div class="language- extra-class"><pre class="language-text"><code>class HotWidgetState extends State&lt;HotWidget&gt; {
+  ...
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    print('HotWidgetState build');
+
+    return BlocBuilder(
+      bloc: BlocProvider.of&lt;CityBloc&gt;(context),
+      builder: (context, String curCity) {
+        if (curCity != null &amp;&amp; curCity.isNotEmpty) {
+          //如果 curCity 不为空
+          BlocProvider.of&lt;HotMoviesListBloc&gt;(context)
+              .dispatch(HotMoviesEvent(curCity));
+          ...
+        
+        }
+        else {
+           ...
+        }
+      }
+    );
+ }
+ ...
+}
+
+</code></pre></div><p>至此，就重构完了，重构完后的目录结构为：</p> <p><img src="https://user-gold-cdn.xitu.io/2019/5/27/16af925740de2fb9?w=802&amp;h=908&amp;f=jpeg&amp;s=82743" alt=""></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/flutter/51 - 使用 ScopedModel 对豆瓣电影 App 进行重构.html" class="prev">
+        使用 ScopedModel 对豆瓣电影 App 进行重构
+      </a></span> <span class="next"><a href="/blog/flutter/53 - 使用 Redux 对豆瓣电影App 进行重构.html">
+        使用 Redux 对豆瓣电影App 进行重构
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b72373f7.js" defer></script><script src="/blog/assets/js/2.2219f9c0.js" defer></script><script src="/blog/assets/js/128.8a80423d.js" defer></script>
+  </body>
+</html>

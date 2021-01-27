@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实战篇 1：小程序开发环境搭建 | Mr.Liu</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b00d9e97.css" as="style"><link rel="preload" href="/blog/assets/js/app.b72373f7.js" as="script"><link rel="preload" href="/blog/assets/js/2.2219f9c0.js" as="script"><link rel="preload" href="/blog/assets/js/449.4703a284.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4213d21f.js"><link rel="prefetch" href="/blog/assets/js/100.fa207478.js"><link rel="prefetch" href="/blog/assets/js/101.a2a18205.js"><link rel="prefetch" href="/blog/assets/js/102.b0bdba49.js"><link rel="prefetch" href="/blog/assets/js/103.4207d4a0.js"><link rel="prefetch" href="/blog/assets/js/104.d47d6122.js"><link rel="prefetch" href="/blog/assets/js/105.84f3b0d6.js"><link rel="prefetch" href="/blog/assets/js/106.a3e0da4d.js"><link rel="prefetch" href="/blog/assets/js/107.e2e32489.js"><link rel="prefetch" href="/blog/assets/js/108.fef5787a.js"><link rel="prefetch" href="/blog/assets/js/109.9cacc969.js"><link rel="prefetch" href="/blog/assets/js/11.27166c35.js"><link rel="prefetch" href="/blog/assets/js/110.43122e5c.js"><link rel="prefetch" href="/blog/assets/js/111.0c1ef4dd.js"><link rel="prefetch" href="/blog/assets/js/112.10c7d380.js"><link rel="prefetch" href="/blog/assets/js/113.c912ddfe.js"><link rel="prefetch" href="/blog/assets/js/114.6127c171.js"><link rel="prefetch" href="/blog/assets/js/115.c7d9f75c.js"><link rel="prefetch" href="/blog/assets/js/116.152fa701.js"><link rel="prefetch" href="/blog/assets/js/117.03af553d.js"><link rel="prefetch" href="/blog/assets/js/118.7ffcd14e.js"><link rel="prefetch" href="/blog/assets/js/119.b0d680e7.js"><link rel="prefetch" href="/blog/assets/js/12.ea61452a.js"><link rel="prefetch" href="/blog/assets/js/120.6db360c5.js"><link rel="prefetch" href="/blog/assets/js/121.6e06fdbd.js"><link rel="prefetch" href="/blog/assets/js/122.d70dd36f.js"><link rel="prefetch" href="/blog/assets/js/123.95a15881.js"><link rel="prefetch" href="/blog/assets/js/124.41b68dde.js"><link rel="prefetch" href="/blog/assets/js/125.5a019ebc.js"><link rel="prefetch" href="/blog/assets/js/126.99da1cc5.js"><link rel="prefetch" href="/blog/assets/js/127.8d929133.js"><link rel="prefetch" href="/blog/assets/js/128.8a80423d.js"><link rel="prefetch" href="/blog/assets/js/129.a26f88a7.js"><link rel="prefetch" href="/blog/assets/js/13.e8ea3eed.js"><link rel="prefetch" href="/blog/assets/js/130.a494c8d3.js"><link rel="prefetch" href="/blog/assets/js/131.752b57aa.js"><link rel="prefetch" href="/blog/assets/js/132.03be5468.js"><link rel="prefetch" href="/blog/assets/js/133.b900cacd.js"><link rel="prefetch" href="/blog/assets/js/134.07c9a37c.js"><link rel="prefetch" href="/blog/assets/js/135.7fae2edd.js"><link rel="prefetch" href="/blog/assets/js/136.790d189e.js"><link rel="prefetch" href="/blog/assets/js/137.936714b3.js"><link rel="prefetch" href="/blog/assets/js/138.ca57432f.js"><link rel="prefetch" href="/blog/assets/js/139.c40241bd.js"><link rel="prefetch" href="/blog/assets/js/14.f5e6175f.js"><link rel="prefetch" href="/blog/assets/js/140.7e64b631.js"><link rel="prefetch" href="/blog/assets/js/141.dd5939fe.js"><link rel="prefetch" href="/blog/assets/js/142.15915de1.js"><link rel="prefetch" href="/blog/assets/js/143.74cd60e1.js"><link rel="prefetch" href="/blog/assets/js/144.6182277f.js"><link rel="prefetch" href="/blog/assets/js/145.77b2db6a.js"><link rel="prefetch" href="/blog/assets/js/146.9ee3cd6a.js"><link rel="prefetch" href="/blog/assets/js/147.4e2efd27.js"><link rel="prefetch" href="/blog/assets/js/148.f1da666f.js"><link rel="prefetch" href="/blog/assets/js/149.9e785988.js"><link rel="prefetch" href="/blog/assets/js/15.df5d6a6a.js"><link rel="prefetch" href="/blog/assets/js/150.8efddfd8.js"><link rel="prefetch" href="/blog/assets/js/151.5eb4f49f.js"><link rel="prefetch" href="/blog/assets/js/152.cb4ba17a.js"><link rel="prefetch" href="/blog/assets/js/153.934e36d2.js"><link rel="prefetch" href="/blog/assets/js/154.7aa94017.js"><link rel="prefetch" href="/blog/assets/js/155.a2d965ff.js"><link rel="prefetch" href="/blog/assets/js/156.16f69f9e.js"><link rel="prefetch" href="/blog/assets/js/157.307744ba.js"><link rel="prefetch" href="/blog/assets/js/158.17c75b84.js"><link rel="prefetch" href="/blog/assets/js/159.625baba3.js"><link rel="prefetch" href="/blog/assets/js/16.e0370ef8.js"><link rel="prefetch" href="/blog/assets/js/160.29a7c7eb.js"><link rel="prefetch" href="/blog/assets/js/161.c223d782.js"><link rel="prefetch" href="/blog/assets/js/162.c3a832be.js"><link rel="prefetch" href="/blog/assets/js/163.e9aff0cf.js"><link rel="prefetch" href="/blog/assets/js/164.22ea5757.js"><link rel="prefetch" href="/blog/assets/js/165.712fcb85.js"><link rel="prefetch" href="/blog/assets/js/166.cf71fc9b.js"><link rel="prefetch" href="/blog/assets/js/167.84f1208e.js"><link rel="prefetch" href="/blog/assets/js/168.501651ec.js"><link rel="prefetch" href="/blog/assets/js/169.665da9a9.js"><link rel="prefetch" href="/blog/assets/js/17.884f8b31.js"><link rel="prefetch" href="/blog/assets/js/170.40e206f4.js"><link rel="prefetch" href="/blog/assets/js/171.22a023e6.js"><link rel="prefetch" href="/blog/assets/js/172.c9f57151.js"><link rel="prefetch" href="/blog/assets/js/173.5b663775.js"><link rel="prefetch" href="/blog/assets/js/174.f38576a4.js"><link rel="prefetch" href="/blog/assets/js/175.d8acabe2.js"><link rel="prefetch" href="/blog/assets/js/176.e17b4260.js"><link rel="prefetch" href="/blog/assets/js/177.82517cd4.js"><link rel="prefetch" href="/blog/assets/js/178.dca9a177.js"><link rel="prefetch" href="/blog/assets/js/179.55ac84d8.js"><link rel="prefetch" href="/blog/assets/js/18.99afdf09.js"><link rel="prefetch" href="/blog/assets/js/180.08ecbc50.js"><link rel="prefetch" href="/blog/assets/js/181.064adef8.js"><link rel="prefetch" href="/blog/assets/js/182.eac974db.js"><link rel="prefetch" href="/blog/assets/js/183.a8aaeadb.js"><link rel="prefetch" href="/blog/assets/js/184.c586f7bc.js"><link rel="prefetch" href="/blog/assets/js/185.287601bc.js"><link rel="prefetch" href="/blog/assets/js/186.52ca6240.js"><link rel="prefetch" href="/blog/assets/js/187.b5e3a4bb.js"><link rel="prefetch" href="/blog/assets/js/188.f610dddf.js"><link rel="prefetch" href="/blog/assets/js/189.03750da5.js"><link rel="prefetch" href="/blog/assets/js/19.8a02f750.js"><link rel="prefetch" href="/blog/assets/js/190.0caa43c9.js"><link rel="prefetch" href="/blog/assets/js/191.383bf522.js"><link rel="prefetch" href="/blog/assets/js/192.d3062c3e.js"><link rel="prefetch" href="/blog/assets/js/193.7f7e9901.js"><link rel="prefetch" href="/blog/assets/js/194.f676d07d.js"><link rel="prefetch" href="/blog/assets/js/195.bf775451.js"><link rel="prefetch" href="/blog/assets/js/196.1c48ef3f.js"><link rel="prefetch" href="/blog/assets/js/197.6c53ba98.js"><link rel="prefetch" href="/blog/assets/js/198.9d5a5085.js"><link rel="prefetch" href="/blog/assets/js/199.ab52e41c.js"><link rel="prefetch" href="/blog/assets/js/20.4bf913aa.js"><link rel="prefetch" href="/blog/assets/js/200.1c398b3c.js"><link rel="prefetch" href="/blog/assets/js/201.c75a6c8a.js"><link rel="prefetch" href="/blog/assets/js/202.4d11fdf6.js"><link rel="prefetch" href="/blog/assets/js/203.ee6347bb.js"><link rel="prefetch" href="/blog/assets/js/204.84f5a644.js"><link rel="prefetch" href="/blog/assets/js/205.0fef4632.js"><link rel="prefetch" href="/blog/assets/js/206.eca759d5.js"><link rel="prefetch" href="/blog/assets/js/207.d505c6d2.js"><link rel="prefetch" href="/blog/assets/js/208.5ab75ef7.js"><link rel="prefetch" href="/blog/assets/js/209.29a9f3f1.js"><link rel="prefetch" href="/blog/assets/js/21.0936bb80.js"><link rel="prefetch" href="/blog/assets/js/210.9af28056.js"><link rel="prefetch" href="/blog/assets/js/211.f305f1e8.js"><link rel="prefetch" href="/blog/assets/js/212.db5aae61.js"><link rel="prefetch" href="/blog/assets/js/213.25c645f5.js"><link rel="prefetch" href="/blog/assets/js/214.85bb3df2.js"><link rel="prefetch" href="/blog/assets/js/215.5bc993e6.js"><link rel="prefetch" href="/blog/assets/js/216.dbec2182.js"><link rel="prefetch" href="/blog/assets/js/217.2776cfb0.js"><link rel="prefetch" href="/blog/assets/js/218.da7efde1.js"><link rel="prefetch" href="/blog/assets/js/219.f3a10672.js"><link rel="prefetch" href="/blog/assets/js/22.6eabfbae.js"><link rel="prefetch" href="/blog/assets/js/220.6a60c6c7.js"><link rel="prefetch" href="/blog/assets/js/221.2646fb75.js"><link rel="prefetch" href="/blog/assets/js/222.6580269e.js"><link rel="prefetch" href="/blog/assets/js/223.3397cf4f.js"><link rel="prefetch" href="/blog/assets/js/224.6575a90e.js"><link rel="prefetch" href="/blog/assets/js/225.8c1c6e94.js"><link rel="prefetch" href="/blog/assets/js/226.eeb12de5.js"><link rel="prefetch" href="/blog/assets/js/227.aacd8ef4.js"><link rel="prefetch" href="/blog/assets/js/228.7e407bfd.js"><link rel="prefetch" href="/blog/assets/js/229.eb5a01cd.js"><link rel="prefetch" href="/blog/assets/js/23.f05f6515.js"><link rel="prefetch" href="/blog/assets/js/230.7219d9ce.js"><link rel="prefetch" href="/blog/assets/js/231.016ae179.js"><link rel="prefetch" href="/blog/assets/js/232.97d25eee.js"><link rel="prefetch" href="/blog/assets/js/233.835cb5fc.js"><link rel="prefetch" href="/blog/assets/js/234.36112a10.js"><link rel="prefetch" href="/blog/assets/js/235.b2df9c65.js"><link rel="prefetch" href="/blog/assets/js/236.72299e3e.js"><link rel="prefetch" href="/blog/assets/js/237.1befb80c.js"><link rel="prefetch" href="/blog/assets/js/238.e387348d.js"><link rel="prefetch" href="/blog/assets/js/239.d5e8d924.js"><link rel="prefetch" href="/blog/assets/js/24.5899d319.js"><link rel="prefetch" href="/blog/assets/js/240.4c7f5211.js"><link rel="prefetch" href="/blog/assets/js/241.371861a8.js"><link rel="prefetch" href="/blog/assets/js/242.61edc86c.js"><link rel="prefetch" href="/blog/assets/js/243.f85ffb8e.js"><link rel="prefetch" href="/blog/assets/js/244.3fbf2167.js"><link rel="prefetch" href="/blog/assets/js/245.5d9d618a.js"><link rel="prefetch" href="/blog/assets/js/246.6636d76f.js"><link rel="prefetch" href="/blog/assets/js/247.006c37a6.js"><link rel="prefetch" href="/blog/assets/js/248.eeefdc6d.js"><link rel="prefetch" href="/blog/assets/js/249.bb66f939.js"><link rel="prefetch" href="/blog/assets/js/25.feeda54a.js"><link rel="prefetch" href="/blog/assets/js/250.dba1e5ba.js"><link rel="prefetch" href="/blog/assets/js/251.cd9561b1.js"><link rel="prefetch" href="/blog/assets/js/252.e6a79f4e.js"><link rel="prefetch" href="/blog/assets/js/253.01bbcc41.js"><link rel="prefetch" href="/blog/assets/js/254.75d6c42a.js"><link rel="prefetch" href="/blog/assets/js/255.bf9d53b3.js"><link rel="prefetch" href="/blog/assets/js/256.f64de66c.js"><link rel="prefetch" href="/blog/assets/js/257.0741c551.js"><link rel="prefetch" href="/blog/assets/js/258.0659cfe2.js"><link rel="prefetch" href="/blog/assets/js/259.21646579.js"><link rel="prefetch" href="/blog/assets/js/26.8182efc2.js"><link rel="prefetch" href="/blog/assets/js/260.7e40009e.js"><link rel="prefetch" href="/blog/assets/js/261.60c41766.js"><link rel="prefetch" href="/blog/assets/js/262.36bca1e4.js"><link rel="prefetch" href="/blog/assets/js/263.53a9a695.js"><link rel="prefetch" href="/blog/assets/js/264.0f51b147.js"><link rel="prefetch" href="/blog/assets/js/265.368f444d.js"><link rel="prefetch" href="/blog/assets/js/266.995c43e8.js"><link rel="prefetch" href="/blog/assets/js/267.ba4a1d2f.js"><link rel="prefetch" href="/blog/assets/js/268.3d2de771.js"><link rel="prefetch" href="/blog/assets/js/269.7ee7a020.js"><link rel="prefetch" href="/blog/assets/js/27.96f7c8b5.js"><link rel="prefetch" href="/blog/assets/js/270.d2b6dbc1.js"><link rel="prefetch" href="/blog/assets/js/271.c98e0a1f.js"><link rel="prefetch" href="/blog/assets/js/272.8e96cf45.js"><link rel="prefetch" href="/blog/assets/js/273.6c7a3693.js"><link rel="prefetch" href="/blog/assets/js/274.7ae7fa3b.js"><link rel="prefetch" href="/blog/assets/js/275.277e28fe.js"><link rel="prefetch" href="/blog/assets/js/276.0d2d3363.js"><link rel="prefetch" href="/blog/assets/js/277.50ba95f9.js"><link rel="prefetch" href="/blog/assets/js/278.2ac47f2f.js"><link rel="prefetch" href="/blog/assets/js/279.d5016a2f.js"><link rel="prefetch" href="/blog/assets/js/28.956d8c00.js"><link rel="prefetch" href="/blog/assets/js/280.1cff421f.js"><link rel="prefetch" href="/blog/assets/js/281.7becae44.js"><link rel="prefetch" href="/blog/assets/js/282.a470afa4.js"><link rel="prefetch" href="/blog/assets/js/283.92451915.js"><link rel="prefetch" href="/blog/assets/js/284.bf81219c.js"><link rel="prefetch" href="/blog/assets/js/285.abb3e0e2.js"><link rel="prefetch" href="/blog/assets/js/286.9b399fac.js"><link rel="prefetch" href="/blog/assets/js/287.601549f9.js"><link rel="prefetch" href="/blog/assets/js/288.74af2d88.js"><link rel="prefetch" href="/blog/assets/js/289.d287a9d1.js"><link rel="prefetch" href="/blog/assets/js/29.5fdfceb0.js"><link rel="prefetch" href="/blog/assets/js/290.8b41cc6f.js"><link rel="prefetch" href="/blog/assets/js/291.30cb3e81.js"><link rel="prefetch" href="/blog/assets/js/292.f6c92a32.js"><link rel="prefetch" href="/blog/assets/js/293.4a5c5d03.js"><link rel="prefetch" href="/blog/assets/js/294.889fa477.js"><link rel="prefetch" href="/blog/assets/js/295.7c9bfb1a.js"><link rel="prefetch" href="/blog/assets/js/296.5c393daa.js"><link rel="prefetch" href="/blog/assets/js/297.fdb8d15e.js"><link rel="prefetch" href="/blog/assets/js/298.93998d32.js"><link rel="prefetch" href="/blog/assets/js/299.ad16ee20.js"><link rel="prefetch" href="/blog/assets/js/3.bae9c3b9.js"><link rel="prefetch" href="/blog/assets/js/30.092f59e3.js"><link rel="prefetch" href="/blog/assets/js/300.d7ee2ec1.js"><link rel="prefetch" href="/blog/assets/js/301.49bde86e.js"><link rel="prefetch" href="/blog/assets/js/302.cb98973f.js"><link rel="prefetch" href="/blog/assets/js/303.f6b8a9e2.js"><link rel="prefetch" href="/blog/assets/js/304.e112a703.js"><link rel="prefetch" href="/blog/assets/js/305.a4957830.js"><link rel="prefetch" href="/blog/assets/js/306.c870dc18.js"><link rel="prefetch" href="/blog/assets/js/307.001c4372.js"><link rel="prefetch" href="/blog/assets/js/308.79901a9c.js"><link rel="prefetch" href="/blog/assets/js/309.869b2a70.js"><link rel="prefetch" href="/blog/assets/js/31.a2348ea1.js"><link rel="prefetch" href="/blog/assets/js/310.1c002e84.js"><link rel="prefetch" href="/blog/assets/js/311.7e0bcf89.js"><link rel="prefetch" href="/blog/assets/js/312.2660fad0.js"><link rel="prefetch" href="/blog/assets/js/313.6e89cadb.js"><link rel="prefetch" href="/blog/assets/js/314.6990aa37.js"><link rel="prefetch" href="/blog/assets/js/315.8153a154.js"><link rel="prefetch" href="/blog/assets/js/316.6da9b5a5.js"><link rel="prefetch" href="/blog/assets/js/317.11c83cef.js"><link rel="prefetch" href="/blog/assets/js/318.e8490648.js"><link rel="prefetch" href="/blog/assets/js/319.53861265.js"><link rel="prefetch" href="/blog/assets/js/32.a194da00.js"><link rel="prefetch" href="/blog/assets/js/320.56dad00f.js"><link rel="prefetch" href="/blog/assets/js/321.ccd6b418.js"><link rel="prefetch" href="/blog/assets/js/322.faed6cae.js"><link rel="prefetch" href="/blog/assets/js/323.d268cb3a.js"><link rel="prefetch" href="/blog/assets/js/324.dce3459a.js"><link rel="prefetch" href="/blog/assets/js/325.d01c7ad8.js"><link rel="prefetch" href="/blog/assets/js/326.0e9aa527.js"><link rel="prefetch" href="/blog/assets/js/327.a302d51e.js"><link rel="prefetch" href="/blog/assets/js/328.a5997e15.js"><link rel="prefetch" href="/blog/assets/js/329.798b92cf.js"><link rel="prefetch" href="/blog/assets/js/33.e4d25147.js"><link rel="prefetch" href="/blog/assets/js/330.3ed38f17.js"><link rel="prefetch" href="/blog/assets/js/331.2147c45e.js"><link rel="prefetch" href="/blog/assets/js/332.4f72a981.js"><link rel="prefetch" href="/blog/assets/js/333.b198d877.js"><link rel="prefetch" href="/blog/assets/js/334.01f2ba40.js"><link rel="prefetch" href="/blog/assets/js/335.04c31165.js"><link rel="prefetch" href="/blog/assets/js/336.b939caf6.js"><link rel="prefetch" href="/blog/assets/js/337.e723b696.js"><link rel="prefetch" href="/blog/assets/js/338.bb89d233.js"><link rel="prefetch" href="/blog/assets/js/339.0c93e7f2.js"><link rel="prefetch" href="/blog/assets/js/34.881d241b.js"><link rel="prefetch" href="/blog/assets/js/340.e59d5112.js"><link rel="prefetch" href="/blog/assets/js/341.1c5d24ff.js"><link rel="prefetch" href="/blog/assets/js/342.13b1c49e.js"><link rel="prefetch" href="/blog/assets/js/343.0434e83c.js"><link rel="prefetch" href="/blog/assets/js/344.936699cc.js"><link rel="prefetch" href="/blog/assets/js/345.81802f59.js"><link rel="prefetch" href="/blog/assets/js/346.fcc4c864.js"><link rel="prefetch" href="/blog/assets/js/347.fb03a8d6.js"><link rel="prefetch" href="/blog/assets/js/348.0a0514fd.js"><link rel="prefetch" href="/blog/assets/js/349.1a1dcade.js"><link rel="prefetch" href="/blog/assets/js/35.d7055bd8.js"><link rel="prefetch" href="/blog/assets/js/350.3d801021.js"><link rel="prefetch" href="/blog/assets/js/351.e63d16b6.js"><link rel="prefetch" href="/blog/assets/js/352.5bb35d77.js"><link rel="prefetch" href="/blog/assets/js/353.7e25749a.js"><link rel="prefetch" href="/blog/assets/js/354.c12c2e75.js"><link rel="prefetch" href="/blog/assets/js/355.62c13100.js"><link rel="prefetch" href="/blog/assets/js/356.3e2b2e72.js"><link rel="prefetch" href="/blog/assets/js/357.a20defbc.js"><link rel="prefetch" href="/blog/assets/js/358.838f09bc.js"><link rel="prefetch" href="/blog/assets/js/359.8739e3bf.js"><link rel="prefetch" href="/blog/assets/js/36.367436d6.js"><link rel="prefetch" href="/blog/assets/js/360.c1d08f47.js"><link rel="prefetch" href="/blog/assets/js/361.4749916b.js"><link rel="prefetch" href="/blog/assets/js/362.41524f06.js"><link rel="prefetch" href="/blog/assets/js/363.2da456c2.js"><link rel="prefetch" href="/blog/assets/js/364.14db63c4.js"><link rel="prefetch" href="/blog/assets/js/365.bf1591b4.js"><link rel="prefetch" href="/blog/assets/js/366.dc960a99.js"><link rel="prefetch" href="/blog/assets/js/367.fd7b3c99.js"><link rel="prefetch" href="/blog/assets/js/368.ec166fb2.js"><link rel="prefetch" href="/blog/assets/js/369.d2e46423.js"><link rel="prefetch" href="/blog/assets/js/37.cfabd421.js"><link rel="prefetch" href="/blog/assets/js/370.01b4912e.js"><link rel="prefetch" href="/blog/assets/js/371.2fc91e89.js"><link rel="prefetch" href="/blog/assets/js/372.69a3cd02.js"><link rel="prefetch" href="/blog/assets/js/373.8ae21b19.js"><link rel="prefetch" href="/blog/assets/js/374.aa4dce2f.js"><link rel="prefetch" href="/blog/assets/js/375.f07a6905.js"><link rel="prefetch" href="/blog/assets/js/376.1fc8f6ba.js"><link rel="prefetch" href="/blog/assets/js/377.5b033c7a.js"><link rel="prefetch" href="/blog/assets/js/378.db00fb42.js"><link rel="prefetch" href="/blog/assets/js/379.e273b5b0.js"><link rel="prefetch" href="/blog/assets/js/38.80a92a9a.js"><link rel="prefetch" href="/blog/assets/js/380.0c1d2f74.js"><link rel="prefetch" href="/blog/assets/js/381.e93aa093.js"><link rel="prefetch" href="/blog/assets/js/382.cc1bf941.js"><link rel="prefetch" href="/blog/assets/js/383.57eed2d3.js"><link rel="prefetch" href="/blog/assets/js/384.e78da318.js"><link rel="prefetch" href="/blog/assets/js/385.c476b444.js"><link rel="prefetch" href="/blog/assets/js/386.a29802ac.js"><link rel="prefetch" href="/blog/assets/js/387.63f692a3.js"><link rel="prefetch" href="/blog/assets/js/388.d44d0a12.js"><link rel="prefetch" href="/blog/assets/js/389.f4f55d15.js"><link rel="prefetch" href="/blog/assets/js/39.51b28712.js"><link rel="prefetch" href="/blog/assets/js/390.eeb2ea5e.js"><link rel="prefetch" href="/blog/assets/js/391.4172f1d7.js"><link rel="prefetch" href="/blog/assets/js/392.203b4305.js"><link rel="prefetch" href="/blog/assets/js/393.0f3c7b99.js"><link rel="prefetch" href="/blog/assets/js/394.4109f422.js"><link rel="prefetch" href="/blog/assets/js/395.145c0e37.js"><link rel="prefetch" href="/blog/assets/js/396.5739a049.js"><link rel="prefetch" href="/blog/assets/js/397.04cbe49d.js"><link rel="prefetch" href="/blog/assets/js/398.984a14e0.js"><link rel="prefetch" href="/blog/assets/js/399.68879b0f.js"><link rel="prefetch" href="/blog/assets/js/4.17793416.js"><link rel="prefetch" href="/blog/assets/js/40.cca61ef0.js"><link rel="prefetch" href="/blog/assets/js/400.dbabb331.js"><link rel="prefetch" href="/blog/assets/js/401.840a1493.js"><link rel="prefetch" href="/blog/assets/js/402.0a88d2b6.js"><link rel="prefetch" href="/blog/assets/js/403.18ba61d5.js"><link rel="prefetch" href="/blog/assets/js/404.526ab707.js"><link rel="prefetch" href="/blog/assets/js/405.f6b60057.js"><link rel="prefetch" href="/blog/assets/js/406.84e6f37c.js"><link rel="prefetch" href="/blog/assets/js/407.1cc22e8e.js"><link rel="prefetch" href="/blog/assets/js/408.c838e002.js"><link rel="prefetch" href="/blog/assets/js/409.3b625fca.js"><link rel="prefetch" href="/blog/assets/js/41.3b9b35fb.js"><link rel="prefetch" href="/blog/assets/js/410.3d841dde.js"><link rel="prefetch" href="/blog/assets/js/411.4c112919.js"><link rel="prefetch" href="/blog/assets/js/412.35aeac08.js"><link rel="prefetch" href="/blog/assets/js/413.10d093fe.js"><link rel="prefetch" href="/blog/assets/js/414.c98c6493.js"><link rel="prefetch" href="/blog/assets/js/415.17289b1a.js"><link rel="prefetch" href="/blog/assets/js/416.32b1b05f.js"><link rel="prefetch" href="/blog/assets/js/417.5bd95f13.js"><link rel="prefetch" href="/blog/assets/js/418.7f0b6a25.js"><link rel="prefetch" href="/blog/assets/js/419.6651a70e.js"><link rel="prefetch" href="/blog/assets/js/42.adad5b34.js"><link rel="prefetch" href="/blog/assets/js/420.c239318d.js"><link rel="prefetch" href="/blog/assets/js/421.7a2e9a91.js"><link rel="prefetch" href="/blog/assets/js/422.551aab1d.js"><link rel="prefetch" href="/blog/assets/js/423.18e3b820.js"><link rel="prefetch" href="/blog/assets/js/424.95046f00.js"><link rel="prefetch" href="/blog/assets/js/425.ef4a5191.js"><link rel="prefetch" href="/blog/assets/js/426.1c13b1a5.js"><link rel="prefetch" href="/blog/assets/js/427.c019f006.js"><link rel="prefetch" href="/blog/assets/js/428.1b2eaa28.js"><link rel="prefetch" href="/blog/assets/js/429.fd8e32e3.js"><link rel="prefetch" href="/blog/assets/js/43.ec99f75e.js"><link rel="prefetch" href="/blog/assets/js/430.cf4a4078.js"><link rel="prefetch" href="/blog/assets/js/431.265b28ef.js"><link rel="prefetch" href="/blog/assets/js/432.00f19a47.js"><link rel="prefetch" href="/blog/assets/js/433.f0a5d954.js"><link rel="prefetch" href="/blog/assets/js/434.71cf06f2.js"><link rel="prefetch" href="/blog/assets/js/435.5a7e5590.js"><link rel="prefetch" href="/blog/assets/js/436.d6016384.js"><link rel="prefetch" href="/blog/assets/js/437.d5565e15.js"><link rel="prefetch" href="/blog/assets/js/438.7479f8da.js"><link rel="prefetch" href="/blog/assets/js/439.aa4dd15f.js"><link rel="prefetch" href="/blog/assets/js/44.8189586c.js"><link rel="prefetch" href="/blog/assets/js/440.4f7d14d3.js"><link rel="prefetch" href="/blog/assets/js/441.1eeb35f3.js"><link rel="prefetch" href="/blog/assets/js/442.b556fe77.js"><link rel="prefetch" href="/blog/assets/js/443.6ee28303.js"><link rel="prefetch" href="/blog/assets/js/444.48140a5b.js"><link rel="prefetch" href="/blog/assets/js/445.892070d3.js"><link rel="prefetch" href="/blog/assets/js/446.e5e602ae.js"><link rel="prefetch" href="/blog/assets/js/447.50c68b39.js"><link rel="prefetch" href="/blog/assets/js/448.9893dc6c.js"><link rel="prefetch" href="/blog/assets/js/45.d03eb196.js"><link rel="prefetch" href="/blog/assets/js/450.d4b8b7bd.js"><link rel="prefetch" href="/blog/assets/js/451.b3fe1758.js"><link rel="prefetch" href="/blog/assets/js/452.eaf3117e.js"><link rel="prefetch" href="/blog/assets/js/453.d68564c3.js"><link rel="prefetch" href="/blog/assets/js/454.a8f8ab86.js"><link rel="prefetch" href="/blog/assets/js/455.76b9d26b.js"><link rel="prefetch" href="/blog/assets/js/456.1d0d8768.js"><link rel="prefetch" href="/blog/assets/js/457.d3a520dd.js"><link rel="prefetch" href="/blog/assets/js/458.a0d8fd82.js"><link rel="prefetch" href="/blog/assets/js/46.bc8e91a8.js"><link rel="prefetch" href="/blog/assets/js/47.f076b4b4.js"><link rel="prefetch" href="/blog/assets/js/48.7178ad6d.js"><link rel="prefetch" href="/blog/assets/js/49.3b3bfea4.js"><link rel="prefetch" href="/blog/assets/js/5.423840d3.js"><link rel="prefetch" href="/blog/assets/js/50.d9b83da4.js"><link rel="prefetch" href="/blog/assets/js/51.9d27edce.js"><link rel="prefetch" href="/blog/assets/js/52.d5b605d6.js"><link rel="prefetch" href="/blog/assets/js/53.39011ac7.js"><link rel="prefetch" href="/blog/assets/js/54.0256ac32.js"><link rel="prefetch" href="/blog/assets/js/55.40614e04.js"><link rel="prefetch" href="/blog/assets/js/56.190c034c.js"><link rel="prefetch" href="/blog/assets/js/57.b1c87a27.js"><link rel="prefetch" href="/blog/assets/js/58.aadf8f0b.js"><link rel="prefetch" href="/blog/assets/js/59.c7a8ec0f.js"><link rel="prefetch" href="/blog/assets/js/6.6e8c67be.js"><link rel="prefetch" href="/blog/assets/js/60.16f04dae.js"><link rel="prefetch" href="/blog/assets/js/61.1da49901.js"><link rel="prefetch" href="/blog/assets/js/62.c567b83d.js"><link rel="prefetch" href="/blog/assets/js/63.a9eaa6cb.js"><link rel="prefetch" href="/blog/assets/js/64.bd23e37e.js"><link rel="prefetch" href="/blog/assets/js/65.6449b7f4.js"><link rel="prefetch" href="/blog/assets/js/66.5394a009.js"><link rel="prefetch" href="/blog/assets/js/67.30990c21.js"><link rel="prefetch" href="/blog/assets/js/68.040df19a.js"><link rel="prefetch" href="/blog/assets/js/69.7c4f7a13.js"><link rel="prefetch" href="/blog/assets/js/7.fec0ecd5.js"><link rel="prefetch" href="/blog/assets/js/70.7a8b9c4f.js"><link rel="prefetch" href="/blog/assets/js/71.42507e26.js"><link rel="prefetch" href="/blog/assets/js/72.676d8ece.js"><link rel="prefetch" href="/blog/assets/js/73.daa7600a.js"><link rel="prefetch" href="/blog/assets/js/74.20e478dc.js"><link rel="prefetch" href="/blog/assets/js/75.900ff344.js"><link rel="prefetch" href="/blog/assets/js/76.1b07b297.js"><link rel="prefetch" href="/blog/assets/js/77.0356d020.js"><link rel="prefetch" href="/blog/assets/js/78.d3355c58.js"><link rel="prefetch" href="/blog/assets/js/79.42dd852d.js"><link rel="prefetch" href="/blog/assets/js/8.b72e1b92.js"><link rel="prefetch" href="/blog/assets/js/80.702f8d04.js"><link rel="prefetch" href="/blog/assets/js/81.45abcf52.js"><link rel="prefetch" href="/blog/assets/js/82.4ceb3c5b.js"><link rel="prefetch" href="/blog/assets/js/83.5a647425.js"><link rel="prefetch" href="/blog/assets/js/84.445edf85.js"><link rel="prefetch" href="/blog/assets/js/85.d7363708.js"><link rel="prefetch" href="/blog/assets/js/86.fc754847.js"><link rel="prefetch" href="/blog/assets/js/87.fdf002b1.js"><link rel="prefetch" href="/blog/assets/js/88.d89bd9b9.js"><link rel="prefetch" href="/blog/assets/js/89.84be3134.js"><link rel="prefetch" href="/blog/assets/js/9.a0088c26.js"><link rel="prefetch" href="/blog/assets/js/90.750b1c1c.js"><link rel="prefetch" href="/blog/assets/js/91.ec8182c1.js"><link rel="prefetch" href="/blog/assets/js/92.faca2c51.js"><link rel="prefetch" href="/blog/assets/js/93.d45ce2d1.js"><link rel="prefetch" href="/blog/assets/js/94.4b7a271d.js"><link rel="prefetch" href="/blog/assets/js/95.e2fb278c.js"><link rel="prefetch" href="/blog/assets/js/96.9c2cf45f.js"><link rel="prefetch" href="/blog/assets/js/97.e757d67c.js"><link rel="prefetch" href="/blog/assets/js/98.7b001ece.js"><link rel="prefetch" href="/blog/assets/js/99.5d4e870f.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b00d9e97.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/bloglogo.png" alt="Mr.Liu" class="logo"> <span class="site-name can-hide">Mr.Liu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/blog/career-plan" class="sidebar-heading clickable"><span>如何做好职业规划</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>H5 开发实战手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端算法与数据结构面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 hapi 的 Node.js 小程序后端开发实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 NodeJS 构建 GraphQL API 服务</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Python 实战：用 Scrapyd 打造个人化的爬虫部署管理控制台</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL 是怎样运行的：从根儿上理解 MySQL</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Flutter 完全手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript 设计模式核⼼原理与应⽤实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React SSR 服务端渲染原理解析与同构实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React Hooks 与 Immutable 数据流实战</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React 组合式开发实践：打造企业管理系统五大核心模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue 项目构建与开发入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Web 前端面试指南与高频考题解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 组件精讲</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端性能优化原理与实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>剖析 Vue.js 内部运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>使用 webpack 定制前端开发环境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>如何使用 Canvas 制作出炫酷的网页背景特效</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发者必备的 Docker 实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>用 npm script 打造超溜的前端工作流</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>微信小程序开发入门：从 0 到 1 实现天气小程序</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/wxapp-entry/基础篇 1：小程序开发基础知识.html" class="sidebar-link">基础篇 1：小程序开发基础知识</a></li><li><a href="/blog/wxapp-entry/基础篇 2：小程序云开发基础知识.html" class="sidebar-link">基础篇 2：小程序·云开发基础知识</a></li><li><a href="/blog/wxapp-entry/基础篇 3：小程序架构及其实现机制.html" class="sidebar-link">基础篇 3：小程序架构及其实现机制</a></li><li><a href="/blog/wxapp-entry/实战篇 1：小程序开发环境搭建.html" class="active sidebar-link">实战篇 1：小程序开发环境搭建</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 1：小程序开发环境搭建.html#gulp-和-webpack" class="sidebar-link">Gulp 和 webpack</a></li><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 1：小程序开发环境搭建.html#项目目录结构" class="sidebar-link">项目目录结构</a></li><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 1：小程序开发环境搭建.html#gulp-工程化打包方案" class="sidebar-link">Gulp 工程化打包方案</a></li><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 1：小程序开发环境搭建.html#mock-server-实现" class="sidebar-link">mock server 实现</a></li><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 1：小程序开发环境搭建.html#前端对云函数的调用" class="sidebar-link">前端对云函数的调用</a></li><li class="sidebar-sub-header"><a href="/blog/wxapp-entry/实战篇 1：小程序开发环境搭建.html#小结" class="sidebar-link">小结</a></li></ul></li><li><a href="/blog/wxapp-entry/实战篇 2：新鲜天气小程序简介.html" class="sidebar-link">实战篇 2：新鲜天气小程序简介</a></li><li><a href="/blog/wxapp-entry/实战篇 3：天气页面样式布局开发.html" class="sidebar-link">实战篇 3：天气页面样式布局开发</a></li><li><a href="/blog/wxapp-entry/实战篇 4：天气页面数据获取和交互实现.html" class="sidebar-link">实战篇 4：天气页面数据获取和交互实现</a></li><li><a href="/blog/wxapp-entry/实战篇 5：为天气页面制作雨雪效果的粒子系统.html" class="sidebar-link">实战篇 5：为天气页面制作雨雪效果的粒子系统</a></li><li><a href="/blog/wxapp-entry/实战篇 6：心情签到页面开发.html" class="sidebar-link">实战篇 6：心情签到页面开发</a></li><li><a href="/blog/wxapp-entry/实战篇 7：对小程序进行优化.html" class="sidebar-link">实战篇 7：对小程序进行优化</a></li><li><a href="/blog/wxapp-entry/实战篇 8：小程序调试技巧和上线发布.html" class="sidebar-link">实战篇 8：小程序调试技巧和上线发布</a></li><li><a href="/blog/wxapp-entry/开篇：微信小程序概述.html" class="sidebar-link">开篇：微信小程序概述</a></li><li><a href="/blog/wxapp-entry/总结与拓展.html" class="sidebar-link">总结与拓展</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="实战篇-1-小程序开发环境搭建"><a href="#实战篇-1-小程序开发环境搭建" class="header-anchor">#</a> 实战篇 1：小程序开发环境搭建</h1> <p>微信小程序虽然提供自己的 IDE 开发工具，但是对于用惯了 VS Code、Sublime 等编辑器的前端工程师来说，其体验还是挺差的，因此本项目中，只将微信小程序开发者工具作为模拟器、调试和代码上传的工具，其他开发使用自己熟练的编辑器 / IDE 即可。</p> <p>除了选择自己熟练的编辑器 / IDE 之外，还应该在代码层面提高编码体验，本实战项目使用 Sass 和 ES6 语法来写代码，通过构建工具编译成小程序可以识别的 WXSS 和 ES5，最后也使用构建工具压缩和优化静态资源。</p> <p>对于小程序云开发（腾讯云）的测试，本项目使用官方提供的 <a href="https://github.com/TencentCloud/scf-node-debug" target="_blank" rel="noopener noreferrer">SCF-Cli<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 来本地测试云函数，这样云函数的修改就不需要每次都上传到云端之后再测试了，可以提高研发效率。</p> <p>整体技术选型如下：</p> <ul><li>VS Code： 编辑器，用于代码编写</li> <li>Gulp：前端项目构建工具</li> <li>Sass：小程序样式表</li> <li>ES6：采用 ES6 语法编写 JS 代码，Babel 做编译处理</li></ul> <p>本节重点介绍使用 Gulp 搭建小程序开发环境。</p> <h2 id="gulp-和-webpack"><a href="#gulp-和-webpack" class="header-anchor">#</a> Gulp 和 webpack</h2> <p>目前，前端最火的打包工具无疑是 webpack，而 webpack 的产品定位是<strong>模块打包工具</strong>，对于小程序开发，涉及项目资源分类管理，所以 <a href="https://gulpjs.com/" target="_blank" rel="noopener noreferrer">Gulp<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>、<a href="https://gruntjs.com/" target="_blank" rel="noopener noreferrer">Grunt<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>、<a href="http://fis.baidu.com/" target="_blank" rel="noopener noreferrer">FIS<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 这类前端工程构建工具很合适。</p> <p>Gulp 可以对不同的文件类型、文件夹、文件等多种方式进行不同的处理流程，像小程序项目中多种文件类型需要不同的构建流程，使用 Gulp 的 task 就非常方便管理。</p> <p>另外 Gulp 的 watch 功能也可以监控源文件，当源码发生变化时，立即执行对应 task，将修改后的代码编译到小程序开发工具监控的目录中；在生态建设上，Gulp 工具链也很完善。小程序开发本来就是本地开发模式，代码必须在小程序开发者工具提供的 Runtime 中才可以跑起来，不涉及服务搭建相关的知识，所以 webpack 的 devserver 也没有用武之地。</p> <p>综上，本小册采用 Gulp 来搭建小程序开发环境。</p> <h2 id="项目目录结构"><a href="#项目目录结构" class="header-anchor">#</a> 项目目录结构</h2> <p>首先介绍下项目的目录结构，下面的目录结构是最开始的目录结构，注释中描述了文件夹（或文件）具体是做什么用的。</p> <div class="language- extra-class"><pre class="language-text"><code>├── cloud-functions // 云函数文件夹
+├── dist            // 构建工具 release 之后的文件夹
+├── gulpfile.js     // Gulp 配置文件
+├── node_modules
+├── package.json    // npm 描述文件
+└── src             // 实际开发的源代码文件夹
+    ├── app.js      // 入口 js
+    ├── app.json    // App 配置
+    ├── app.scss    // App 整体样式
+    ├── components  // 小程序组件，例如 icon 类这些通用组件
+    ├── images      // 小程序静态图片
+    ├── lib         // 公共 lib
+    ├── pages       // 小程序 page 页面
+    │   ├── index.js
+    │   ├── index.json
+    │   ├── index.scss
+    │   ├── index.wxml
+    │   └── index.wxs
+    └── project.config.json // 小程序项目配置
+
+</code></pre></div><h2 id="gulp-工程化打包方案"><a href="#gulp-工程化打包方案" class="header-anchor">#</a> Gulp 工程化打包方案</h2> <p>针对上面的开发目录，我们要达到的目标是：<strong>将 src 目录下的文件，编译到小程序开发者工具实际运行的 dist 目录下</strong>，先在 <code>gulpfile.js</code> 中定义这两个目录的变量：</p> <div class="language- extra-class"><pre class="language-text"><code>const src = './src'
+const dist = './dist'
+
+</code></pre></div><p>Gulp 是以 task 为核心的打包工具，针对不同的文件类型（比如通过正则过滤）可以配置不同的流程控制。小程序打包主要解决的是 WXML、WXSS、WXS 以及 JS 的编译，另外针对小程序开发中常见的问题进行工具化处理，例如 px 转 rpx、压缩优化等，下面笔者来一一介绍。</p> <h3 id="wxml-task"><a href="#wxml-task" class="header-anchor">#</a> wxml task</h3> <p><code>wxml</code> 语法实际就是 <code>html</code> 的语法，不需要做额外的处理，直接 release 到<strong>目标目录</strong>即可：</p> <div class="language- extra-class"><pre class="language-text"><code>gulp.task('wxml', () =&gt; {
+  return gulp
+    .src(`${src}/**/*.wxml`)
+    .pipe(gulp.dest(dist))
+})
+
+</code></pre></div><h3 id="wxss-task"><a href="#wxss-task" class="header-anchor">#</a> wxss task</h3> <p>为了更好地维护和提供更加灵活的 CSS 开发体验，笔者在项目中使用了 <code>sass</code> 作为 wxss 的开发语言，然后通过 Gulp 的 wxss task 将<code>scss/sass</code>文件编译成 wxss，在处理样式文件的时候，笔者还解决了两个问题：</p> <ul><li>px 转 rpx：使用<code>postcss-px2rpx</code>，将<code>px</code>按照 2 倍算法转化成 rpx，px 和 rpx 的详细介绍可以参考前面章节的内容</li> <li>将 webfont 转化成 base64 引入：在小程序内，webfont 不允许访问小程序内部地址，所以只能将其转化成 bas64 方式引入</li></ul> <p>将 <code>sass/scss</code> 文件处理完之后，在最后一步，利用 <code>rename</code> 工具，将 <code>.sass/.scss</code> 改名为 <code>.wxss</code>：</p> <div class="language- extra-class"><pre class="language-text"><code>const rename = require('gulp-rename')
+const postcss = require('gulp-postcss')
+const pxtorpx = require('postcss-px2rpx')
+const base64 = require('postcss-font-base64')
+const combiner = require('stream-combiner2')
+
+gulp.task('wxss', () =&gt; {
+  const combined = combiner.obj([
+    gulp.src(`${src}/**/*.{wxss,scss}`),
+    sass().on('error', sass.logError),
+    postcss([pxtorpx(), base64()]),
+    rename((path) =&gt; (path.extname = '.wxss')),
+    gulp.dest(dist)
+  ])
+
+  combined.on('error', handleError)
+})
+
+</code></pre></div><blockquote><p>可以不使用 CSS 的自动添加浏览器兼容前缀的 <code>autoprefixer</code> 插件，而直接用小程序开发者工具的「详情 -&gt; 项目设置 -&gt; 上传代码时样式自动补全」功能。</p></blockquote> <p><img src="https://user-gold-cdn.xitu.io/2018/8/13/1653140645f84aaa?w=377&amp;h=361&amp;f=png&amp;s=34728" alt=""></p> <h3 id="js-task"><a href="#js-task" class="header-anchor">#</a> js task</h3> <p>微信的 js 文件使用的是 ES5 语法，为了更好的开发体验，笔者开发中使用了 ES6/7 语法，在 Gulp 编译时引入了 <code>babel</code> 插件对 js 进行编译，并且还引入了 <code>sourcemap</code> 以方便本地 debug 代码。</p> <div class="language- extra-class"><pre class="language-text"><code>gulp.task('js', () =&gt; {
+  gulp
+    .src(`${src}/**/*.js`)
+    .pipe(sourcemaps.init())
+    .pipe(
+      babel({
+        presets: ['env']
+      })
+    )
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(dist))
+})
+
+</code></pre></div><h3 id="其他-task"><a href="#其他-task" class="header-anchor">#</a> 其他 task</h3> <p>对于 <code>json</code>、<code>images</code> 和 <code>wxs</code> 类文件，主要采取的方式是按照当前路径复制到<strong>目标目录</strong>，所以它们的 task 配置是：</p> <div class="language- extra-class"><pre class="language-text"><code>gulp.task('json', () =&gt; {
+  return gulp.src(`${src}/**/*.json`).pipe(gulp.dest(dist))
+})
+gulp.task('images', () =&gt; {
+  return gulp.src(`${src}/images/**`).pipe(gulp.dest(`${dist}/images`))
+})
+gulp.task('wxs', () =&gt; {
+  return gulp.src(`${src}/**/*.wxs`).pipe(gulp.dest(dist))
+})
+
+</code></pre></div><h3 id="给每个-task-增加生产发布打包配置"><a href="#给每个-task-增加生产发布打包配置" class="header-anchor">#</a> 给每个 task 增加生产发布打包配置</h3> <p>针对开发和生产两种不同的发布环境，可以通过自定义 Gulp 命令参数来区分，这里使用 <code>--type</code> 来区分，即：</p> <ul><li>--type prod：代表生产发布打包</li> <li>默认：为开发发布打包</li></ul> <p>在生产发布打包的流程中，增加了对资源的压缩（js、html、json、css）和 <a href="https://github.com/zswang/jdists" target="_blank" rel="noopener noreferrer">jdists 的代码块预处理<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，下面以 js task 为例，解释下怎么配置生产发布的流程（详细解释见注释）：</p> <div class="language- extra-class"><pre class="language-text"><code>// 引入需要用到的 npm 包
+const sourcemaps = require('gulp-sourcemaps')
+const jdists = require('gulp-jdists')
+const through = require('through2')
+const babel = require('gulp-babel')
+const uglify = require('gulp-uglify')
+const argv = require('minimist')(process.argv.slice(2))
+// 判断 gulp --type prod 命名 type 是否是生产打包
+const isProd = argv.type === 'prod'
+const src = './client'
+const dist = './dist'
+
+gulp.task('js', () =&gt; {
+  gulp
+    .src(`${src}/**/*.js`)
+    // 如果是 prod，则触发 jdists 的 prod trigger
+    // 否则则为 dev trigger，后面讲解
+    .pipe(
+      isProd
+        ? jdists({
+            trigger: 'prod'
+          })
+        : jdists({
+            trigger: 'dev'
+          })
+    )
+    // 如果是 prod，则传入空的流处理方法，不生成 sourcemap
+    .pipe(isProd ? through.obj() : sourcemaps.init())
+    // 使用 babel 处理js 文件
+    .pipe(
+      babel({
+        presets: ['env']
+      })
+    )
+    // 如果是 prod，则使用 uglify 压缩 js
+    .pipe(
+      isProd
+        ? uglify({
+            compress: true
+          })
+        : through.obj()
+    )
+    // 如果是 prod，则传入空的流处理方法，不生成 sourcemap
+    .pipe(isProd ? through.obj() : sourcemaps.write('./'))
+    .pipe(gulp.dest(dist))
+})
+
+</code></pre></div><p>说下 <code>jdists</code> 代码块预处理工具，<code>jdists</code>是一种通过注释的方式，将不同的代码块根据不同的指令进行处理的工具，详细功能见 <a href="https://github.com/zswang/jdists" target="_blank" rel="noopener noreferrer">jdists 文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <p>本项目中主要用到了：</p> <ol><li>根据 <code>trigger</code> 触发 <code>remove</code> 操作；</li> <li>根据 <code>import</code> 将媒介（资源）嵌入到文件的固定位置。</li></ol> <p>例如：</p> <div class="language- extra-class"><pre class="language-text"><code>/*&lt;remove trigger=&quot;prod&quot;&gt;*/
+import {getMood, geocoder} from '../../lib/api'
+import {getWeather, getAir} from '../../lib/api-mock'
+/*&lt;/remove&gt;*/
+
+/*&lt;jdists trigger=&quot;prod&quot;&gt;
+import {getMood, geocoder, getWeather, getAir} from '../../lib/api'
+&lt;/jdists&gt;*/
+
+</code></pre></div><p>上面的代码片段中，<code>/*&lt;remove trigger=&quot;prod&quot;&gt;*/.../*&lt;/remove&gt;*/</code> 之间是默认代码，从命名来看，实际 <code>getWeather</code> 和 <code>getAir</code> 两个方法来自 <code>api-mock</code> 这个 js 文件，<code>api-mock</code> 是接口的 mock 实现。真实上线的时候，我们希望暴露的是底部 <code>&lt;jdists trigger=&quot;prod&quot;&gt;...&lt;/jdists&gt;*/</code> 中间的代码，这样在下面 Gulp 的配置中：</p> <div class="language- extra-class"><pre class="language-text"><code>.pipe(
+      isProd
+        ? jdists({
+            trigger: 'prod'
+          })
+        : jdists({
+            trigger: 'dev'
+          })
+    )
+
+</code></pre></div><p>当 <code>isProd</code> 成立时，则触发 <code>trigger=prod</code>，即将顶部代码库移出，底部注释中的代码暴露出来，最终得到的代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>import {getMood, geocoder, getWeather, getAir} from '../../lib/api'
+
+</code></pre></div><p>而普通打包（dev 开发方式时）则保持原样：</p> <div class="language- extra-class"><pre class="language-text"><code>/*&lt;remove trigger=&quot;prod&quot;&gt;*/
+import {getMood, geocoder} from '../../lib/api'
+import {getWeather, getAir} from '../../lib/api-mock'
+/*&lt;/remove&gt;*/
+
+/*&lt;jdists trigger=&quot;prod&quot;&gt;
+import {getMood, geocoder, getWeather, getAir} from '../../lib/api'
+&lt;/jdists&gt;*/
+
+</code></pre></div><p>通过上面的讲解，你应该明白了，在 <code>gulp --type prod</code> 下，<code>getWeather</code> 和 <code>getAir</code> 来自 <code>lib/api</code> 文件，而在本地开发调试的时候，则来自 <code>api-mock</code> 这个 mock 的文件中，至于这俩文件有什么区别，以及 <code>jdists</code> 的 <code>import</code> 用法，见本小节的「mock server 实现」部分。</p> <h3 id="根据发布环境不同-对-task-进行聚合"><a href="#根据发布环境不同-对-task-进行聚合" class="header-anchor">#</a> 根据发布环境不同，对 task 进行聚合</h3> <p>上面单个 task 配置完毕，需要添加聚合类的 task 和 watch task，详细配置如下：</p> <div class="language- extra-class"><pre class="language-text"><code>gulp.task('watch', () =&gt; {
+  ;['wxml', 'wxss', 'js', 'json', 'wxs'].forEach((v) =&gt; {
+    gulp.watch(`${src}/**/*.${v}`, [v])
+  })
+  gulp.watch(`${src}/images/**`, ['images'])
+  gulp.watch(`${src}/**/*.scss`, ['wxss'])
+})
+
+gulp.task('clean', () =&gt; {
+  return del(['./dist/**'])
+})
+
+gulp.task('dev', ['clean'], () =&gt; {
+  runSequence('json', 'images', 'wxml', 'wxss', 'js', 'wxs', 'cloud', 'watch')
+})
+
+gulp.task('build', ['clean'], () =&gt; {
+  runSequence('json', 'images', 'wxml', 'wxss', 'js', 'wxs', 'cloud')
+})
+
+</code></pre></div><h2 id="mock-server-实现"><a href="#mock-server-实现" class="header-anchor">#</a> mock server 实现</h2> <p>小程序云函数的联调测试是相当麻烦的，每次修改代码，都需要跑到小程序开发者工具的编辑器中，选择云函数文件夹「上传并部署」：</p> <p><img src="https://user-gold-cdn.xitu.io/2018/8/13/165313fec208c69b?w=442&amp;h=400&amp;f=png&amp;s=67432" alt=""></p> <p>这样的开发效率是十分低的，所以笔者自研了一套云函数本地 mock 的方法，使用 mock server 可以在本地开发的时候直接使用 <code>wx.request</code> 方法调用 mock server 的接口，而真正上线的时候（或者发布测试的时候），则使用 <code>wx.cloud.callFunction</code> 方式调用。</p> <p>mock server 的职责：</p> <ul><li>本地开发时，将云函数代理到 localserver，免除每次上传云函数测试效果的低效率研发方式</li> <li>要设计一套方案，将云函数文件单独提取出来，做到 mock server 和上线后代码统一，不做二次开发（修改），降低开发成本</li> <li>把将来放到服务器管理的静态资源（如图片 icon 类等）暂时放到本地托管，方便本地开发使用</li></ul> <p>基于上面的职责，笔者将小程序项目结构调整如下：</p> <div class="language- extra-class"><pre class="language-text"><code>├── README.md
+├── client                    // 小程序 client 部分，主要编写内容
+│   ├── app.js
+│   ├── app.json
+│   ├── app.scss
+│   ├── project.config.json  // 小程序项目配置，如云函数文件夹
+│   ├── components           // 组件
+│   ├── images               // 图片资源
+│   ├── lib
+│   │   ├── api-mock.js      // api-mock 功能，详见文档「云函数 mock」部分
+│   │   ├── api.js           // 实际 api
+│   │   ├── bluebird.js
+│   │   └── util.js
+│   └── pages
+│       └── index
+├── config.server.json
+├── dist
+├── gulpfile.js
+├── package.json
+├── server                   // 小程序 server 部分，主要是静态资源和云函数
+│   ├── cloud-functions
+│   │   ├── test
+│   │   └── test2
+│   ├── index.js
+│   ├── inline               // 云函数公共模块，打包的时候会 inline 进引入的云函数
+│   │   └── utils.js
+│   └── static
+│       └── gulp.png
+└── test                     // 测试文件夹
+    └── functions            // 存储小程序云函数测试用的参数模板
+        └── test.json
+
+</code></pre></div><p>主要变化如下：</p> <ol><li>跟前端相关的文件都放入了 client 中，编译后放到 dist 目录中，小程序开发者工具开发目录选择 dist 文件夹</li> <li>跟 mock server 相关的放入 server 中，server 下文件不做打包处理，即不 release 到 dist 文件下</li> <li>其中 server/cloud-functions 是云函数文件夹，编译之后放到 dist/cloud-functions 下</li> <li>server/static 文件夹是静态资源文件夹，将来上传到小程序云开发的「文件管理」中维护（小程序云开发 CDN 静态资源服务器）</li></ol> <h3 id="使用-express-来实现-mock-server"><a href="#使用-express-来实现-mock-server" class="header-anchor">#</a> 使用 Express 来实现 mock server</h3> <p>笔者使用 <a href="https://www.express.com/" target="_blank" rel="noopener noreferrer">Express<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 来在本地实现一个 mock server：</p> <div class="language- extra-class"><pre class="language-text"><code>const express = require('express')
+const {PORT} = require('../config.server.json')
+const app = express()
+
+app.listen(PORT, () =&gt; {
+  console.log(`开发服务器启动成功：http://127.0.0.1:${PORT}`)
+})
+
+</code></pre></div><p>这样就开启了一个端口号为 3000 的本地服务。</p> <h4 id="实现静态资源服务"><a href="#实现静态资源服务" class="header-anchor">#</a> 实现静态资源服务</h4> <p>下面要做的就是使用 <code>express.static</code> 将 <code>server/static</code> 目录设置为静态资源服务器：</p> <div class="language- extra-class"><pre class="language-text"><code>// 添加static
+app.use(
+  '/static',
+  express.static(path.join(__dirname, 'static'), {
+    index: false,
+    maxage: '30d'
+  })
+)
+
+</code></pre></div><p>静态资源服务器添加好之后，访问 <code>http://127.0.0.1:3000/static/xxx</code> 就可以直接访问 <code>static</code> 文件夹下的静态资源了。</p> <h4 id="实现云函数服务"><a href="#实现云函数服务" class="header-anchor">#</a> 实现云函数服务</h4> <p>为了满足「云函数文件线上和 mock server 使用一份，不二次开发」的需求，我们直接按照云函数的写法写代码即可，比如 <code>cloud-functions/test/</code> 模块：</p> <div class="language- extra-class"><pre class="language-text"><code>exports.main = async (event) =&gt; {
+  let {a, b} = event
+  return new Promise((resolve, reject) =&gt; {
+    resolve({result: parseInt(a) + parseInt(b)})
+  })
+}
+
+</code></pre></div><p>在 <code>server/index.js</code> 中引入对应的模块，然后分配一个路由即可：</p> <div class="language- extra-class"><pre class="language-text"><code>const test = require('./cloud-functions/test/').main
+
+app.get('/api/test', (req, res, next) =&gt; {
+  // 将 req.query 传入
+  test(req.query).then(res.json.bind(res)).catch((e) =&gt; {
+    console.error(e)
+    next(e)
+  })
+  // next()
+})
+
+</code></pre></div><p>上面代码中，将 <code>req.query</code> 传入 <code>test.main</code>，构造一个云函数的 <code>event</code> 参数，用于获取云函数的参数，最后通过 <code>Promise</code> 的 <code>then</code> 传递给 <code>res.json</code> 输出。</p> <p>写完上面代码，再访问 <code>http://127.0.0.1:3000/api/test?a=1&amp;b=2</code> 就会输出：</p> <p><img src="https://user-gold-cdn.xitu.io/2018/8/13/165313f947bd3ad9?w=350&amp;h=105&amp;f=png&amp;s=12377" alt=""></p> <h4 id="使用-nodemon-对-server-进行自动重启"><a href="#使用-nodemon-对-server-进行自动重启" class="header-anchor">#</a> 使用 nodemon 对 server 进行自动重启</h4> <p>在云函数开发中，当文件改动了，需要重启 Node.js 服务，如果每次都手动操作就太消耗时间和精力了，所以引入了 <a href="https://github.com/remy/nodemon" target="_blank" rel="noopener noreferrer">nodemon<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 对 server 目录下文件进行监控，发现文件修改，则重启 Node.js 服务。nodemon 的重启命令放在 <code>package.json</code> 中维护：</p> <div class="language- extra-class"><pre class="language-text"><code>// 启动
+&quot;scripts&quot;: {
+  &quot;server&quot;: &quot;nodemon ./server/index.js&quot;
+},
+// nodemon 配置
+&quot;nodemonConfig&quot;: {
+  &quot;ignore&quot;: [&quot;test/*&quot;, &quot;book/*&quot;, &quot;client/*&quot;, &quot;bin/*&quot;, &quot;node_modules&quot;, &quot;dist/*&quot;, &quot;package.json&quot;],
+  &quot;delay&quot;: &quot;1000&quot;
+},
+
+</code></pre></div><p>效果如下图所示。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/8/13/165313f69b72a696?w=372&amp;h=182&amp;f=png&amp;s=42545" alt=""></p> <h2 id="前端对云函数的调用"><a href="#前端对云函数的调用" class="header-anchor">#</a> 前端对云函数的调用</h2> <p>mock server 中的云函数实现了一套代码在本地和线上都可以跑通，但是 <code>client</code> 中页面引用云函数使用 <code>wx.cloud.callFunction</code> 却不能实现一套代码通用，为解决这个问题，笔者通过 <code>jdists</code> 的 <code>remove</code> 和 <code>trigger</code> 方式来实现差异化管理，即</p> <ol><li>将云函数调用等 API 接口请求调用方法，统一放入 <code>client/lib/api.js</code> 中实现，<code>api.js</code> 中使用 <code>wx.cloud.callFunction</code> 方法</li> <li>将云函数相关的再用 <code>wx.request</code> 方法实现一下，请求本地 <code>127.0.0.1:3000/api/</code> 接口，代码在 <code>api-mock.js</code> 中实现</li> <li><code>api.js</code> 和 <code>api-mock.js</code> 输入的参数和输出的结果是一致的，而内部实现是不同的</li> <li>使用某个云函数时，通过上文提到的 <code>jdists</code> 的 <code>remove</code> 和 <code>trigger</code> 分别引入</li></ol> <p>继续拿 <code>test</code> 这个云函数做说明，<code>api.js</code> 中直接使用：</p> <div class="language- extra-class"><pre class="language-text"><code>export const test = (a, b) =&gt; {
+  return wx.cloud.callFunction({
+    name: 'test',
+    data: {
+      a, b
+    }
+  })
+}
+
+</code></pre></div><p>然后在 <code>api-mock.js</code> 中实现一次：</p> <div class="language- extra-class"><pre class="language-text"><code>// 因为小程序的 callfunction 是 Promisify 的，所以这里需要用 Promise 处理一下
+// 小程序中不支持 Promise，所以引入了 bluebird 这个库
+import Promise from './bluebird'
+export const test = (a,b) =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    wx.request({
+      url: 'http://127.0.0.1:3000/api/test',
+      {a,b},
+      success: (res) =&gt; {
+        resolve({result: res.data})
+      },
+      fail: (e) =&gt; {
+        reject(e)
+      }
+    })
+  })
+}
+
+</code></pre></div><h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>本节主要讲解了 Gulp 构建小程序开发脚手架，从 Gulp 的配置说起，介绍了 WXML、Sass、ES6/7 编写小程序前端代码，然后针对云函数开发测试体验不好的问题，介绍了使用 Express 实现本地 mock server 的方式，将云函数和静态资源文件在本地服务器统一管理，实现「一套代码，多处执行」的效果。</p> <p>关于上面小程序开发用到的环境搭建代码，笔者从天气小程序项目中整理了出来，作为一个小程序开发脚手架放到了 <a href="https://github.com/ksky521/gulp-wxapp-boilerplate" target="_blank" rel="noopener noreferrer">GitHub<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 上，方便读者快速创建自己的小程序开发环境。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/wxapp-entry/基础篇 3：小程序架构及其实现机制.html" class="prev">
+        基础篇 3：小程序架构及其实现机制
+      </a></span> <span class="next"><a href="/blog/wxapp-entry/实战篇 2：新鲜天气小程序简介.html">
+        实战篇 2：新鲜天气小程序简介
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b72373f7.js" defer></script><script src="/blog/assets/js/2.2219f9c0.js" defer></script><script src="/blog/assets/js/449.4703a284.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第 8 节 复杂数据处理 · 关系图谱 | Mr.Liu</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b00d9e97.css" as="style"><link rel="preload" href="/blog/assets/js/app.b72373f7.js" as="script"><link rel="preload" href="/blog/assets/js/2.2219f9c0.js" as="script"><link rel="preload" href="/blog/assets/js/184.c586f7bc.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4213d21f.js"><link rel="prefetch" href="/blog/assets/js/100.fa207478.js"><link rel="prefetch" href="/blog/assets/js/101.a2a18205.js"><link rel="prefetch" href="/blog/assets/js/102.b0bdba49.js"><link rel="prefetch" href="/blog/assets/js/103.4207d4a0.js"><link rel="prefetch" href="/blog/assets/js/104.d47d6122.js"><link rel="prefetch" href="/blog/assets/js/105.84f3b0d6.js"><link rel="prefetch" href="/blog/assets/js/106.a3e0da4d.js"><link rel="prefetch" href="/blog/assets/js/107.e2e32489.js"><link rel="prefetch" href="/blog/assets/js/108.fef5787a.js"><link rel="prefetch" href="/blog/assets/js/109.9cacc969.js"><link rel="prefetch" href="/blog/assets/js/11.27166c35.js"><link rel="prefetch" href="/blog/assets/js/110.43122e5c.js"><link rel="prefetch" href="/blog/assets/js/111.0c1ef4dd.js"><link rel="prefetch" href="/blog/assets/js/112.10c7d380.js"><link rel="prefetch" href="/blog/assets/js/113.c912ddfe.js"><link rel="prefetch" href="/blog/assets/js/114.6127c171.js"><link rel="prefetch" href="/blog/assets/js/115.c7d9f75c.js"><link rel="prefetch" href="/blog/assets/js/116.152fa701.js"><link rel="prefetch" href="/blog/assets/js/117.03af553d.js"><link rel="prefetch" href="/blog/assets/js/118.7ffcd14e.js"><link rel="prefetch" href="/blog/assets/js/119.b0d680e7.js"><link rel="prefetch" href="/blog/assets/js/12.ea61452a.js"><link rel="prefetch" href="/blog/assets/js/120.6db360c5.js"><link rel="prefetch" href="/blog/assets/js/121.6e06fdbd.js"><link rel="prefetch" href="/blog/assets/js/122.d70dd36f.js"><link rel="prefetch" href="/blog/assets/js/123.95a15881.js"><link rel="prefetch" href="/blog/assets/js/124.41b68dde.js"><link rel="prefetch" href="/blog/assets/js/125.5a019ebc.js"><link rel="prefetch" href="/blog/assets/js/126.99da1cc5.js"><link rel="prefetch" href="/blog/assets/js/127.8d929133.js"><link rel="prefetch" href="/blog/assets/js/128.8a80423d.js"><link rel="prefetch" href="/blog/assets/js/129.a26f88a7.js"><link rel="prefetch" href="/blog/assets/js/13.e8ea3eed.js"><link rel="prefetch" href="/blog/assets/js/130.a494c8d3.js"><link rel="prefetch" href="/blog/assets/js/131.752b57aa.js"><link rel="prefetch" href="/blog/assets/js/132.03be5468.js"><link rel="prefetch" href="/blog/assets/js/133.b900cacd.js"><link rel="prefetch" href="/blog/assets/js/134.07c9a37c.js"><link rel="prefetch" href="/blog/assets/js/135.7fae2edd.js"><link rel="prefetch" href="/blog/assets/js/136.790d189e.js"><link rel="prefetch" href="/blog/assets/js/137.936714b3.js"><link rel="prefetch" href="/blog/assets/js/138.ca57432f.js"><link rel="prefetch" href="/blog/assets/js/139.c40241bd.js"><link rel="prefetch" href="/blog/assets/js/14.f5e6175f.js"><link rel="prefetch" href="/blog/assets/js/140.7e64b631.js"><link rel="prefetch" href="/blog/assets/js/141.dd5939fe.js"><link rel="prefetch" href="/blog/assets/js/142.15915de1.js"><link rel="prefetch" href="/blog/assets/js/143.74cd60e1.js"><link rel="prefetch" href="/blog/assets/js/144.6182277f.js"><link rel="prefetch" href="/blog/assets/js/145.77b2db6a.js"><link rel="prefetch" href="/blog/assets/js/146.9ee3cd6a.js"><link rel="prefetch" href="/blog/assets/js/147.4e2efd27.js"><link rel="prefetch" href="/blog/assets/js/148.f1da666f.js"><link rel="prefetch" href="/blog/assets/js/149.9e785988.js"><link rel="prefetch" href="/blog/assets/js/15.df5d6a6a.js"><link rel="prefetch" href="/blog/assets/js/150.8efddfd8.js"><link rel="prefetch" href="/blog/assets/js/151.5eb4f49f.js"><link rel="prefetch" href="/blog/assets/js/152.cb4ba17a.js"><link rel="prefetch" href="/blog/assets/js/153.934e36d2.js"><link rel="prefetch" href="/blog/assets/js/154.7aa94017.js"><link rel="prefetch" href="/blog/assets/js/155.a2d965ff.js"><link rel="prefetch" href="/blog/assets/js/156.16f69f9e.js"><link rel="prefetch" href="/blog/assets/js/157.307744ba.js"><link rel="prefetch" href="/blog/assets/js/158.17c75b84.js"><link rel="prefetch" href="/blog/assets/js/159.625baba3.js"><link rel="prefetch" href="/blog/assets/js/16.e0370ef8.js"><link rel="prefetch" href="/blog/assets/js/160.29a7c7eb.js"><link rel="prefetch" href="/blog/assets/js/161.c223d782.js"><link rel="prefetch" href="/blog/assets/js/162.c3a832be.js"><link rel="prefetch" href="/blog/assets/js/163.e9aff0cf.js"><link rel="prefetch" href="/blog/assets/js/164.22ea5757.js"><link rel="prefetch" href="/blog/assets/js/165.712fcb85.js"><link rel="prefetch" href="/blog/assets/js/166.cf71fc9b.js"><link rel="prefetch" href="/blog/assets/js/167.84f1208e.js"><link rel="prefetch" href="/blog/assets/js/168.501651ec.js"><link rel="prefetch" href="/blog/assets/js/169.665da9a9.js"><link rel="prefetch" href="/blog/assets/js/17.884f8b31.js"><link rel="prefetch" href="/blog/assets/js/170.40e206f4.js"><link rel="prefetch" href="/blog/assets/js/171.22a023e6.js"><link rel="prefetch" href="/blog/assets/js/172.c9f57151.js"><link rel="prefetch" href="/blog/assets/js/173.5b663775.js"><link rel="prefetch" href="/blog/assets/js/174.f38576a4.js"><link rel="prefetch" href="/blog/assets/js/175.d8acabe2.js"><link rel="prefetch" href="/blog/assets/js/176.e17b4260.js"><link rel="prefetch" href="/blog/assets/js/177.82517cd4.js"><link rel="prefetch" href="/blog/assets/js/178.dca9a177.js"><link rel="prefetch" href="/blog/assets/js/179.55ac84d8.js"><link rel="prefetch" href="/blog/assets/js/18.99afdf09.js"><link rel="prefetch" href="/blog/assets/js/180.08ecbc50.js"><link rel="prefetch" href="/blog/assets/js/181.064adef8.js"><link rel="prefetch" href="/blog/assets/js/182.eac974db.js"><link rel="prefetch" href="/blog/assets/js/183.a8aaeadb.js"><link rel="prefetch" href="/blog/assets/js/185.287601bc.js"><link rel="prefetch" href="/blog/assets/js/186.52ca6240.js"><link rel="prefetch" href="/blog/assets/js/187.b5e3a4bb.js"><link rel="prefetch" href="/blog/assets/js/188.f610dddf.js"><link rel="prefetch" href="/blog/assets/js/189.03750da5.js"><link rel="prefetch" href="/blog/assets/js/19.8a02f750.js"><link rel="prefetch" href="/blog/assets/js/190.0caa43c9.js"><link rel="prefetch" href="/blog/assets/js/191.383bf522.js"><link rel="prefetch" href="/blog/assets/js/192.d3062c3e.js"><link rel="prefetch" href="/blog/assets/js/193.7f7e9901.js"><link rel="prefetch" href="/blog/assets/js/194.f676d07d.js"><link rel="prefetch" href="/blog/assets/js/195.bf775451.js"><link rel="prefetch" href="/blog/assets/js/196.1c48ef3f.js"><link rel="prefetch" href="/blog/assets/js/197.6c53ba98.js"><link rel="prefetch" href="/blog/assets/js/198.9d5a5085.js"><link rel="prefetch" href="/blog/assets/js/199.ab52e41c.js"><link rel="prefetch" href="/blog/assets/js/20.4bf913aa.js"><link rel="prefetch" href="/blog/assets/js/200.1c398b3c.js"><link rel="prefetch" href="/blog/assets/js/201.c75a6c8a.js"><link rel="prefetch" href="/blog/assets/js/202.4d11fdf6.js"><link rel="prefetch" href="/blog/assets/js/203.ee6347bb.js"><link rel="prefetch" href="/blog/assets/js/204.84f5a644.js"><link rel="prefetch" href="/blog/assets/js/205.0fef4632.js"><link rel="prefetch" href="/blog/assets/js/206.eca759d5.js"><link rel="prefetch" href="/blog/assets/js/207.d505c6d2.js"><link rel="prefetch" href="/blog/assets/js/208.5ab75ef7.js"><link rel="prefetch" href="/blog/assets/js/209.29a9f3f1.js"><link rel="prefetch" href="/blog/assets/js/21.0936bb80.js"><link rel="prefetch" href="/blog/assets/js/210.9af28056.js"><link rel="prefetch" href="/blog/assets/js/211.f305f1e8.js"><link rel="prefetch" href="/blog/assets/js/212.db5aae61.js"><link rel="prefetch" href="/blog/assets/js/213.25c645f5.js"><link rel="prefetch" href="/blog/assets/js/214.85bb3df2.js"><link rel="prefetch" href="/blog/assets/js/215.5bc993e6.js"><link rel="prefetch" href="/blog/assets/js/216.dbec2182.js"><link rel="prefetch" href="/blog/assets/js/217.2776cfb0.js"><link rel="prefetch" href="/blog/assets/js/218.da7efde1.js"><link rel="prefetch" href="/blog/assets/js/219.f3a10672.js"><link rel="prefetch" href="/blog/assets/js/22.6eabfbae.js"><link rel="prefetch" href="/blog/assets/js/220.6a60c6c7.js"><link rel="prefetch" href="/blog/assets/js/221.2646fb75.js"><link rel="prefetch" href="/blog/assets/js/222.6580269e.js"><link rel="prefetch" href="/blog/assets/js/223.3397cf4f.js"><link rel="prefetch" href="/blog/assets/js/224.6575a90e.js"><link rel="prefetch" href="/blog/assets/js/225.8c1c6e94.js"><link rel="prefetch" href="/blog/assets/js/226.eeb12de5.js"><link rel="prefetch" href="/blog/assets/js/227.aacd8ef4.js"><link rel="prefetch" href="/blog/assets/js/228.7e407bfd.js"><link rel="prefetch" href="/blog/assets/js/229.eb5a01cd.js"><link rel="prefetch" href="/blog/assets/js/23.f05f6515.js"><link rel="prefetch" href="/blog/assets/js/230.7219d9ce.js"><link rel="prefetch" href="/blog/assets/js/231.016ae179.js"><link rel="prefetch" href="/blog/assets/js/232.97d25eee.js"><link rel="prefetch" href="/blog/assets/js/233.835cb5fc.js"><link rel="prefetch" href="/blog/assets/js/234.36112a10.js"><link rel="prefetch" href="/blog/assets/js/235.b2df9c65.js"><link rel="prefetch" href="/blog/assets/js/236.72299e3e.js"><link rel="prefetch" href="/blog/assets/js/237.1befb80c.js"><link rel="prefetch" href="/blog/assets/js/238.e387348d.js"><link rel="prefetch" href="/blog/assets/js/239.d5e8d924.js"><link rel="prefetch" href="/blog/assets/js/24.5899d319.js"><link rel="prefetch" href="/blog/assets/js/240.4c7f5211.js"><link rel="prefetch" href="/blog/assets/js/241.371861a8.js"><link rel="prefetch" href="/blog/assets/js/242.61edc86c.js"><link rel="prefetch" href="/blog/assets/js/243.f85ffb8e.js"><link rel="prefetch" href="/blog/assets/js/244.3fbf2167.js"><link rel="prefetch" href="/blog/assets/js/245.5d9d618a.js"><link rel="prefetch" href="/blog/assets/js/246.6636d76f.js"><link rel="prefetch" href="/blog/assets/js/247.006c37a6.js"><link rel="prefetch" href="/blog/assets/js/248.eeefdc6d.js"><link rel="prefetch" href="/blog/assets/js/249.bb66f939.js"><link rel="prefetch" href="/blog/assets/js/25.feeda54a.js"><link rel="prefetch" href="/blog/assets/js/250.dba1e5ba.js"><link rel="prefetch" href="/blog/assets/js/251.cd9561b1.js"><link rel="prefetch" href="/blog/assets/js/252.e6a79f4e.js"><link rel="prefetch" href="/blog/assets/js/253.01bbcc41.js"><link rel="prefetch" href="/blog/assets/js/254.75d6c42a.js"><link rel="prefetch" href="/blog/assets/js/255.bf9d53b3.js"><link rel="prefetch" href="/blog/assets/js/256.f64de66c.js"><link rel="prefetch" href="/blog/assets/js/257.0741c551.js"><link rel="prefetch" href="/blog/assets/js/258.0659cfe2.js"><link rel="prefetch" href="/blog/assets/js/259.21646579.js"><link rel="prefetch" href="/blog/assets/js/26.8182efc2.js"><link rel="prefetch" href="/blog/assets/js/260.7e40009e.js"><link rel="prefetch" href="/blog/assets/js/261.60c41766.js"><link rel="prefetch" href="/blog/assets/js/262.36bca1e4.js"><link rel="prefetch" href="/blog/assets/js/263.53a9a695.js"><link rel="prefetch" href="/blog/assets/js/264.0f51b147.js"><link rel="prefetch" href="/blog/assets/js/265.368f444d.js"><link rel="prefetch" href="/blog/assets/js/266.995c43e8.js"><link rel="prefetch" href="/blog/assets/js/267.ba4a1d2f.js"><link rel="prefetch" href="/blog/assets/js/268.3d2de771.js"><link rel="prefetch" href="/blog/assets/js/269.7ee7a020.js"><link rel="prefetch" href="/blog/assets/js/27.96f7c8b5.js"><link rel="prefetch" href="/blog/assets/js/270.d2b6dbc1.js"><link rel="prefetch" href="/blog/assets/js/271.c98e0a1f.js"><link rel="prefetch" href="/blog/assets/js/272.8e96cf45.js"><link rel="prefetch" href="/blog/assets/js/273.6c7a3693.js"><link rel="prefetch" href="/blog/assets/js/274.7ae7fa3b.js"><link rel="prefetch" href="/blog/assets/js/275.277e28fe.js"><link rel="prefetch" href="/blog/assets/js/276.0d2d3363.js"><link rel="prefetch" href="/blog/assets/js/277.50ba95f9.js"><link rel="prefetch" href="/blog/assets/js/278.2ac47f2f.js"><link rel="prefetch" href="/blog/assets/js/279.d5016a2f.js"><link rel="prefetch" href="/blog/assets/js/28.956d8c00.js"><link rel="prefetch" href="/blog/assets/js/280.1cff421f.js"><link rel="prefetch" href="/blog/assets/js/281.7becae44.js"><link rel="prefetch" href="/blog/assets/js/282.a470afa4.js"><link rel="prefetch" href="/blog/assets/js/283.92451915.js"><link rel="prefetch" href="/blog/assets/js/284.bf81219c.js"><link rel="prefetch" href="/blog/assets/js/285.abb3e0e2.js"><link rel="prefetch" href="/blog/assets/js/286.9b399fac.js"><link rel="prefetch" href="/blog/assets/js/287.601549f9.js"><link rel="prefetch" href="/blog/assets/js/288.74af2d88.js"><link rel="prefetch" href="/blog/assets/js/289.d287a9d1.js"><link rel="prefetch" href="/blog/assets/js/29.5fdfceb0.js"><link rel="prefetch" href="/blog/assets/js/290.8b41cc6f.js"><link rel="prefetch" href="/blog/assets/js/291.30cb3e81.js"><link rel="prefetch" href="/blog/assets/js/292.f6c92a32.js"><link rel="prefetch" href="/blog/assets/js/293.4a5c5d03.js"><link rel="prefetch" href="/blog/assets/js/294.889fa477.js"><link rel="prefetch" href="/blog/assets/js/295.7c9bfb1a.js"><link rel="prefetch" href="/blog/assets/js/296.5c393daa.js"><link rel="prefetch" href="/blog/assets/js/297.fdb8d15e.js"><link rel="prefetch" href="/blog/assets/js/298.93998d32.js"><link rel="prefetch" href="/blog/assets/js/299.ad16ee20.js"><link rel="prefetch" href="/blog/assets/js/3.bae9c3b9.js"><link rel="prefetch" href="/blog/assets/js/30.092f59e3.js"><link rel="prefetch" href="/blog/assets/js/300.d7ee2ec1.js"><link rel="prefetch" href="/blog/assets/js/301.49bde86e.js"><link rel="prefetch" href="/blog/assets/js/302.cb98973f.js"><link rel="prefetch" href="/blog/assets/js/303.f6b8a9e2.js"><link rel="prefetch" href="/blog/assets/js/304.e112a703.js"><link rel="prefetch" href="/blog/assets/js/305.a4957830.js"><link rel="prefetch" href="/blog/assets/js/306.c870dc18.js"><link rel="prefetch" href="/blog/assets/js/307.001c4372.js"><link rel="prefetch" href="/blog/assets/js/308.79901a9c.js"><link rel="prefetch" href="/blog/assets/js/309.869b2a70.js"><link rel="prefetch" href="/blog/assets/js/31.a2348ea1.js"><link rel="prefetch" href="/blog/assets/js/310.1c002e84.js"><link rel="prefetch" href="/blog/assets/js/311.7e0bcf89.js"><link rel="prefetch" href="/blog/assets/js/312.2660fad0.js"><link rel="prefetch" href="/blog/assets/js/313.6e89cadb.js"><link rel="prefetch" href="/blog/assets/js/314.6990aa37.js"><link rel="prefetch" href="/blog/assets/js/315.8153a154.js"><link rel="prefetch" href="/blog/assets/js/316.6da9b5a5.js"><link rel="prefetch" href="/blog/assets/js/317.11c83cef.js"><link rel="prefetch" href="/blog/assets/js/318.e8490648.js"><link rel="prefetch" href="/blog/assets/js/319.53861265.js"><link rel="prefetch" href="/blog/assets/js/32.a194da00.js"><link rel="prefetch" href="/blog/assets/js/320.56dad00f.js"><link rel="prefetch" href="/blog/assets/js/321.ccd6b418.js"><link rel="prefetch" href="/blog/assets/js/322.faed6cae.js"><link rel="prefetch" href="/blog/assets/js/323.d268cb3a.js"><link rel="prefetch" href="/blog/assets/js/324.dce3459a.js"><link rel="prefetch" href="/blog/assets/js/325.d01c7ad8.js"><link rel="prefetch" href="/blog/assets/js/326.0e9aa527.js"><link rel="prefetch" href="/blog/assets/js/327.a302d51e.js"><link rel="prefetch" href="/blog/assets/js/328.a5997e15.js"><link rel="prefetch" href="/blog/assets/js/329.798b92cf.js"><link rel="prefetch" href="/blog/assets/js/33.e4d25147.js"><link rel="prefetch" href="/blog/assets/js/330.3ed38f17.js"><link rel="prefetch" href="/blog/assets/js/331.2147c45e.js"><link rel="prefetch" href="/blog/assets/js/332.4f72a981.js"><link rel="prefetch" href="/blog/assets/js/333.b198d877.js"><link rel="prefetch" href="/blog/assets/js/334.01f2ba40.js"><link rel="prefetch" href="/blog/assets/js/335.04c31165.js"><link rel="prefetch" href="/blog/assets/js/336.b939caf6.js"><link rel="prefetch" href="/blog/assets/js/337.e723b696.js"><link rel="prefetch" href="/blog/assets/js/338.bb89d233.js"><link rel="prefetch" href="/blog/assets/js/339.0c93e7f2.js"><link rel="prefetch" href="/blog/assets/js/34.881d241b.js"><link rel="prefetch" href="/blog/assets/js/340.e59d5112.js"><link rel="prefetch" href="/blog/assets/js/341.1c5d24ff.js"><link rel="prefetch" href="/blog/assets/js/342.13b1c49e.js"><link rel="prefetch" href="/blog/assets/js/343.0434e83c.js"><link rel="prefetch" href="/blog/assets/js/344.936699cc.js"><link rel="prefetch" href="/blog/assets/js/345.81802f59.js"><link rel="prefetch" href="/blog/assets/js/346.fcc4c864.js"><link rel="prefetch" href="/blog/assets/js/347.fb03a8d6.js"><link rel="prefetch" href="/blog/assets/js/348.0a0514fd.js"><link rel="prefetch" href="/blog/assets/js/349.1a1dcade.js"><link rel="prefetch" href="/blog/assets/js/35.d7055bd8.js"><link rel="prefetch" href="/blog/assets/js/350.3d801021.js"><link rel="prefetch" href="/blog/assets/js/351.e63d16b6.js"><link rel="prefetch" href="/blog/assets/js/352.5bb35d77.js"><link rel="prefetch" href="/blog/assets/js/353.7e25749a.js"><link rel="prefetch" href="/blog/assets/js/354.c12c2e75.js"><link rel="prefetch" href="/blog/assets/js/355.62c13100.js"><link rel="prefetch" href="/blog/assets/js/356.3e2b2e72.js"><link rel="prefetch" href="/blog/assets/js/357.a20defbc.js"><link rel="prefetch" href="/blog/assets/js/358.838f09bc.js"><link rel="prefetch" href="/blog/assets/js/359.8739e3bf.js"><link rel="prefetch" href="/blog/assets/js/36.367436d6.js"><link rel="prefetch" href="/blog/assets/js/360.c1d08f47.js"><link rel="prefetch" href="/blog/assets/js/361.4749916b.js"><link rel="prefetch" href="/blog/assets/js/362.41524f06.js"><link rel="prefetch" href="/blog/assets/js/363.2da456c2.js"><link rel="prefetch" href="/blog/assets/js/364.14db63c4.js"><link rel="prefetch" href="/blog/assets/js/365.bf1591b4.js"><link rel="prefetch" href="/blog/assets/js/366.dc960a99.js"><link rel="prefetch" href="/blog/assets/js/367.fd7b3c99.js"><link rel="prefetch" href="/blog/assets/js/368.ec166fb2.js"><link rel="prefetch" href="/blog/assets/js/369.d2e46423.js"><link rel="prefetch" href="/blog/assets/js/37.cfabd421.js"><link rel="prefetch" href="/blog/assets/js/370.01b4912e.js"><link rel="prefetch" href="/blog/assets/js/371.2fc91e89.js"><link rel="prefetch" href="/blog/assets/js/372.69a3cd02.js"><link rel="prefetch" href="/blog/assets/js/373.8ae21b19.js"><link rel="prefetch" href="/blog/assets/js/374.aa4dce2f.js"><link rel="prefetch" href="/blog/assets/js/375.f07a6905.js"><link rel="prefetch" href="/blog/assets/js/376.1fc8f6ba.js"><link rel="prefetch" href="/blog/assets/js/377.5b033c7a.js"><link rel="prefetch" href="/blog/assets/js/378.db00fb42.js"><link rel="prefetch" href="/blog/assets/js/379.e273b5b0.js"><link rel="prefetch" href="/blog/assets/js/38.80a92a9a.js"><link rel="prefetch" href="/blog/assets/js/380.0c1d2f74.js"><link rel="prefetch" href="/blog/assets/js/381.e93aa093.js"><link rel="prefetch" href="/blog/assets/js/382.cc1bf941.js"><link rel="prefetch" href="/blog/assets/js/383.57eed2d3.js"><link rel="prefetch" href="/blog/assets/js/384.e78da318.js"><link rel="prefetch" href="/blog/assets/js/385.c476b444.js"><link rel="prefetch" href="/blog/assets/js/386.a29802ac.js"><link rel="prefetch" href="/blog/assets/js/387.63f692a3.js"><link rel="prefetch" href="/blog/assets/js/388.d44d0a12.js"><link rel="prefetch" href="/blog/assets/js/389.f4f55d15.js"><link rel="prefetch" href="/blog/assets/js/39.51b28712.js"><link rel="prefetch" href="/blog/assets/js/390.eeb2ea5e.js"><link rel="prefetch" href="/blog/assets/js/391.4172f1d7.js"><link rel="prefetch" href="/blog/assets/js/392.203b4305.js"><link rel="prefetch" href="/blog/assets/js/393.0f3c7b99.js"><link rel="prefetch" href="/blog/assets/js/394.4109f422.js"><link rel="prefetch" href="/blog/assets/js/395.145c0e37.js"><link rel="prefetch" href="/blog/assets/js/396.5739a049.js"><link rel="prefetch" href="/blog/assets/js/397.04cbe49d.js"><link rel="prefetch" href="/blog/assets/js/398.984a14e0.js"><link rel="prefetch" href="/blog/assets/js/399.68879b0f.js"><link rel="prefetch" href="/blog/assets/js/4.17793416.js"><link rel="prefetch" href="/blog/assets/js/40.cca61ef0.js"><link rel="prefetch" href="/blog/assets/js/400.dbabb331.js"><link rel="prefetch" href="/blog/assets/js/401.840a1493.js"><link rel="prefetch" href="/blog/assets/js/402.0a88d2b6.js"><link rel="prefetch" href="/blog/assets/js/403.18ba61d5.js"><link rel="prefetch" href="/blog/assets/js/404.526ab707.js"><link rel="prefetch" href="/blog/assets/js/405.f6b60057.js"><link rel="prefetch" href="/blog/assets/js/406.84e6f37c.js"><link rel="prefetch" href="/blog/assets/js/407.1cc22e8e.js"><link rel="prefetch" href="/blog/assets/js/408.c838e002.js"><link rel="prefetch" href="/blog/assets/js/409.3b625fca.js"><link rel="prefetch" href="/blog/assets/js/41.3b9b35fb.js"><link rel="prefetch" href="/blog/assets/js/410.3d841dde.js"><link rel="prefetch" href="/blog/assets/js/411.4c112919.js"><link rel="prefetch" href="/blog/assets/js/412.35aeac08.js"><link rel="prefetch" href="/blog/assets/js/413.10d093fe.js"><link rel="prefetch" href="/blog/assets/js/414.c98c6493.js"><link rel="prefetch" href="/blog/assets/js/415.17289b1a.js"><link rel="prefetch" href="/blog/assets/js/416.32b1b05f.js"><link rel="prefetch" href="/blog/assets/js/417.5bd95f13.js"><link rel="prefetch" href="/blog/assets/js/418.7f0b6a25.js"><link rel="prefetch" href="/blog/assets/js/419.6651a70e.js"><link rel="prefetch" href="/blog/assets/js/42.adad5b34.js"><link rel="prefetch" href="/blog/assets/js/420.c239318d.js"><link rel="prefetch" href="/blog/assets/js/421.7a2e9a91.js"><link rel="prefetch" href="/blog/assets/js/422.551aab1d.js"><link rel="prefetch" href="/blog/assets/js/423.18e3b820.js"><link rel="prefetch" href="/blog/assets/js/424.95046f00.js"><link rel="prefetch" href="/blog/assets/js/425.ef4a5191.js"><link rel="prefetch" href="/blog/assets/js/426.1c13b1a5.js"><link rel="prefetch" href="/blog/assets/js/427.c019f006.js"><link rel="prefetch" href="/blog/assets/js/428.1b2eaa28.js"><link rel="prefetch" href="/blog/assets/js/429.fd8e32e3.js"><link rel="prefetch" href="/blog/assets/js/43.ec99f75e.js"><link rel="prefetch" href="/blog/assets/js/430.cf4a4078.js"><link rel="prefetch" href="/blog/assets/js/431.265b28ef.js"><link rel="prefetch" href="/blog/assets/js/432.00f19a47.js"><link rel="prefetch" href="/blog/assets/js/433.f0a5d954.js"><link rel="prefetch" href="/blog/assets/js/434.71cf06f2.js"><link rel="prefetch" href="/blog/assets/js/435.5a7e5590.js"><link rel="prefetch" href="/blog/assets/js/436.d6016384.js"><link rel="prefetch" href="/blog/assets/js/437.d5565e15.js"><link rel="prefetch" href="/blog/assets/js/438.7479f8da.js"><link rel="prefetch" href="/blog/assets/js/439.aa4dd15f.js"><link rel="prefetch" href="/blog/assets/js/44.8189586c.js"><link rel="prefetch" href="/blog/assets/js/440.4f7d14d3.js"><link rel="prefetch" href="/blog/assets/js/441.1eeb35f3.js"><link rel="prefetch" href="/blog/assets/js/442.b556fe77.js"><link rel="prefetch" href="/blog/assets/js/443.6ee28303.js"><link rel="prefetch" href="/blog/assets/js/444.48140a5b.js"><link rel="prefetch" href="/blog/assets/js/445.892070d3.js"><link rel="prefetch" href="/blog/assets/js/446.e5e602ae.js"><link rel="prefetch" href="/blog/assets/js/447.50c68b39.js"><link rel="prefetch" href="/blog/assets/js/448.9893dc6c.js"><link rel="prefetch" href="/blog/assets/js/449.4703a284.js"><link rel="prefetch" href="/blog/assets/js/45.d03eb196.js"><link rel="prefetch" href="/blog/assets/js/450.d4b8b7bd.js"><link rel="prefetch" href="/blog/assets/js/451.b3fe1758.js"><link rel="prefetch" href="/blog/assets/js/452.eaf3117e.js"><link rel="prefetch" href="/blog/assets/js/453.d68564c3.js"><link rel="prefetch" href="/blog/assets/js/454.a8f8ab86.js"><link rel="prefetch" href="/blog/assets/js/455.76b9d26b.js"><link rel="prefetch" href="/blog/assets/js/456.1d0d8768.js"><link rel="prefetch" href="/blog/assets/js/457.d3a520dd.js"><link rel="prefetch" href="/blog/assets/js/458.a0d8fd82.js"><link rel="prefetch" href="/blog/assets/js/46.bc8e91a8.js"><link rel="prefetch" href="/blog/assets/js/47.f076b4b4.js"><link rel="prefetch" href="/blog/assets/js/48.7178ad6d.js"><link rel="prefetch" href="/blog/assets/js/49.3b3bfea4.js"><link rel="prefetch" href="/blog/assets/js/5.423840d3.js"><link rel="prefetch" href="/blog/assets/js/50.d9b83da4.js"><link rel="prefetch" href="/blog/assets/js/51.9d27edce.js"><link rel="prefetch" href="/blog/assets/js/52.d5b605d6.js"><link rel="prefetch" href="/blog/assets/js/53.39011ac7.js"><link rel="prefetch" href="/blog/assets/js/54.0256ac32.js"><link rel="prefetch" href="/blog/assets/js/55.40614e04.js"><link rel="prefetch" href="/blog/assets/js/56.190c034c.js"><link rel="prefetch" href="/blog/assets/js/57.b1c87a27.js"><link rel="prefetch" href="/blog/assets/js/58.aadf8f0b.js"><link rel="prefetch" href="/blog/assets/js/59.c7a8ec0f.js"><link rel="prefetch" href="/blog/assets/js/6.6e8c67be.js"><link rel="prefetch" href="/blog/assets/js/60.16f04dae.js"><link rel="prefetch" href="/blog/assets/js/61.1da49901.js"><link rel="prefetch" href="/blog/assets/js/62.c567b83d.js"><link rel="prefetch" href="/blog/assets/js/63.a9eaa6cb.js"><link rel="prefetch" href="/blog/assets/js/64.bd23e37e.js"><link rel="prefetch" href="/blog/assets/js/65.6449b7f4.js"><link rel="prefetch" href="/blog/assets/js/66.5394a009.js"><link rel="prefetch" href="/blog/assets/js/67.30990c21.js"><link rel="prefetch" href="/blog/assets/js/68.040df19a.js"><link rel="prefetch" href="/blog/assets/js/69.7c4f7a13.js"><link rel="prefetch" href="/blog/assets/js/7.fec0ecd5.js"><link rel="prefetch" href="/blog/assets/js/70.7a8b9c4f.js"><link rel="prefetch" href="/blog/assets/js/71.42507e26.js"><link rel="prefetch" href="/blog/assets/js/72.676d8ece.js"><link rel="prefetch" href="/blog/assets/js/73.daa7600a.js"><link rel="prefetch" href="/blog/assets/js/74.20e478dc.js"><link rel="prefetch" href="/blog/assets/js/75.900ff344.js"><link rel="prefetch" href="/blog/assets/js/76.1b07b297.js"><link rel="prefetch" href="/blog/assets/js/77.0356d020.js"><link rel="prefetch" href="/blog/assets/js/78.d3355c58.js"><link rel="prefetch" href="/blog/assets/js/79.42dd852d.js"><link rel="prefetch" href="/blog/assets/js/8.b72e1b92.js"><link rel="prefetch" href="/blog/assets/js/80.702f8d04.js"><link rel="prefetch" href="/blog/assets/js/81.45abcf52.js"><link rel="prefetch" href="/blog/assets/js/82.4ceb3c5b.js"><link rel="prefetch" href="/blog/assets/js/83.5a647425.js"><link rel="prefetch" href="/blog/assets/js/84.445edf85.js"><link rel="prefetch" href="/blog/assets/js/85.d7363708.js"><link rel="prefetch" href="/blog/assets/js/86.fc754847.js"><link rel="prefetch" href="/blog/assets/js/87.fdf002b1.js"><link rel="prefetch" href="/blog/assets/js/88.d89bd9b9.js"><link rel="prefetch" href="/blog/assets/js/89.84be3134.js"><link rel="prefetch" href="/blog/assets/js/9.a0088c26.js"><link rel="prefetch" href="/blog/assets/js/90.750b1c1c.js"><link rel="prefetch" href="/blog/assets/js/91.ec8182c1.js"><link rel="prefetch" href="/blog/assets/js/92.faca2c51.js"><link rel="prefetch" href="/blog/assets/js/93.d45ce2d1.js"><link rel="prefetch" href="/blog/assets/js/94.4b7a271d.js"><link rel="prefetch" href="/blog/assets/js/95.e2fb278c.js"><link rel="prefetch" href="/blog/assets/js/96.9c2cf45f.js"><link rel="prefetch" href="/blog/assets/js/97.e757d67c.js"><link rel="prefetch" href="/blog/assets/js/98.7b001ece.js"><link rel="prefetch" href="/blog/assets/js/99.5d4e870f.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b00d9e97.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/bloglogo.png" alt="Mr.Liu" class="logo"> <span class="site-name can-hide">Mr.Liu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/portagasdace/blog.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/blog/career-plan" class="sidebar-heading clickable open"><span>如何做好职业规划</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/career-plan/常见问题解答.html" class="sidebar-link">常见问题解答</a></li><li><a href="/blog/career-plan/职业经营 1：程序员职业的本质.html" class="sidebar-link">如何理解程序员职业的本质</a></li><li><a href="/blog/career-plan/职业经营 2：如何选择技术方向和编程语言.html" class="sidebar-link">如何选择技术方向和编程语言</a></li><li><a href="/blog/career-plan/职业经营 3.1：新手如何快速起步.html" class="sidebar-link">新手如何快速起步</a></li><li><a href="/blog/career-plan/职业经营 3.2：老手如何远离职业误区.html" class="sidebar-link">老手如何远离职业误区</a></li><li><a href="/blog/career-plan/职业经营 3.3：突破管理岗发展中的主要瓶颈.html" class="sidebar-link">如何跨过高阶成长中的常见瓶颈</a></li><li><a href="/blog/career-plan/职业规划 1：通过职业价值论理解一个程序员的真实价值.html" class="sidebar-link">如何理解职业价值论</a></li><li><a href="/blog/career-plan/职业规划 1.1：程序员市场的供需关系对求职的影响.html" class="sidebar-link">市场供需</a></li><li><a href="/blog/career-plan/职业规划 1.2：实操职业供需关系的量化分析.html" class="sidebar-link">对供需进行量化分析</a></li><li><a href="/blog/career-plan/职业规划 1.3：扩展渠道，减少信息不对称带来的求职损失.html" class="sidebar-link">信息透明度</a></li><li><a href="/blog/career-plan/职业规划 2.1：通过四大象限和职业路线图理解程序员的主要职业发展路径.html" class="sidebar-link">如何理解四大象限和使用职业路线图</a></li><li><a href="/blog/career-plan/职业规划 2.2：不同职业发展的程序员的日常.html" class="sidebar-link">程序员们的日常是怎样的</a></li><li><a href="/blog/career-plan/职业规划 3.1：通过职业画布理解应届生和新手的市场竞争力.html" class="sidebar-link">应届生和新手如何提升竞争力</a></li><li><a href="/blog/career-plan/职业规划 3.2：如何写出一份专业的技术简历.html" class="sidebar-link">如何写出一份专业的技术简历</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>H5 开发实战手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端算法与数据结构面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 hapi 的 Node.js 小程序后端开发实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基于 NodeJS 构建 GraphQL API 服务</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Python 实战：用 Scrapyd 打造个人化的爬虫部署管理控制台</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL 是怎样运行的：从根儿上理解 MySQL</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Flutter 完全手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript 设计模式核⼼原理与应⽤实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React SSR 服务端渲染原理解析与同构实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React Hooks 与 Immutable 数据流实战</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React 组合式开发实践：打造企业管理系统五大核心模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue 项目构建与开发入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Web 前端面试指南与高频考题解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue.js 组件精讲</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端性能优化原理与实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>剖析 Vue.js 内部运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>使用 webpack 定制前端开发环境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>如何使用 Canvas 制作出炫酷的网页背景特效</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发者必备的 Docker 实践指南</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>用 npm script 打造超溜的前端工作流</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>微信小程序开发入门：从 0 到 1 实现天气小程序</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="第-8-节-复杂数据处理-·-关系图谱"><a href="#第-8-节-复杂数据处理-·-关系图谱" class="header-anchor">#</a> 第 8 节 复杂数据处理 · 关系图谱</h1> <p>我们在上一节中用了一个企业中的人员结构作为树形结构的例子，在这棵树中其实节点与节点之间的边（Edge）所表达的是人员之间的上下级关系。而在日常生活中我们还有非常多并不存在上下层次的关系（人际关系、事物关系等等），就好比我们的人际交往中绝大部分都是平等的。而且在树形结构中节点之间的关系严格遵守不形成环的原则，然而在我们的人际交往关系中，环形关系结构则是必然存在的。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/4/29/16311ff0140c3772?w=271&amp;h=221&amp;f=png&amp;s=9971" alt="环形关系结构"></p> <p>当需要使用计算机编程来实现这种结构的时候，就需要用到<strong>关系图谱</strong>（Graph）。需要注意的是，关系图谱与我们平时所听到的图片是完完全全的两回事。图片是用于表达视觉效果的二维格式（包含点阵图和矢量图），而图形是一种多维的抽象结构，主要用于表达抽象事物之间的关系。</p> <p>有趣的是我们刚学习完的树形结构其实是一种特殊的关系图谱，树形结构中所规定的是一种节点之间只能有上下级的关系，且不再重复。一棵树形结构中必然存在着根节点和叶节点，但是在关系图谱中却不一定存在明确的头尾节点，它可能是由一群看似杂乱无章的节点相互连接，并且彼此的连接还有一些各式各样的差异，如连接强度不同等。</p> <h2 id="_8-1-无向图"><a href="#_8-1-无向图" class="header-anchor">#</a> 8.1 无向图</h2> <p>在 7.1.2 节中我们定义了一个用于树形结构的节点，在每一个树形节点中拥有一个来自父节点的引用、存储自身数据的空间和存储子节点引用的数组。</p> <p>不过与树形结构存在区别的是，树形结构中节点之间的连接是带有方向属性的，即从父节点指向其子节点。而关系图谱存在着两种类型，<strong>无向图（Graph）<strong>和</strong>有向图（Directed Graph，或 Digraph）</strong>。其中树形结构正是一种特殊的、每两个顶点之间只有<strong>单向边</strong>的有向图。但正如上面的图所示，实际应用中同样存在着具有双向关系的有向图。所以在关系图谱中并不存在子节点这一概念，取而代之的则是<strong>相邻顶点（Adjacent Vertice）</strong>。</p> <h3 id="_8-1-1-定义顶点"><a href="#_8-1-1-定义顶点" class="header-anchor">#</a> 8.1.1 定义顶点</h3> <p>一般来说，因为关系图谱具有非常高的复杂性和不确定性，节点与节点之间的关系经常需要发生不同的变化，如果采取像上一节中树形结构中一样，使用引用来表示节点之间的关系，就会产生非常深的引用嵌套。而且 JavaScript 中的引用也无法满足我们表达节点之间关系数据的需求。</p> <p>所以我们需要另辟蹊径，使用另外一种方式来描述一个关系图谱。我们在上一节的树形结构中，定义一个节点并不需要对其进行编号，因为稳定且单向的层级关系可以使得节点在树形结构中的位置会较为稳定。但这在关系图谱中情况则变得非常的复杂，而导致没办法使用这种简单的方式来完成，那么我们就需要对节点进行编号了。</p> <div class="language- extra-class"><pre class="language-text"><code>class Vertex {
+  constructor(id, property) {
+    this.id = id
+    this.property = property
+  }
+}
+
+const me = new Vertex(1, [ 'Will', 'male' ])
+
+</code></pre></div><p>那么问题来了，如果说我们在创建顶点的时候原数据并不带有能够标识每一个个体信息的标识符，就需要有一个能够产生具有唯一性的的标识符。业界通常会使用如 UUID（Universally Unique Identifier，通用唯一识别码）、数据库自增键值等方式。而我们这里可以简单地定义一个用于创建带有标识符的顶点的函数以方便我们使用。</p> <div class="language- extra-class"><pre class="language-text"><code>let vertexId = 0
+function newVertex(property) {
+  return new Vertex(++vertexId, property)
+}
+
+const me = newVertex([ 'Will', 'male' ])
+
+</code></pre></div><h3 id="_8-1-2-定义边"><a href="#_8-1-2-定义边" class="header-anchor">#</a> 8.1.2 定义边</h3> <p>定义好了关系图谱中的顶点之后，就需要开始定义我们用于表达节点之间关系的边了。而因为 JavaScript 中的引用并不能满足稀疏存储和附带信息的需求，所以我们同样需要为边定义一个类型以创建一个边对象。</p> <div class="language- extra-class"><pre class="language-text"><code>class Edge {
+  constructor(leftId, rightId, property) {
+    this.leftId = leftId
+    this.rightId = rightId
+    this.property = property
+  }
+}
+
+const will = newVertex({
+  name: 'Will',
+  gender: 'male'
+})
+const ru = newVertex({
+  name: 'Rrrruu',
+  gender: 'female'
+})
+
+const relation = new Edge(will.id, ru.id, 'couple')
+
+</code></pre></div><p>现在我们可以通过顶点对象中的 <code>id</code> 属性取得该顶点的标识符，但若需要使用标识符来获取顶点对象本身，就需要别的实体来完成这个需求。而这样的任务我们可以交由关系图谱本身来完成。</p> <h3 id="_8-1-3-图"><a href="#_8-1-3-图" class="header-anchor">#</a> 8.1.3 图</h3> <p>既然我们对关系图谱中的顶点对象进行编号，以便进行检索，那么我们是不是可以使用同样的方式来对边对象进行编号以便进行检索呢？答案自然是肯定的。</p> <p>相比于顶点对象只会从自身的 <code>id</code> 被检索，边对象则会从与边相连的两个顶点被检索，所以更需要进行编号以提升检索的速度。通过对边对象的编号和关系的变换，我们可以整理出顶点与边的关系。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/4/29/16311ff01433688d?w=1598&amp;h=814&amp;f=png&amp;s=101488" alt="顶点与边的关系"></p> <p>整理好这些关系之后，我们就可以通过已经梳理好的逻辑来定义一个关系图谱的 JavaScript 类了。</p> <ol><li>对顶点进行编号，以优化对顶点的检索；</li> <li>对边进行编号，并存储好边与顶点的关系。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>class Graph {
+  constructor(vertices, edges) {
+
+    // Vertices
+    this.vertexIds = []
+    this.vertices = {}
+
+    for (let i = 0; i &lt; vertices.length; ++i) {
+      const vertex = vertices[i]
+
+      this.vertexIds.push(vertex.id)
+      this.vertices[vertex.id] = vertex
+    }
+
+    const edgesWithId = edges.map(function(edge, i) {
+      edge.id = i + 1
+      return edge
+    })
+    
+    // Edges
+    this.edgeIds = []
+    this.edges = {}
+    this.edgeRelations = {}
+
+    for (let i = 0; i &lt; edgesWithId.length; ++i) {
+      const edge = edgesWithId[i]
+
+      this.edgeIds.push(edge.id)
+      this.edges[edge.id] = edge
+      
+      // 初始化顶点与边的关系
+      if (typeof this.edgeRelations[edge.leftId] === 'undefined') {
+        this.edgeRelations[edge.leftId] = []
+      }
+
+      if (typeof this.edgeRelations[edge.rightId] === 'undefined') {
+        this.edgeRelations[edge.rightId] = []
+      }
+
+      this.edgeRelations[edge.leftId].push(edge.id)
+      this.edgeRelations[edge.rightId].push(edge.id)
+    }
+
+  }
+}
+
+const vertices = [
+  new Vertex(1, 'A'),
+  new Vertex(2, 'B'),
+  new Vertex(3, 'C'),
+  new Vertex(4, 'D')
+]
+
+const edges = [
+  new Edge(1, 2, 1),
+  new Edge(1, 3, 2),
+  new Edge(2, 4, 1),
+  new Edge(3, 4, 1)
+]
+
+const graph = new Graph(vertices, edges)
+
+</code></pre></div><p><img src="https://user-gold-cdn.xitu.io/2018/4/29/16311ff014b4caf0?w=231&amp;h=231&amp;f=png&amp;s=8876" alt="graph"></p> <h3 id="_8-1-4-操作图形"><a href="#_8-1-4-操作图形" class="header-anchor">#</a> 8.1.4 操作图形</h3> <p>完成了关系图谱的建立后，自然需要将其运用起来以配合算法来解决一些我们所面临的问题。但在实现算法之前自然不可能让算法直接涉及图对象中的内部元素，所以我们也需要先为关系图谱定义一些操作方法，如获取某一个顶点、遍历所有顶点、遍历所有边等。</p> <h4 id="获取某一个顶点"><a href="#获取某一个顶点" class="header-anchor">#</a> 获取某一个顶点</h4> <p>前面在关系图谱类中使用了 <code>vertexIds</code> 存储顶点的标识符和使用 <code>vertices</code> 来存储顶点对象。那么要获取图形中的某一个顶点，保险起见首先要确保在 <code>vertexIds</code> 中存在该节点标识符，否则就直接返回 <code>null</code>。然后再从 <code>vertices</code> 中获取该节点的实例对象以返回。</p> <div class="language- extra-class"><pre class="language-text"><code>class Graph {
+  // ...
+
+  getVertex(vertexId) {
+    if (!_.includes(this.vertexIds, vertexId)) {
+      return null
+    }
+
+    return this.vertices[vertexId]
+  }
+}
+
+</code></pre></div><h4 id="遍历顶点-边"><a href="#遍历顶点-边" class="header-anchor">#</a> 遍历顶点/边</h4> <p>虽然在 JavaScript 中我们默认所使用的数组都是自带有序特性的，但是在关系图谱的定义中，顶点之间并不存在顺序。所以我们自然也不会允许对图对象中的顶点进行直接的循环操作，而采用回调函数的方式进行循环，以模糊其有序性。</p> <div class="language- extra-class"><pre class="language-text"><code>class Graph {
+  // ...
+  
+  eachVertices(callbackFunc) {
+    const self = this
+
+    return self.vertexIds.forEach(function(vertexId) {
+      return callbackFunc(self.vertices[vertexId])
+    })
+  }
+  
+  eachEdges(callbackFunc) {
+    const self = this
+
+    return self.edgeIds.forEach(function(edgeId) {
+      return callbackFunc(self.edges[edgeId])
+    })
+  }
+}
+
+</code></pre></div><h3 id="_8-1-5-特征值"><a href="#_8-1-5-特征值" class="header-anchor">#</a> 8.1.5 特征值</h3> <p>我们将关系图谱建立了起来以后，就需要开始对这个图进行一些操作了。首先我们前面就说到树形结构是一种特别的图形结构，那么在树形结构中的一些节点特性在图形结构中也同样适用。</p> <h4 id="degree"><a href="#degree" class="header-anchor">#</a> Degree</h4> <p>Degree 在树形结构的节点中表示的是某一个节点的子节点数量，而因为在关系图谱中的顶点并不存在“子节点”或“子顶点”的概念，取而代之的则是相邻顶点。而相邻顶点的数量就等于与该顶点相连的边的数量。那么要获取相邻边的数量则首先需要定义一个方法以传入顶点标识符并得到相邻边数组。</p> <div class="language- extra-class"><pre class="language-text"><code>class Graph {
+  // ...
+  
+  getEdgesByVertexId(vertexId) {
+    if (!_.includes(this.vertexIds, vertexId)) {
+      return []
+    }
+
+    if (!_.has(this.edgeRelations, vertexId)) {
+      return []
+    }
+
+    const self = this
+
+    return self.edgeRelations[vertexId].map(function(edgeId) {
+      return self.edges[edgeId]
+    })
+  }
+}
+
+</code></pre></div><p>得到相邻边后返回其长度则便是该顶点的度。</p> <div class="language- extra-class"><pre class="language-text"><code>class Graph {
+  // ...
+  
+  degree(vertexId) {
+    return this.getEdgesByVertexId(vertexId).length
+  }
+}
+
+</code></pre></div><h4 id="最大的度-max-degree"><a href="#最大的度-max-degree" class="header-anchor">#</a> 最大的度（Max Degree）</h4> <p>在关系图谱中每一个顶点的度是图论算法中非常重要的计算对象。就好比使用关系图谱描述一个社交群体中人与人的相关关系，每一个人作为一个顶点时，顶点的度则代表了对应的个人社交关系，数量越多则代表该名成员在该群体中的重要性越高。显而易见，如果某一个节点的度最大，则说明他很有可能是这个群体中的核心人物。</p> <p>寻找一个关系图谱中带有最大度数的顶点并不困难，只需全部先计算出所有顶点的度，然后找出最大数即可。</p> <p>当然，光是找出最大的度可不能满足算法的需要。除了找出最大的度数以外，自然还需要知道是哪一个顶点具有最大的度数。所以我们需要准备两个函数，一个用于找出带有最大度数的顶点，而另外一个则用于获取其度数。</p> <div class="language- extra-class"><pre class="language-text"><code>class Graph {
+  // ...
+
+  largestVertex() {
+    const self = this
+
+    const degrees = self.vertexIds.map(function(vertexId) {
+      return {
+        degree: self.degree(vertexId),
+        id: vertexId
+      }
+
+    })
+
+    return self.getVertex(_.maxBy(degrees, 'degree').id)
+  }
+
+  maxDegree() {
+    return this.degree(this.largestVertex().id)
+  }
+}
+
+const vertices = [
+  new Vertex(1, 'A'),
+  new Vertex(2, 'B'),
+  new Vertex(3, 'C'),
+  new Vertex(4, 'D'),
+  new Vertex(5, 'E')
+]
+
+const edges = [
+  new Edge(1, 2, 1),
+  new Edge(1, 3, 2),
+  new Edge(2, 4, 1),
+  new Edge(3, 4, 1),
+  new Edge(1, 4, 2),
+  new Edge(4, 5, 3)
+]
+
+const graph = new Graph(vertices, edges)
+console.log(graph.largestVertex().property) //=&gt; D
+console.log(graph.maxDegree()) //=&gt; 4
+
+</code></pre></div><h4 id="平均度-average-degree"><a href="#平均度-average-degree" class="header-anchor">#</a> 平均度（Average Degree）</h4> <p>在一个关系图谱中，除了最大的顶点度以外，每一个顶点的平均度数也是一个非常重要的数学特征值。在这里我们可以有一个比较巧妙的计算方式，而不需要像上面计算最大度的时候那样子先把所有的顶点度数求出来。这有一个用于计算关系图谱中平均度的公式。</p> <p><img src="https://juejin.im/equation?tex=%5Coverline%7BD%7D%3D%5Cfrac%7B2%5Ctimes%20N_e%7D%7BN_v%7D%0A" alt="\overline{D}=\frac{2\times N_e}{N_v}"></p> <p>其中 <img src="https://juejin.im/equation?tex=%5Coverline%7BD%7D" alt="\overline{D}"> 为一个图中的平均度，而 <img src="https://juejin.im/equation?tex=N_e" alt="N_e"> 是该图中边的数量，<img src="https://juejin.im/equation?tex=N_v" alt="N_v"> 则是顶点的数量。这个公式还是非常好理解的，因为一条边同时属于左右两个顶点，所以在计算平均度的时候首先需要将边数乘以 <img src="https://juejin.im/equation?tex=2" alt="2">，然后再除以顶点的数量即可得到平均度。</p> <div class="language- extra-class"><pre class="language-text"><code>class Graph {
+  // ...
+
+  avgDegree() {
+    return 2 * this.edgeIds.length / this.vertexIds.length
+  }
+}
+
+const vertices = [
+  new Vertex(1, 'A'),
+  new Vertex(2, 'B'),
+  new Vertex(3, 'C'),
+  new Vertex(4, 'D'),
+  new Vertex(5, 'E')
+]
+
+const edges = [
+  new Edge(1, 2, 1),
+  new Edge(1, 3, 2),
+  new Edge(2, 4, 1),
+  new Edge(3, 4, 1),
+  new Edge(1, 4, 2),
+  new Edge(4, 5, 3)
+]
+
+const graph = new Graph(vertices, edges)
+console.log(graph.avgDegree()) //=&gt; 2.4
+
+</code></pre></div><h4 id="自环-self-loop"><a href="#自环-self-loop" class="header-anchor">#</a> 自环（Self-Loop）</h4> <p>自环是一种十分抽象的概念，其定义是在一个关系图谱内，某一个顶点存在一条边再与自己相连。这种情况我们很难使用一个现实生活中的例子来说明，但是我们可以将一个关系图谱中的每一个顶点看作是事件序列中的某一个事件，顶点间的边则表示多种情况下事件之间的连续关系。那么在这种场景下，顶点的自环就可以被解释为某一个事件的连续发生可能性。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/5/1/16319f91981d945a?w=251&amp;h=256&amp;f=png&amp;s=11009" alt="self-loop"></p> <p>在多种事件顺序发生的可能性中，如果某一个事件的连续发生次数（我们可以使用边的属性值表示）越多，则表示该事件的重要性越强。这种概念在一些对用户行为进行分析的应用中十分重要。</p> <p>而找到自环的边的方法也非常简单，只需要找到那些左右顶点相同的边即可。</p> <div class="language- extra-class"><pre class="language-text"><code>class Graph {
+  // ...
+  
+  loops() {
+    const self = this
+
+    return self.edgeIds
+      .map(function(edgeId) {
+        return self.edges[edgeId]
+      })
+      .filter(function(edge) {
+        return edge.leftId === edge.rightId
+      })
+  }
+}
+
+const vertices = [
+  new Vertex(1, '1'),
+  new Vertex(2, '2'),
+  new Vertex(3, '3')
+]
+
+const edges = [
+  new Edge(1, 1, 3),
+  new Edge(1, 2, 1),
+  new Edge(1, 3, 1),
+  new Edge(2, 3, 2)
+]
+
+const graph = new Graph(vertices, edges)
+console.log(graph.loops()) //=&gt; [ Edge{ leftId: 1, rightId: 1, property: 3 } ]
+
+</code></pre></div><h3 id="_8-1-6-无向图代码清单"><a href="#_8-1-6-无向图代码清单" class="header-anchor">#</a> 8.1.6 无向图代码清单</h3> <div class="language- extra-class"><pre class="language-text"><code>class Vertex {
+  constructor(id, property) {
+    this.id = id
+    this.property = property
+  }
+}
+
+class Edge {
+  constructor(leftId, rightId, property) {
+    this.leftId = leftId
+    this.rightId = rightId
+    this.property = property
+  }
+}
+
+let vertexId = 0
+function newVertex(property) {
+  return new Vertex(++vertexId, property)
+}
+
+
+class Graph {
+  constructor(vertices, edges) {
+
+    // Vertices
+    this.vertexIds = []
+    this.vertices = {}
+
+    for (let i = 0; i &lt; vertices.length; ++i) {
+      const vertex = vertices[i]
+
+      this.vertexIds.push(vertex.id)
+      this.vertices[vertex.id] = vertex
+    }
+
+    const edgesWithId = edges.map(function(edge, i) {
+      edge.id = i + 1
+      return edge
+    })
+    
+    // Edges
+    this.edgeIds = []
+    this.edges = {}
+    this.edgeRelations = {}
+
+    for (let i = 0; i &lt; edgesWithId.length; ++i) {
+      const edge = edgesWithId[i]
+
+      this.edgeIds.push(edge.id)
+      this.edges[edge.id] = edge
+      
+      if (typeof this.edgeRelations[edge.leftId] === 'undefined') {
+        this.edgeRelations[edge.leftId] = []
+      }
+
+      if (typeof this.edgeRelations[edge.rightId] === 'undefined') {
+        this.edgeRelations[edge.rightId] = []
+      }
+
+      this.edgeRelations[edge.leftId].push(edge.id)
+      this.edgeRelations[edge.rightId].push(edge.id)
+    }
+
+  }
+
+  getVertex(vertexId) {
+    if (!_.includes(this.vertexIds, vertexId)) {
+      return null
+    }
+
+    return this.vertices[vertexId]
+  }
+
+  eachVertices(callbackFunc) {
+    const self = this
+
+    return self.vertexIds.forEach(function(vertexId) {
+      return callbackFunc(self.vertices[vertexId])
+    })
+  }
+
+  eachEdges(callbackFunc) {
+    const self = this
+
+    return self.edgeIds.forEach(function(edgeId) {
+      return callbackFunc(self.edges[edgeId])
+    })
+  }
+
+  getEdgesByVertexId(vertexId) {
+    if (!_.includes(this.vertexIds, vertexId)) {
+      return []
+    }
+
+    if (!_.has(this.edgeRelations, vertexId)) {
+      return []
+    }
+
+    const self = this
+
+    return self.edgeRelations[vertexId].map(function(edgeId) {
+      return self.edges[edgeId]
+    })
+  }
+
+  degree(vertexId) {
+    return this.getEdgesByVertexId(vertexId).length
+  }
+
+  largestVertex() {
+    const self = this
+
+    const degrees = self.vertexIds.map(function(vertexId) {
+      return {
+        degree: self.degree(vertexId),
+        id: vertexId
+      }
+
+    })
+
+    return self.getVertex(_.maxBy(degrees, 'degree').id)
+  }
+
+  maxDegree() {
+    return this.degree(this.largestVertex().id)
+  }
+
+  avgDegree() {
+    return 2 * this.edgeIds.length / this.vertexIds.length
+  }
+
+  loops() {
+    const self = this
+
+    return self.edgeIds
+      .map(function(edgeId) {
+        return self.edges[edgeId]
+      })
+      .filter(function(edge) {
+        return edge.leftId === edge.rightId
+      })
+  }
+}
+
+</code></pre></div><h2 id="_8-2-有向图"><a href="#_8-2-有向图" class="header-anchor">#</a> 8.2 有向图</h2> <p>相比于无向图，有向图则是将无向图中的边加上方向特征，即从原本的一条边即代表两个顶点共同拥有一个平等的关系，变成允许顶点之间存在单向的关系。就好像我们在人际社交中，朋友之间互相认识所以我们是平等的，但是我们也有很多我们只认识他们，他们却不认识我们的人。</p> <h3 id="_8-2-1-有向边"><a href="#_8-2-1-有向边" class="header-anchor">#</a> 8.2.1 有向边</h3> <p>因为我们前面所定义的边是不存在方向特性的，所以我们直接使用了 <code>leftId</code> 和 <code>rightId</code> 来存储与边相连的两个顶点的信息。而有向图的边是带有方向特征的，虽然我们也可以像数学一样定义一个向量的表达方式就是从左到右的（如 <img src="https://juejin.im/equation?tex=%5Coverrightarrow%7BAB%7D" alt="\overrightarrow{AB}">），直接使用前面所定义的边来表示有向边。</p> <p>但是出于对程序严谨性和语义的考虑，我们还是需要另外定义一个有向边类型以使用。</p> <div class="language- extra-class"><pre class="language-text"><code>class DirectedEdge {
+  constructor(originalId, targetId, property) {
+    this.originalId = originalId
+    this.targetId = targetId
+    this.property = property
+  }
+}
+
+</code></pre></div><h3 id="_8-2-2-有向图-digraph"><a href="#_8-2-2-有向图-digraph" class="header-anchor">#</a> 8.2.2 有向图 Digraph</h3> <p>因为使用的边不再是无方向特性的边，所以之前所定义的无向图类型也不能直接当做有向图使用了。有向图和无向图最大的区别就是顶点之间从平行的关系变成了有<strong>出</strong>或<strong>入</strong>的单边关系。出代表着某一个顶点存在一个单向的关系指向另外一个顶点，而入则表示某一个顶点被另外一个顶点所指向。</p> <p>那么前面使用 <code>edgeRelations</code> 来存储顶点与边的关系时则需要加以改动了，我们可以简单地分开 <code>inEdgeRelations</code> 和 <code>outEdgeRelations</code> 来分别存储顶点与入边、出边的关系。</p> <div class="language- extra-class"><pre class="language-text"><code>class Digraph {
+  constructor(vertices, edges) {
+
+    // Vertices
+    this.vertexIds = []
+    this.vertices = {}
+
+    for (let i = 0; i &lt; vertices.length; ++i) {
+      const vertex = vertices[i]
+
+      this.vertexIds.push(vertex.id)
+      this.vertices[vertex.id] = vertex
+    }
+
+    const edgesWithId = edges.map(function(edge, i) {
+      edge.id = i + 1
+      return edge
+    })
+
+    // Edges
+    this.edgeIds = []
+    this.edges = {}
+    this.inEdgeRelations = {}
+    this.outEdgeRelations = {}
+
+    for (let i = 0; i &lt; edgesWithId.length; ++i) {
+      const edge = edgesWithId[i]
+
+      this.edgeIds.push(edge.id)
+      this.edges[edge.id] = edge
+
+      if (typeof this.outEdgeRelations[edge.originalId] === 'undefined') {
+        this.outEdgeRelations[edge.originalId] = []
+      }
+
+      if (typeof this.inEdgeRelations[edge.targetId] === 'undefined') {
+        this.inEdgeRelations[edge.targetId] = []
+      }
+
+      this.inEdgeRelations[edge.targetId].push(edge.id)
+      this.outEdgeRelations[edge.originalId].push(edge.id)
+    }
+    
+  }
+}
+
+</code></pre></div><p>完成了有向图的基本构建后，我们就可以将无向图中的一些数学特征值计算方法应用到有向图中。但其中度的概念在有向图中被分开为入度和出度，所以平均值、最大值等等都需要分别计算。</p> <div class="language- extra-class"><pre class="language-text"><code>class Graph {
+  // ...
+
+  getVertex(vertexId) {
+    if (!_.includes(this.vertexIds, vertexId)) {
+      return null
+    }
+
+    return this.vertices[vertexId]
+  }
+
+  eachVertices(callbackFunc) {
+    const self = this
+
+    return self.vertexIds.forEach(function(vertexId) {
+      return callbackFunc(self.vertices[vertexId])
+    })
+  }
+
+  eachEdges(callbackFunc) {
+    const self = this
+
+    return self.edgeIds.forEach(function(edgeId) {
+      return callbackFunc(self.edges[edgeId])
+    })
+  }
+
+  getInEdgesByVertexId(vertexId) {
+    if (!_.includes(this.vertexIds, vertexId)) {
+      return []
+    }
+
+    if (!_.has(this.inEdgeRelations, vertexId)) {
+      return []
+    }
+
+    const self = this
+
+    return self.inEdgeRelations[vertexId].map(function(edgeId) {
+      return self.edges[edgeId]
+    })
+  }
+
+  getOutEdgesByVertexId(vertexId) {
+    if (!_.includes(this.vertexIds, vertexId)) {
+      return []
+    }
+
+    if (!_.has(this.outEdgeRelations, vertexId)) {
+      return []
+    }
+
+    const self = this
+
+    return self.outEdgeRelations[vertexId].map(function(edgeId) {
+      return self.edges[edgeId]
+    })
+  }
+
+  inDegree(vertexId) {
+    return this.getInEdgesByVertexId(vertexId).length
+  }
+
+  outDegree(vertexId) {
+    return this.getOutEdgesByVertexId(vertexId).length
+  }
+
+  largestInDegreeVertex() {
+    const self = this
+
+    const inDegrees = self.vertexIds.map(function(vertexId) {
+      return {
+        inDegree: self.inDegree(vertexId),
+        id: vertexId
+      }
+    })
+
+    return self.getVertex(_.maxBy(inDegrees, 'inDegree').id)
+  }
+
+  largestOutDegreeVertex() {
+    const self = this
+
+    const outDegrees = self.vertexIds.map(function(vertexId) {
+      return {
+        outDegree: self.outDegree(vertexId),
+        id: vertexId
+      }
+    })
+
+    return self.getVertex(_.maxBy(outDegrees, 'outDegree').id)
+  }
+
+  maxInDegree() {
+    return this.inDegree(this.largestInDegreeVertex().id)
+  }
+
+  maxOutDegree() {
+    return this.outDegree(this.largestOutDegreeVertex().id)
+  }
+
+  avgInDegree() {
+    const self = this
+
+    const totalInEdgesCount = self.vertexIds
+      .map(function(vertexId) {
+        if (typeof self.inEdgeRelations[vertexId] !== 'undefined') {
+          return self.inEdgeRelations[vertexId]
+        } else {
+          return []
+        }
+      })
+      .map(function(edges) {
+        return edges.length
+      })
+      .reduce(function(a, b) {
+        return a + b
+      })
+
+    return totalInEdgesCount / this.vertexIds.length
+  }
+
+  avgOutDegree() {
+    const self = this
+
+    const totalOutEdgesCount = self.vertexIds
+      .map(function(vertexId) {
+        if (typeof self.outEdgeRelations[vertexId] !== 'undefined') {
+          return self.outEdgeRelations[vertexId]
+        } else {
+          return []
+        }
+      })
+      .map(function(edges) {
+        return edges.length
+      })
+      .reduce(function(a, b) {
+        return a + b
+      })
+
+    return totalOutEdgesCount / this.vertexIds.length
+  }
+
+  loops() {
+    const self = this
+
+    return self.edgeIds
+      .map(function(edgeId) {
+        return self.edges[edgeId]
+      })
+      .filter(function(edge) {
+        return edge.originalId === edge.targetId
+      })
+  }
+
+}
+
+</code></pre></div><p><img src="https://user-gold-cdn.xitu.io/2018/4/29/16311ff84929c604?w=373&amp;h=243&amp;f=png&amp;s=15547" alt="有向图"></p> <p>如图所示，我们首先建立一个有向图以备后续使用。</p> <div class="language- extra-class"><pre class="language-text"><code>const vertices = [
+  new Vertex(1, 'A'),
+  new Vertex(2, 'B'),
+  new Vertex(3, 'C'),
+  new Vertex(4, 'D'),
+  new Vertex(5, 'E')
+]
+
+const edges = [
+  new DirectedEdge(1, 2, 1),
+  new DirectedEdge(1, 3, 2),
+  new DirectedEdge(2, 4, 1),
+  new DirectedEdge(3, 4, 1),
+  new DirectedEdge(1, 1, 3),
+  new DirectedEdge(3, 5, 4),
+  new DirectedEdge(4, 5, 5)
+]
+
+const graph = new Digraph(vertices, edges)
+
+</code></pre></div><h2 id="_8-3-有向图的最短路径"><a href="#_8-3-有向图的最短路径" class="header-anchor">#</a> 8.3 有向图的最短路径</h2> <p>有向图的意义在于能够以抽象的方式表示一些实际生活中的事物，人际关系、地点之间路网关系等等。在心理学中有一个非常重要的理论叫做<a href="https://en.wikipedia.org/wiki/Six_degrees_of_separation" target="_blank" rel="noopener noreferrer">“六度隔离”（Six Degrees of Separation）<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，而假如我们将一个足够大的人际关系网络使用关系图谱的方式表示出来，那么就可以一探这个理论的究竟了。</p> <p>而在交通系统中，则可以使用顶点表示地点、交叉路口，用边表示路程，而边的值则可以表示路程的长度。那么这个关系图谱则可以用于计算地点之间的路程，这也是我们所使用的导航系统中的基本原理。</p> <p>要计算在一个关系图谱中两个顶点之间的最短距离，有非常多的算法用于计算，这里我们介绍一个非常直观和常用的算法——Dijkstra 算法。</p> <p>Dijkstra 算法是一种适用于有向图的最短路径计算算法，它需要遍历所有的可能性之后，然后返回其中的最短路程。</p> <p>假设我们使用前面所创建的有向图模型，并将每一条边的距离（边的属性值）作为计算指标，对一整条路径的总距离进行计算。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/4/29/16311ff84916e881?w=373&amp;h=258&amp;f=png&amp;s=16872" alt="加权有向图"></p> <p>但由于 Dijkstra 算法涉及的逻辑十分的复杂，有兴趣的同学可以参考掘金上一篇不错的<a href="https://juejin.im/post/5a38c27d6fb9a045132ad188" target="_blank" rel="noopener noreferrer">介绍文章<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>进行学习，这里本节仅提供实现代码以供参考学习。</p> <div class="language- extra-class"><pre class="language-text"><code>class Digraph {
+  // ...
+  
+  // Dijkstra's algorithm
+  shortestPath(fromVertexId, toVertexId) {
+    const self = this
+
+    const preferQueue = []
+    const rootNode = new Node(fromVertexId)
+    const candidateTree = new Tree(rootNode)
+    
+    preferQueue.push(...self.getOutEdgesByVertexId(fromVertexId).map(function(edge) {
+      return [ fromVertexId, edge.targetId ]
+    }))
+
+    while (preferQueue.length &gt; 0) {
+      const pair = preferQueue.shift()
+      const parentVertexId = pair[0]
+      const currentVertexId = pair[1]
+
+      // Add the edge to the candidate tree
+      const parentNodes = candidateTree.search(function(node) {
+        return node.name === parentVertexId
+      })
+      const currentNode = new Node(currentVertexId)
+      parentNodes.forEach(function(parentNode) {
+        candidateTree.addNode(currentNode, parentNode)
+      })
+
+      if (currentVertexId === toVertexId) {
+        continue
+      }
+
+      // Add the next vertex into the prefer queue
+      let outEdges = self.getOutEdgesByVertexId(currentVertexId)
+
+      if (outEdges.length &lt;= 0) {
+        continue
+      }
+
+      outEdges = outEdges.filter(function(edge) {
+        return candidateTree.search(function(node) {
+          return node.name === edge.targetId
+        }).length === 0
+      })
+
+      preferQueue
+        .push(...outEdges.map(function(edge) {
+          return [ currentVertexId, edge.targetId ]
+        }))
+    }
+
+    const targetNodes = candidateTree.search(function(node) {
+      return node.name === toVertexId
+    })
+
+    if (targetNodes.length &gt; 0) {
+      const pathsWithDistance = targetNodes
+        .map(function(node) {
+          const vertexId = node.name
+          const path = [ vertexId ]
+          let lastNode = node
+
+          while (lastNode.parent != null) {
+            path.push(lastNode.parent.name)
+            lastNode = lastNode.parent
+          }
+
+          return path.reverse()
+        })
+        .map(function(path) {
+          const distance = path
+            .map(function(vertexId, index) {
+              const nextVertexId = path[index + 1]
+
+              if (typeof nextVertexId === 'undefined') {
+                return
+              }
+
+              const edge = self.getOutEdgesByVertexId(vertexId)
+                .find(function(edge) {
+                  return edge.targetId === nextVertexId
+                })
+              
+              return edge
+            })
+            .filter(function(edge) {
+              return typeof edge !== 'undefined'
+            })
+            .map(function(edge) {
+              return edge.property
+            })
+            .reduce(function(distanceA, distanceB) {
+              return distanceA + distanceB
+            })
+
+          return { path, distance }
+        })
+      
+      const shortestPath = _.minBy(pathsWithDistance, 'distance')
+
+      shortestPath.path = shortestPath.path.map(function(vertexId) {
+        return self.getVertex(vertexId)
+      })
+
+      return shortestPath
+    } else {
+      return {
+        path: [],
+        distance: Infinity
+      }
+    }
+  }
+}
+
+const vertices = [
+  new Vertex(1, 'A'),
+  new Vertex(2, 'B'),
+  new Vertex(3, 'C'),
+  new Vertex(4, 'D'),
+  new Vertex(5, 'E')
+]
+
+const edges = [
+  new DirectedEdge(1, 2, 1),
+  new DirectedEdge(1, 3, 2),
+  new DirectedEdge(2, 4, 1),
+  new DirectedEdge(3, 4, 1),
+  new DirectedEdge(1, 1, 3),
+  new DirectedEdge(3, 5, 4),
+  new DirectedEdge(4, 5, 5)
+]
+
+const graph = new Digraph(vertices, edges)
+console.log(graph.shortestPath(1, 5)) //=&gt;
+// {
+//   distance: 6,
+//   path: [
+//     Vertex{ A },
+//     Vertex{ C },
+//     Vertex{ E }
+//   ]
+// }
+
+</code></pre></div><h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>在本节中，我们学习了如何构建一个没有方向特征的关系图谱，也就是无向图，来表示一些事物之间的平等关系网络；还学习了在无向图的基础上，为顶点之间的边加上方向特性，构成具有传递性的关系网络，以表示一些更为具体的事物关系；并且对一种最短路径寻路算法 Dijkstra 进行了探索。</p> <h3 id="习题"><a href="#习题" class="header-anchor">#</a> 习题</h3> <ol><li>请自行并认真地学习 Dijkstra 算法，并思考如何对 Dijkstra 算法进行变化，使其可以应用在无向图中。</li> <li>使用加权无向图构建一个你身边朋友圈的关系图谱，并使用习题 1 中所得到的 Dijkstra 算法变种，探索“六度隔离”理论在你身边朋友圈中的适用性。并且通过使用<strong>度</strong>的概念，寻找你身边朋友圈中的“核心人物”。</li> <li>学习了最短路径计算算法之后，请思考如何寻找一个关系图谱中两个点之间的最长路径。</li></ol></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b72373f7.js" defer></script><script src="/blog/assets/js/2.2219f9c0.js" defer></script><script src="/blog/assets/js/184.c586f7bc.js" defer></script>
+  </body>
+</html>
